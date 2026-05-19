@@ -3,6 +3,12 @@
 在 Pixiv 的 console 里隐藏这些脚本的消息：
 -doubleclick.net -admanmedia.com -frame -popin -bpoadfkcbjbfhfodiogcnhhhpibjhbnh -_script.js -_app- -_app. -reach -ufs -pubads -google -tabool -openx -sync
 
+## 18.9.3 2026-05-19
+
+### ✨适配搜索页面的“显示可能妨碍搜索的作品”选项
+
+这是 Pixiv 于近期推出的一个搜索选项。默认未启用，显示的作品数量可能会少一些。如果用户启用了这个选项，显示的作品数量会多一些。下载器之前没有适配这个选项，抓取不到在启用这个选项之后多出来的那些作品。现在进行了适配。
+
 ## 18.9.2 2026-05-16
 
 ### 🐞修复问题：在抓取过程中出现 404 错误时，抓取进度可能会卡住

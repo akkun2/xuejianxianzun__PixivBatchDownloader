@@ -16531,6 +16531,10 @@ class InitSearchArtworkPage extends _crawl_InitPageBase__WEBPACK_IMPORTED_MODULE
         // 0 或者无此参数则不整合
         // 1 按作者整合
         'csw',
+        // 是否显示可能妨碍搜索的作品
+        // 0 或者无此参数则不显示
+        // 1 显示
+        'dgw',
     ];
     resultMeta = []; // 每次“开始筛选”完成后，储存当时所有结果，以备“在结果中筛选”使用
     worksWrap = null;
@@ -20775,6 +20779,10 @@ class InitSearchNovelPage extends _crawl_InitPageBase__WEBPACK_IMPORTED_MODULE_0
         // 无此参数则不限制
         // 1  只显示支持单词置换的作品
         'replaceable_only',
+        // 是否显示可能妨碍搜索的作品
+        // 0 或者无此参数则不显示
+        // 1 显示
+        'dgw',
     ];
     addCrawlBtns() {
         _Tools__WEBPACK_IMPORTED_MODULE_8__.Tools.addBtn('crawlBtns', _Colors__WEBPACK_IMPORTED_MODULE_1__.Colors.bgBlue, '_开始抓取', '_默认下载多页', 'startCrawling').addEventListener('click', () => {
@@ -44071,7 +44079,7 @@ class NameRuleManager {
         }
         else {
             // 如果是图像作品的命名规则，或者是小说的命名规则里没有使用 {follow_artwork}
-            // 为了防止文件名重复，命名规则里必须包含 {id} 或者 {pid}{p}
+            // 为了防止文件名重复，命名规则里必须包含 {id} 或者 {pid}{p} 或者 {id_num}{p_num}
             check =
                 str.includes('{id}') ||
                     (str.includes('{pid}') && str.includes('{p}')) ||
