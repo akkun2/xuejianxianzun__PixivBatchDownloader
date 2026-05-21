@@ -16,6 +16,8 @@ yarn-error.log*
 *.sln
 *.sw?
 
+*.psd
+
 # lock
 yarn.lock
 package-lock.json

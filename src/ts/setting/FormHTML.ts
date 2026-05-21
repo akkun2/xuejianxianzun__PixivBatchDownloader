@@ -514,7 +514,7 @@ export const formHtml = `
       <a href="" target="_blank" class="settingNameStyle">
         <span data-xztext="_下载线程"></span>
       </a>
-      <input type="text" name="downloadThread" class="has_tip setinput_style1 blue" data-xztip="_下载线程的说明" value="5">
+      <input type="text" name="downloadThread" class="has_tip setinput_style1 blue" data-xztip="_下载线程的说明" value="24">
     </div>
 
     <span class="optionAnchor" data-for-no="17" aria-hidden="true"></span>
@@ -1346,6 +1346,15 @@ export const formHtml = `
 
     <div class="option settingCategoryName" data-no="60">
       <span data-xztext="_增强"></span>
+    </div>
+    
+    <span class="optionAnchor" data-for-no="42" aria-hidden="true"></span>
+    <div class="option" data-no="42">
+      <a href="" target="_blank" class="settingNameStyle">
+        <span data-xztext="_把图片显示为灰色"></span>
+      </a>
+      <input type="checkbox" name="imageToGray" class="need_beautify checkbox_switch" checked>
+      <span class="beautify_switch" tabindex="0"></span>
     </div>
 
     <span class="optionAnchor" data-for-no="84" aria-hidden="true"></span>
