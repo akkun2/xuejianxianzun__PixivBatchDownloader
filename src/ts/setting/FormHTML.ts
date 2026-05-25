@@ -400,152 +400,7 @@ export const formHtml = `
         <span class="beautify_switch" tabindex="0"></span>
       </span>
     </div>
-
-    <div class="centerWrap_btns">
-      <slot data-name="stopCrawl"></slot>
-      <slot data-name="crawlBtns"></slot>
-      <slot data-name="selectWorkBtns"></slot>
-    </div>
-  </div>
-  <div class="tabsContent">
-    <ul class="namingRuleList artwork"></ul>
-    <ul class="namingRuleList novel"></ul>
-
-    <div class="pinnedOptionTarget"></div>
-
-    <span class="optionAnchor" data-for-no="13" aria-hidden="true"></span>
-    <div class="option" data-no="13">
-      <span class="fileNameRuleLine1">
-        <a href="" target="_blank" class="settingNameStyle optionName" data-xztext="_图像作品的命名规则"></a>
-
-        <span class="fileNameRuleBtnsArea">
-          <slot data-name="saveNamingRuleForArtwork"></slot>
-          <button type="button" class="showFileNameTip textButton toggleArea" data-toggle-Target="#fileNameTip" data-for-no="13" data-xztext="_提示"></button>
-          &nbsp;
-          <select name="fileNameSelect" class="beautify_scrollbar">
-            <option value="default">…</option>
-            ${namingRuleConfig.getOptionList()}
-          </select>
-        </span>
-      </span>
-
-      <textarea class="centerPanelTextArea beautify_scrollbar grow fileNameRule" name="userSetName" rows="1" placeholder="${Config.defaultNameRuleForArtwork}">${Config.defaultNameRuleForArtwork}</textarea>
-    </div>
-
-    <p class="fileNameTip tip namingTipArea" id="fileNameTip">
-      <span data-xztext="_命名标记的提示"></span>
-      ${namingRuleConfig.getHelpHtml()}
-    </p>
-
-    <span class="optionAnchor" data-for-no="106" aria-hidden="true"></span>
-    <div class="option" data-no="106">
-      <span class="fileNameRuleLine1">
-        <a href="" target="_blank" class="settingNameStyle optionName" data-xztext="_小说的命名规则"></a>
-
-        <span class="fileNameRuleBtnsArea">
-          <slot data-name="saveNamingRuleForNovel"></slot>
-          <button type="button" class="showFileNameTip textButton toggleArea" data-toggle-Target="#fileNameTipForNovel" data-for-no="106" data-xztext="_提示"></button>
-          &nbsp;
-          <select name="fileNameSelectForNovel" class="beautify_scrollbar">
-            <option value="default">…</option>
-            ${namingRuleConfig.getOptionList()}
-            <option value="{follow_artwork}">{follow_artwork}</option>
-          </select>
-        </span>
-      </span>
-
-      <textarea class="centerPanelTextArea beautify_scrollbar grow fileNameRule" name="userSetNameForNovel" rows="1" placeholder="${Config.defaultNameRuleForNovel}">${Config.defaultNameRuleForNovel}</textarea>
-    </div>
-
-    <p class="fileNameTip tip namingTipArea" id="fileNameTipForNovel">
-      <span data-xztext="_小说的命名标记的提示"></span>
-    </p>
-
-    <span class="optionAnchor" data-for-no="50" aria-hidden="true"></span>
-    <div class="option" data-no="50">
-      <a href="" target="_blank" class="settingNameStyle" data-xztext="_在不同的页面类型中使用不同的命名规则"></a>
-      <input type="checkbox" name="setNameRuleForEachPageType" class="need_beautify checkbox_switch">
-      <span class="beautify_switch" tabindex="0"></span>
-      <button type="button" class="gray1 textButton showMsgBtn" data-title="_在不同的页面类型中使用不同的命名规则" data-msg="_在不同的页面类型中使用不同的命名规则的帮助" data-xztext="_帮助"></button>
-    </div>
-
-    <span class="optionAnchor" data-for-no="64" aria-hidden="true"></span>
-    <div class="option" data-no="64">
-      <a href="" target="_blank" class="settingNameStyle">
-        <span data-xztext="_不创建文件夹"></span>
-      </a>
-      <input type="checkbox" name="noFolderSwitch" class="need_beautify checkbox_switch">
-      <span class="beautify_switch" tabindex="0"></span>
-
-      <button type="button" class="gray1 textButton showMsgBtn" data-title="_不创建文件夹" data-msg="_不创建文件夹的帮助内容" data-xztext="_帮助"></button>
-
-      <span class="subOptionWrap noGrow" data-show="noFolderSwitch">
-
-        <input type="checkbox" name="noFolderWhenDownload1Image" id="noFolderWhenDownload1Image" class="need_beautify checkbox_common" checked>
-        <span class="beautify_checkbox" tabindex="0"></span>
-        <label for="noFolderWhenDownload1Image" data-xztext="_从插画漫画里下载1张图片时"></label>
-
-        <input type="checkbox" name="noFolderWhenDownloadMultipleImages" id="noFolderWhenDownloadMultipleImages" class="need_beautify checkbox_common">
-        <span class="beautify_checkbox" tabindex="0"></span>
-        <label for="noFolderWhenDownloadMultipleImages" data-xztext="_从插画漫画里下载多张图片时"></label>
-        
-        <input type="checkbox" name="noFolderWhenUgoira" id="noFolderWhenUgoira" class="need_beautify checkbox_common" checked>
-        <span class="beautify_checkbox" tabindex="0"></span>
-        <label for="noFolderWhenUgoira" data-xztext="_动图"></label>
-
-        <input type="checkbox" name="noFolderWhenNovel" id="noFolderWhenNovel" class="need_beautify checkbox_common">
-        <span class="beautify_checkbox" tabindex="0"></span>
-        <label for="noFolderWhenNovel" data-xztext="_小说"></label>
-      </span>
-    </div>
-
-    <span class="optionAnchor" data-for-no="16" aria-hidden="true"></span>
-    <div class="option" data-no="16">
-      <a href="" target="_blank" class="settingNameStyle">
-        <span data-xztext="_下载线程"></span>
-      </a>
-      <input type="text" name="downloadThread" class="has_tip setinput_style1 blue" data-xztip="_下载线程的说明" value="24">
-    </div>
-
-    <span class="optionAnchor" data-for-no="17" aria-hidden="true"></span>
-    <div class="option" data-no="17">
-      <a href="" target="_blank" class="settingNameStyle">
-        <span data-xztext="_自动开始下载"></span>
-      </a>
-      <input type="checkbox" name="autoStartDownload" class="need_beautify checkbox_switch" checked>
-      <span class="beautify_switch" tabindex="0"></span>
-      <button type="button" class="gray1 textButton showMsgBtn" data-title="_自动开始下载" data-msg="_自动开始下载的帮助内容" data-xztext="_帮助"></button>
-    </div>
-
-    <span class="optionAnchor" data-for-no="33" aria-hidden="true"></span>
-    <div class="option" data-no="33">
-      <a href="" target="_blank" class="has_tip settingNameStyle" data-xztip="_下载之后收藏作品的提示">
-        <span data-xztext="_下载之后收藏作品"></span>
-        <span class="gray1"> ? </span>
-      </a>
-      <input type="checkbox" name="bmkAfterDL" class="need_beautify checkbox_switch">
-      <span class="beautify_switch" tabindex="0"></span>
-    </div>
-
-    <div class="centerWrap_btns">
-      <slot data-name="exportResult"></slot>
-      <slot data-name="namingBtns"></slot>
-    </div>
-    <slot data-name="downloadArea"></slot>
-    <slot data-name="progressBar"></slot>
-  </div>
-  <div class="tabsContent">
-    <div class="centerWrap_btns">
-      <slot data-name="otherBtns"></slot>
-    </div>
-
-    <div class="pinnedOptionTarget"></div>
-
-    <div class="option settingCategoryName" data-no="59">
-      <span data-xztext="_抓取"></span>
-    </div>
-
-    <span class="optionAnchor" data-for-no="75" aria-hidden="true"></span>
+<span class="optionAnchor" data-for-no="75" aria-hidden="true"></span>
     <div class="option" data-no="75">
       <a href="" target="_blank" class="has_tip settingNameStyle" data-xztip="_减慢抓取速度的说明">
         <span data-xztext="_减慢抓取速度"></span>
@@ -710,8 +565,121 @@ export const formHtml = `
       <span class="beautify_switch" tabindex="0"></span>
     </div>
 
+    <div class="centerWrap_btns">
+      <slot data-name="stopCrawl"></slot>
+      <slot data-name="crawlBtns"></slot>
+      <slot data-name="selectWorkBtns"></slot>
+    </div>
+  </div>
+  <div class="tabsContent">
+    <ul class="namingRuleList artwork"></ul>
+    <ul class="namingRuleList novel"></ul>
+
+    <div class="pinnedOptionTarget"></div>
+
+    
+
+    <div class="centerWrap_btns">
+      <slot data-name="exportResult"></slot>
+      <slot data-name="namingBtns"></slot>
+    </div>
+    <slot data-name="downloadArea"></slot>
+    <slot data-name="progressBar"></slot>
+  </div>
+  <div class="tabsContent">
+    <div class="centerWrap_btns">
+      <slot data-name="otherBtns"></slot>
+    </div>
+
+    <div class="pinnedOptionTarget"></div>
+
     <div class="option settingCategoryName" data-no="65">
       <span data-xztext="_命名"></span>
+    </div>
+<span class="optionAnchor" data-for-no="13" aria-hidden="true"></span>
+    <div class="option" data-no="13">
+      <span class="fileNameRuleLine1">
+        <a href="" target="_blank" class="settingNameStyle optionName" data-xztext="_图像作品的命名规则"></a>
+
+        <span class="fileNameRuleBtnsArea">
+          <slot data-name="saveNamingRuleForArtwork"></slot>
+          <button type="button" class="showFileNameTip textButton toggleArea" data-toggle-Target="#fileNameTip" data-for-no="13" data-xztext="_提示"></button>
+          &nbsp;
+          <select name="fileNameSelect" class="beautify_scrollbar">
+            <option value="default">…</option>
+            ${namingRuleConfig.getOptionList()}
+          </select>
+        </span>
+      </span>
+
+      <textarea class="centerPanelTextArea beautify_scrollbar grow fileNameRule" name="userSetName" rows="1" placeholder="${Config.defaultNameRuleForArtwork}">${Config.defaultNameRuleForArtwork}</textarea>
+    </div>
+
+    <p class="fileNameTip tip namingTipArea" id="fileNameTip">
+      <span data-xztext="_命名标记的提示"></span>
+      ${namingRuleConfig.getHelpHtml()}
+    </p>
+
+    <span class="optionAnchor" data-for-no="106" aria-hidden="true"></span>
+    <div class="option" data-no="106">
+      <span class="fileNameRuleLine1">
+        <a href="" target="_blank" class="settingNameStyle optionName" data-xztext="_小说的命名规则"></a>
+
+        <span class="fileNameRuleBtnsArea">
+          <slot data-name="saveNamingRuleForNovel"></slot>
+          <button type="button" class="showFileNameTip textButton toggleArea" data-toggle-Target="#fileNameTipForNovel" data-for-no="106" data-xztext="_提示"></button>
+          &nbsp;
+          <select name="fileNameSelectForNovel" class="beautify_scrollbar">
+            <option value="default">…</option>
+            ${namingRuleConfig.getOptionList()}
+            <option value="{follow_artwork}">{follow_artwork}</option>
+          </select>
+        </span>
+      </span>
+
+      <textarea class="centerPanelTextArea beautify_scrollbar grow fileNameRule" name="userSetNameForNovel" rows="1" placeholder="${Config.defaultNameRuleForNovel}">${Config.defaultNameRuleForNovel}</textarea>
+    </div>
+
+    <p class="fileNameTip tip namingTipArea" id="fileNameTipForNovel">
+      <span data-xztext="_小说的命名标记的提示"></span>
+    </p>
+
+    <span class="optionAnchor" data-for-no="50" aria-hidden="true"></span>
+    <div class="option" data-no="50">
+      <a href="" target="_blank" class="settingNameStyle" data-xztext="_在不同的页面类型中使用不同的命名规则"></a>
+      <input type="checkbox" name="setNameRuleForEachPageType" class="need_beautify checkbox_switch">
+      <span class="beautify_switch" tabindex="0"></span>
+      <button type="button" class="gray1 textButton showMsgBtn" data-title="_在不同的页面类型中使用不同的命名规则" data-msg="_在不同的页面类型中使用不同的命名规则的帮助" data-xztext="_帮助"></button>
+    </div>
+
+    <span class="optionAnchor" data-for-no="64" aria-hidden="true"></span>
+    <div class="option" data-no="64">
+      <a href="" target="_blank" class="settingNameStyle">
+        <span data-xztext="_不创建文件夹"></span>
+      </a>
+      <input type="checkbox" name="noFolderSwitch" class="need_beautify checkbox_switch">
+      <span class="beautify_switch" tabindex="0"></span>
+
+      <button type="button" class="gray1 textButton showMsgBtn" data-title="_不创建文件夹" data-msg="_不创建文件夹的帮助内容" data-xztext="_帮助"></button>
+
+      <span class="subOptionWrap noGrow" data-show="noFolderSwitch">
+
+        <input type="checkbox" name="noFolderWhenDownload1Image" id="noFolderWhenDownload1Image" class="need_beautify checkbox_common" checked>
+        <span class="beautify_checkbox" tabindex="0"></span>
+        <label for="noFolderWhenDownload1Image" data-xztext="_从插画漫画里下载1张图片时"></label>
+
+        <input type="checkbox" name="noFolderWhenDownloadMultipleImages" id="noFolderWhenDownloadMultipleImages" class="need_beautify checkbox_common">
+        <span class="beautify_checkbox" tabindex="0"></span>
+        <label for="noFolderWhenDownloadMultipleImages" data-xztext="_从插画漫画里下载多张图片时"></label>
+        
+        <input type="checkbox" name="noFolderWhenUgoira" id="noFolderWhenUgoira" class="need_beautify checkbox_common" checked>
+        <span class="beautify_checkbox" tabindex="0"></span>
+        <label for="noFolderWhenUgoira" data-xztext="_动图"></label>
+
+        <input type="checkbox" name="noFolderWhenNovel" id="noFolderWhenNovel" class="need_beautify checkbox_common">
+        <span class="beautify_checkbox" tabindex="0"></span>
+        <label for="noFolderWhenNovel" data-xztext="_小说"></label>
+      </span>
     </div>
 
     <span class="optionAnchor" data-for-no="19" aria-hidden="true"></span>
@@ -992,6 +960,34 @@ export const formHtml = `
       <span data-xztext="_下载"></span>
     </div>
 
+    <span class="optionAnchor" data-for-no="16" aria-hidden="true"></span>
+    <div class="option" data-no="16">
+      <a href="" target="_blank" class="settingNameStyle">
+        <span data-xztext="_下载线程"></span>
+      </a>
+      <input type="text" name="downloadThread" class="has_tip setinput_style1 blue" data-xztip="_下载线程的说明" value="24">
+    </div>
+
+    <span class="optionAnchor" data-for-no="17" aria-hidden="true"></span>
+    <div class="option" data-no="17">
+      <a href="" target="_blank" class="settingNameStyle">
+        <span data-xztext="_自动开始下载"></span>
+      </a>
+      <input type="checkbox" name="autoStartDownload" class="need_beautify checkbox_switch" checked>
+      <span class="beautify_switch" tabindex="0"></span>
+      <button type="button" class="gray1 textButton showMsgBtn" data-title="_自动开始下载" data-msg="_自动开始下载的帮助内容" data-xztext="_帮助"></button>
+    </div>
+
+    <span class="optionAnchor" data-for-no="33" aria-hidden="true"></span>
+    <div class="option" data-no="33">
+      <a href="" target="_blank" class="has_tip settingNameStyle" data-xztip="_下载之后收藏作品的提示">
+        <span data-xztext="_下载之后收藏作品"></span>
+        <span class="gray1"> ? </span>
+      </a>
+      <input type="checkbox" name="bmkAfterDL" class="need_beautify checkbox_switch">
+      <span class="beautify_switch" tabindex="0"></span>
+    </div>
+    
     <span class="optionAnchor" data-for-no="101" aria-hidden="true"></span>
     <div class="option" data-no="101">
       <a href="" target="_blank" class="settingNameStyle" data-xztext="_管理下载记录"></a>
