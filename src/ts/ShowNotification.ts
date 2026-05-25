@@ -8,7 +8,7 @@ import { Tools } from './Tools'
 
 class ShowNotification {
   constructor() {
-    this.iconURL = browser.runtime.getURL('icon/logo128.png')
+    this.iconURL = browser.runtime.getURL('icons/logo128.png')
     this.bindEvents()
   }
 

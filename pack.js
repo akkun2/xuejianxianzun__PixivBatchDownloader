@@ -17,6 +17,7 @@ async function copys () {
     // 复制 static 文件夹的内容
     await copy('./src/static', distPath, {
       overwrite: true,
+      filter: ['logo16.png', 'logo32.png', 'logo48.png', 'logo128.png'],
     }).catch(function (error) {
       console.error('Copy failed: ' + error)
       reject()

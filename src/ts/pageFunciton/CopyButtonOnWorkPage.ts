@@ -88,7 +88,7 @@ class CopyButtonOnWorkPage {
     btn.id = this.btnId
     btn.innerHTML = `
     <svg class="icon" aria-hidden="true">
-  <use xlink:href="#icon-copy"></use>
+  <use xlink:href="#copy"></use>
 </svg>`
     btn.dataset.xztitle = '_复制摘要数据'
     return btn

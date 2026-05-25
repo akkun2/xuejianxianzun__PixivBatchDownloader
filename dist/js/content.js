@@ -2352,23 +2352,23 @@ class CenterPanel {
       <div class="btns">
       <a class="has_tip centerWrap_top_btn update" data-xztip="_newver" data-xztitle="_newver" href="https://github.com/xuejianxianzun/PixivBatchDownloader/releases/latest" target="_blank">
         <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-refresh"></use>
+          <use xlink:href="#refresh"></use>
         </svg>
       </a>
       <a class="has_tip centerWrap_top_btn github_icon" data-xztip="_github" data-xztitle="_github" href="https://github.com/xuejianxianzun/PixivBatchDownloader" target="_blank">
       <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-github"></use>
+        <use xlink:href="#github"></use>
       </svg>
       </a>
       <a class="has_tip centerWrap_top_btn wiki_url" data-xztip="_wiki" data-xztitle="_wiki" href="https://xuejianxianzun.github.io/PBDWiki" target="_blank">
         <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-help"></use>
+          <use xlink:href="#help"></use>
         </svg>
       </a>
         <button class="textButton ${!_Config__WEBPACK_IMPORTED_MODULE_5__.Config.mobile && 'has_tip'} centerWrap_top_btn centerWrap_close" ${!_Config__WEBPACK_IMPORTED_MODULE_5__.Config.mobile &&
             'data-xztip="_隐藏控制面板" data-xztitle="_隐藏控制面板"'}>
         <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-shutdown"></use>
+          <use xlink:href="#shutdown"></use>
         </svg>
         </button>
       </div>
@@ -5806,7 +5806,7 @@ class ImageViewer {
         li.id = 'imageViewerCopyWorkLinkBtn';
         li.innerHTML = `
     <svg class="icon" aria-hidden="true">
-  <use xlink:href="#icon-link"></use>
+  <use xlink:href="#link"></use>
 </svg>`;
         this.addBtn(li);
         li.addEventListener('click', this.copyWorkLink.bind(this));
@@ -5826,7 +5826,7 @@ class ImageViewer {
         li.id = 'imageViewerCopyBtn';
         li.innerHTML = `
     <svg class="icon" aria-hidden="true">
-  <use xlink:href="#icon-copy"></use>
+  <use xlink:href="#copy"></use>
 </svg>`;
         this.addBtn(li);
         li.addEventListener('click', this.copy.bind(this));
@@ -6446,7 +6446,7 @@ class Loading {
   <div id="xzLoadingWrap">
     <div class="iconWrap">
     <svg class="icon" aria-hidden="true">
-      <use xlink:href="#icon-loading"></use>
+      <use xlink:href="#loading"></use>
     </svg>
     </div>
   </div>`;
@@ -7244,7 +7244,7 @@ class OpenCenterPanel {
         this.btn.id = 'openCenterPanelBtn';
         this.btn.setAttribute('data-xztitle', '_显示控制面板');
         this.btn.innerHTML = `<svg class="icon" aria-hidden="true">
-  <use xlink:href="#icon-open"></use>
+  <use xlink:href="#open"></use>
 </svg>`;
         document.body.append(this.btn);
         _Language__WEBPACK_IMPORTED_MODULE_1__.lang.register(this.btn);
@@ -8985,7 +8985,7 @@ class PreviewWorkDetailInfo {
             <button class="textButton" id="copyURL">Copy URL</button>
             <button class="textButton" id="copyBtn">
               <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-copy"></use>
+                <use xlink:href="#copy"></use>
               </svg>
             </button>
           </p>
@@ -9625,7 +9625,7 @@ class SelectWork {
     sendCrawl = false; // 它用来判断抓取的是不是选择的作品。抓取选择的作品时激活此标记；当触发下一次的抓取完成事件时，表示已经抓取了选择的作品。
     crawled = false; // 是否已经抓取了选择的作品
     svg = `<svg class="icon" aria-hidden="true">
-  <use xlink:href="#icon-select"></use>
+  <use xlink:href="#select"></use>
 </svg>`;
     bindEscEvent;
     bindEvents() {
@@ -10636,7 +10636,7 @@ __webpack_require__.r(__webpack_exports__);
 
 class ShowNotification {
     constructor() {
-        this.iconURL = webextension_polyfill__WEBPACK_IMPORTED_MODULE_0___default().runtime.getURL('icon/logo128.png');
+        this.iconURL = webextension_polyfill__WEBPACK_IMPORTED_MODULE_0___default().runtime.getURL('icons/logo128.png');
         this.bindEvents();
     }
     iconURL = '';
@@ -13315,7 +13315,7 @@ class ButtonsConfig {
         {
             name: 'zoomBtnOnThumb',
             order: 1,
-            icon: 'icon-zoom',
+            icon: 'zoom',
             btn: document.createElement('button'),
             title: '_图片查看器',
             show: () => _setting_Settings__WEBPACK_IMPORTED_MODULE_0__.settings.magnifier,
@@ -13323,7 +13323,7 @@ class ButtonsConfig {
         {
             name: 'copyBtnOnThumb',
             order: 2,
-            icon: 'icon-copy',
+            icon: 'copy',
             btn: document.createElement('button'),
             title: '_复制图片和摘要',
             show: () => _setting_Settings__WEBPACK_IMPORTED_MODULE_0__.settings.showCopyBtnOnThumb,
@@ -13331,7 +13331,7 @@ class ButtonsConfig {
         {
             name: 'downloadBtnOnThumb',
             order: 3,
-            icon: 'icon-download',
+            icon: 'download',
             btn: document.createElement('button'),
             title: '_下载',
             show: () => _setting_Settings__WEBPACK_IMPORTED_MODULE_0__.settings.showDownloadBtnOnThumb,
@@ -13981,7 +13981,7 @@ class DownloadBtnOnThumbOnMobile {
         btn.classList.add('btnOnThumb');
         btn.innerHTML = `
     <svg class="icon" aria-hidden="true">
-  <use xlink:href="#icon-download"></use>
+  <use xlink:href="#download"></use>
 </svg>`;
         btn.style.left = 'auto';
         btn.style.right = '0px';
@@ -19859,7 +19859,7 @@ class QuickCrawl {
         this.btn.id = 'quickCrawlBtn';
         this.btn.setAttribute('data-xztitle', '_快速下载本页');
         this.btn.innerHTML = `<svg class="icon" aria-hidden="true">
-  <use xlink:href="#icon-download"></use>
+  <use xlink:href="#download"></use>
 </svg>`;
         document.body.append(this.btn);
         _Language__WEBPACK_IMPORTED_MODULE_2__.lang.register(this.btn);
@@ -27080,14 +27080,14 @@ class BlockTagsForSpecificUser {
         <div class="btns">
           <button type="button" class="textButton add" data-xztitle="_添加">
             <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icon-yes_submit"></use>
+              <use xlink:href="#yes_submit"></use>
             </svg>
           </button>
 
           
           <button type="button" class="textButton cancel" data-xztitle="_取消">
             <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icon-close_cancel"></use>
+              <use xlink:href="#close_cancel"></use>
             </svg>
           </button>
         </div>
@@ -27184,13 +27184,13 @@ class BlockTagsForSpecificUser {
 
         <button type="button" class="textButton refresh" data-updateRule="${uid}" data-xztitle="_更新">
           <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-refresh"></use>
+            <use xlink:href="#refresh"></use>
           </svg>
         </button>
 
         <button type="button" class="textButton delete" data-deleteRule="${uid}" data-xztitle="_删除">
           <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-delete"></use>
+            <use xlink:href="#delete"></use>
           </svg>
         </button>
       </div>
@@ -39519,7 +39519,7 @@ class CopyButtonOnWorkPage {
         btn.id = this.btnId;
         btn.innerHTML = `
     <svg class="icon" aria-hidden="true">
-  <use xlink:href="#icon-copy"></use>
+  <use xlink:href="#copy"></use>
 </svg>`;
         btn.dataset.xztitle = '_复制摘要数据';
         return btn;
@@ -41214,14 +41214,14 @@ class DoNotDownloadLastFewImages {
         <div class="btns">
           <button type="button" class="textButton add" data-xztitle="_添加">
             <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icon-yes_submit"></use>
+              <use xlink:href="#yes_submit"></use>
             </svg>
           </button>
 
           
           <button type="button" class="textButton cancel" data-xztitle="_取消">
             <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icon-close_cancel"></use>
+              <use xlink:href="#close_cancel"></use>
             </svg>
           </button>
         </div>
@@ -41306,13 +41306,13 @@ class DoNotDownloadLastFewImages {
       <div class="btns">
         <button type="button" class="textButton refresh" data-updateRule="${uid}" data-xztitle="_更新">
           <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-refresh"></use>
+            <use xlink:href="#refresh"></use>
           </svg>
         </button>
 
         <button type="button" class="textButton delete" data-deleteRule="${uid}" data-xztitle="_删除">
           <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-delete"></use>
+            <use xlink:href="#delete"></use>
           </svg>
         </button>
     </div>`;
@@ -42250,7 +42250,7 @@ const formHtml = `
       <a href="" target="_blank" class="settingNameStyle">
         <span data-xztext="_下载线程"></span>
       </a>
-      <input type="text" name="downloadThread" class="has_tip setinput_style1 blue" data-xztip="_下载线程的说明" value="5">
+      <input type="text" name="downloadThread" class="has_tip setinput_style1 blue" data-xztip="_下载线程的说明" value="24">
     </div>
 
     <span class="optionAnchor" data-for-no="17" aria-hidden="true"></span>
@@ -43086,8 +43086,9 @@ const formHtml = `
     
     <span class="optionAnchor" data-for-no="42" aria-hidden="true"></span>
     <div class="option" data-no="42">
-      <span class="settingNameStyle1">
-      <span data-xztext="_把图片显示为灰色"></span>
+      <a href="" target="_blank" class="settingNameStyle">
+        <span data-xztext="_把图片显示为灰色"></span>
+      </a>
       <input type="checkbox" name="imageToGray" class="need_beautify checkbox_switch" checked>
       <span class="beautify_switch" tabindex="0"></span>
     </div>
@@ -44958,13 +44959,13 @@ class SetTagAlias {
         <div class="btns">
           <button type="button" class="textButton add" data-xztitle="_添加">
             <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icon-yes_submit"></use>
+              <use xlink:href="#yes_submit"></use>
             </svg>
           </button>
 
           <button type="button" class="textButton cancel" data-xztitle="_取消">
             <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icon-close_cancel"></use>
+              <use xlink:href="#close_cancel"></use>
             </svg>
           </button>
         </div>
@@ -45038,7 +45039,7 @@ class SetTagAlias {
         <input type="text" class="setinput_style1 blue tags" data-nameInput="${alias}" value="${tags}" />
         <button type="button" class="textButton delete" data-deleteRule="${alias}" data-xztitle="_删除">
           <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-delete"></use>
+            <use xlink:href="#delete"></use>
           </svg>
         </button>`;
         const element = document.createElement('div');
@@ -45265,14 +45266,14 @@ class SetUserName {
         <div class="btns">
           <button type="button" class="textButton add" data-xztitle="_添加">
             <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icon-yes_submit"></use>
+              <use xlink:href="#yes_submit"></use>
             </svg>
           </button>
 
           
           <button type="button" class="textButton cancel" data-xztitle="_取消">
             <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icon-close_cancel"></use>
+              <use xlink:href="#close_cancel"></use>
             </svg>
           </button>
         </div>
@@ -45352,13 +45353,13 @@ class SetUserName {
       <div class="btns">
         <button type="button" class="textButton refresh" data-updateRule="${uid}" data-xztitle="_更新">
           <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-refresh"></use>
+            <use xlink:href="#refresh"></use>
           </svg>
         </button>
 
         <button type="button" class="textButton delete" data-deleteRule="${uid}" data-xztitle="_删除">
           <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-delete"></use>
+            <use xlink:href="#delete"></use>
           </svg>
         </button>
     </div>`;
@@ -46658,14 +46659,14 @@ class UseDifferentNameRuleIfWorkHasTag {
         <div class="btns">
           <button type="button" class="textButton add" data-xztitle="_添加">
             <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icon-yes_submit"></use>
+              <use xlink:href="#yes_submit"></use>
             </svg>
           </button>
 
           
           <button type="button" class="textButton cancel" data-xztitle="_取消">
             <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icon-close_cancel"></use>
+              <use xlink:href="#close_cancel"></use>
             </svg>
           </button>
         </div>
@@ -46750,13 +46751,13 @@ class UseDifferentNameRuleIfWorkHasTag {
       <div class="btns">
         <button type="button" class="textButton refresh" data-updateRule="${id}" data-xztitle="_更新">
           <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-refresh"></use>
+            <use xlink:href="#refresh"></use>
           </svg>
         </button>
 
         <button type="button" class="textButton delete" data-deleteRule="${id}" data-xztitle="_删除">
           <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-delete"></use>
+            <use xlink:href="#delete"></use>
           </svg>
         </button>
     </div>`;

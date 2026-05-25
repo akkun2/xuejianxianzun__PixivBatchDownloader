@@ -92,7 +92,7 @@ class SelectWork {
   private crawled = false // 是否已经抓取了选择的作品
 
   private readonly svg = `<svg class="icon" aria-hidden="true">
-  <use xlink:href="#icon-select"></use>
+  <use xlink:href="#select"></use>
 </svg>`
 
   private bindEscEvent!: (ev: KeyboardEvent) => void | undefined

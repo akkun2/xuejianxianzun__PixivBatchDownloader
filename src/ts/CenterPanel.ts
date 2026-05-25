@@ -57,17 +57,17 @@ class CenterPanel {
       <div class="btns">
       <a class="has_tip centerWrap_top_btn update" data-xztip="_newver" data-xztitle="_newver" href="https://github.com/xuejianxianzun/PixivBatchDownloader/releases/latest" target="_blank">
         <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-refresh"></use>
+          <use xlink:href="#refresh"></use>
         </svg>
       </a>
       <a class="has_tip centerWrap_top_btn github_icon" data-xztip="_github" data-xztitle="_github" href="https://github.com/xuejianxianzun/PixivBatchDownloader" target="_blank">
       <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-github"></use>
+        <use xlink:href="#github"></use>
       </svg>
       </a>
       <a class="has_tip centerWrap_top_btn wiki_url" data-xztip="_wiki" data-xztitle="_wiki" href="https://xuejianxianzun.github.io/PBDWiki" target="_blank">
         <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-help"></use>
+          <use xlink:href="#help"></use>
         </svg>
       </a>
         <button class="textButton ${
@@ -77,7 +77,7 @@ class CenterPanel {
           'data-xztip="_隐藏控制面板" data-xztitle="_隐藏控制面板"'
         }>
         <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-shutdown"></use>
+          <use xlink:href="#close"></use>
         </svg>
         </button>
       </div>
