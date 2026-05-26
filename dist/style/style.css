@@ -36,7 +36,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #29b3f3;
+  background: #1dacf5;
   display: none;
   pointer-events: none;
 }
@@ -81,7 +81,7 @@
   text-align: center;
 }
 .selectedWorkFlag .icon {
-  color: #29b3f3;
+  color: #1dacf5;
   vertical-align: baseline;
   border-radius: 50%;
   background-color: yellow;
@@ -544,7 +544,7 @@ body.mobile #quickCrawlBtn {
   margin: 0 4px;
 }
 .centerWrap .grayButton:hover {
-  background: #29b3f3;
+  background: #1dacf5;
   color: #fff !important;
 }
 .centerWrap .centerWrap_head img {
@@ -612,7 +612,7 @@ body.mobile #quickCrawlBtn {
   position: absolute;
   width: 33.3%;
   height: 2px;
-  background: #29b3f3;
+  background: #1dacf5;
   top: 35px;
   left: 0%;
   z-index: 1001;
@@ -652,7 +652,7 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap .centerWrap_con .grayButton:hover,
 .centerWrap .centerWrap_con .grayButton:focus {
-  background: #29b3f3;
+  background: #1dacf5;
   color: #fff !important;
 }
 .centerWrap .centerWrap_con .settingForm {
@@ -878,7 +878,7 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap .centerWrap_con .settingForm .centerPanelTextArea {
   font-family: 'Noto Sans SC', 'Noto Sans', 'Segeo UI', 'Segeo UI Mono', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-  color: #29b3f3;
+  color: #1dacf5;
   font-size: 14px;
   background: transparent;
   padding: 0;
@@ -924,7 +924,7 @@ body.mobile #quickCrawlBtn {
   display: block;
 }
 .centerWrap .centerWrap_con .settingForm label.active {
-  color: #29b3f3;
+  color: #1dacf5;
 }
 .centerWrap .centerWrap_con .settingForm .beautify_switch {
   display: inline-flex;
@@ -947,7 +947,7 @@ body.mobile #quickCrawlBtn {
   transition: all 0.3s;
 }
 .centerWrap .centerWrap_con .settingForm .checkbox_switch:checked + .beautify_switch {
-  background: #29b3f3;
+  background: #1dacf5;
 }
 .centerWrap .centerWrap_con .settingForm .checkbox_switch:checked + .beautify_switch::before {
   margin-left: 11px;
@@ -982,17 +982,17 @@ body.mobile #quickCrawlBtn {
   transform-origin: center;
 }
 .centerWrap .centerWrap_con .settingForm .checkbox_common:checked + .beautify_checkbox {
-  background: #29b3f3;
-  border: 1px solid #29b3f3;
+  background: #1dacf5;
+  border: 1px solid #1dacf5;
 }
 .centerWrap .centerWrap_con .settingForm .beautify_checkbox:hover {
-  border: 1px solid #29b3f3;
+  border: 1px solid #1dacf5;
 }
 .centerWrap .centerWrap_con .settingForm .checkbox_common:checked + .beautify_checkbox::after {
   transform: rotate(45deg) scaleY(1);
 }
 .centerWrap .centerWrap_con .settingForm .checkbox_common:focus + .beautify_checkbox {
-  border: 1px solid #29b3f3;
+  border: 1px solid #1dacf5;
 }
 .centerWrap .centerWrap_con .settingForm .beautify_radio {
   border: 1px solid #dcdfe6;
@@ -1018,11 +1018,11 @@ body.mobile #quickCrawlBtn {
   transition: transform 0.15s ease-in;
 }
 .centerWrap .centerWrap_con .settingForm .radio:checked + .beautify_radio {
-  background: #29b3f3;
-  border: 1px solid #29b3f3;
+  background: #1dacf5;
+  border: 1px solid #1dacf5;
 }
 .centerWrap .centerWrap_con .settingForm .beautify_radio:hover {
-  border: 1px solid #29b3f3;
+  border: 1px solid #1dacf5;
 }
 .centerWrap .centerWrap_con .settingForm .radio:checked + .beautify_radio::after {
   transform: translate(-50%, -50%) scale(1);
@@ -1361,7 +1361,7 @@ body.mobile #quickCrawlBtn {
 .centerWrap.theme-dark .title.active,
 .centerWrap.theme-dark .title:hover,
 .centerWrap.theme-dark .down_status {
-  color: #29b3f3 !important;
+  color: #1dacf5 !important;
 }
 .centerWrap.theme-dark .centerWrap_top_btn:hover,
 .centerWrap.theme-dark .centerWrap_top_btn:focus,
@@ -1371,15 +1371,15 @@ body.mobile #quickCrawlBtn {
 .centerWrap.theme-dark .textButton:focus,
 .centerWrap.theme-dark .help_bar > *:hover,
 .centerWrap.theme-dark .updateActiveClass {
-  color: #29b3f3 !important;
-  fill: #29b3f3 !important;
+  color: #1dacf5 !important;
+  fill: #1dacf5 !important;
 }
 .centerWrap.theme-dark .grayButton {
   background-color: #aaa;
 }
 .centerWrap.theme-dark .grayButton:hover,
 .centerWrap.theme-dark .grayButton:focus {
-  background: #29b3f3;
+  background: #1dacf5;
   color: #fff !important;
 }
 .centerWrap.theme-dark .saveNamingRuleWrap {
@@ -1402,7 +1402,7 @@ body.mobile #quickCrawlBtn {
   box-shadow: none !important;
 }
 .centerWrap.theme-dark .settingCategoryName span {
-  color: #29b3f3 !important;
+  color: #1dacf5 !important;
   text-shadow: none !important;
 }
 .centerWrap.xzBG {
@@ -1454,7 +1454,7 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap.xzBG .grayButton:hover,
 .centerWrap.xzBG .grayButton:focus {
-  background: #29b3f3;
+  background: #1dacf5;
   color: #fff !important;
 }
 .centerWrap.xzBG .centerWrap_con .settingForm select {
@@ -1478,7 +1478,7 @@ body.mobile #quickCrawlBtn {
   box-shadow: none !important;
 }
 .centerWrap.xzBG .settingCategoryName span {
-  color: #29b3f3 !important;
+  color: #1dacf5 !important;
   text-shadow: none !important;
   background-color: rgba(255, 255, 255, 0.8) !important;
   backdrop-filter: blur(3px) !important;
@@ -1729,26 +1729,40 @@ body.mobile #quickCrawlBtn {
   min-height: 50px;
   padding: 0 15px;
   border: none;
-  border-radius: 10px;
+  border-radius: 6px;
   background: transparent;
-  color: #111;
+  color: #222;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0px;
   text-align: left;
   cursor: pointer;
-  transition: background-color 0.2s, color 0.2s;
 }
 .centerWrap.settingsV2 .settingsPanel_navItem[hidden] {
   display: none;
 }
 .centerWrap.settingsV2 .settingsPanel_navItem:hover {
-  background: #eee;
+  background: #d7e5f2;
 }
 .centerWrap.settingsV2 .settingsPanel_navItem.active {
   background: #199df5;
   color: #fff;
   font-weight: 700;
+}
+.centerWrap.settingsV2 .settingsPanel_navItem.active:hover,
+.centerWrap.settingsV2 .settingsPanel_navItem.active:focus {
+  background: #199df5;
+}
+.centerWrap.settingsV2 .settingsPanel_navItem.active:hover::before,
+.centerWrap.settingsV2 .settingsPanel_navItem.active:focus::before {
+  background: transparent;
+}
+.centerWrap.settingsV2 .settingsPanel_navItem:hover .ripple,
+.centerWrap.settingsV2 .settingsPanel_navItem:focus .ripple {
+  animation: none;
+}
+.centerWrap.settingsV2 .settingsPanel_navItem.ripple-active .ripple {
+  animation: ripple-effect 0.6s linear;
 }
 .centerWrap.settingsV2 .settingsPanel_navIconWrap {
   width: 26px;
@@ -1873,7 +1887,7 @@ body.mobile #quickCrawlBtn {
   border: none;
   border-radius: 8px;
   background: #fff;
-  color: #444;
+  color: #333;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1963,15 +1977,22 @@ body.mobile #quickCrawlBtn {
 .centerWrap.settingsV2 .settingsPanel_optionCard.option.new {
   position: relative;
 }
-.centerWrap.settingsV2 .settingsPanel_optionCard.option.new::after {
-  content: '';
-  width: 36px;
-  height: 18px;
+.centerWrap.settingsV2 .settingsPanel_optionCard.option.new::before {
+  content: none !important;
+  display: none !important;
+}
+.centerWrap.settingsV2 .settingsPanel_optionCard.option.new .settingsPanel_newBadge {
+  width: 30px;
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background: url('../icons/new.svg') no-repeat center / contain;
+  top: -15px;
+  right: -5px;
   pointer-events: none;
+  line-height: 0;
+  color: #3ab8f2;
+}
+.centerWrap.settingsV2 .settingsPanel_optionCard.option.new .settingsPanel_newBadgeIcon.icon {
+  width: 30px;
+  height: 30px;
 }
 .centerWrap.settingsV2 .settingsPanel_downloadContentWrap .download_area {
   display: block;
@@ -2047,6 +2068,17 @@ body.mobile #quickCrawlBtn {
 .centerWrap.settingsV2 .settingsPanel_helpAction:hover {
   background: #09a0f4;
   color: #fff;
+}
+.centerWrap.settingsV2 .settingsPanel_helpAction:hover::before,
+.centerWrap.settingsV2 .settingsPanel_helpAction:focus::before {
+  background: transparent;
+}
+.centerWrap.settingsV2 .settingsPanel_helpAction:hover .ripple,
+.centerWrap.settingsV2 .settingsPanel_helpAction:focus .ripple {
+  animation: none;
+}
+.centerWrap.settingsV2 .settingsPanel_helpAction.ripple-active .ripple {
+  animation: ripple-effect 0.6s linear;
 }
 .centerWrap.settingsV2 .settingsPanel_helpAction.hasUpdate::after {
   content: '';
@@ -2437,7 +2469,7 @@ body.mobile #quickCrawlBtn {
   opacity: 0;
   pointer-events: none;
   cursor: pointer;
-  background-color: #29b3f3;
+  background-color: #1dacf5;
   color: white;
   padding: 8px 10px;
   border-bottom-left-radius: 10px;
@@ -2661,7 +2693,7 @@ iframe[name='expandedFooter'] {
 }
 .viewer-backdrop .viewer-toolbar .viewer-next:hover,
 .viewer-backdrop .viewer-toolbar .viewer-prev:hover {
-  background-color: #29b3f3 !important;
+  background-color: #1dacf5 !important;
 }
 .viewer-backdrop .viewer-toolbar .viewer-prev {
   position: fixed;
@@ -2696,7 +2728,7 @@ iframe[name='expandedFooter'] {
 }
 .viewer-backdrop .viewer-toolbar .viewer-add-btn:hover {
   color: #fff;
-  background-color: #29b3f3;
+  background-color: #1dacf5;
 }
 .viewer-backdrop .viewer-toolbar .viewer-add-btn::marker {
   content: none;
@@ -2839,7 +2871,7 @@ iframe[name='expandedFooter'] {
   font-size: 48px;
   display: none;
   background-color: #fff;
-  color: #29b3f3;
+  color: #1dacf5;
   justify-content: center;
   align-items: center;
   opacity: 0.7;
@@ -3327,7 +3359,7 @@ iframe[name='expandedFooter'] {
   background: #b036f6;
 }
 .xz_PreviewWorkDetailPanel .content .flags .origin {
-  background: #29b3f3;
+  background: #1dacf5;
 }
 .xz_PreviewWorkDetailPanel .content .title,
 .xz_PreviewWorkDetailPanel .content .desc.tags {
@@ -3594,7 +3626,7 @@ html[data-xzpagetheme='dark'] #quickBookmarkEl {
   display: inline-block;
   max-width: 500px;
   color: #fff;
-  background-color: #29b3f3;
+  background-color: #1dacf5;
   box-shadow: var(--box-shadow);
   padding: 8px 10px;
   border-radius: 4px;
@@ -3615,7 +3647,7 @@ html[data-xzpagetheme='dark'] #quickBookmarkEl {
   top: 500px;
   padding: 0;
   overflow: hidden;
-  border: 2px solid #29b3f3;
+  border: 2px solid #1dacf5;
   background-color: rgba(41, 179, 243, 0.1);
   box-shadow: var(--box-shadow);
 }
@@ -3624,7 +3656,7 @@ html[data-xzpagetheme='dark'] #quickBookmarkEl {
   height: auto;
 }
 #previewWorkTip {
-  background-color: #29b3f3;
+  background-color: #1dacf5;
   color: #fff;
   height: 23px;
   line-height: 20px;
@@ -3687,7 +3719,7 @@ html[data-xzpagetheme='dark'] #quickBookmarkEl {
   overflow: hidden;
   width: 1200px;
   height: 1200px;
-  border: 2px solid #29b3f3;
+  border: 2px solid #1dacf5;
   background-color: rgba(41, 179, 243, 0.2);
   box-shadow: var(--box-shadow);
 }
@@ -3705,7 +3737,7 @@ html[data-xzpagetheme='dark'] #quickBookmarkEl {
   border: none;
   padding: 0;
   text-align: center;
-  background-color: #29b3f3;
+  background-color: #1dacf5;
   border-radius: 4px;
   color: #fff;
   display: none;

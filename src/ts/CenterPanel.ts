@@ -164,6 +164,7 @@ class CenterPanel {
         </svg>
       </span>
       <span class="settingsPanel_navText" data-xztext="${textKey}"></span>
+      <span class="ripple"></span>
     </button>
     `
   }

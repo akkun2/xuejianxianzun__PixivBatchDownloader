@@ -373,6 +373,7 @@ class SettingsPanel {
         <use xlink:href="#${action.iconId}"></use>
       </svg>
       <span data-xztext="${action.textKey}"></span>
+      <span class="ripple"></span>
       `
       this.helpActionsWrap.append(button)
       this.helpActionEls.set(action.id, button)
@@ -484,13 +485,17 @@ class SettingsPanel {
 
   private bindEvents() {
     this.navEls.forEach((button, page) => {
-      button.addEventListener('click', () => this.handleNavRequest(page))
+      button.addEventListener('click', () => {
+        this.playNavRipple(button)
+        this.handleNavRequest(page)
+      })
       button.addEventListener('keydown', (event) => {
         if (
           (event.code === 'Enter' || event.code === 'Space') &&
           event.target === button
         ) {
           event.preventDefault()
+          this.playNavRipple(button)
           this.handleNavRequest(page)
         }
       })
@@ -536,6 +541,7 @@ class SettingsPanel {
       if (!button) {
         return
       }
+      this.playRipple(button)
       this.handleHelpAction(button.dataset.action || '')
     })
 
@@ -1219,6 +1225,22 @@ class SettingsPanel {
   private clickRealButton(selector: string) {
     const button = this.form.querySelector(selector) as HTMLButtonElement | null
     button?.click()
+  }
+
+  private playNavRipple(button: HTMLButtonElement) {
+    this.playRipple(button)
+  }
+
+  private playRipple(button: HTMLButtonElement) {
+    if (!button.querySelector('.ripple')) {
+      return
+    }
+    button.classList.remove('ripple-active')
+    void button.offsetWidth
+    button.classList.add('ripple-active')
+    window.setTimeout(() => {
+      button.classList.remove('ripple-active')
+    }, 650)
   }
 
   private findSlot(name: string) {

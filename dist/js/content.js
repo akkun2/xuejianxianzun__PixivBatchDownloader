@@ -2447,6 +2447,7 @@ class CenterPanel {
         </svg>
       </span>
       <span class="settingsPanel_navText" data-xztext="${textKey}"></span>
+      <span class="ripple"></span>
     </button>
     `;
     }
@@ -48278,6 +48279,7 @@ class SettingsPanel {
         <use xlink:href="#${action.iconId}"></use>
       </svg>
       <span data-xztext="${action.textKey}"></span>
+      <span class="ripple"></span>
       `;
             this.helpActionsWrap.append(button);
             this.helpActionEls.set(action.id, button);
@@ -48358,11 +48360,15 @@ class SettingsPanel {
     }
     bindEvents() {
         this.navEls.forEach((button, page) => {
-            button.addEventListener('click', () => this.handleNavRequest(page));
+            button.addEventListener('click', () => {
+                this.playNavRipple(button);
+                this.handleNavRequest(page);
+            });
             button.addEventListener('keydown', (event) => {
                 if ((event.code === 'Enter' || event.code === 'Space') &&
                     event.target === button) {
                     event.preventDefault();
+                    this.playNavRipple(button);
                     this.handleNavRequest(page);
                 }
             });
@@ -48399,6 +48405,7 @@ class SettingsPanel {
             if (!button) {
                 return;
             }
+            this.playRipple(button);
             this.handleHelpAction(button.dataset.action || '');
         });
         window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.settingChange, (ev) => {
@@ -48910,6 +48917,20 @@ class SettingsPanel {
         const button = this.form.querySelector(selector);
         button?.click();
     }
+    playNavRipple(button) {
+        this.playRipple(button);
+    }
+    playRipple(button) {
+        if (!button.querySelector('.ripple')) {
+            return;
+        }
+        button.classList.remove('ripple-active');
+        void button.offsetWidth;
+        button.classList.add('ripple-active');
+        window.setTimeout(() => {
+            button.classList.remove('ripple-active');
+        }, 650);
+    }
     findSlot(name) {
         return this.form.querySelector(`slot[data-name="${name}"]`);
     }
@@ -48961,6 +48982,7 @@ class ShowNewIcon {
         });
     }
     allOption;
+    badgeClassName = 'settingsPanel_newBadge';
     // 90 天内添加的设置项，显示 new 角标
     newRange = 7776000000;
     newOptions = [
@@ -49081,9 +49103,27 @@ class ShowNewIcon {
                 const el = _Tools__WEBPACK_IMPORTED_MODULE_1__.Tools.getOption(this.allOption, option.id);
                 if (el) {
                     el.classList.add('new');
+                    this.addBadgeEl(el);
                 }
             }
         });
+    }
+    addBadgeEl(optionEl) {
+        if (!optionEl.classList.contains('settingsPanel_optionCard')) {
+            return;
+        }
+        if (optionEl.querySelector(`.${this.badgeClassName}`)) {
+            return;
+        }
+        const badge = document.createElement('span');
+        badge.className = this.badgeClassName;
+        badge.setAttribute('aria-hidden', 'true');
+        badge.innerHTML = `
+    <svg class="icon settingsPanel_newBadgeIcon" aria-hidden="true">
+      <use xlink:href="#new"></use>
+    </svg>
+    `;
+        optionEl.append(badge);
     }
 }
 const showNewIcon = new ShowNewIcon();
