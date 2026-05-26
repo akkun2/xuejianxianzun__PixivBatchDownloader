@@ -1,13 +1,12 @@
 import { EVT } from '../EVT'
-import { settings } from './Settings'
+import { settings, OptionCategoryLevel1 } from './Settings'
 import { lang } from '../Language'
 import { LangTextKey } from '../langText'
 
-type Category = 'crawl' | 'naming' | 'download' | 'enhance' | 'general'
 type CategorySchema = {
-  [key in Category]: {
+  [key in OptionCategoryLevel1]: {
     /** 一级分类的 ID */
-    id: Category
+    id: OptionCategoryLevel1
     /** 一级分类的顺序 */
     order: number
     /** 一级分类的名称的 i18n 的 key */
@@ -37,7 +36,7 @@ type OptionMeta = {
   /** 设置名称的实际文本 */
   name: string
   /** 所属的一级分类 */
-  categoryLevel1: Category
+  categoryLevel1: OptionCategoryLevel1
   /** 所属的二级分类 */
   categoryLevel2: string
   /** 是否置顶 */
@@ -51,7 +50,7 @@ type OptionMeta = {
 /** 把所有设置按照分类层级进行组织 */
 type OptionsByCategory = {
   /** 一级分类的 ID */
-  [key in Category]: {
+  [key in OptionCategoryLevel1]: {
     /** 二级分类的 ID */
     [key: string]: OptionMeta[]
   }
