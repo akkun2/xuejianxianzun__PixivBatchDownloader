@@ -1,18 +1,26 @@
 @import './var.less';
 
 .centerWrap.settingsV2 {
+  box-sizing: border-box;
   width: 925px;
   max-width: calc(100vw - 24px);
   max-height: 870px;
   left: 50%;
   top: 4vh;
   margin-left: 0;
-  transform: translateX(-50%);
+  // 在 PC 端页面上，把设置面板靠左一些显示。这是因为设置面板是左右两列布局：左侧是导航区域，右侧是内容区域。 靠左一些的话，可以让内容区域更接近居中（而不是被挤到右边），这样用户体验更好。
+  transform: translateX(-54%);
   padding: 0;
   border-radius: 16px;
   border: 1px solid #9dd4f9;
   box-shadow: 0 0 25px #b4e0f5;
   background: #fff;
+  position: fixed;
+  z-index: 5000;
+  font-size: 15px;
+  color: #444;
+  overflow: hidden;
+  font-family: @pixivFontFamily;
 
   p,div,span,button,
   .centerWrap_head,
@@ -36,7 +44,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
+    gap: 0px;
     border-bottom: 1px solid #edf3f8;
   }
 
@@ -49,15 +57,15 @@
   }
 
   .settingsPanel_headerActions {
-    gap: 10px;
+    gap: 0px;
   }
 
   .settingsPanel_headerSearch {
-    gap: 10px;
+    gap: 5px;
   }
 
   .settingsPanel_brand {
-    gap: 10px;
+    gap: 6px;
     min-width: 0;
   }
 
@@ -130,7 +138,7 @@
       border: none;
       background: transparent;
       color: #666;
-      font-size: 14px;
+      font-size: 15px;
       outline: none;
     }
 
@@ -211,7 +219,7 @@
     border: none;
     border-radius: 6px;
     background: transparent;
-    color: #222;
+    color: #111;
     display: flex;
     align-items: center;
     gap: 0px;
@@ -413,6 +421,11 @@
     cursor: pointer;
     box-shadow: 0 0 15px #ddd;
     text-align: left;
+
+    // 鼠标经过时，让右侧的箭头图标变色
+    &:hover svg{
+      color: @themeBlue;
+    }
   }
 
   .settingsPanel_panelSection {
@@ -457,14 +470,19 @@
   }
 
   .settingsPanel_sectionTitle {
+    // 添加上下 padding，这是为了在没有左侧图标的情况下能撑起高度。
+    // 有图标的时候，图标会撑起高度；没有图标的时候，让标题也能 padding 撑起高度。
+    padding: 5px 0;
     min-width: 0;
     font-size: 16px;
     line-height: 1.35;
+    // font-weight: 700;
+    // color:@themeBlue;
   }
 
   .settingsPanel_sectionArrow {
-    font-size: 16px;
-    color: #666;
+    font-size: 18px;
+    color: #555;
     transition: transform 0.2s;
     flex: none;
   }
@@ -492,7 +510,7 @@
   .settingsPanel_optionCard.option {
     width: calc(100% - 20px);
     margin: 10px auto 0;
-    padding: 12px 15px;
+    padding: 8px 15px;
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 0 10px #ddd;
@@ -557,6 +575,7 @@
   }
 
   .settingsPanel_helpTips {
+    margin-top: 15px;
     flex-direction: column;
   }
 
@@ -584,9 +603,10 @@
   }
 
   .settingsPanel_tipConfirm {
-    width: 30px;
-    height: 20px;
-    padding: 0;
+    margin-left: 2px;
+    width: 1.6em;
+    height: 1.2lh;
+    padding: 0 2px;
     border: none;
     border-radius: 4px;
     background: transparent;
@@ -594,7 +614,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    flex: none;
+    vertical-align: middle;
 
     &:hover {
       background: #e5f2ff;
@@ -658,6 +678,8 @@
   .settingsPanel_helpActionIcon {
     font-size: 24px;
     flex: none;
+    position: relative;
+    top: 1px;
   }
 
   .settingsPanel_searchSummary {
@@ -808,9 +830,10 @@
 }
 
 .centerWrap.settingsV2.mobile {
-  width: calc(100vw - 16px);
+  width: calc(100vw - 32px);
   top: 8px;
-  max-height: calc(100vh - 16px);
+  max-height: calc(80vh);
+  transform: translateX(-50%);
 
   .centerWrap_head {
     padding: 12px;

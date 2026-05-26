@@ -1,6 +1,17 @@
 const iconScaleMap: Record<string, { scale: number }> = {
+  'home-fill': { scale: 0.9 },
+  'home-line': { scale: 0.9 },
+  'close': { scale: 0.85 },
+  'github': { scale: 0.9 },
+  'help': { scale: 0.9 },
+  'heart-line': { scale: 0.9 },
+  f: { scale: 1.1 },
   wiki: { scale: 1.1 },
+  'paper-airplane': { scale: 1.1 },
   link: { scale: 1.2 },
+  'arrow-up': { scale: 1.1 },
+  'arrow-down': { scale: 1.1 },
+  'arrow-down-2': { scale: 1.2 },
 }
 
 function getUseHref(use: SVGUseElement) {

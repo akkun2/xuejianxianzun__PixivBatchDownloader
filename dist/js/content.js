@@ -5242,8 +5242,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   applyIconScaleIn: () => (/* binding */ applyIconScaleIn)
 /* harmony export */ });
 const iconScaleMap = {
+    'home-fill': { scale: 0.9 },
+    'home-line': { scale: 0.9 },
+    'close': { scale: 0.85 },
+    'github': { scale: 0.9 },
+    'help': { scale: 0.9 },
+    'heart-line': { scale: 0.9 },
+    f: { scale: 1.1 },
     wiki: { scale: 1.1 },
+    'paper-airplane': { scale: 1.1 },
     link: { scale: 1.2 },
+    'arrow-up': { scale: 1.1 },
+    'arrow-down': { scale: 1.1 },
+    'arrow-down-2': { scale: 1.2 },
 };
 function getUseHref(use) {
     const href = use.getAttribute('href') || use.getAttribute('xlink:href') || '';
@@ -42016,9 +42027,9 @@ class Form {
         new _SaveNamingRule__WEBPACK_IMPORTED_MODULE_4__.SaveNamingRule(this.form.userSetName, 'artwork');
         new _SaveNamingRule__WEBPACK_IMPORTED_MODULE_4__.SaveNamingRule(this.form.userSetNameForNovel, 'novel');
         new _FormSettings__WEBPACK_IMPORTED_MODULE_6__.FormSettings(this.form);
-        new _FormHelpManager__WEBPACK_IMPORTED_MODULE_12__.FormHelpManager(this.form);
         new _FormBeautify__WEBPACK_IMPORTED_MODULE_13__.FormBeautify(this.form);
         new _SettingsPanel__WEBPACK_IMPORTED_MODULE_14__.SettingsPanel(this.form);
+        new _FormHelpManager__WEBPACK_IMPORTED_MODULE_12__.FormHelpManager(this.form);
         this.bindFormEvents();
         this.bindFunctionBtn();
         this.bindCopyEvent();
@@ -43974,7 +43985,7 @@ class FormHelpManager {
                 window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_0__.EVT.list.settingChange, (ev) => {
                     const data = ev.detail.data;
                     if (data.name === item.key) {
-                        el.style.display = data.value ? 'block' : 'none';
+                        el.style.display = data.value ? 'flex' : 'none';
                     }
                 });
             }
@@ -47583,6 +47594,7 @@ class Settings {
         imageToGray: false,
         /** 保存每个可折叠区域的展开/折叠状态 */
         // home 里的二级分类名称是直接在这里指定的。其他导航分类里的二级分类名称来自 OptionConfigs.ts 里的 categorySchema 对象里，对应的一级分类的 level2.id。
+        // 每个一级分类里的首个二级分类是默认展开的，这样用户至少可以看到第一个二级分类的内容，不需要手动点击来展开它。
         expandedCards: {
             home: {
                 /** 置顶的设置区域 */
@@ -47595,7 +47607,7 @@ class Settings {
                 downloadArea: false,
             },
             crawl: {
-                scope: false,
+                scope: true,
                 workType: false,
                 workData: false,
                 tagAndTitle: false,
@@ -47604,14 +47616,14 @@ class Settings {
                 strategy: false,
             },
             naming: {
-                names: false,
+                names: true,
                 adjustFolders: false,
                 serial: false,
                 alias: false,
                 removeSpecialChars: false,
             },
             download: {
-                behavior: false,
+                behavior: true,
                 record: false,
                 imageSize: false,
                 ugoira: false,
@@ -47619,14 +47631,14 @@ class Settings {
                 metadata: false,
             },
             enhance: {
-                preview: false,
+                preview: true,
                 thumbnail: false,
                 thumbnailButtons: false,
                 other: false,
                 searchPage: false,
             },
             general: {
-                appearance: false,
+                appearance: true,
                 language: false,
                 log: false,
                 manageSettings: false,
@@ -48076,6 +48088,7 @@ class SettingsPanel {
     summaryProgress;
     summaryStateIconUse;
     helpActionsWrap;
+    otherBtnsVisibilityObserver;
     debouncedSearch = _utils_Utils__WEBPACK_IMPORTED_MODULE_5__.Utils.debounce(() => this.updateSearchResult(), 200);
     cacheShellElements() {
         this.searchInput = this.centerPanel.querySelector('#settingsPanelSearchInput');
@@ -48152,6 +48165,22 @@ class SettingsPanel {
     }
     buildHomePage(crawlBtnsBlock, otherBtnsBlock, downloadBtnsBlock, downloadArea, progressBar) {
         const home = this.pageInners.get('home');
+        const homeTipsWrap = document.createElement('div');
+        homeTipsWrap.className = 'settingsPanel_helpTips settingsPanel_homeTips';
+        homeTipsWrap.innerHTML = `
+    <div class="settingsPanel_tipCard" id="tipCloseAskFileSaveLocation">
+      <svg class="icon settingsPanel_tipIcon" aria-hidden="true"><use xlink:href="#light-line"></use></svg>
+      <div class="settingsPanel_tipText">
+        <span class="settingsPanel_tipTextContent">
+          <span data-xztext="_建议您关闭询问文件保存位置"></span>
+          <button class="settingsPanel_tipConfirm" type="button" data-xztitle="_已确认">
+            <svg class="icon" aria-hidden="true"><use xlink:href="#yes_submit"></use></svg>
+          </button>
+        </span>
+      </div>
+    </div>
+    `;
+        home.append(homeTipsWrap);
         const pinnedSection = this.createSection({
             page: 'home',
             id: 'pinnedOptions',
@@ -48185,6 +48214,7 @@ class SettingsPanel {
         });
         otherBlock.content.append(otherBtnsBlock);
         home.append(otherBlock.root);
+        this.bindHomeOtherBtnsVisibility(otherBlock, otherBtnsBlock);
         const downloadBlock = this.createSection({
             page: 'home',
             id: 'downloadArea',
@@ -48199,6 +48229,21 @@ class SettingsPanel {
         downloadContentWrap.append(downloadBtnsBlock, downloadArea, progressBar);
         downloadBlock.content.append(downloadContentWrap);
         home.append(downloadBlock.root);
+    }
+    bindHomeOtherBtnsVisibility(otherBlock, otherBtnsBlock) {
+        const toggleOtherBlock = () => {
+            const hasButtons = otherBtnsBlock.querySelector('button') !== null;
+            otherBlock.root.style.display = hasButtons ? '' : 'none';
+        };
+        toggleOtherBlock();
+        this.otherBtnsVisibilityObserver?.disconnect();
+        this.otherBtnsVisibilityObserver = new MutationObserver(() => {
+            toggleOtherBlock();
+        });
+        this.otherBtnsVisibilityObserver.observe(otherBtnsBlock, {
+            childList: true,
+            subtree: true,
+        });
     }
     buildCategoryPages() {
         const allCategories = Object.keys(_OptionConfigs__WEBPACK_IMPORTED_MODULE_7__.optionConfigs.categorySchema);
@@ -48226,32 +48271,23 @@ class SettingsPanel {
         tipsWrap.innerHTML = `
     <div class="settingsPanel_tipCard" id="tipPinOption">
       <svg class="icon settingsPanel_tipIcon" aria-hidden="true"><use xlink:href="#light-line"></use></svg>
-      <div class="settingsPanel_tipText" data-xztext="_提示可以置顶选项"></div>
-      <button class="settingsPanel_tipConfirm" type="button" data-xztitle="_已确认">
-        <svg class="icon" aria-hidden="true"><use xlink:href="#yes_submit"></use></svg>
-      </button>
-    </div>
-    <div class="settingsPanel_tipCard" id="tipCloseAskFileSaveLocation">
-      <svg class="icon settingsPanel_tipIcon" aria-hidden="true"><use xlink:href="#light-line"></use></svg>
       <div class="settingsPanel_tipText">
-        <span data-xztext="_提示"></span>
-        <span>: </span>
-        <span data-xztext="_建议您关闭询问文件保存位置"></span>
+        <span class="settingsPanel_tipTextContent" data-xztext="_提示可以置顶选项"></span>
+        <button class="settingsPanel_tipConfirm" type="button" data-xztitle="_已确认">
+          <svg class="icon" aria-hidden="true"><use xlink:href="#yes_submit"></use></svg>
+        </button>
       </div>
-      <button class="settingsPanel_tipConfirm" type="button" data-xztitle="_已确认">
-        <svg class="icon" aria-hidden="true"><use xlink:href="#yes_submit"></use></svg>
-      </button>
     </div>
     <div class="settingsPanel_tipCard" id="tipOpenWikiLinkWrap">
       <svg class="icon settingsPanel_tipIcon" aria-hidden="true"><use xlink:href="#light-line"></use></svg>
       <div class="settingsPanel_tipText">
-        <span data-xztext="_提示"></span>
-        <span>: </span>
-        <span data-xztext="_提示查看wiki页面"></span>
+        <span class="settingsPanel_tipTextContent">
+          <span data-xztext="_提示查看wiki页面"></span>
+          <button class="settingsPanel_tipConfirm" type="button" data-xztitle="_已确认">
+            <svg class="icon" aria-hidden="true"><use xlink:href="#yes_submit"></use></svg>
+          </button>
+        </span>
       </div>
-      <button class="settingsPanel_tipConfirm" type="button" data-xztitle="_已确认">
-        <svg class="icon" aria-hidden="true"><use xlink:href="#yes_submit"></use></svg>
-      </button>
     </div>
     `;
         help.append(tipsWrap);
@@ -48323,10 +48359,12 @@ class SettingsPanel {
         title.className = 'settingsPanel_sectionTitle';
         title.dataset.xztext = titleKey;
         headerMain.append(title);
-        const arrow = document.createElement('svg');
-        arrow.className = 'icon settingsPanel_sectionArrow';
+        const arrow = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        arrow.setAttribute('class', 'icon settingsPanel_sectionArrow');
         arrow.setAttribute('aria-hidden', 'true');
-        arrow.innerHTML = `<use xlink:href="#arrow-down-2"></use>`;
+        const arrowUse = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+        arrowUse.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#arrow-down-2');
+        arrow.append(arrowUse);
         header.append(arrow);
         const content = document.createElement('div');
         content.className =

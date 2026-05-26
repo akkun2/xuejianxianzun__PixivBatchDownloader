@@ -950,6 +950,7 @@ class Settings {
     imageToGray: false,
     /** 保存每个可折叠区域的展开/折叠状态 */
     // home 里的二级分类名称是直接在这里指定的。其他导航分类里的二级分类名称来自 OptionConfigs.ts 里的 categorySchema 对象里，对应的一级分类的 level2.id。
+    // 每个一级分类里的首个二级分类是默认展开的，这样用户至少可以看到第一个二级分类的内容，不需要手动点击来展开它。
     expandedCards: {
       home: {
         /** 置顶的设置区域 */
@@ -962,7 +963,7 @@ class Settings {
         downloadArea: false,
       },
       crawl: {
-        scope: false,
+        scope: true,
         workType: false,
         workData: false,
         tagAndTitle: false,
@@ -971,14 +972,14 @@ class Settings {
         strategy: false,
       },
       naming: {
-        names: false,
+        names: true,
         adjustFolders: false,
         serial: false,
         alias: false,
         removeSpecialChars: false,
       },
       download: {
-        behavior: false,
+        behavior: true,
         record: false,
         imageSize: false,
         ugoira: false,
@@ -986,14 +987,14 @@ class Settings {
         metadata: false,
       },
       enhance: {
-        preview: false,
+        preview: true,
         thumbnail: false,
         thumbnailButtons: false,
         other: false,
         searchPage: false,
       },
       general: {
-        appearance: false,
+        appearance: true,
         language: false,
         log: false,
         manageSettings: false,

@@ -6,23 +6,6 @@
     color: #fff;
   }
 
-  background-color: #fff;
-  box-shadow: #36a2e1 0px 0px 25px;
-  box-sizing: border-box;
-  position: fixed;
-  z-index: 5000;
-  font-size: 14px;
-  display: none;
-  width: 735px;
-  left: -367.5px;
-  margin-left: 50%;
-  top: 4vh;
-  color: #444;
-  padding: 20px 0px;
-  border-radius: 15px;
-  overflow: hidden;
-  font-family: @pixivFontFamily;
-
   hr {
     border: none;
     height: 1px;
@@ -384,7 +367,6 @@
         .setinput_style1 {
           width: 50px;
           min-width: 50px;
-          font-size: 14px !important;
           height: 20px;
           line-height: 20px;
           margin: 3px 0;
@@ -480,7 +462,6 @@
       }
 
       option {
-        font-size: 14px !important;
         line-height: 24px;
       }
 
@@ -500,8 +481,8 @@
 
       .centerPanelTextArea {
         font-family: @pixivFontFamily;
-        color: @beautifyBlue;
-        font-size: 14px;
+        color: @themeBlue;
+        font-size: 15px;
         background: transparent;
         padding: 0;
         flex-basis: 100%;
@@ -565,7 +546,8 @@
       /*--------美化作为开关的复选框------------*/
 
       label.active {
-        color: @beautifyBlue;
+        // 之前把被选中的控件的 label 文字也变成蓝色，但是太多的蓝色文字导致很难区分设置项的名称与 label 文字了（因为两者都是蓝色的），所以现在取消这个设计了
+        // color: @beautifyBlue;
       }
 
       .beautify_switch {
@@ -775,7 +757,7 @@
       .centerWrap_btns button,
       .progressTip {
         color: #fff;
-        font-size: 14px;
+        font-size: 15px;
       }
 
       .progressBarWrap {

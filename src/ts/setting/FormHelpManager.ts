@@ -54,7 +54,7 @@ class FormHelpManager {
           (ev: CustomEventInit) => {
             const data = ev.detail.data as any
             if (data.name === item.key) {
-              el.style.display = data.value ? 'block' : 'none'
+              el.style.display = data.value ? 'flex' : 'none'
             }
           }
         )

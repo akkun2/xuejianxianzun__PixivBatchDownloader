@@ -101,6 +101,7 @@ class SettingsPanel {
   private summaryProgress!: HTMLSpanElement
   private summaryStateIconUse!: SVGUseElement
   private helpActionsWrap!: HTMLDivElement
+  private otherBtnsVisibilityObserver?: MutationObserver
   private debouncedSearch = Utils.debounce(() => this.updateSearchResult(), 200)
 
   private cacheShellElements() {
@@ -223,6 +224,23 @@ class SettingsPanel {
   ) {
     const home = this.pageInners.get('home')!
 
+    const homeTipsWrap = document.createElement('div')
+    homeTipsWrap.className = 'settingsPanel_helpTips settingsPanel_homeTips'
+    homeTipsWrap.innerHTML = `
+    <div class="settingsPanel_tipCard" id="tipCloseAskFileSaveLocation">
+      <svg class="icon settingsPanel_tipIcon" aria-hidden="true"><use xlink:href="#light-line"></use></svg>
+      <div class="settingsPanel_tipText">
+        <span class="settingsPanel_tipTextContent">
+          <span data-xztext="_建议您关闭询问文件保存位置"></span>
+          <button class="settingsPanel_tipConfirm" type="button" data-xztitle="_已确认">
+            <svg class="icon" aria-hidden="true"><use xlink:href="#yes_submit"></use></svg>
+          </button>
+        </span>
+      </div>
+    </div>
+    `
+    home.append(homeTipsWrap)
+
     const pinnedSection = this.createSection({
       page: 'home',
       id: 'pinnedOptions',
@@ -258,6 +276,7 @@ class SettingsPanel {
     })
     otherBlock.content.append(otherBtnsBlock)
     home.append(otherBlock.root)
+    this.bindHomeOtherBtnsVisibility(otherBlock, otherBtnsBlock)
 
     const downloadBlock = this.createSection({
       page: 'home',
@@ -273,6 +292,27 @@ class SettingsPanel {
     downloadContentWrap.append(downloadBtnsBlock, downloadArea, progressBar)
     downloadBlock.content.append(downloadContentWrap)
     home.append(downloadBlock.root)
+  }
+
+  private bindHomeOtherBtnsVisibility(
+    otherBlock: FoldableSection,
+    otherBtnsBlock: HTMLDivElement
+  ) {
+    const toggleOtherBlock = () => {
+      const hasButtons = otherBtnsBlock.querySelector('button') !== null
+      otherBlock.root.style.display = hasButtons ? '' : 'none'
+    }
+
+    toggleOtherBlock()
+
+    this.otherBtnsVisibilityObserver?.disconnect()
+    this.otherBtnsVisibilityObserver = new MutationObserver(() => {
+      toggleOtherBlock()
+    })
+    this.otherBtnsVisibilityObserver.observe(otherBtnsBlock, {
+      childList: true,
+      subtree: true,
+    })
   }
 
   private buildCategoryPages() {
@@ -312,32 +352,23 @@ class SettingsPanel {
     tipsWrap.innerHTML = `
     <div class="settingsPanel_tipCard" id="tipPinOption">
       <svg class="icon settingsPanel_tipIcon" aria-hidden="true"><use xlink:href="#light-line"></use></svg>
-      <div class="settingsPanel_tipText" data-xztext="_提示可以置顶选项"></div>
-      <button class="settingsPanel_tipConfirm" type="button" data-xztitle="_已确认">
-        <svg class="icon" aria-hidden="true"><use xlink:href="#yes_submit"></use></svg>
-      </button>
-    </div>
-    <div class="settingsPanel_tipCard" id="tipCloseAskFileSaveLocation">
-      <svg class="icon settingsPanel_tipIcon" aria-hidden="true"><use xlink:href="#light-line"></use></svg>
       <div class="settingsPanel_tipText">
-        <span data-xztext="_提示"></span>
-        <span>: </span>
-        <span data-xztext="_建议您关闭询问文件保存位置"></span>
+        <span class="settingsPanel_tipTextContent" data-xztext="_提示可以置顶选项"></span>
+        <button class="settingsPanel_tipConfirm" type="button" data-xztitle="_已确认">
+          <svg class="icon" aria-hidden="true"><use xlink:href="#yes_submit"></use></svg>
+        </button>
       </div>
-      <button class="settingsPanel_tipConfirm" type="button" data-xztitle="_已确认">
-        <svg class="icon" aria-hidden="true"><use xlink:href="#yes_submit"></use></svg>
-      </button>
     </div>
     <div class="settingsPanel_tipCard" id="tipOpenWikiLinkWrap">
       <svg class="icon settingsPanel_tipIcon" aria-hidden="true"><use xlink:href="#light-line"></use></svg>
       <div class="settingsPanel_tipText">
-        <span data-xztext="_提示"></span>
-        <span>: </span>
-        <span data-xztext="_提示查看wiki页面"></span>
+        <span class="settingsPanel_tipTextContent">
+          <span data-xztext="_提示查看wiki页面"></span>
+          <button class="settingsPanel_tipConfirm" type="button" data-xztitle="_已确认">
+            <svg class="icon" aria-hidden="true"><use xlink:href="#yes_submit"></use></svg>
+          </button>
+        </span>
       </div>
-      <button class="settingsPanel_tipConfirm" type="button" data-xztitle="_已确认">
-        <svg class="icon" aria-hidden="true"><use xlink:href="#yes_submit"></use></svg>
-      </button>
     </div>
     `
     help.append(tipsWrap)
@@ -442,10 +473,22 @@ class SettingsPanel {
     title.dataset.xztext = titleKey
     headerMain.append(title)
 
-    const arrow = document.createElement('svg')
-    arrow.className = 'icon settingsPanel_sectionArrow'
+    const arrow = document.createElementNS(
+      'http://www.w3.org/2000/svg',
+      'svg'
+    ) as SVGSVGElement
+    arrow.setAttribute('class', 'icon settingsPanel_sectionArrow')
     arrow.setAttribute('aria-hidden', 'true')
-    arrow.innerHTML = `<use xlink:href="#arrow-down-2"></use>`
+    const arrowUse = document.createElementNS(
+      'http://www.w3.org/2000/svg',
+      'use'
+    )
+    arrowUse.setAttributeNS(
+      'http://www.w3.org/1999/xlink',
+      'xlink:href',
+      '#arrow-down-2'
+    )
+    arrow.append(arrowUse)
     header.append(arrow)
 
     const content = document.createElement('div')

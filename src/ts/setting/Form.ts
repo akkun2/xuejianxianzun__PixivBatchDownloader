@@ -27,9 +27,9 @@ class Form {
     new SaveNamingRule(this.form.userSetName, 'artwork')
     new SaveNamingRule(this.form.userSetNameForNovel, 'novel')
     new FormSettings(this.form)
-    new FormHelpManager(this.form)
     new FormBeautify(this.form)
     new SettingsPanel(this.form)
+    new FormHelpManager(this.form)
 
     this.bindFormEvents()
     this.bindFunctionBtn()
