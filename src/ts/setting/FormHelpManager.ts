@@ -22,15 +22,15 @@ class FormHelpManager {
   private readonly tipAreaConfig: { key: SettingKeys; selector: string }[] = [
     {
       key: 'tipPinOption',
-      selector: 'p#tipPinOption',
+      selector: '#tipPinOption',
     },
     {
       key: 'tipCloseAskFileSaveLocation',
-      selector: 'p#tipCloseAskFileSaveLocation',
+      selector: '#tipCloseAskFileSaveLocation',
     },
     {
       key: 'tipOpenWikiLink',
-      selector: 'p#tipOpenWikiLinkWrap',
+      selector: '#tipOpenWikiLinkWrap',
     },
   ]
 
@@ -73,17 +73,6 @@ class FormHelpManager {
       btn.addEventListener('click', () => {
         // 切换显示提示区域
         Utils.toggleEl(tipEl)
-        // 选项可能被置顶，从而脱离了原来的位置，与提示区域不挨在一起了
-        // 所以这里还需要查找这个提示区域对应的选项，然后把提示区域移动到选项之后，让它们挨在一起
-        const no = btn.dataset.forNo
-        if (no) {
-          const option = this.form.querySelector(
-            `.option[data-no="${no}"]`
-          ) as HTMLElement
-          if (option) {
-            option.insertAdjacentElement('afterend', tipEl)
-          }
-        }
       })
     })
   }

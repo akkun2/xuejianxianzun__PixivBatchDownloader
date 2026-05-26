@@ -677,7 +677,8 @@ body.mobile #quickCrawlBtn {
   border-radius: 6px;
 }
 .centerWrap .centerWrap_con .settingForm .option:hover {
-  background-color: rgba(99, 205, 247, 0.1);
+  outline: 2px solid #f5c519;
+  outline-offset: -2px;
 }
 .centerWrap .centerWrap_con .settingForm .option .pinButton {
   position: absolute;
@@ -1349,9 +1350,6 @@ body.mobile #quickCrawlBtn {
 .centerWrap.theme-dark .option.new::before {
   color: #fff !important;
 }
-.centerWrap.theme-dark .option:hover {
-  background-color: rgba(204, 240, 254, 0.3);
-}
 .centerWrap.theme-dark button,
 .centerWrap.theme-dark .tip {
   color: #fff;
@@ -1421,9 +1419,6 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap.xzBG .option.new::before {
   color: #fff !important;
-}
-.centerWrap.xzBG .option:hover {
-  background-color: rgba(209, 239, 251, 0.2) !important;
 }
 .centerWrap.xzBG button,
 .centerWrap.xzBG .tip {

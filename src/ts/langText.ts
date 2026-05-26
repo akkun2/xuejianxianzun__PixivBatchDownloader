@@ -1741,7 +1741,7 @@ This part only applies to Windows. With a few settings, you can view thumbnails 
     '파일명 미리보기',
     'Имя файла предварительного просмотра',
   ],
-  _下载线程: [
+  _同时下载数量: [
     '同时下载<span class="key">数量</span>',
     '同時下載<span class="key">數量</span>',
     'Download <span class="key">thread</span>',

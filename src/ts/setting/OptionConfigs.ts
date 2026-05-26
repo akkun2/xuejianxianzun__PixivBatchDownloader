@@ -792,7 +792,7 @@ class OptionConfigs {
     // 下载
     {
       no: 16,
-      nameKey: '_下载线程',
+      nameKey: '_同时下载数量',
       name: '',
       categoryLevel1: 'download',
       categoryLevel2: 'behavior',
