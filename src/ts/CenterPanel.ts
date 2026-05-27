@@ -37,7 +37,7 @@ class CenterPanel {
           <div class="settingsPanel_headerMain">
             <div class="settingsPanel_brand">
               <svg class="icon settingsPanel_logo" aria-hidden="true"><use xlink:href="#logo128"></use></svg>
-              <span class="settingsPanel_brandName blue">${Config.appName}</span>
+              <span class="settingsPanel_brandName">${Config.appName}</span>
             </div>
 
             <button class="textButton centerWrap_top_btn centerWrap_close centerWrap_close_mobile" type="button" data-xztitle="_关闭">

@@ -2333,7 +2333,7 @@ class CenterPanel {
           <div class="settingsPanel_headerMain">
             <div class="settingsPanel_brand">
               <svg class="icon settingsPanel_logo" aria-hidden="true"><use xlink:href="#logo128"></use></svg>
-              <span class="settingsPanel_brandName blue">${_Config__WEBPACK_IMPORTED_MODULE_5__.Config.appName}</span>
+              <span class="settingsPanel_brandName">${_Config__WEBPACK_IMPORTED_MODULE_5__.Config.appName}</span>
             </div>
 
             <button class="textButton centerWrap_top_btn centerWrap_close centerWrap_close_mobile" type="button" data-xztitle="_关闭">
@@ -2634,14 +2634,13 @@ var Colors;
     Colors["textError"] = "#f00";
     // 背景颜色
     // 稍暗，适合在颜色区域的面积较大时使用
-    // bgBlue = '#0ea8ef',
-    Colors["bgBlue"] = "#09a0f4";
+    Colors["bgBlue"] = "#00aeff";
     Colors["bgGreen"] = "#14ad27";
     Colors["bgYellow"] = "#e49d00";
     Colors["bgRed"] = "#f33939";
     // 带有语义的背景颜色
     // 稍亮，适合在小区域使用
-    Colors["bgBrightBlue"] = "#29b3f3";
+    Colors["bgBrightBlue"] = "#12acff";
     Colors["bgSuccess"] = "#00BD17";
     Colors["bgWarning"] = "#e49d00";
     Colors["bgError"] = "#f00";
@@ -39245,7 +39244,11 @@ class OutputPanel {
     addOutPutPanel() {
         const html = `
     <div class="outputWrap">
-    <div class="outputClose" data-xztitle="_关闭">×</div>
+    <div class="outputClose" data-xztitle="_关闭">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#close"></use>
+      </svg>
+    </div>
     <div class="outputTitle" data-xztext="_输出信息"></div>
     <div class="outputContent beautify_scrollbar"></div>
     <div class="outputFooter">
@@ -69211,11 +69214,25 @@ class Utils {
     static longPress(el, callback, delay = 500) {
         let timer = null;
         let isLongPress = false;
+        let startPoint = null;
+        const moveThreshold = 4;
+        const getPoint = (e) => {
+            if (e instanceof MouseEvent) {
+                return { x: e.clientX, y: e.clientY };
+            }
+            const touch = e.touches[0] || e.changedTouches[0];
+            if (!touch) {
+                return null;
+            }
+            return { x: touch.clientX, y: touch.clientY };
+        };
         const start = (e) => {
             if (e instanceof MouseEvent && e.button !== 0)
                 return;
             isLongPress = false;
+            startPoint = getPoint(e);
             timer = setTimeout(() => {
+                timer = null;
                 isLongPress = true;
                 callback();
             }, delay);
@@ -69224,6 +69241,22 @@ class Utils {
             if (timer !== null) {
                 clearTimeout(timer);
                 timer = null;
+            }
+            startPoint = null;
+        };
+        const handleMove = (e) => {
+            if (timer === null || !startPoint) {
+                return;
+            }
+            const currentPoint = getPoint(e);
+            if (!currentPoint) {
+                cancel();
+                return;
+            }
+            const moved = Math.abs(currentPoint.x - startPoint.x) > moveThreshold ||
+                Math.abs(currentPoint.y - startPoint.y) > moveThreshold;
+            if (moved) {
+                cancel();
             }
         };
         // 长按触发后，拦截随后的 click 事件，避免触发 A/BUTTON 的默认行为
@@ -69237,12 +69270,13 @@ class Utils {
         el.addEventListener('mousedown', start);
         el.addEventListener('mouseup', cancel);
         el.addEventListener('mouseleave', cancel);
+        el.addEventListener('mousemove', handleMove);
         el.addEventListener('click', handleClick);
         el.addEventListener('touchstart', start, { passive: true });
         el.addEventListener('touchend', cancel);
         el.addEventListener('touchcancel', cancel);
         // 手指移动时（如滚动）取消长按
-        el.addEventListener('touchmove', cancel, { passive: true });
+        el.addEventListener('touchmove', handleMove, { passive: true });
     }
     /** 判断鼠标是否处于某个元素的范围内 */
     static mouseInElementArea(el, x, y) {

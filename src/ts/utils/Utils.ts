@@ -597,11 +597,27 @@ class Utils {
   static longPress(el: HTMLElement, callback: Function, delay: number = 500) {
     let timer: ReturnType<typeof setTimeout> | null = null
     let isLongPress = false
+    let startPoint: { x: number; y: number } | null = null
+    const moveThreshold = 4
+
+    const getPoint = (e: MouseEvent | TouchEvent) => {
+      if (e instanceof MouseEvent) {
+        return { x: e.clientX, y: e.clientY }
+      }
+
+      const touch = e.touches[0] || e.changedTouches[0]
+      if (!touch) {
+        return null
+      }
+      return { x: touch.clientX, y: touch.clientY }
+    }
 
     const start = (e: MouseEvent | TouchEvent) => {
       if (e instanceof MouseEvent && e.button !== 0) return
       isLongPress = false
+      startPoint = getPoint(e)
       timer = setTimeout(() => {
+        timer = null
         isLongPress = true
         callback()
       }, delay)
@@ -611,6 +627,27 @@ class Utils {
       if (timer !== null) {
         clearTimeout(timer)
         timer = null
+      }
+      startPoint = null
+    }
+
+    const handleMove = (e: MouseEvent | TouchEvent) => {
+      if (timer === null || !startPoint) {
+        return
+      }
+
+      const currentPoint = getPoint(e)
+      if (!currentPoint) {
+        cancel()
+        return
+      }
+
+      const moved =
+        Math.abs(currentPoint.x - startPoint.x) > moveThreshold ||
+        Math.abs(currentPoint.y - startPoint.y) > moveThreshold
+
+      if (moved) {
+        cancel()
       }
     }
 
@@ -626,13 +663,14 @@ class Utils {
     el.addEventListener('mousedown', start)
     el.addEventListener('mouseup', cancel)
     el.addEventListener('mouseleave', cancel)
+    el.addEventListener('mousemove', handleMove)
     el.addEventListener('click', handleClick)
 
     el.addEventListener('touchstart', start, { passive: true })
     el.addEventListener('touchend', cancel)
     el.addEventListener('touchcancel', cancel)
     // 手指移动时（如滚动）取消长按
-    el.addEventListener('touchmove', cancel, { passive: true })
+    el.addEventListener('touchmove', handleMove, { passive: true })
   }
 
   /** 判断鼠标是否处于某个元素的范围内 */

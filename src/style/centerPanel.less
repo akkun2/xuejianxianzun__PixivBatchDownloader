@@ -37,12 +37,12 @@
   }
 
   .blue {
-    color: @themeBlue !important;
+    color: @beautifyBlue !important;
   }
 
   .has_tip:hover,
   label:hover {
-    color: @themeBlue !important;
+    color: @beautifyBlue !important;
   }
 
   .fwb {
@@ -116,56 +116,6 @@
     }
   }
 
-  .centerWrap_tabs {
-    display: flex;
-    padding: 0;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 8px;
-    position: relative;
-
-    .title {
-      text-align: center;
-      width: 100%;
-      flex: 1;
-      font-size: 1.1em;
-      cursor: pointer;
-      height: 36px;
-      line-height: 36px;
-      position: relative;
-
-      &.active {
-        color: @themeBlue;
-      }
-
-      &:hover {
-        color: @themeBlue;
-      }
-    }
-
-    .title_active {
-      position: absolute;
-      width: 33.3%;
-      height: 2px;
-      background: @beautifyBlue;
-      top: 35px;
-      left: 0%;
-      z-index: 1001;
-      transition: left 0.2s;
-
-      &.tab1 {
-        left: 0%;
-      }
-
-      &.tab2 {
-        left: 33.3%;
-      }
-
-      &.tab3 {
-        left: 66.6%;
-      }
-    }
-  }
-
   .centerWrap_con {
     overflow: auto;
     max-height: 76vh;
@@ -188,8 +138,8 @@
     .textButton:focus,
     .help_bar > *:hover,
     .updateActiveClass {
-      color: @themeBlue !important;
-      fill: @themeBlue !important;
+      color: @beautifyBlue !important;
+      fill: @beautifyBlue !important;
     }
 
     .grayButton:hover,
@@ -473,7 +423,7 @@
 
       .centerPanelTextArea {
         font-family: @pixivFontFamily;
-        color: @themeBlue;
+        color: @beautifyBlue;
         font-size: 15px;
         background: transparent;
         padding: 0;
@@ -566,7 +516,7 @@
       }
 
       .checkbox_switch:checked + .beautify_switch {
-        background: @beautifyBlue;
+        background: @bgCheckBoxBlue;
       }
 
       .checkbox_switch:checked + .beautify_switch::before {
@@ -606,12 +556,12 @@
       }
 
       .checkbox_common:checked + .beautify_checkbox {
-        background: @beautifyBlue;
-        border: 1px solid @beautifyBlue;
+        background: @bgCheckBoxBlue;
+        border: 1px solid @bgCheckBoxBlue;
       }
 
       .beautify_checkbox:hover {
-        border: 1px solid @beautifyBlue;
+        border: 1px solid @bgCheckBoxBlue;
       }
 
       .checkbox_common:checked + .beautify_checkbox::after {
@@ -619,7 +569,7 @@
       }
 
       .checkbox_common:focus + .beautify_checkbox {
-        border: 1px solid @beautifyBlue;
+        border: 1px solid @bgCheckBoxBlue;
       }
 
       /*--------美化单选框------------*/
@@ -649,12 +599,12 @@
       }
 
       .radio:checked + .beautify_radio {
-        background: @beautifyBlue;
-        border: 1px solid @beautifyBlue;
+        background: @bgCheckBoxBlue;
+        border: 1px solid @bgCheckBoxBlue;
       }
 
       .beautify_radio:hover {
-        border: 1px solid @beautifyBlue;
+        border: 1px solid @bgCheckBoxBlue;
       }
 
       .radio:checked + .beautify_radio::after {
@@ -994,11 +944,9 @@
 }
 
 .centerWrap.theme-white {
-  // 对于选项名称，在默认的亮色主题里，设置更深的文字颜色，以和选项的内容做出区分
-  // 目前选项名称是 #222, 选项内容是 #444
   .option > .settingNameStyle,
   .optionName {
-    color: #222;
+    color: #333;
   }
 }
 
@@ -1258,21 +1206,11 @@
   // 把设置项的标题加粗
   .option > a,
   .optionName {
-    // font-weight: bold;
-
     // 把关键字高亮并加粗显示
     .key {
-      color: @themeBlue;
+      color: @beautifyBlue;
       font-weight: bold;
     }
-  }
-}
-
-.theme-white.showBlobKeywords {
-  // 在白色主题下，把设置名称的文字颜色减淡
-  .option > a,
-  .optionName {
-    // color: #777 !important;
   }
 }
 

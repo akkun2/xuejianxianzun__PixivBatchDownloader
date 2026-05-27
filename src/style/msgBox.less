@@ -15,6 +15,11 @@
   text-align: center;
   font-family: @pixivFontFamily;
 
+  &::selection {
+    background: @themeBlue;
+    color: #fff;
+  }
+
   p {
     margin: 0;
   }
@@ -22,11 +27,11 @@
   .title {
     font-size: 17px;
     font-weight: bold;
-    color: @themeBlue;
+    color: @blueButtonsBg;
   }
 
   .blue {
-    color: @themeBlue;
+    color: @blueButtonsBg;
   }
 
   .content {
@@ -42,7 +47,7 @@
 
   .btn {
     cursor: pointer;
-    background: @themeBlue;
+    background: @blueButtonsBg;
     // box-shadow: @boxShadowBlue 1px 1px 1px;
     color: #fff;
     border: none;
@@ -52,7 +57,7 @@
   }
 
   a {
-    color: @themeBlue;
+    color: @blueButtonsBg;
   }
 }
 

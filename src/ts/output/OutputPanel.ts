@@ -74,7 +74,11 @@ class OutputPanel {
   private addOutPutPanel() {
     const html = `
     <div class="outputWrap">
-    <div class="outputClose" data-xztitle="_关闭">×</div>
+    <div class="outputClose" data-xztitle="_关闭">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#close"></use>
+      </svg>
+    </div>
     <div class="outputTitle" data-xztext="_输出信息"></div>
     <div class="outputContent beautify_scrollbar"></div>
     <div class="outputFooter">

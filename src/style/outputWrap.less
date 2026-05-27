@@ -14,12 +14,17 @@
   margin-left: -300px;
   left: 50%;
 
+  &::selection {
+    background: @themeBlue;
+    color: #fff;
+  }
+
   .outputTitle {
     height: 20px;
     line-height: 20px;
     text-align: center;
     font-size: 18px;
-    color: @themeBlue;
+    color: @blueButtonsBg;
   }
 
   .outputContent {
@@ -34,11 +39,6 @@
     min-height: 100px;
     word-break: break-all;
 
-    &::selection {
-      background: @themeBlue;
-      color: #fff;
-    }
-
     p.result {
       margin-bottom: 10px;
     }
@@ -48,7 +48,7 @@
     }
 
     .colorFolder {
-      color: @themeBlue;
+      color: @blueButtonsBg;
     }
 
     .color666 {
@@ -71,7 +71,7 @@
     color: #666;
 
     &:hover {
-      color: @themeBlue;
+      color: @blueButtonsBg;
     }
   }
 
@@ -89,7 +89,7 @@
     min-width: 100px;
     padding: 2px 25px;
     margin-top: 15px;
-    background: @themeBlue;
+    background: @blueButtonsBg;
     color: #fff;
     font-size: 14px;
     border: none;
