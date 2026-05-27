@@ -2398,15 +2398,14 @@ class CenterPanel {
             <div class="settingsPanel_downloadSummary" id="settingsPanelDownloadSummary">
               <div class="settingsPanel_downloadSummaryStatus">
                 <svg class="icon settingsPanel_downloadSummaryStateIcon" aria-hidden="true">
-                  <use xlink:href="#play"></use>
+                  <use xlink:href="#start"></use>
                 </svg>
-                <span class="settingsPanel_downloadSummaryStateText" data-xztext="_未开始下载"></span>
                 <span class="settingsPanel_downloadSummaryProgress">0 / 0</span>
               </div>
 
               <div class="settingsPanel_downloadSummaryActions">
                 <button class="textButton settingsPanel_downloadSummaryBtn" id="settingsPanelSummaryStart" type="button" data-xztitle="_开始下载">
-                  <svg class="icon" aria-hidden="true"><use xlink:href="#play"></use></svg>
+                  <svg class="icon" aria-hidden="true"><use xlink:href="#start"></use></svg>
                 </button>
                 <button class="textButton settingsPanel_downloadSummaryBtn" id="settingsPanelSummaryPause" type="button" data-xztitle="_暂停下载">
                   <svg class="icon" aria-hidden="true"><use xlink:href="#pause"></use></svg>
@@ -5237,24 +5236,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   applyIconScale: () => (/* binding */ applyIconScale),
 /* harmony export */   applyIconScaleIn: () => (/* binding */ applyIconScaleIn)
 /* harmony export */ });
-const iconScaleMap = {
-    close: { scale: 0.85 },
-    reset: { scale: 0.85 },
-    'home-fill': { scale: 0.9 },
-    'home-line': { scale: 0.9 },
-    github: { scale: 0.9 },
-    qq: { scale: 0.9 },
-    help: { scale: 0.9 },
-    'heart-line': { scale: 0.9 },
-    'arrow-up': { scale: 0.94 },
-    f: { scale: 1.1 },
-    wiki: { scale: 1.1 },
-    yes: { scale: 1.2 },
-    'paper-airplane': { scale: 1.1 },
-    link: { scale: 1.2 },
-    'arrow-down': { scale: 1.1 },
-    'arrow-down-2': { scale: 1.2 },
-};
+const iconScaleMap = {};
 function getUseHref(use) {
     const href = use.getAttribute('href') || use.getAttribute('xlink:href') || '';
     return href.startsWith('#') ? href.slice(1) : href;
@@ -35253,20 +35235,20 @@ If the number of works shown on the page is greater than 0, it may be that Pixiv
         'Повторно отобразить справку',
     ],
     _重新显示帮助的说明: [
-        '下载器的一些帮助信息是一次性的，显示一次之后就不会再显示了。<br>点击这个按钮可以让下载器再次显示这些帮助信息。',
-        '下載器的一些幫助資訊是一次性的，顯示一次之後就不會再顯示了。<br>點選這個按鈕可以讓下載器再次顯示這些幫助資訊。',
-        'Some help information of the downloader is one-time, and it will not be displayed again after being displayed once. <br>Clicking this button allows the downloader to display these help information again.',
-        'ダウンローダーのいくつかのヘルプ情報は一度きりで、一度表示された後は再び表示されません。 <br>  このボタンをクリックすると、ダウンローダーがこれらのヘルプ情報を再び表示できるようになります。',
-        '다운로더의 일부 도움말 정보는 일회성이며 한 번 표시된 후에는 다시 표시되지 않습니다. <br>이 버튼을 클릭하면 다운로더가 이러한 도움말 정보를 다시 표시할 수 있습니다.',
-        'Некоторая справочная информация загрузчика является одноразовой, и после однократного отображения она больше не отображается. <br>Нажав эту кнопку, загрузчик сможет снова отображать эту справочную информацию.',
+        '下载器的一些帮助信息是一次性的，显示一次之后就不会再显示了。<br>点击这个按钮之后，下载器会再次显示这些帮助信息。',
+        '下載器的一些幫助資訊是一次性的，顯示一次之後就不會再顯示了。<br>點擊這個按鈕之後，下載器會再次顯示這些幫助資訊。',
+        'Some help information of the downloader is one-time, and will not be displayed again after being displayed once. <br>After clicking this button, the downloader will display these help information again.',
+        'ダウンローダーのいくつかのヘルプ情報は一度きりで、1回表示された後は再び表示されません。<br>このボタンをクリックすると、ダウンローダーはこれらのヘルプ情報を再び表示します。',
+        '다운로더의 일부 도움말 정보는 일회성이며 한 번 표시된 후에는 다시 표시되지 않습니다. <br>이 버튼을 클릭하면 다운로더가 이러한 도움말 정보를 다시 표시합니다.',
+        'Некоторая справочная информация загрузчика является одноразовой и не будет отображаться снова после однократного отображения. <br>После нажатия этой кнопки загрузчик снова отобразит эту справочную информацию.',
     ],
-    _已重新显示帮助: [
-        '已重新显示帮助',
-        '已重新顯示幫助',
-        'Help redisplayed',
-        'ヘルプが再表示されました',
-        '도움말이 다시 표시되었습니다.',
-        'Справка повторно отображается',
+    _已重置帮助信息: [
+        '已重置帮助信息',
+        '已重置幫助資訊',
+        'Help information reset',
+        'ヘルプ情報がリセットされました',
+        '도움말 정보가 재설정되었습니다.',
+        'Справочная информация сброшена',
     ],
     _自定义标签分隔符号的提示: [
         '现在你可以自定义文件名中使用的标签分隔符号，以替换默认的 <span class="blue">,</span>。',
@@ -47964,7 +47946,7 @@ class Settings {
         this.setSetting('tipCloseAskFileSaveLocation', true);
         this.setSetting('tipPinOption', true);
         this.setSetting('tipCopyWorkInfoButton', true);
-        _Toast__WEBPACK_IMPORTED_MODULE_7__.toast.success(_Language__WEBPACK_IMPORTED_MODULE_8__.lang.transl('_已重新显示帮助'));
+        _Toast__WEBPACK_IMPORTED_MODULE_7__.toast.success(_Language__WEBPACK_IMPORTED_MODULE_8__.lang.transl('_已重置帮助信息'));
     }
     // 重置设置 或者 导入设置
     // 可选参数：传递一份设置数据，用于从配置文件导入，恢复设置
@@ -48237,7 +48219,7 @@ class SettingsPanel {
     searchSummary;
     searchGroupsWrap;
     summaryWrap;
-    summaryStateText;
+    summaryStateSVG;
     summaryProgress;
     summaryStateIconUse;
     helpActionsWrap;
@@ -48249,7 +48231,7 @@ class SettingsPanel {
         this.expandAllBtn = this.centerPanel.querySelector('#settingsPanelToggleExpand');
         this.searchNavBtn = this.centerPanel.querySelector('.settingsPanel_navItem[data-page="search"]');
         this.summaryWrap = this.centerPanel.querySelector('#settingsPanelDownloadSummary');
-        this.summaryStateText = this.centerPanel.querySelector('.settingsPanel_downloadSummaryStateText');
+        this.summaryStateSVG = this.centerPanel.querySelector('.settingsPanel_downloadSummaryStateIcon');
         this.summaryProgress = this.centerPanel.querySelector('.settingsPanel_downloadSummaryProgress');
         this.summaryStateIconUse = this.centerPanel.querySelector('.settingsPanel_downloadSummaryStateIcon use');
         const navButtons = this.centerPanel.querySelectorAll('.settingsPanel_navItem');
@@ -48372,7 +48354,7 @@ class SettingsPanel {
             page: 'home',
             id: 'downloadArea',
             titleKey: '_下载区域',
-            iconId: 'download-line',
+            iconId: 'download',
             persisted: true,
             stickyEligible: false,
             type: 'panel',
@@ -48593,6 +48575,10 @@ class SettingsPanel {
         this.summaryWrap
             .querySelector('#settingsPanelSummaryStop')
             ?.addEventListener('click', () => this.clickRealButton('#stopDownload'));
+        const summaryButtons = this.summaryWrap.querySelectorAll('.settingsPanel_downloadSummaryBtn');
+        summaryButtons.forEach((button) => {
+            button.addEventListener('mouseleave', () => button.blur());
+        });
         this.helpActionsWrap.addEventListener('click', (event) => {
             const button = event.target.closest('.settingsPanel_helpAction');
             if (!button) {
@@ -49101,13 +49087,17 @@ class SettingsPanel {
         this.summaryProgress.textContent = `${downloaded} / ${total}`;
         this.summaryWrap.style.display = total > 0 ? 'block' : 'none';
         if (total === 0) {
-            this.setSummaryState('_未开始下载', 'play');
+            this.setSummaryState('_未开始下载', 'start');
+            return;
+        }
+        if (downloaded >= total) {
+            this.setSummaryState('_下载完毕', 'complete');
             return;
         }
         const statusText = this.form.querySelector('.down_status')?.textContent?.trim() || '';
         switch (statusText) {
             case _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_正在下载中'):
-                this.setSummaryState('_正在下载中', 'right-arrow');
+                this.setSummaryState('_正在下载中', 'loading');
                 break;
             case _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_下载已暂停'):
                 this.setSummaryState('_下载已暂停', 'pause');
@@ -49119,12 +49109,13 @@ class SettingsPanel {
                 this.setSummaryState('_下载完毕', 'complete');
                 break;
             default:
-                this.setSummaryState('_未开始下载', 'play');
+                this.setSummaryState('_未开始下载', 'start');
                 break;
         }
     }
     setSummaryState(textKey, iconId) {
-        _Language__WEBPACK_IMPORTED_MODULE_2__.lang.updateText(this.summaryStateText, textKey);
+        this.summaryStateSVG.classList.toggle('is-loading', iconId === 'loading');
+        this.summaryStateSVG.setAttribute('title', _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl(textKey));
         this.summaryStateIconUse.setAttribute('xlink:href', `#${iconId}`);
     }
     expandHomeDownloadSection() {

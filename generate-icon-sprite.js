@@ -18,7 +18,21 @@ function getSvgFiles() {
 }
 
 function removeFillAttr(svgBody) {
-  return svgBody.replace(/\sfill=(['"])(?:\\.|(?!\1).)*\1/g, '')
+  return svgBody
+    .replace(/\sfill=(['"])(?:\\.|(?!\1).)*\1/gi, '')
+    .replace(/\sstyle=(['"])(.*?)\1/gi, (match, quote, styleValue) => {
+      const cleanedStyle = styleValue
+        .replace(/(^|;)\s*fill\s*:\s*[^;]+(?=;|$)/gi, '$1')
+        .replace(/;\s*;/g, ';')
+        .replace(/^\s*;\s*|\s*;\s*$/g, '')
+        .trim()
+
+      if (!cleanedStyle) {
+        return ''
+      }
+
+      return ` style=${quote}${cleanedStyle}${quote}`
+    })
 }
 
 function getSymbol(fileName) {

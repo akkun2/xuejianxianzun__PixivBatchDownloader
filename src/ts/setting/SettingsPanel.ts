@@ -97,7 +97,7 @@ class SettingsPanel {
   private searchSummary!: HTMLParagraphElement
   private searchGroupsWrap!: HTMLDivElement
   private summaryWrap!: HTMLDivElement
-  private summaryStateText!: HTMLSpanElement
+  private summaryStateSVG!: SVGSVGElement
   private summaryProgress!: HTMLSpanElement
   private summaryStateIconUse!: SVGUseElement
   private helpActionsWrap!: HTMLDivElement
@@ -120,9 +120,9 @@ class SettingsPanel {
     this.summaryWrap = this.centerPanel.querySelector(
       '#settingsPanelDownloadSummary'
     ) as HTMLDivElement
-    this.summaryStateText = this.centerPanel.querySelector(
-      '.settingsPanel_downloadSummaryStateText'
-    ) as HTMLSpanElement
+    this.summaryStateSVG = this.centerPanel.querySelector(
+      '.settingsPanel_downloadSummaryStateIcon'
+    ) as SVGSVGElement
     this.summaryProgress = this.centerPanel.querySelector(
       '.settingsPanel_downloadSummaryProgress'
     ) as HTMLSpanElement
@@ -282,7 +282,7 @@ class SettingsPanel {
       page: 'home',
       id: 'downloadArea',
       titleKey: '_下载区域',
-      iconId: 'download-line',
+      iconId: 'download',
       persisted: true,
       stickyEligible: false,
       type: 'panel',
@@ -578,6 +578,12 @@ class SettingsPanel {
     this.summaryWrap
       .querySelector('#settingsPanelSummaryStop')
       ?.addEventListener('click', () => this.clickRealButton('#stopDownload'))
+    const summaryButtons = this.summaryWrap.querySelectorAll(
+      '.settingsPanel_downloadSummaryBtn'
+    ) as NodeListOf<HTMLButtonElement>
+    summaryButtons.forEach((button) => {
+      button.addEventListener('mouseleave', () => button.blur())
+    })
 
     this.helpActionsWrap.addEventListener('click', (event: MouseEvent) => {
       const button = (event.target as HTMLElement).closest(
@@ -1246,7 +1252,12 @@ class SettingsPanel {
     this.summaryWrap.style.display = total > 0 ? 'block' : 'none'
 
     if (total === 0) {
-      this.setSummaryState('_未开始下载', 'play')
+      this.setSummaryState('_未开始下载', 'start')
+      return
+    }
+
+    if (downloaded >= total) {
+      this.setSummaryState('_下载完毕', 'complete')
       return
     }
 
@@ -1255,7 +1266,7 @@ class SettingsPanel {
 
     switch (statusText) {
       case lang.transl('_正在下载中'):
-        this.setSummaryState('_正在下载中', 'right-arrow')
+        this.setSummaryState('_正在下载中', 'loading')
         break
 
       case lang.transl('_下载已暂停'):
@@ -1271,13 +1282,14 @@ class SettingsPanel {
         break
 
       default:
-        this.setSummaryState('_未开始下载', 'play')
+        this.setSummaryState('_未开始下载', 'start')
         break
     }
   }
 
   private setSummaryState(textKey: LangTextKey, iconId: string) {
-    lang.updateText(this.summaryStateText, textKey)
+    this.summaryStateSVG.classList.toggle('is-loading', iconId === 'loading')
+    this.summaryStateSVG.setAttribute('title', lang.transl(textKey))
     this.summaryStateIconUse.setAttribute('xlink:href', `#${iconId}`)
   }
 

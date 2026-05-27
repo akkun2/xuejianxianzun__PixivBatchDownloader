@@ -102,15 +102,14 @@ class CenterPanel {
             <div class="settingsPanel_downloadSummary" id="settingsPanelDownloadSummary">
               <div class="settingsPanel_downloadSummaryStatus">
                 <svg class="icon settingsPanel_downloadSummaryStateIcon" aria-hidden="true">
-                  <use xlink:href="#play"></use>
+                  <use xlink:href="#start"></use>
                 </svg>
-                <span class="settingsPanel_downloadSummaryStateText" data-xztext="_未开始下载"></span>
                 <span class="settingsPanel_downloadSummaryProgress">0 / 0</span>
               </div>
 
               <div class="settingsPanel_downloadSummaryActions">
                 <button class="textButton settingsPanel_downloadSummaryBtn" id="settingsPanelSummaryStart" type="button" data-xztitle="_开始下载">
-                  <svg class="icon" aria-hidden="true"><use xlink:href="#play"></use></svg>
+                  <svg class="icon" aria-hidden="true"><use xlink:href="#start"></use></svg>
                 </button>
                 <button class="textButton settingsPanel_downloadSummaryBtn" id="settingsPanelSummaryPause" type="button" data-xztitle="_暂停下载">
                   <svg class="icon" aria-hidden="true"><use xlink:href="#pause"></use></svg>
