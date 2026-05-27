@@ -673,6 +673,117 @@ class Utils {
     el.addEventListener('touchmove', handleMove, { passive: true })
   }
 
+  /** 点击事件，支持 PC 和移动端。按下到松开的时长不超过 delay 且未发生位移时触发 */
+  static click(
+    el: HTMLElement,
+    callback: (ev: MouseEvent | TouchEvent) => void,
+    delay: number = 200
+  ) {
+    let pressStartTime = 0
+    let startPoint: { x: number; y: number } | null = null
+    let pressedType: 'mouse' | 'touch' | null = null
+    let moved = false
+    let lastTouchStartTime = 0
+    const moveThreshold = 4
+
+    const getPoint = (e: MouseEvent | TouchEvent) => {
+      if (e instanceof MouseEvent) {
+        return { x: e.clientX, y: e.clientY }
+      }
+
+      const touch = e.touches[0] || e.changedTouches[0]
+      if (!touch) {
+        return null
+      }
+      return { x: touch.clientX, y: touch.clientY }
+    }
+
+    const reset = () => {
+      pressStartTime = 0
+      startPoint = null
+      pressedType = null
+      moved = false
+    }
+
+    const start = (e: MouseEvent | TouchEvent) => {
+      if (e instanceof MouseEvent) {
+        if (e.button !== 0) return
+        // 忽略触屏设备触发的兼容鼠标事件
+        if (Date.now() - lastTouchStartTime < 700) {
+          return
+        }
+        pressedType = 'mouse'
+      } else {
+        pressedType = 'touch'
+        lastTouchStartTime = Date.now()
+      }
+
+      pressStartTime = Date.now()
+      startPoint = getPoint(e)
+      moved = false
+    }
+
+    const handleMove = (e: MouseEvent | TouchEvent) => {
+      if (!pressedType || !startPoint) {
+        return
+      }
+
+      if (pressedType === 'mouse' && !(e instanceof MouseEvent)) {
+        return
+      }
+      if (pressedType === 'touch' && e instanceof MouseEvent) {
+        return
+      }
+
+      const point = getPoint(e)
+      if (!point) {
+        moved = true
+        return
+      }
+      if (
+        Math.abs(point.x - startPoint.x) > moveThreshold ||
+        Math.abs(point.y - startPoint.y) > moveThreshold
+      ) {
+        moved = true
+      }
+    }
+
+    const end = (e: MouseEvent | TouchEvent) => {
+      if (!pressedType) {
+        return
+      }
+
+      if (pressedType === 'mouse' && !(e instanceof MouseEvent)) {
+        return
+      }
+      if (pressedType === 'touch' && e instanceof MouseEvent) {
+        return
+      }
+
+      const duration = Date.now() - pressStartTime
+      const validClick = duration <= delay && !moved
+      reset()
+
+      if (validClick) {
+        callback(e)
+      }
+    }
+
+    const cancel = () => {
+      reset()
+    }
+
+    el.addEventListener('mousedown', start)
+    el.addEventListener('mousemove', handleMove)
+    el.addEventListener('mouseup', end)
+    el.addEventListener('mouseleave', cancel)
+
+    el.addEventListener('touchstart', start, { passive: true })
+    el.addEventListener('touchmove', handleMove, { passive: true })
+    el.addEventListener('touchend', end)
+    el.addEventListener('touchcancel', cancel)
+  }
+
   /** 判断鼠标是否处于某个元素的范围内 */
   static mouseInElementArea(el: Element | undefined, x: number, y: number) {
     if (!el) {

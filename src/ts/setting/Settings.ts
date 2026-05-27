@@ -396,6 +396,7 @@ interface XzSetting {
   singleEPUBFileSizeLimit: number
   imageToGray: boolean
   expandedCards: ExpandedCards
+  clickSettingCardToToggleSwitch: boolean
 }
 
 type SettingKeys = keyof XzSetting
@@ -948,13 +949,14 @@ class Settings {
     debugForWiki: false,
     singleEPUBFileSizeLimit: 200,
     imageToGray: false,
+    clickSettingCardToToggleSwitch: true,
     /** 保存每个可折叠区域的展开/折叠状态 */
     // home 里的二级分类名称是直接在这里指定的。其他导航分类里的二级分类名称来自 OptionConfigs.ts 里的 categorySchema 对象里，对应的一级分类的 level2.id。
     // 每个一级分类里的首个二级分类是默认展开的，这样用户至少可以看到第一个二级分类的内容，不需要手动点击来展开它。
     expandedCards: {
       home: {
         /** 置顶的设置区域 */
-        pinnedOptions: false,
+        pinnedOptions: true,
         /** “开始抓取”区域 */
         crawlBtns: true,
         /** “附加功能”区域 */
@@ -994,8 +996,9 @@ class Settings {
         searchPage: false,
       },
       general: {
-        appearance: true,
-        language: false,
+        language: true,
+        appearance: false,
+        operation: false,
         log: false,
         manageSettings: false,
       },
@@ -1196,6 +1199,9 @@ class Settings {
     this.setSetting('tipPinOption', true)
     this.setSetting('tipCopyWorkInfoButton', true)
 
+    msgBox.show(lang.transl('_重新显示帮助的说明'), {
+      title: lang.transl('_重新显示帮助'),
+    })
     toast.success(lang.transl('_已重置帮助信息'))
   }
 
@@ -1206,9 +1212,12 @@ class Settings {
     EVT.fire('resetSettingsEnd')
   }
 
-  // 更改设置项
-  // 其他模块应该通过这个方法更改设置
-  // 这里面有一些类型转换的代码，主要目的：
+  /** 更新设置项的值 */
+  // 其他模块应该通过这个方法更改设置，这样才能够：
+  // 1. 触发 settingChange 事件，让其他模块能够监听到该设置的变化
+  // 2. 让下载器持久保存修改后的设置
+  // 3. 进行类型转换，以及兼容一些旧设置
+  // 这里面有一些处理兼容性和类型转换的代码，主要目的：
   // 1. 兼容旧版本的设置。读取旧版本的设置时，将其转换成新版本的设置。例如某个设置在旧版本里是 string 类型，值为 'a,b,c'。新版本里是 string[] 类型，这里会自动将其转换成 ['a','b','c']
   // 2. 减少额外操作。例如某个设置的类型为 string[]，其他模块可以传入 string 类型的值如 'a,b,c'，而不必先把它转换成 string[]
   public setSetting(key: SettingKeys, value: SettingValue) {

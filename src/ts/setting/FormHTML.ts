@@ -1,7 +1,7 @@
 import { Config } from '../Config'
 import { namingRuleConfig } from './NamingRuleConfig'
 
-// 设置项编号从 0 开始，现在最大是 107。有些编号空缺，之后可以优先使用空缺的编号。 71 号空缺，下一个设置可以使用它，这样编号就没有空缺了。
+// 设置项编号从 0 开始，现在最大是 108。有些编号空缺，之后可以优先使用空缺的编号。 71 号空缺，下一个设置可以使用它，这样编号就没有空缺了。
 // 帮助按钮上的文字有两种：
 // - 如果帮助文字使用 MsgBox 显示，则使用“_帮助”
 // - 如果帮助文字直接在设置面板上显示，则使用“_提示”
@@ -1559,6 +1559,15 @@ export const formHtml = `
     <input type="radio" name="switchTabBar" id="switchTabBar2" class="need_beautify radio" value="click">
     <span class="beautify_radio" tabindex="0"></span>
     <label for="switchTabBar2" data-xztext="_鼠标点击"></label>
+  </div>
+
+  <div class="option" data-no="108">
+    <a href="" target="_blank" class="settingNameStyle">
+      <span data-xztext="_点击设置卡片时切换它的开关状态"></span>
+    </a>
+    <input type="checkbox" name="clickSettingCardToToggleSwitch" class="need_beautify checkbox_switch" checked>
+    <span class="beautify_switch" tabindex="0"></span>
+    <button type="button" class="gray1 textButton showMsgBtn" data-title="_点击设置卡片时切换它的开关状态" data-msg="_点击设置卡片时切换它的开关状态的说明" data-xztext="_帮助"></button>
   </div>
 
   <div class="option" data-no="53">

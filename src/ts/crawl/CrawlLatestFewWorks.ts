@@ -2,7 +2,6 @@ import { log } from '../Log'
 import { EVT } from '../EVT'
 import { lang } from '../Language'
 import { pageType } from '../PageType'
-import { options } from '../setting/Options'
 import { settings } from '../setting/Settings'
 import { IDData } from '../store/StoreType'
 

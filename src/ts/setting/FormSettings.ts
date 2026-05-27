@@ -157,6 +157,7 @@ class FormSettings {
       'ugoiraSaveAsUgoira',
       'saveThumbnailForUgoira',
       'imageToGray',
+      'clickSettingCardToToggleSwitch',
     ],
     text: [
       'onlyCrawlFirstFewImagesCount',

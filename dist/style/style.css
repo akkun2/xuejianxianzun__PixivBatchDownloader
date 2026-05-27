@@ -2278,8 +2278,10 @@ body.mobile #quickCrawlBtn {
 }
 .outputWrap {
   font-family: 'Noto Sans SC', 'Noto Sans', 'Segeo UI', 'Segeo UI Mono', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  box-sizing: border-box;
   padding: 20px 30px;
-  width: 520px;
+  width: 50vw;
+  max-width: 700px;
   background: #fff;
   border-radius: 15px;
   z-index: 9999;
@@ -2287,8 +2289,8 @@ body.mobile #quickCrawlBtn {
   display: none;
   position: fixed;
   top: 15%;
-  margin-left: -300px;
   left: 50%;
+  transform: translateX(-50%);
 }
 .outputWrap::selection {
   background: #199df5;
@@ -2304,7 +2306,7 @@ body.mobile #quickCrawlBtn {
 .outputWrap .outputContent {
   border: 1px solid #ccc;
   transition: 0.3s;
-  font-size: 14px;
+  font-size: 15px;
   margin-top: 20px;
   padding: 5px 10px;
   overflow: auto;
@@ -2356,7 +2358,7 @@ body.mobile #quickCrawlBtn {
   margin-top: 15px;
   background: #00aeff;
   color: #fff;
-  font-size: 14px;
+  font-size: 15px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -2372,13 +2374,10 @@ body.mobile #quickCrawlBtn {
   color: #fff !important;
 }
 .outputWrap.mobile {
-  box-sizing: border-box;
   padding: 20px 30px;
   width: 92vw;
   top: 15%;
   left: 50%;
-  margin-left: -45vw;
-  border-radius: 15px;
   font-family: sans-serif;
 }
 .outputWrap.mobile .outputContent {
@@ -2525,7 +2524,7 @@ body.mobile #quickCrawlBtn {
   margin: 20px 0;
   max-height: 60vh;
   overflow: auto;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.7;
   color: #474747;
   text-align: left;
@@ -3556,7 +3555,7 @@ html[data-xzpagetheme='dark'] #quickBookmarkEl {
 }
 #tip {
   color: #fff;
-  font-size: 14px;
+  font-size: 15px;
   font-family: 'Noto Sans SC', 'Noto Sans', 'Segeo UI', 'Segeo UI Mono', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
   position: fixed;
   z-index: 5001;
@@ -3596,15 +3595,15 @@ html[data-xzpagetheme='dark'] #quickBookmarkEl {
   position: fixed;
   z-index: 2147483647;
   margin: auto;
-  font-size: 14px;
+  font-size: 15px;
   pointer-events: none;
   display: inline-block;
   max-width: 500px;
   color: #fff;
   background-color: #1dacf5;
   box-shadow: var(--box-shadow);
-  padding: 8px 10px;
-  border-radius: 4px;
+  padding: 9px 13px;
+  border-radius: 6px;
 }
 .xzToast.mobile {
   font-size: 16px;

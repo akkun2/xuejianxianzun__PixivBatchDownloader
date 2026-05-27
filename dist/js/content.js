@@ -5235,7 +5235,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   applyIconScale: () => (/* binding */ applyIconScale),
 /* harmony export */   applyIconScaleIn: () => (/* binding */ applyIconScaleIn)
 /* harmony export */ });
-const iconScaleMap = {};
+/** 如果某些图标需要放大或缩小，可以在这里具体设置 */
+const iconScaleMap = {
+// github: { scale: 0.9 },
+};
 function getUseHref(use) {
     const href = use.getAttribute('href') || use.getAttribute('xlink:href') || '';
     return href.startsWith('#') ? href.slice(1) : href;
@@ -33573,12 +33576,12 @@ If none of your set tags are matched, the downloader will ignore the correspondi
         'Как переключать <span class="key">вкладки</span>',
     ],
     _选项卡切换方式的说明: [
-        `设置如何切换下载器顶部的三个选项卡。`,
-        `設定如何切換下載器頂部的三個選項卡。`,
-        `Sets how to switch between the three tabs at the top of the Downloader.`,
-        `ダウンローダーの上部にある 3 つのタブを切り替える方法を設定します。`,
-        `다운로더 상단의 세 개 탭 사이를 전환하는 방법을 설정합니다.`,
-        `Устанавливает способ переключения между тремя вкладками в верхней части Загрузчика.`,
+        `设置如何切换下载器的一级分类导航。`,
+        `設定如何切換下載器的頂部分類導航。`,
+        `Sets how to switch the primary category navigation of the Downloader.`,
+        `ダウンローダーの主要カテゴリナビゲーションを切り替える方法を設定します。`,
+        `다운로더의 주요 카테고리 내비게이션을 전환하는 방법을 설정합니다.`,
+        `Устанавливает способ переключения основной навигации по категориям в Загрузчике.`,
     ],
     _鼠标经过: [
         '鼠标经过',
@@ -39166,6 +39169,47 @@ Additionally, if you have enabled "Create folder using the first matching tag", 
         `다운로더의 QQ 그룹: 1060138801`,
         `QQ-группа загрузчика: 1060138801`,
     ],
+    _点击设置卡片时切换它的开关状态: [
+        '点击设置卡片时切换它的<span class="key">开关</span>状态',
+        '點擊設定卡片時切換它的<span class="key">開關</span>狀態',
+        'Click the setting card to toggle its <span class="key">switch</span> status',
+        '設定カードをクリックして、その<span class="key">スイッチ</span>状態を切り替えます',
+        '설정 카드를 클릭하여 <span class="key">스위치</span> 상태를 전환합니다',
+        'Нажмите на карточку настройки, чтобы переключить ее <span class="key">переключатель</span> состояние',
+    ],
+    _点击设置卡片时切换它的开关状态的说明: [
+        `如果你启用了这个功能，那么当你点击任意一个设置卡片时，如果点击的位置是空白区域（而非内部元素），并且该设置有开关按钮，那么下载器就会自动切换这个开关，从而启用/禁用这个设置。<br>
+这样，当你想启用/禁用一个设置时，不需要准确点击开关按钮，只要点击卡片上的空白区域即可，非常方便。<br>
+<br>
+如果你担心误操作，可以关闭此功能。`,
+        `如果你啟用了這個功能，那麼當你點擊任意一個設定卡片時，如果點擊的位置是空白區域（而非內部元素），並且該設定有開關按鈕，那麼下載器就會自動切換這個開關，從而啟用/禁用這個設定。<br>
+這樣，當你想啟用/禁用一個設定時，不需要準確點擊開關按鈕，只要點擊卡片上的空白區域即可，非常方便。<br>
+<br>
+如果你擔心誤操作，可以關閉此功能。`,
+        `If you enable this feature, when you click on any setting card, if the click position is a blank area (not an internal element) and the setting has a switch button, the downloader will automatically toggle the switch to enable/disable the setting. <br>
+This way, when you want to enable/disable a setting, you don't need to click the switch button accurately, just click the blank area on the card, which is very convenient. <br>
+<br>
+If you're worried about misoperation, you can turn off this feature.`,
+        `この機能を有効にすると、任意の設定カードをクリックしたときに、クリック位置が空白の領域（内部要素ではない）で、その設定にスイッチボタンがある場合、ダウンローダーは自動的にそのスイッチを切り替えて、その設定を有効/無効にします。<br>
+このように、設定を有効/無効にしたいときに、スイッチボタンを正確にクリックする必要はなく、カードの 空白の領域をクリックするだけで非常に便利です。<br>
+<br>
+誤操作が心配な場合は、この機能をオフにすることができます。`,
+        `이 기능을 활성화하면, 설정 카드 중 아무 곳이나 클릭했을 때 클릭 위치가 빈 공간(내부 요소가 아님)이고 해당 설정에 스위치 버튼이 있는 경우, 다운로더가 자동으로 해당 스위치를 전환하여 설정을 활성화/비활성화합니다. <br>
+이렇게 하면 설정을 활성화/비활성화하려고 할 때 스위치 버튼을 정확하게 클릭할 필요 없이 카드의 빈 공간을 클릭하기만 하면 되어 매우 편리합니다. <br>
+<br>
+오작동이 걱정된다면 이 기능을 끌 수 있습니다.`,
+        `Если вы включите эту функцию, когда вы нажимаете на любую карточку настройки, если позиция клика является пустой областью (а не внутренним элементом) и у настройки есть кнопка переключения, загрузчик автоматически переключит эту кнопку, чтобы включить/отключить эту настройку. <br>
+Таким образом, когда вы хотите включить/отключить настройку, вам не нужно точно нажимать кнопку переключения, просто нажмите на пустую область на карточке, что очень удобно. <br>
+<br>Если вы беспокоитесь о неправильной работе, вы можете отключить эту функцию.`,
+    ],
+    _分组_操作方式: [
+        `操作方式`,
+        `操作方式`,
+        `Operation method`,
+        `操作方法`,
+        `조작 방법`,
+        `Способ управления`,
+    ],
 };
 
 
@@ -42414,7 +42458,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _NamingRuleConfig__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NamingRuleConfig */ "./src/ts/setting/NamingRuleConfig.ts");
 
 
-// 设置项编号从 0 开始，现在最大是 107。有些编号空缺，之后可以优先使用空缺的编号。 71 号空缺，下一个设置可以使用它，这样编号就没有空缺了。
+// 设置项编号从 0 开始，现在最大是 108。有些编号空缺，之后可以优先使用空缺的编号。 71 号空缺，下一个设置可以使用它，这样编号就没有空缺了。
 // 帮助按钮上的文字有两种：
 // - 如果帮助文字使用 MsgBox 显示，则使用“_帮助”
 // - 如果帮助文字直接在设置面板上显示，则使用“_提示”
@@ -43974,6 +44018,15 @@ const formHtml = `
     <label for="switchTabBar2" data-xztext="_鼠标点击"></label>
   </div>
 
+  <div class="option" data-no="108">
+    <a href="" target="_blank" class="settingNameStyle">
+      <span data-xztext="_点击设置卡片时切换它的开关状态"></span>
+    </a>
+    <input type="checkbox" name="clickSettingCardToToggleSwitch" class="need_beautify checkbox_switch" checked>
+    <span class="beautify_switch" tabindex="0"></span>
+    <button type="button" class="gray1 textButton showMsgBtn" data-title="_点击设置卡片时切换它的开关状态" data-msg="_点击设置卡片时切换它的开关状态的说明" data-xztext="_帮助"></button>
+  </div>
+
   <div class="option" data-no="53">
     <a href="" target="_blank" class="has_tip settingNameStyle" data-xztip="_高亮显示关键字的说明">
       <span data-xztext="_高亮显示关键字"></span>
@@ -44316,6 +44369,7 @@ class FormSettings {
             'ugoiraSaveAsUgoira',
             'saveThumbnailForUgoira',
             'imageToGray',
+            'clickSettingCardToToggleSwitch',
         ],
         text: [
             'onlyCrawlFirstFewImagesCount',
@@ -45109,24 +45163,29 @@ class OptionConfigs {
             order: 4,
             nameKey: '_通用',
             level2: {
-                appearance: {
-                    id: 'appearance',
-                    order: 0,
-                    nameKey: '_分组_外观',
-                },
                 language: {
                     id: 'language',
-                    order: 1,
+                    order: 0,
                     nameKey: '_分组_语言',
+                },
+                operation: {
+                    id: 'operation',
+                    order: 1,
+                    nameKey: '_分组_操作方式',
+                },
+                appearance: {
+                    id: 'appearance',
+                    order: 2,
+                    nameKey: '_分组_外观',
                 },
                 log: {
                     id: 'log',
-                    order: 2,
+                    order: 3,
                     nameKey: '_分组_日志',
                 },
                 manageSettings: {
                     id: 'manageSettings',
-                    order: 3,
+                    order: 4,
                     nameKey: '_分组_管理设置',
                 },
             },
@@ -46060,6 +46119,25 @@ class OptionConfigs {
         },
         // 通用
         {
+            no: 32,
+            nameKey: '_Language',
+            name: '',
+            categoryLevel1: 'general',
+            categoryLevel2: 'language',
+            pinned: false,
+            searchWordKeys: [
+                '_语言',
+                '_中文_简体和繁体_搜索用',
+                '_简体中文_搜索用',
+                '_正體中文_搜索用',
+                '_英语_搜索用',
+                '_日语_搜索用',
+                '_韩语_搜索用',
+                '_俄语_搜索用',
+            ],
+            searchWords: [],
+        },
+        {
             no: 36,
             nameKey: '_颜色主题',
             name: '',
@@ -46080,16 +46158,6 @@ class OptionConfigs {
             searchWords: [],
         },
         {
-            no: 45,
-            nameKey: '_选项卡切换方式',
-            name: '',
-            categoryLevel1: 'general',
-            categoryLevel2: 'appearance',
-            pinned: false,
-            searchWordKeys: [],
-            searchWords: [],
-        },
-        {
             no: 53,
             nameKey: '_高亮显示关键字',
             name: '',
@@ -46100,30 +46168,31 @@ class OptionConfigs {
             searchWords: [],
         },
         {
-            no: 32,
-            nameKey: '_Language',
-            name: '',
-            categoryLevel1: 'general',
-            categoryLevel2: 'language',
-            pinned: false,
-            searchWordKeys: [
-                '_语言',
-                '_中文_简体和繁体_搜索用',
-                '_简体中文_搜索用',
-                '_正體中文_搜索用',
-                '_英语_搜索用',
-                '_日语_搜索用',
-                '_韩语_搜索用',
-                '_俄语_搜索用',
-            ],
-            searchWords: [],
-        },
-        {
             no: 93,
             nameKey: '_日志区域的默认可见性',
             name: '',
             categoryLevel1: 'general',
             categoryLevel2: 'log',
+            pinned: false,
+            searchWordKeys: [],
+            searchWords: [],
+        },
+        {
+            no: 45,
+            nameKey: '_选项卡切换方式',
+            name: '',
+            categoryLevel1: 'general',
+            categoryLevel2: 'operation',
+            pinned: false,
+            searchWordKeys: [],
+            searchWords: [],
+        },
+        {
+            no: 108,
+            nameKey: '_点击设置卡片时切换它的开关状态',
+            name: '',
+            categoryLevel1: 'general',
+            categoryLevel2: 'operation',
             pinned: false,
             searchWordKeys: [],
             searchWords: [],
@@ -46191,9 +46260,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _EVT__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../EVT */ "./src/ts/EVT.ts");
 /* harmony import */ var _PageType__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../PageType */ "./src/ts/PageType.ts");
 /* harmony import */ var _Tools__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Tools */ "./src/ts/Tools.ts");
-/* harmony import */ var _store_States__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../store/States */ "./src/ts/store/States.ts");
-/* harmony import */ var _PinOptions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./PinOptions */ "./src/ts/setting/PinOptions.ts");
-/* harmony import */ var _ShowNewIcon__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ShowNewIcon */ "./src/ts/setting/ShowNewIcon.ts");
+/* harmony import */ var _utils_Utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/Utils */ "./src/ts/utils/Utils.ts");
+/* harmony import */ var _store_States__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../store/States */ "./src/ts/store/States.ts");
+/* harmony import */ var _PinOptions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./PinOptions */ "./src/ts/setting/PinOptions.ts");
+/* harmony import */ var _ShowNewIcon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ShowNewIcon */ "./src/ts/setting/ShowNewIcon.ts");
+/* harmony import */ var _Settings__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Settings */ "./src/ts/setting/Settings.ts");
+
+
 
 
 
@@ -46206,8 +46279,8 @@ class Options {
     init(allOption) {
         this.allOption = allOption;
         this.bindEvents();
-        _PinOptions__WEBPACK_IMPORTED_MODULE_5__.pinOption.init(allOption);
-        _ShowNewIcon__WEBPACK_IMPORTED_MODULE_6__.showNewIcon.init(allOption);
+        _PinOptions__WEBPACK_IMPORTED_MODULE_6__.pinOption.init(allOption);
+        _ShowNewIcon__WEBPACK_IMPORTED_MODULE_7__.showNewIcon.init(allOption);
     }
     allOption;
     /** 定制的设置项，不在公开版本里显示 */
@@ -46228,7 +46301,7 @@ class Options {
             this.display();
         });
         window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.settingChange, (ev) => {
-            if (!_store_States__WEBPACK_IMPORTED_MODULE_4__.states.settingInitialized) {
+            if (!_store_States__WEBPACK_IMPORTED_MODULE_5__.states.settingInitialized) {
                 return;
             }
             const data = ev.detail.data;
@@ -46240,6 +46313,35 @@ class Options {
             window.setTimeout(() => {
                 this.display();
             }, 0);
+        });
+        // 点击设置项的卡片时，如果它有一个 checkBox 总开关，那么就切换该设置的启用/禁用状态
+        this.allOption.forEach((option) => {
+            _utils_Utils__WEBPACK_IMPORTED_MODULE_4__.Utils.click(option, (ev) => {
+                if (!_Settings__WEBPACK_IMPORTED_MODULE_8__.settings.clickSettingCardToToggleSwitch) {
+                    return;
+                }
+                if (!(ev.target instanceof HTMLElement)) {
+                    return;
+                }
+                const target = ev.target;
+                // 只在点击该设置卡片上的空白区域时才切换开关状态，以避免和卡片上其他元素的事件发生冲突
+                // 匹配两种点击的元素：
+                // 1. 点击了卡片本身，说明点击在了卡片的空白区域上
+                // 2. 点击了子选项容器，这表示该设置已经启用，所以子选项容器显示了出来。此时点击空白处，大概率是点击到了子选项容器上。
+                // PS: 不管该设置是否启用，都可以点击到卡片上.只不过子选项容器显示之后，可点击到卡片的区域很小.
+                if (target === option || target.matches('.subOptionWrap')) {
+                    // 只查找第一个开关，因为设置的总开关始终是第一个
+                    const switchEl = option.querySelector('input.need_beautify.checkbox_switch');
+                    if (!switchEl) {
+                        return;
+                    }
+                    // 但是有些设置本身没有总开关，子选项里却有开关(例如"标签别名")，所以第一个开关可能是子选项里的开关，需要进一步判断
+                    // 要求这个 input 的前一个元素是 A 标签(也就是设置名称)，这样才能确保它是总开关，而不是子选项的开关
+                    // 现在我注释掉了下面的代码，这意味着：
+                    // 点击这个设置卡片的空白区域时，总是会切换第一个开关(不管它是总开关还是子开关)
+                    switchEl.click();
+                }
+            });
         });
     }
     /** 处理每个选项的显示与隐藏 */
@@ -47730,13 +47832,14 @@ class Settings {
         debugForWiki: false,
         singleEPUBFileSizeLimit: 200,
         imageToGray: false,
+        clickSettingCardToToggleSwitch: true,
         /** 保存每个可折叠区域的展开/折叠状态 */
         // home 里的二级分类名称是直接在这里指定的。其他导航分类里的二级分类名称来自 OptionConfigs.ts 里的 categorySchema 对象里，对应的一级分类的 level2.id。
         // 每个一级分类里的首个二级分类是默认展开的，这样用户至少可以看到第一个二级分类的内容，不需要手动点击来展开它。
         expandedCards: {
             home: {
                 /** 置顶的设置区域 */
-                pinnedOptions: false,
+                pinnedOptions: true,
                 /** “开始抓取”区域 */
                 crawlBtns: true,
                 /** “附加功能”区域 */
@@ -47776,8 +47879,9 @@ class Settings {
                 searchPage: false,
             },
             general: {
-                appearance: true,
-                language: false,
+                language: true,
+                appearance: false,
+                operation: false,
                 log: false,
                 manageSettings: false,
             },
@@ -47949,6 +48053,9 @@ class Settings {
         this.setSetting('tipCloseAskFileSaveLocation', true);
         this.setSetting('tipPinOption', true);
         this.setSetting('tipCopyWorkInfoButton', true);
+        _MsgBox__WEBPACK_IMPORTED_MODULE_4__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_8__.lang.transl('_重新显示帮助的说明'), {
+            title: _Language__WEBPACK_IMPORTED_MODULE_8__.lang.transl('_重新显示帮助'),
+        });
         _Toast__WEBPACK_IMPORTED_MODULE_7__.toast.success(_Language__WEBPACK_IMPORTED_MODULE_8__.lang.transl('_已重置帮助信息'));
     }
     // 重置设置 或者 导入设置
@@ -47957,9 +48064,12 @@ class Settings {
         this.assignSettings(data ? data : this.defaultSettings);
         _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.fire('resetSettingsEnd');
     }
-    // 更改设置项
-    // 其他模块应该通过这个方法更改设置
-    // 这里面有一些类型转换的代码，主要目的：
+    /** 更新设置项的值 */
+    // 其他模块应该通过这个方法更改设置，这样才能够：
+    // 1. 触发 settingChange 事件，让其他模块能够监听到该设置的变化
+    // 2. 让下载器持久保存修改后的设置
+    // 3. 进行类型转换，以及兼容一些旧设置
+    // 这里面有一些处理兼容性和类型转换的代码，主要目的：
     // 1. 兼容旧版本的设置。读取旧版本的设置时，将其转换成新版本的设置。例如某个设置在旧版本里是 string 类型，值为 'a,b,c'。新版本里是 string[] 类型，这里会自动将其转换成 ['a','b','c']
     // 2. 减少额外操作。例如某个设置的类型为 string[]，其他模块可以传入 string 类型的值如 'a,b,c'，而不必先把它转换成 string[]
     setSetting(key, value) {
@@ -49103,9 +49213,6 @@ class SettingsPanel {
                 return;
             case 'reset':
                 _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.fire('resetHelpTip');
-                _MsgBox__WEBPACK_IMPORTED_MODULE_3__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_重新显示帮助的说明'), {
-                    title: _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_重新显示帮助'),
-                });
                 return;
         }
     }
@@ -69277,6 +69384,97 @@ class Utils {
         el.addEventListener('touchcancel', cancel);
         // 手指移动时（如滚动）取消长按
         el.addEventListener('touchmove', handleMove, { passive: true });
+    }
+    /** 点击事件，支持 PC 和移动端。按下到松开的时长不超过 delay 且未发生位移时触发 */
+    static click(el, callback, delay = 200) {
+        let pressStartTime = 0;
+        let startPoint = null;
+        let pressedType = null;
+        let moved = false;
+        let lastTouchStartTime = 0;
+        const moveThreshold = 4;
+        const getPoint = (e) => {
+            if (e instanceof MouseEvent) {
+                return { x: e.clientX, y: e.clientY };
+            }
+            const touch = e.touches[0] || e.changedTouches[0];
+            if (!touch) {
+                return null;
+            }
+            return { x: touch.clientX, y: touch.clientY };
+        };
+        const reset = () => {
+            pressStartTime = 0;
+            startPoint = null;
+            pressedType = null;
+            moved = false;
+        };
+        const start = (e) => {
+            if (e instanceof MouseEvent) {
+                if (e.button !== 0)
+                    return;
+                // 忽略触屏设备触发的兼容鼠标事件
+                if (Date.now() - lastTouchStartTime < 700) {
+                    return;
+                }
+                pressedType = 'mouse';
+            }
+            else {
+                pressedType = 'touch';
+                lastTouchStartTime = Date.now();
+            }
+            pressStartTime = Date.now();
+            startPoint = getPoint(e);
+            moved = false;
+        };
+        const handleMove = (e) => {
+            if (!pressedType || !startPoint) {
+                return;
+            }
+            if (pressedType === 'mouse' && !(e instanceof MouseEvent)) {
+                return;
+            }
+            if (pressedType === 'touch' && e instanceof MouseEvent) {
+                return;
+            }
+            const point = getPoint(e);
+            if (!point) {
+                moved = true;
+                return;
+            }
+            if (Math.abs(point.x - startPoint.x) > moveThreshold ||
+                Math.abs(point.y - startPoint.y) > moveThreshold) {
+                moved = true;
+            }
+        };
+        const end = (e) => {
+            if (!pressedType) {
+                return;
+            }
+            if (pressedType === 'mouse' && !(e instanceof MouseEvent)) {
+                return;
+            }
+            if (pressedType === 'touch' && e instanceof MouseEvent) {
+                return;
+            }
+            const duration = Date.now() - pressStartTime;
+            const validClick = duration <= delay && !moved;
+            reset();
+            if (validClick) {
+                callback(e);
+            }
+        };
+        const cancel = () => {
+            reset();
+        };
+        el.addEventListener('mousedown', start);
+        el.addEventListener('mousemove', handleMove);
+        el.addEventListener('mouseup', end);
+        el.addEventListener('mouseleave', cancel);
+        el.addEventListener('touchstart', start, { passive: true });
+        el.addEventListener('touchmove', handleMove, { passive: true });
+        el.addEventListener('touchend', end);
+        el.addEventListener('touchcancel', cancel);
     }
     /** 判断鼠标是否处于某个元素的范围内 */
     static mouseInElementArea(el, x, y) {

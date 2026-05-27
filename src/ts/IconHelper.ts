@@ -1,4 +1,7 @@
-const iconScaleMap: Record<string, { scale: number }> = {}
+/** 如果某些图标需要放大或缩小，可以在这里具体设置 */
+const iconScaleMap: Record<string, { scale: number }> = {
+  // github: { scale: 0.9 },
+}
 
 function getUseHref(use: SVGUseElement) {
   const href = use.getAttribute('href') || use.getAttribute('xlink:href') || ''

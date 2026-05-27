@@ -1265,9 +1265,6 @@ class SettingsPanel {
 
       case 'reset':
         EVT.fire('resetHelpTip')
-        msgBox.show(lang.transl('_重新显示帮助的说明'), {
-          title: lang.transl('_重新显示帮助'),
-        })
         return
     }
   }

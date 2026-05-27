@@ -2,8 +2,10 @@
 
 .outputWrap {
   font-family: @pixivFontFamily;
+  box-sizing: border-box;
   padding: 20px 30px;
-  width: 520px;
+  width: 50vw;
+  max-width: 700px;
   background: #fff;
   border-radius: 15px;
   z-index: 9999;
@@ -11,8 +13,8 @@
   display: none;
   position: fixed;
   top: 15%;
-  margin-left: -300px;
   left: 50%;
+  transform: translateX(-50%);
 
   &::selection {
     background: @themeBlue;
@@ -30,7 +32,7 @@
   .outputContent {
     border: 1px solid #ccc;
     transition: 0.3s;
-    font-size: 14px;
+    font-size: 15px;
     margin-top: 20px;
     padding: 5px 10px;
     overflow: auto;
@@ -91,7 +93,7 @@
     margin-top: 15px;
     background: @blueButtonsBg;
     color: #fff;
-    font-size: 14px;
+    font-size: 15px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -114,13 +116,10 @@
 }
 
 .outputWrap.mobile {
-  box-sizing: border-box;
   padding: 20px 30px;
   width: 92vw;
   top: 15%;
   left: 50%;
-  margin-left: -45vw;
-  border-radius: 15px;
   font-family: @MobileFontFamily;
 
   .outputContent {
