@@ -944,7 +944,7 @@ class Settings {
     onlyCrawlLastFewImagesCount: 1,
     doNotCrawlFirstImagesSwitch: false,
     doNotCrawlFirstImagesCount: 1,
-    pinnedOptions: [0, 1,],
+    pinnedOptions: [0, 1],
     debugForWiki: false,
     singleEPUBFileSizeLimit: 200,
     imageToGray: false,
@@ -1196,7 +1196,7 @@ class Settings {
     this.setSetting('tipPinOption', true)
     this.setSetting('tipCopyWorkInfoButton', true)
 
-    toast.success(lang.transl('_重新显示帮助'))
+    toast.success(lang.transl('_已重置帮助信息'))
   }
 
   // 重置设置 或者 导入设置
@@ -1385,7 +1385,7 @@ class Settings {
     }
 
     // 更改设置
-    ;(this.settings[key] as any) = value
+    ; (this.settings[key] as any) = value
 
     // 当修改某些设置时，顺便修改依赖它的设置
     if (key === 'widthTag') {

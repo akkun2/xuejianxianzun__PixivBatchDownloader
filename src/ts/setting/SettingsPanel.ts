@@ -233,7 +233,7 @@ class SettingsPanel {
         <span class="settingsPanel_tipTextContent">
           <span data-xztext="_建议您关闭询问文件保存位置"></span>
           <button class="settingsPanel_tipConfirm" type="button" data-xztitle="_已确认">
-            <svg class="icon" aria-hidden="true"><use xlink:href="#yes_submit"></use></svg>
+            <svg class="icon" aria-hidden="true"><use xlink:href="#yes"></use></svg>
           </button>
         </span>
       </div>
@@ -355,7 +355,7 @@ class SettingsPanel {
       <div class="settingsPanel_tipText">
         <span class="settingsPanel_tipTextContent" data-xztext="_提示可以置顶选项"></span>
         <button class="settingsPanel_tipConfirm" type="button" data-xztitle="_已确认">
-          <svg class="icon" aria-hidden="true"><use xlink:href="#yes_submit"></use></svg>
+          <svg class="icon" aria-hidden="true"><use xlink:href="#yes"></use></svg>
         </button>
       </div>
     </div>
@@ -365,7 +365,7 @@ class SettingsPanel {
         <span class="settingsPanel_tipTextContent">
           <span data-xztext="_提示查看wiki页面"></span>
           <button class="settingsPanel_tipConfirm" type="button" data-xztitle="_已确认">
-            <svg class="icon" aria-hidden="true"><use xlink:href="#yes_submit"></use></svg>
+            <svg class="icon" aria-hidden="true"><use xlink:href="#yes"></use></svg>
           </button>
         </span>
       </div>
@@ -383,16 +383,18 @@ class SettingsPanel {
       iconId: string
       extraClass?: string
     }[] = [
-        { id: 'wiki', textKey: '_使用手册', iconId: 'wiki' },
-        { id: 'faq', textKey: '_常见问题', iconId: 'help' },
-        { id: 'getHelp', textKey: '_获取帮助', iconId: 'get-help' },
-        { id: 'recentUpdates', textKey: '_最近更新', iconId: 'new-2' },
-        { id: 'github', textKey: '_github', iconId: 'github' },
-        { id: 'fanbox', textKey: '_fanboxDownloader', iconId: 'F' },
-        { id: 'airport', textKey: '_机场推荐', iconId: 'paper-airplane' },
-        { id: 'sponsorship', textKey: '_赞助我', iconId: 'heart-line' },
-        { id: 'thirdParty', textKey: '_第三方库', iconId: 'list' },
-      ]
+      { id: 'wiki', textKey: '_使用手册', iconId: 'wiki' },
+      { id: 'faq', textKey: '_常见问题', iconId: 'help' },
+      { id: 'recentUpdates', textKey: '_最近更新', iconId: 'new-2' },
+      { id: 'sponsorship', textKey: '_赞助我', iconId: 'heart-line' },
+      { id: 'github', textKey: '_github', iconId: 'github' },
+      { id: 'discord', textKey: '_Discord', iconId: 'discord' },
+      { id: 'qq', textKey: '_QQ群', iconId: 'qq' },
+      { id: 'airport', textKey: '_机场推荐', iconId: 'paper-airplane' },
+      { id: 'fanbox', textKey: '_fanboxDownloader', iconId: 'box-open' },
+      { id: 'thirdParty', textKey: '_第三方库', iconId: 'list' },
+      { id: 'reset', textKey: '_重新显示帮助', iconId: 'reset' },
+    ]
 
     actions.forEach((action) => {
       const button = document.createElement('button')
@@ -607,29 +609,29 @@ class SettingsPanel {
         this.updateDownloadSummary()
       }, 0)
     })
-      ;[
-        EVT.list.crawlStart,
-        EVT.list.crawlComplete,
-        EVT.list.resultChange,
-        EVT.list.resume,
-        EVT.list.downloadStart,
-        EVT.list.downloadPause,
-        EVT.list.downloadStop,
-        EVT.list.downloadComplete,
-        EVT.list.downloadSuccess,
-        EVT.list.skipDownload,
-      ].forEach((eventName) => {
-        window.addEventListener(eventName, () => {
-          this.updateDownloadSummary()
-        })
+    ;[
+      EVT.list.crawlStart,
+      EVT.list.crawlComplete,
+      EVT.list.resultChange,
+      EVT.list.resume,
+      EVT.list.downloadStart,
+      EVT.list.downloadPause,
+      EVT.list.downloadStop,
+      EVT.list.downloadComplete,
+      EVT.list.downloadSuccess,
+      EVT.list.skipDownload,
+    ].forEach((eventName) => {
+      window.addEventListener(eventName, () => {
+        this.updateDownloadSummary()
       })
-      ;[EVT.list.crawlComplete, EVT.list.resume, EVT.list.downloadStart].forEach(
-        (eventName) => {
-          window.addEventListener(eventName, () => {
-            this.expandHomeDownloadSection()
-          })
-        }
-      )
+    })
+    ;[EVT.list.crawlComplete, EVT.list.resume, EVT.list.downloadStart].forEach(
+      (eventName) => {
+        window.addEventListener(eventName, () => {
+          this.expandHomeDownloadSection()
+        })
+      }
+    )
 
     window.addEventListener(EVT.list.hasNewVer, () => {
       this.helpActionEls.get('recentUpdates')?.classList.add('hasUpdate')
@@ -643,6 +645,11 @@ class SettingsPanel {
 
     if (this.searchKeyword !== '' && page !== 'search') {
       this.lastNonSearchPage = page as Exclude<PageId, 'search'>
+      if (this.activePage === 'search') {
+        this.searchInput.value = ''
+        this.updateSearchClearButton()
+        this.updateSearchResult()
+      }
       return
     }
 
@@ -690,6 +697,11 @@ class SettingsPanel {
         return
       }
 
+      const optionElement = this.optionElements.get(option.no)
+      if (!optionElement || this.isOptionCardHidden(optionElement)) {
+        return
+      }
+
       const groupKey = this.makeSectionKey(
         'search',
         `${option.categoryLevel1}__${option.categoryLevel2}`
@@ -704,20 +716,16 @@ class SettingsPanel {
         this.searchGroupsWrap.append(section.root)
       }
 
-      this.searchSections
-        .get(groupKey)!
-        .content.append(this.optionElements.get(option.no)!)
+      this.searchSections.get(groupKey)!.content.append(optionElement)
     })
 
     this.placeUnmatchedOptionsBack(matchMap)
     this.updateSearchOptionHighlight(matchMap)
 
     if (groupOrder.length === 0) {
-      this.searchSummary.dataset.xztext =
-        '_没有找到符合条件的设置的提示'
-      this.searchSummary.innerHTML = lang.transl(
-        '_没有找到符合条件的设置的提示'
-      )
+      this.searchSummary.dataset.xztext = '_没有找到符合条件的设置的提示'
+      this.searchSummary.innerHTML =
+        lang.transl('_没有找到符合条件的设置的提示')
     } else {
       this.searchSummary.innerHTML = lang.transl(
         '_找到x条与搜索词有关的设置',
@@ -748,6 +756,11 @@ class SettingsPanel {
     const lowerKeyword = keyword.toLowerCase()
 
     for (const option of optionConfigs.options) {
+      const element = this.optionElements.get(option.no)
+      if (!element || this.isOptionCardHidden(element)) {
+        continue
+      }
+
       const name = option.name.toLowerCase()
       if (name.includes(lowerKeyword)) {
         result.set(option.no, { matchedByName: true })
@@ -771,6 +784,10 @@ class SettingsPanel {
     return result
   }
 
+  private isOptionCardHidden(option: HTMLElement) {
+    return option.style.display === 'none'
+  }
+
   private placeOptionsToDefaultContainers(showPinnedOnHome: boolean) {
     for (const option of optionConfigs.options) {
       const element = this.optionElements.get(option.no)
@@ -782,9 +799,9 @@ class SettingsPanel {
         showPinnedOnHome && settings.pinnedOptions.includes(option.no)
           ? this.homePinnedContent
           : this.getCanonicalContainer(
-            option.categoryLevel1,
-            option.categoryLevel2
-          )
+              option.categoryLevel1,
+              option.categoryLevel2
+            )
       target.append(element)
     }
 
@@ -1137,10 +1154,14 @@ class SettingsPanel {
   }
 
   private renderHelpActionVisibility() {
-    const airportBtn = this.helpActionEls.get('airport')
-    if (airportBtn) {
-      airportBtn.style.display = lang.type === 'zh-cn' ? 'flex' : 'none'
-    }
+    // 有些按钮只在简体中文语言里显示
+    const onlyShowInZhCN = ['airport', 'qq']
+    onlyShowInZhCN.forEach((id) => {
+      const btn = this.helpActionEls.get(id)
+      if (btn) {
+        btn.style.display = lang.type === 'zh-cn' ? 'flex' : 'none'
+      }
+    })
   }
 
   private handleHelpAction(action: string) {
@@ -1163,12 +1184,6 @@ class SettingsPanel {
         return
       }
 
-      case 'getHelp':
-        msgBox.show(lang.transl('_获取帮助的提示'), {
-          title: lang.transl('_获取帮助'),
-        })
-        return
-
       case 'recentUpdates':
         EVT.fire('showRecentUpdates')
         return
@@ -1176,6 +1191,18 @@ class SettingsPanel {
       case 'github':
         msgBox.show(lang.transl('_GitHub说明'), {
           title: 'GitHub',
+        })
+        return
+
+      case 'discord':
+        msgBox.show(lang.transl('_Discord说明'), {
+          title: 'Discord',
+        })
+        return
+
+      case 'qq':
+        msgBox.show(lang.transl('_QQ群说明'), {
+          title: lang.transl('_QQ群'),
         })
         return
 
@@ -1200,6 +1227,13 @@ class SettingsPanel {
       case 'thirdParty':
         msgBox.show(lang.transl('_第三方库说明'), {
           title: lang.transl('_第三方库'),
+        })
+        return
+
+      case 'reset':
+        EVT.fire('resetHelpTip')
+        msgBox.show(lang.transl('_重新显示帮助的说明'), {
+          title: lang.transl('_重新显示帮助'),
         })
         return
     }

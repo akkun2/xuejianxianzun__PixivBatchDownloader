@@ -1332,14 +1332,7 @@ This part only applies to Windows. With a few settings, you can view thumbnails 
     '설정 축소/확장',
     'Свернуть/развернуть настройки',
   ],
-  _github: [
-    'Github',
-    'Github',
-    'Github',
-    'Github',
-    'Github',
-    'Github',
-  ],
+  _github: ['Github', 'Github', 'Github', 'Github', 'Github', 'Github'],
   _wiki: ['使用手册', 'Wiki', 'Wiki', 'マニュアル', '위키', 'Вики'],
   _快捷键ALTX显示隐藏控制面板: [
     '你可以使用快捷键 <span class="blue">Alt</span> + <span class="blue">X</span> 显示或隐藏控制面板。',
@@ -1841,7 +1834,6 @@ This part only applies to Windows. With a few settings, you can view thumbnails 
     `你可以通过以下方式来交流、求助和反馈问题：<br>
 - <a href="https://discord.gg/eW9JtTK" target="_blank">Discord</a><br>
 - <a href="https://github.com/xuejianxianzun/PixivBatchDownloader/issues" target="_blank">Github issues</a><br>
-- 中文用户可以加下载器的 QQ 群：674991373<br>
 <br>
 提示：请不要在 Chrome Web Store 的评价里反馈问题，因为有些评价会被 Google 过滤掉，所以我可能无法回复你。`,
     `你可以通过以下方式來交流、求助和反饋問題：<br>
@@ -2001,16 +1993,6 @@ So the file name set by the Downloader is lost, and the file name becomes the la
     下载器的 Wiki：<a href="https://xuejianxianzun.github.io/PBDWiki" target="_blank">https://xuejianxianzun.github.io/PBDWiki</a>
     <br>
     <a href="https://xuejianxianzun.github.io/PBDWiki/#/zh-cn/常见问题" target="_blank">在 Wiki 查看常见问题</a>
-    <br><br>
-    梯子推荐：
-    <br>
-    如果你需要一个机场（梯子）的话，可以试试我现在用的机场：魔法喵 <a href="https://mofacgb.cc/register?code=GYjQWDob" title="魔法喵" target="_blank">https://mofacgb.cc</a>，性价比很高，9.9 元 768 GB 流量（倍率都是 1x），而且下载速度很快（下载速率上限是 800 Mbps）。下载 Pixiv、Fanbox 的文件建议使用“日本 2”节点。
-    <br>
-    如果上面的网址打不开，可以访问地址发布页：<a href="https://mofmiao.com" title="魔法喵" target="_blank">https://mofmiao.com</a>
-    <br>
-    你也可以查看我写的使用体验：<a href="https://saber.love/?p=12736" title="魔法喵使用体验" target="_blank">魔法喵使用体验</a>
-    <br>
-    我的邀请码：GYjQWDob
     <br><br>`,
 
     `下載的文件保存在瀏覽器的下載目錄裡。如果您想保存到其他位置，需要修改瀏覽器的下載目錄。
@@ -6207,6 +6189,22 @@ If the number of works shown on the page is greater than 0, it may be that Pixiv
     '도움말 다시 표시',
     'Повторно отобразить справку',
   ],
+  _重新显示帮助的说明: [
+    '下载器的一些帮助信息是一次性的，显示一次之后就不会再显示了。<br>点击这个按钮之后，下载器会再次显示这些帮助信息。',
+    '下載器的一些幫助資訊是一次性的，顯示一次之後就不會再顯示了。<br>點擊這個按鈕之後，下載器會再次顯示這些幫助資訊。',
+    'Some help information of the downloader is one-time, and will not be displayed again after being displayed once. <br>After clicking this button, the downloader will display these help information again.',
+    'ダウンローダーのいくつかのヘルプ情報は一度きりで、1回表示された後は再び表示されません。<br>このボタンをクリックすると、ダウンローダーはこれらのヘルプ情報を再び表示します。',
+    '다운로더의 일부 도움말 정보는 일회성이며 한 번 표시된 후에는 다시 표시되지 않습니다. <br>이 버튼을 클릭하면 다운로더가 이러한 도움말 정보를 다시 표시합니다.',
+    'Некоторая справочная информация загрузчика является одноразовой и не будет отображаться снова после однократного отображения. <br>После нажатия этой кнопки загрузчик снова отобразит эту справочную информацию.',
+  ],
+  _已重置帮助信息: [
+    '已重置帮助信息',
+    '已重置幫助資訊',
+    'Help information reset',
+    'ヘルプ情報がリセットされました',
+    '도움말 정보가 재설정되었습니다.',
+    'Справочная информация сброшена',
+  ],
   _自定义标签分隔符号的提示: [
     '现在你可以自定义文件名中使用的标签分隔符号，以替换默认的 <span class="blue">,</span>。',
     '現在你可以自定義檔名中使用的標籤分隔符號，以替換預設的 <span class="blue">,</span>。',
@@ -9913,12 +9911,12 @@ Additionally, if you have enabled "Create folder using the first matching tag", 
     `Полное руководство доступно в Wiki:<br><a href="https://xuejianxianzun.github.io/PBDWiki" target="_blank">https://xuejianxianzun.github.io/PBDWiki</a>`,
   ],
   _GitHub说明: [
-    `项目主页：<br><a href="https://github.com/xuejianxianzun/PixivBatchDownloader" target="_blank">https://github.com/xuejianxianzun/PixivBatchDownloader</a>`,
-    `專案首頁：<br><a href="https://github.com/xuejianxianzun/PixivBatchDownloader" target="_blank">https://github.com/xuejianxianzun/PixivBatchDownloader</a>`,
-    `Project homepage:<br><a href="https://github.com/xuejianxianzun/PixivBatchDownloader" target="_blank">https://github.com/xuejianxianzun/PixivBatchDownloader</a>`,
-    `プロジェクトページ：<br><a href="https://github.com/xuejianxianzun/PixivBatchDownloader" target="_blank">https://github.com/xuejianxianzun/PixivBatchDownloader</a>`,
-    `프로젝트 홈페이지:<br><a href="https://github.com/xuejianxianzun/PixivBatchDownloader" target="_blank">https://github.com/xuejianxianzun/PixivBatchDownloader</a>`,
-    `Страница проекта:<br><a href="https://github.com/xuejianxianzun/PixivBatchDownloader" target="_blank">https://github.com/xuejianxianzun/PixivBatchDownloader</a>`,
+    `本项目的 GitHub 网址，欢迎 Star：<br><a href="https://github.com/xuejianxianzun/PixivBatchDownloader" target="_blank">https://github.com/xuejianxianzun/PixivBatchDownloader</a>`,
+    `本專案的 GitHub 網址，歡迎 Star：<br><a href="https://github.com/xuejianxianzun/PixivBatchDownloader" target="_blank">https://github.com/xuejianxianzun/PixivBatchDownloader</a>`,
+    `The GitHub URL of this project. Star is welcome:<br><a href="https://github.com/xuejianxianzun/PixivBatchDownloader" target="_blank">https://github.com/xuejianxianzun/PixivBatchDownloader</a>`,
+    `このプロジェクトの GitHub URL です。Star していただけると嬉しいです。<br><a href="https://github.com/xuejianxianzun/PixivBatchDownloader" target="_blank">https://github.com/xuejianxianzun/PixivBatchDownloader</a>`,
+    `이 프로젝트의 GitHub 주소입니다. Star 환영합니다:<br><a href="https://github.com/xuejianxianzun/PixivBatchDownloader" target="_blank">https://github.com/xuejianxianzun/PixivBatchDownloader</a>`,
+    `GitHub-адрес этого проекта, буду рад Star:<br><a href="https://github.com/xuejianxianzun/PixivBatchDownloader" target="_blank">https://github.com/xuejianxianzun/PixivBatchDownloader</a>`,
   ],
   _第三方库: [
     `第三方库`,
@@ -9929,12 +9927,150 @@ Additionally, if you have enabled "Create folder using the first matching tag", 
     `Сторонние библиотеки`,
   ],
   _第三方库说明: [
-    `本项目使用或包含了这些开源 JS 库：<br>- Viewer.js<br>- webextension-polyfill<br>- gif.js<br>- JSZip / jszip-utils<br>- jEpub<br>- pako<br>- MediaBunny<br><br>另外，当前设置面板的界面布局受 <a href="https://github.com/clash-verge-rev/clash-verge-rev" target="_blank">Clash Verge</a> 启发。`,
-    `本專案使用或包含了這些開源 JS 函式庫：<br>- Viewer.js<br>- webextension-polyfill<br>- gif.js<br>- JSZip / jszip-utils<br>- jEpub<br>- pako<br>- MediaBunny<br><br>另外，目前設定面板的介面布局受 <a href="https://github.com/clash-verge-rev/clash-verge-rev" target="_blank">Clash Verge</a> 啟發。`,
-    `This project uses or bundles these open-source JavaScript libraries:<br>- Viewer.js<br>- webextension-polyfill<br>- gif.js<br>- JSZip / jszip-utils<br>- jEpub<br>- pako<br>- MediaBunny<br><br>The current settings-panel layout is also inspired by <a href="https://github.com/clash-verge-rev/clash-verge-rev" target="_blank">Clash Verge</a>.`,
-    `このプロジェクトでは次のオープンソース JS ライブラリを使用または同梱しています：<br>- Viewer.js<br>- webextension-polyfill<br>- gif.js<br>- JSZip / jszip-utils<br>- jEpub<br>- pako<br>- MediaBunny<br><br>また、現在の設定パネルのレイアウトは <a href="https://github.com/clash-verge-rev/clash-verge-rev" target="_blank">Clash Verge</a> に着想を得ています。`,
-    `이 프로젝트는 다음 오픈소스 JS 라이브러리를 사용하거나 포함합니다.<br>- Viewer.js<br>- webextension-polyfill<br>- gif.js<br>- JSZip / jszip-utils<br>- jEpub<br>- pako<br>- MediaBunny<br><br>현재 설정 패널 레이아웃은 <a href="https://github.com/clash-verge-rev/clash-verge-rev" target="_blank">Clash Verge</a> 에서 영감을 받았습니다.`,
-    `В проекте используются или входят эти библиотеки JavaScript с открытым исходным кодом:<br>- Viewer.js<br>- webextension-polyfill<br>- gif.js<br>- JSZip / jszip-utils<br>- jEpub<br>- pako<br>- MediaBunny<br><br>Текущая компоновка панели настроек также вдохновлена <a href="https://github.com/clash-verge-rev/clash-verge-rev" target="_blank">Clash Verge</a>.`,
+    `本项目使用了这些开源 JavaScript 库：<br>
+  <br>
+  <a href="https://github.com/fengyuanchen/viewerjs" target="_blank">Viewer.js</a><br>
+  用于显示图片查看器<br>
+  <br>
+  <a href="https://github.com/Vanilagy/mediabunny" target="_blank">Mediabunny</a><br>
+  用于把动图转换为 WebM 视频<br>
+  <br>
+  <a href="https://github.com/jnordberg/gif.js" target="_blank">gif.js</a><br>
+  用于把动图转换为 GIF 图片<br>
+  <br>
+  <a href="https://github.com/photopea/UPNG.js" target="_blank">UPNG.js</a><br>
+  用于把动图转换为 APNG 图片<br>
+  <br>
+  <a href="https://github.com/lelinhtinh/jEpub" target="_blank">jEpub</a><br>
+  用于为小说生成 EPUB 文件<br>
+  <br>
+  <a href="https://github.com/Stuk/jszip" target="_blank">jszip</a><br>
+  用于读写 ZIP 文件<br>
+  <br>
+  <a href="https://github.com/nodeca/pako/" target="_blank">pako</a><br>
+  JavaScript zlib 库<br>
+  <br>
+  另外，当前设置面板的布局和样式受 <a href="https://github.com/clash-verge-rev/clash-verge-rev" target="_blank">Clash Verge</a> 启发。`,
+    `本專案使用了這些開源 JavaScript 函式庫：<br>
+  <br>
+  <a href="https://github.com/fengyuanchen/viewerjs" target="_blank">Viewer.js</a><br>
+  用於顯示圖片檢視器<br>
+  <br>
+  <a href="https://github.com/Vanilagy/mediabunny" target="_blank">Mediabunny</a><br>
+  用於把動圖轉換為 WebM 影片<br>
+  <br>
+  <a href="https://github.com/jnordberg/gif.js" target="_blank">gif.js</a><br>
+  用於把動圖轉換為 GIF 圖片<br>
+  <br>
+  <a href="https://github.com/photopea/UPNG.js" target="_blank">UPNG.js</a><br>
+  用於把動圖轉換為 APNG 圖片<br>
+  <br>
+  <a href="https://github.com/lelinhtinh/jEpub" target="_blank">jEpub</a><br>
+  用於為小說產生 EPUB 檔案<br>
+  <br>
+  <a href="https://github.com/Stuk/jszip" target="_blank">jszip</a><br>
+  用於讀寫 ZIP 檔案<br>
+  <br>
+  <a href="https://github.com/nodeca/pako/" target="_blank">pako</a><br>
+  JavaScript zlib 函式庫<br>
+  <br>
+  另外，目前設定面板的版面配置和樣式受到 <a href="https://github.com/clash-verge-rev/clash-verge-rev" target="_blank">Clash Verge</a> 啟發。`,
+    `This project uses these open-source JavaScript libraries:<br>
+  <br>
+  <a href="https://github.com/fengyuanchen/viewerjs" target="_blank">Viewer.js</a><br>
+  Used to display the image viewer<br>
+  <br>
+  <a href="https://github.com/Vanilagy/mediabunny" target="_blank">Mediabunny</a><br>
+  Used to convert Ugoira into WebM videos<br>
+  <br>
+  <a href="https://github.com/jnordberg/gif.js" target="_blank">gif.js</a><br>
+  Used to convert Ugoira into GIF images<br>
+  <br>
+  <a href="https://github.com/photopea/UPNG.js" target="_blank">UPNG.js</a><br>
+  Used to convert Ugoira into APNG images<br>
+  <br>
+  <a href="https://github.com/lelinhtinh/jEpub" target="_blank">jEpub</a><br>
+  Used to generate EPUB files for novels<br>
+  <br>
+  <a href="https://github.com/Stuk/jszip" target="_blank">jszip</a><br>
+  Used to read and write ZIP files<br>
+  <br>
+  <a href="https://github.com/nodeca/pako/" target="_blank">pako</a><br>
+  A JavaScript zlib library<br>
+  <br>
+  In addition, the layout and style of the current settings panel were inspired by <a href="https://github.com/clash-verge-rev/clash-verge-rev" target="_blank">Clash Verge</a>.`,
+    `このプロジェクトでは、以下のオープンソース JavaScript ライブラリを使用しています。<br>
+  <br>
+  <a href="https://github.com/fengyuanchen/viewerjs" target="_blank">Viewer.js</a><br>
+  画像ビューアーの表示に使用<br>
+  <br>
+  <a href="https://github.com/Vanilagy/mediabunny" target="_blank">Mediabunny</a><br>
+  Ugoira を WebM 動画に変換するために使用<br>
+  <br>
+  <a href="https://github.com/jnordberg/gif.js" target="_blank">gif.js</a><br>
+  Ugoira を GIF 画像に変換するために使用<br>
+  <br>
+  <a href="https://github.com/photopea/UPNG.js" target="_blank">UPNG.js</a><br>
+  Ugoira を APNG 画像に変換するために使用<br>
+  <br>
+  <a href="https://github.com/lelinhtinh/jEpub" target="_blank">jEpub</a><br>
+  小説の EPUB ファイル生成に使用<br>
+  <br>
+  <a href="https://github.com/Stuk/jszip" target="_blank">jszip</a><br>
+  ZIP ファイルの読み書きに使用<br>
+  <br>
+  <a href="https://github.com/nodeca/pako/" target="_blank">pako</a><br>
+  JavaScript の zlib ライブラリ<br>
+  <br>
+  また、現在の設定パネルのレイアウトとスタイルは <a href="https://github.com/clash-verge-rev/clash-verge-rev" target="_blank">Clash Verge</a> に着想を得ています。`,
+    `이 프로젝트는 다음 오픈소스 JavaScript 라이브러리를 사용합니다:<br>
+  <br>
+  <a href="https://github.com/fengyuanchen/viewerjs" target="_blank">Viewer.js</a><br>
+  이미지 뷰어를 표시하는 데 사용<br>
+  <br>
+  <a href="https://github.com/Vanilagy/mediabunny" target="_blank">Mediabunny</a><br>
+  Ugoira를 WebM 비디오로 변환하는 데 사용<br>
+  <br>
+  <a href="https://github.com/jnordberg/gif.js" target="_blank">gif.js</a><br>
+  Ugoira를 GIF 이미지로 변환하는 데 사용<br>
+  <br>
+  <a href="https://github.com/photopea/UPNG.js" target="_blank">UPNG.js</a><br>
+  Ugoira를 APNG 이미지로 변환하는 데 사용<br>
+  <br>
+  <a href="https://github.com/lelinhtinh/jEpub" target="_blank">jEpub</a><br>
+  novel용 EPUB 파일을 생성하는 데 사용<br>
+  <br>
+  <a href="https://github.com/Stuk/jszip" target="_blank">jszip</a><br>
+  ZIP 파일을 읽고 쓰는 데 사용<br>
+  <br>
+  <a href="https://github.com/nodeca/pako/" target="_blank">pako</a><br>
+  JavaScript zlib 라이브러리<br>
+  <br>
+  그리고 현재 설정 패널의 레이아웃과 스타일은 <a href="https://github.com/clash-verge-rev/clash-verge-rev" target="_blank">Clash Verge</a> 에서 영감을 받았습니다。`,
+    `В этом проекте используются следующие JavaScript-библиотеки с открытым исходным кодом:<br>
+  <br>
+  <a href="https://github.com/fengyuanchen/viewerjs" target="_blank">Viewer.js</a><br>
+  Используется для отображения просмотрщика изображений<br>
+  <br>
+  <a href="https://github.com/Vanilagy/mediabunny" target="_blank">Mediabunny</a><br>
+  Используется для преобразования Ugoira в видео WebM<br>
+  <br>
+  <a href="https://github.com/jnordberg/gif.js" target="_blank">gif.js</a><br>
+  Используется для преобразования Ugoira в изображения GIF<br>
+  <br>
+  <a href="https://github.com/photopea/UPNG.js" target="_blank">UPNG.js</a><br>
+  Используется для преобразования Ugoira в изображения APNG<br>
+  <br>
+  <a href="https://github.com/lelinhtinh/jEpub" target="_blank">jEpub</a><br>
+  Используется для создания EPUB-файлов для novel<br>
+  <br>
+  <a href="https://github.com/Stuk/jszip" target="_blank">jszip</a><br>
+  Используется для чтения и записи ZIP-файлов<br>
+  <br>
+  <a href="https://github.com/nodeca/pako/" target="_blank">pako</a><br>
+  JavaScript-библиотека zlib<br>
+  <br>
+  Кроме того, макет и стиль текущей панели настроек вдохновлены <a href="https://github.com/clash-verge-rev/clash-verge-rev" target="_blank">Clash Verge</a>.`,
   ],
   _机场推荐: [
     `机场推荐`,
@@ -9967,6 +10103,24 @@ Additionally, if you have enabled "Create folder using the first matching tag", 
     `条件に合う設定が見つかりませんでした。別のキーワードで試してください。`,
     `일치하는 설정을 찾지 못했습니다. 다른 키워드로 다시 시도해 보세요.`,
     `Подходящие настройки не найдены. Попробуйте ввести другой ключевой слово.`,
+  ],
+  _Discord: ['Discord', 'Discord', 'Discord', 'Discord', 'Discord'],
+  _Discord说明: [
+    `本项目的 Discord 服务器：<br><a href="https://discord.gg/eW9JtTK" target="_blank">Discord</a>`,
+    `本專案的 Discord 伺服器：<br><a href="https://discord.gg/eW9JtTK" target="_blank">Discord</a>`,
+    `The Discord server for this project:<br><a href="https://discord.gg/eW9JtTK" target="_blank">Discord</a>`,
+    `このプロジェクトの Discord サーバー：<br><a href="https://discord.gg/eW9JtTK" target="_blank">Discord</a>`,
+    `이 프로젝트의 Discord 서버:<br><a href="https://discord.gg/eW9JtTK" target="_blank">Discord</a>`,
+    `Discord-сервер этого проекта:<br><a href="https://discord.gg/eW9JtTK" target="_blank">Discord</a>`,
+  ],
+  _QQ群: [`QQ 群`, `QQ 群`, `QQ group`, `QQグループ`, `QQ 그룹`, `Группа QQ`],
+  _QQ群说明: [
+    `下载器的 QQ 群：1060138801`,
+    `下載器的 QQ 群：1060138801`,
+    `The downloader's QQ group: 1060138801`,
+    `ダウンローダーの QQ グループ: 1060138801`,
+    `다운로더의 QQ 그룹: 1060138801`,
+    `QQ-группа загрузчика: 1060138801`,
   ],
 }
 

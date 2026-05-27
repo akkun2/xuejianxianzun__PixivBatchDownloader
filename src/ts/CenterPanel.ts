@@ -31,13 +31,12 @@ class CenterPanel {
   private allLangFlag: string[] = []
 
   private addCenterPanel() {
-    const logoURL = browser.runtime.getURL('icons/logo128.png')
     const centerPanelHTML = `
       <div class="centerWrap settingsV2 ${'lang_' + lang.type}">
         <div class="centerWrap_head">
           <div class="settingsPanel_headerMain">
             <div class="settingsPanel_brand">
-              <img class="settingsPanel_logo" src="${logoURL}" alt="">
+              <svg class="icon settingsPanel_logo" aria-hidden="true"><use xlink:href="#logo128"></use></svg>
               <span class="settingsPanel_brandName blue">${Config.appName}</span>
             </div>
 

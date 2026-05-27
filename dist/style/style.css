@@ -557,12 +557,6 @@ body.mobile #quickCrawlBtn {
   display: inline-block;
   vertical-align: baseline;
 }
-.centerWrap .centerWrap_head .btns .centerWrap_top_btn.update {
-  display: none;
-}
-.centerWrap .centerWrap_head .btns .centerWrap_top_btn.github_icon {
-  color: #777;
-}
 .centerWrap .centerWrap_head .btns .centerWrap_top_btn .icon {
   vertical-align: initial;
   padding-top: 5px;
@@ -946,7 +940,7 @@ body.mobile #quickCrawlBtn {
 .centerWrap .centerWrap_con .settingForm .beautify_checkbox::after {
   box-sizing: content-box;
   content: '';
-  border: 1px solid #fff;
+  border: 2px solid #fff;
   border-left: 0;
   border-top: 0;
   height: 7px;
@@ -1532,7 +1526,7 @@ body.mobile #quickCrawlBtn {
   max-width: calc(100vw - 24px);
   max-height: 870px;
   left: 50%;
-  top: 4vh;
+  top: 10vh;
   margin-left: 0;
   transform: translateX(-54%);
   padding: 0;
@@ -1595,6 +1589,7 @@ body.mobile #quickCrawlBtn {
   width: 24px;
   height: 24px;
   flex: none;
+  color: #199df5;
 }
 .centerWrap.settingsV2 .settingsPanel_brandName {
   font-size: 17px;
@@ -1610,7 +1605,7 @@ body.mobile #quickCrawlBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #666;
+  color: #888;
   transition: color 0.2s, background-color 0.2s;
 }
 .centerWrap.settingsV2 .centerWrap_top_btn:hover {
@@ -1686,13 +1681,16 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap.settingsV2 .settingsPanel_expandAll {
   position: relative;
-  transform: rotate(180deg);
   transition: transform 0.2s, color 0.2s, background-color 0.2s;
 }
-.centerWrap.settingsV2 .settingsPanel_expandAll.partial {
+.centerWrap.settingsV2 .settingsPanel_expandAll svg {
+  transform: rotate(180deg);
+  transition: transform 0.2s;
+}
+.centerWrap.settingsV2 .settingsPanel_expandAll.partial svg {
   transform: rotate(90deg);
 }
-.centerWrap.settingsV2 .settingsPanel_expandAll.expanded {
+.centerWrap.settingsV2 .settingsPanel_expandAll.expanded svg {
   transform: rotate(0deg);
 }
 .centerWrap.settingsV2 .centerWrap_con {
@@ -2061,11 +2059,13 @@ body.mobile #quickCrawlBtn {
   gap: 6px;
   color: #444;
   cursor: pointer;
-  transition: background-color 0.2s, color 0.2s;
   position: relative;
 }
 .centerWrap.settingsV2 .settingsPanel_helpAction:hover {
   background: #09a0f4;
+  color: #fff;
+}
+.centerWrap.settingsV2 .settingsPanel_helpAction:hover .settingsPanel_helpActionIcon {
   color: #fff;
 }
 .centerWrap.settingsV2 .settingsPanel_helpAction:hover::before,
@@ -2094,6 +2094,7 @@ body.mobile #quickCrawlBtn {
   flex: none;
   position: relative;
   top: 1px;
+  color: #666;
 }
 .centerWrap.settingsV2 .settingsPanel_searchSummary {
   margin: 15px 0 0 5px;

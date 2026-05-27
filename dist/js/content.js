@@ -2327,13 +2327,12 @@ class CenterPanel {
     centerPanel;
     allLangFlag = [];
     addCenterPanel() {
-        const logoURL = webextension_polyfill__WEBPACK_IMPORTED_MODULE_0___default().runtime.getURL('icons/logo128.png');
         const centerPanelHTML = `
       <div class="centerWrap settingsV2 ${'lang_' + _Language__WEBPACK_IMPORTED_MODULE_1__.lang.type}">
         <div class="centerWrap_head">
           <div class="settingsPanel_headerMain">
             <div class="settingsPanel_brand">
-              <img class="settingsPanel_logo" src="${logoURL}" alt="">
+              <svg class="icon settingsPanel_logo" aria-hidden="true"><use xlink:href="#logo128"></use></svg>
               <span class="settingsPanel_brandName blue">${_Config__WEBPACK_IMPORTED_MODULE_5__.Config.appName}</span>
             </div>
 
@@ -5239,17 +5238,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   applyIconScaleIn: () => (/* binding */ applyIconScaleIn)
 /* harmony export */ });
 const iconScaleMap = {
+    close: { scale: 0.85 },
+    reset: { scale: 0.85 },
     'home-fill': { scale: 0.9 },
     'home-line': { scale: 0.9 },
-    'close': { scale: 0.85 },
-    'github': { scale: 0.9 },
-    'help': { scale: 0.9 },
+    github: { scale: 0.9 },
+    qq: { scale: 0.9 },
+    help: { scale: 0.9 },
     'heart-line': { scale: 0.9 },
+    'arrow-up': { scale: 0.94 },
     f: { scale: 1.1 },
     wiki: { scale: 1.1 },
+    yes: { scale: 1.2 },
     'paper-airplane': { scale: 1.1 },
     link: { scale: 1.2 },
-    'arrow-up': { scale: 1.1 },
     'arrow-down': { scale: 1.1 },
     'arrow-down-2': { scale: 1.2 },
 };
@@ -30408,14 +30410,7 @@ This part only applies to Windows. With a few settings, you can view thumbnails 
         '설정 축소/확장',
         'Свернуть/развернуть настройки',
     ],
-    _github: [
-        'Github',
-        'Github',
-        'Github',
-        'Github',
-        'Github',
-        'Github',
-    ],
+    _github: ['Github', 'Github', 'Github', 'Github', 'Github', 'Github'],
     _wiki: ['使用手册', 'Wiki', 'Wiki', 'マニュアル', '위키', 'Вики'],
     _快捷键ALTX显示隐藏控制面板: [
         '你可以使用快捷键 <span class="blue">Alt</span> + <span class="blue">X</span> 显示或隐藏控制面板。',
@@ -30917,7 +30912,6 @@ This part only applies to Windows. With a few settings, you can view thumbnails 
         `你可以通过以下方式来交流、求助和反馈问题：<br>
 - <a href="https://discord.gg/eW9JtTK" target="_blank">Discord</a><br>
 - <a href="https://github.com/xuejianxianzun/PixivBatchDownloader/issues" target="_blank">Github issues</a><br>
-- 中文用户可以加下载器的 QQ 群：674991373<br>
 <br>
 提示：请不要在 Chrome Web Store 的评价里反馈问题，因为有些评价会被 Google 过滤掉，所以我可能无法回复你。`,
         `你可以通过以下方式來交流、求助和反饋問題：<br>
@@ -31072,16 +31066,6 @@ So the file name set by the Downloader is lost, and the file name becomes the la
     下载器的 Wiki：<a href="https://xuejianxianzun.github.io/PBDWiki" target="_blank">https://xuejianxianzun.github.io/PBDWiki</a>
     <br>
     <a href="https://xuejianxianzun.github.io/PBDWiki/#/zh-cn/常见问题" target="_blank">在 Wiki 查看常见问题</a>
-    <br><br>
-    梯子推荐：
-    <br>
-    如果你需要一个机场（梯子）的话，可以试试我现在用的机场：魔法喵 <a href="https://mofacgb.cc/register?code=GYjQWDob" title="魔法喵" target="_blank">https://mofacgb.cc</a>，性价比很高，9.9 元 768 GB 流量（倍率都是 1x），而且下载速度很快（下载速率上限是 800 Mbps）。下载 Pixiv、Fanbox 的文件建议使用“日本 2”节点。
-    <br>
-    如果上面的网址打不开，可以访问地址发布页：<a href="https://mofmiao.com" title="魔法喵" target="_blank">https://mofmiao.com</a>
-    <br>
-    你也可以查看我写的使用体验：<a href="https://saber.love/?p=12736" title="魔法喵使用体验" target="_blank">魔法喵使用体验</a>
-    <br>
-    我的邀请码：GYjQWDob
     <br><br>`,
         `下載的文件保存在瀏覽器的下載目錄裡。如果您想保存到其他位置，需要修改瀏覽器的下載目錄。
     <br><br>
@@ -31175,14 +31159,6 @@ So the file name set by the Downloader is lost, and the file name becomes the la
         'ダウンロードが停止しました',
         '다운로드 정지',
         'Загрузка остановлена',
-    ],
-    _已下载: [
-        '已下载',
-        '已下載',
-        'downloaded',
-        'downloaded',
-        '다운로드됨',
-        'загруженно',
     ],
     _稍后会重试下载失败的文件: [
         `稍后会重试下载失败的文件`,
@@ -35276,6 +35252,22 @@ If the number of works shown on the page is greater than 0, it may be that Pixiv
         '도움말 다시 표시',
         'Повторно отобразить справку',
     ],
+    _重新显示帮助的说明: [
+        '下载器的一些帮助信息是一次性的，显示一次之后就不会再显示了。<br>点击这个按钮可以让下载器再次显示这些帮助信息。',
+        '下載器的一些幫助資訊是一次性的，顯示一次之後就不會再顯示了。<br>點選這個按鈕可以讓下載器再次顯示這些幫助資訊。',
+        'Some help information of the downloader is one-time, and it will not be displayed again after being displayed once. <br>Clicking this button allows the downloader to display these help information again.',
+        'ダウンローダーのいくつかのヘルプ情報は一度きりで、一度表示された後は再び表示されません。 <br>  このボタンをクリックすると、ダウンローダーがこれらのヘルプ情報を再び表示できるようになります。',
+        '다운로더의 일부 도움말 정보는 일회성이며 한 번 표시된 후에는 다시 표시되지 않습니다. <br>이 버튼을 클릭하면 다운로더가 이러한 도움말 정보를 다시 표시할 수 있습니다.',
+        'Некоторая справочная информация загрузчика является одноразовой, и после однократного отображения она больше не отображается. <br>Нажав эту кнопку, загрузчик сможет снова отображать эту справочную информацию.',
+    ],
+    _已重新显示帮助: [
+        '已重新显示帮助',
+        '已重新顯示幫助',
+        'Help redisplayed',
+        'ヘルプが再表示されました',
+        '도움말이 다시 표시되었습니다.',
+        'Справка повторно отображается',
+    ],
     _自定义标签分隔符号的提示: [
         '现在你可以自定义文件名中使用的标签分隔符号，以替换默认的 <span class="blue">,</span>。',
         '現在你可以自定義檔名中使用的標籤分隔符號，以替換預設的 <span class="blue">,</span>。',
@@ -37985,13 +37977,21 @@ If you want to solve this problem, press <span class="blue">Win</span> + <span c
         `💡팁: 시리즈 소설을 병합할 때 "다운로드된 작품을 크롤링하지 않음"을 활성화한 경우, 다운로더는 다운로드 기록이 있는 소설을 건너뛰고 다운로드 기록이 없는 소설만 병합합니다.<br>18.7.0 버전(2026년 4월)부터 시리즈 소설을 병합할 때 다운로더는 내부의 모든 소설에 대해 다운로드 기록을 생성합니다(개별적으로 다운로드한 것처럼). 따라서 동일한 시리즈를 다시 병합할 때 "다운로드된 작품을 크롤링하지 않음"이 활성화되어 있으면 이전에 병합한 소설을 건너뛰고 새로 추가된 소설만 병합할 수 있습니다.`,
         `💡Подсказка: При объединении серийных новелл, если вы включили «Не краулить загруженные работы», загрузчик пропустит новеллы с записями о загрузке и объединит только новеллы без записей о загрузке.<br>Начиная с версии 18.7.0 (апрель 2026), при объединении серийных новелл загрузчик будет генерировать запись о загрузке для каждой новеллы внутри (как будто вы скачали их по отдельности). Поэтому при повторном объединении той же серии, если включено «Не краулить загруженные работы», загрузчик сможет пропустить ранее объединённые новеллы и объединить только новые добавленные новеллы.`,
     ],
-    _在已下载的作品上显示边框: [
-        `在已下载的作品上显示<span class="key">边框</span>`,
-        `在已下載的作品上顯示<span class="key">邊框</span>`,
-        `Show <span class="key">border</span> on downloaded works`,
-        `ダウンロード済みの作品に<span class="key">枠</span>を表示`,
-        `다운로드된 작품에 <span class="key">테두리</span> 표시`,
-        `Показывать <span class="key">рамку</span> на загруженных работах`,
+    _在下载过的作品上显示边框: [
+        `在下载过的作品上显示<span class="key">边框</span>`,
+        `在下載過的作品上顯示<span class="key">邊框</span>`,
+        `Display a <span class="key">border</span> on downloaded works`,
+        `ダウンロード済みの作品に<span class="key">枠線</span>を表示する`,
+        `다운로드한 작품에 <span class="key">테두리</span> 표시`,
+        `Показывать <span class="key">рамку</span> на скачанных работах`,
+    ],
+    _已下载: [
+        `已下载`,
+        `已下載`,
+        `Downloaded`,
+        `ダウンロード済み`,
+        `다운로드됨`,
+        `Скачано`,
     ],
     _颜色Hex颜色: [
         `颜色(Hex 颜色）`,
@@ -38974,12 +38974,12 @@ Additionally, if you have enabled "Create folder using the first matching tag", 
         `Полное руководство доступно в Wiki:<br><a href="https://xuejianxianzun.github.io/PBDWiki" target="_blank">https://xuejianxianzun.github.io/PBDWiki</a>`,
     ],
     _GitHub说明: [
-        `项目主页：<br><a href="https://github.com/xuejianxianzun/PixivBatchDownloader" target="_blank">https://github.com/xuejianxianzun/PixivBatchDownloader</a>`,
-        `專案首頁：<br><a href="https://github.com/xuejianxianzun/PixivBatchDownloader" target="_blank">https://github.com/xuejianxianzun/PixivBatchDownloader</a>`,
-        `Project homepage:<br><a href="https://github.com/xuejianxianzun/PixivBatchDownloader" target="_blank">https://github.com/xuejianxianzun/PixivBatchDownloader</a>`,
-        `プロジェクトページ：<br><a href="https://github.com/xuejianxianzun/PixivBatchDownloader" target="_blank">https://github.com/xuejianxianzun/PixivBatchDownloader</a>`,
-        `프로젝트 홈페이지:<br><a href="https://github.com/xuejianxianzun/PixivBatchDownloader" target="_blank">https://github.com/xuejianxianzun/PixivBatchDownloader</a>`,
-        `Страница проекта:<br><a href="https://github.com/xuejianxianzun/PixivBatchDownloader" target="_blank">https://github.com/xuejianxianzun/PixivBatchDownloader</a>`,
+        `本项目的 GitHub 网址，欢迎 Star：<br><a href="https://github.com/xuejianxianzun/PixivBatchDownloader" target="_blank">https://github.com/xuejianxianzun/PixivBatchDownloader</a>`,
+        `本專案的 GitHub 網址，歡迎 Star：<br><a href="https://github.com/xuejianxianzun/PixivBatchDownloader" target="_blank">https://github.com/xuejianxianzun/PixivBatchDownloader</a>`,
+        `The GitHub URL of this project. Star is welcome:<br><a href="https://github.com/xuejianxianzun/PixivBatchDownloader" target="_blank">https://github.com/xuejianxianzun/PixivBatchDownloader</a>`,
+        `このプロジェクトの GitHub URL です。Star していただけると嬉しいです。<br><a href="https://github.com/xuejianxianzun/PixivBatchDownloader" target="_blank">https://github.com/xuejianxianzun/PixivBatchDownloader</a>`,
+        `이 프로젝트의 GitHub 주소입니다. Star 환영합니다:<br><a href="https://github.com/xuejianxianzun/PixivBatchDownloader" target="_blank">https://github.com/xuejianxianzun/PixivBatchDownloader</a>`,
+        `GitHub-адрес этого проекта, буду рад Star:<br><a href="https://github.com/xuejianxianzun/PixivBatchDownloader" target="_blank">https://github.com/xuejianxianzun/PixivBatchDownloader</a>`,
     ],
     _第三方库: [
         `第三方库`,
@@ -38990,12 +38990,150 @@ Additionally, if you have enabled "Create folder using the first matching tag", 
         `Сторонние библиотеки`,
     ],
     _第三方库说明: [
-        `本项目使用或包含了这些开源 JS 库：<br>- Viewer.js<br>- webextension-polyfill<br>- gif.js<br>- JSZip / jszip-utils<br>- jEpub<br>- pako<br>- MediaBunny<br><br>另外，当前设置面板的界面布局受 <a href="https://github.com/clash-verge-rev/clash-verge-rev" target="_blank">Clash Verge</a> 启发。`,
-        `本專案使用或包含了這些開源 JS 函式庫：<br>- Viewer.js<br>- webextension-polyfill<br>- gif.js<br>- JSZip / jszip-utils<br>- jEpub<br>- pako<br>- MediaBunny<br><br>另外，目前設定面板的介面布局受 <a href="https://github.com/clash-verge-rev/clash-verge-rev" target="_blank">Clash Verge</a> 啟發。`,
-        `This project uses or bundles these open-source JavaScript libraries:<br>- Viewer.js<br>- webextension-polyfill<br>- gif.js<br>- JSZip / jszip-utils<br>- jEpub<br>- pako<br>- MediaBunny<br><br>The current settings-panel layout is also inspired by <a href="https://github.com/clash-verge-rev/clash-verge-rev" target="_blank">Clash Verge</a>.`,
-        `このプロジェクトでは次のオープンソース JS ライブラリを使用または同梱しています：<br>- Viewer.js<br>- webextension-polyfill<br>- gif.js<br>- JSZip / jszip-utils<br>- jEpub<br>- pako<br>- MediaBunny<br><br>また、現在の設定パネルのレイアウトは <a href="https://github.com/clash-verge-rev/clash-verge-rev" target="_blank">Clash Verge</a> に着想を得ています。`,
-        `이 프로젝트는 다음 오픈소스 JS 라이브러리를 사용하거나 포함합니다.<br>- Viewer.js<br>- webextension-polyfill<br>- gif.js<br>- JSZip / jszip-utils<br>- jEpub<br>- pako<br>- MediaBunny<br><br>현재 설정 패널 레이아웃은 <a href="https://github.com/clash-verge-rev/clash-verge-rev" target="_blank">Clash Verge</a> 에서 영감을 받았습니다.`,
-        `В проекте используются или входят эти библиотеки JavaScript с открытым исходным кодом:<br>- Viewer.js<br>- webextension-polyfill<br>- gif.js<br>- JSZip / jszip-utils<br>- jEpub<br>- pako<br>- MediaBunny<br><br>Текущая компоновка панели настроек также вдохновлена <a href="https://github.com/clash-verge-rev/clash-verge-rev" target="_blank">Clash Verge</a>.`,
+        `本项目使用了这些开源 JavaScript 库：<br>
+  <br>
+  <a href="https://github.com/fengyuanchen/viewerjs" target="_blank">Viewer.js</a><br>
+  用于显示图片查看器<br>
+  <br>
+  <a href="https://github.com/Vanilagy/mediabunny" target="_blank">Mediabunny</a><br>
+  用于把动图转换为 WebM 视频<br>
+  <br>
+  <a href="https://github.com/jnordberg/gif.js" target="_blank">gif.js</a><br>
+  用于把动图转换为 GIF 图片<br>
+  <br>
+  <a href="https://github.com/photopea/UPNG.js" target="_blank">UPNG.js</a><br>
+  用于把动图转换为 APNG 图片<br>
+  <br>
+  <a href="https://github.com/lelinhtinh/jEpub" target="_blank">jEpub</a><br>
+  用于为小说生成 EPUB 文件<br>
+  <br>
+  <a href="https://github.com/Stuk/jszip" target="_blank">jszip</a><br>
+  用于读写 ZIP 文件<br>
+  <br>
+  <a href="https://github.com/nodeca/pako/" target="_blank">pako</a><br>
+  JavaScript zlib 库<br>
+  <br>
+  另外，当前设置面板的布局和样式受 <a href="https://github.com/clash-verge-rev/clash-verge-rev" target="_blank">Clash Verge</a> 启发。`,
+        `本專案使用了這些開源 JavaScript 函式庫：<br>
+  <br>
+  <a href="https://github.com/fengyuanchen/viewerjs" target="_blank">Viewer.js</a><br>
+  用於顯示圖片檢視器<br>
+  <br>
+  <a href="https://github.com/Vanilagy/mediabunny" target="_blank">Mediabunny</a><br>
+  用於把動圖轉換為 WebM 影片<br>
+  <br>
+  <a href="https://github.com/jnordberg/gif.js" target="_blank">gif.js</a><br>
+  用於把動圖轉換為 GIF 圖片<br>
+  <br>
+  <a href="https://github.com/photopea/UPNG.js" target="_blank">UPNG.js</a><br>
+  用於把動圖轉換為 APNG 圖片<br>
+  <br>
+  <a href="https://github.com/lelinhtinh/jEpub" target="_blank">jEpub</a><br>
+  用於為小說產生 EPUB 檔案<br>
+  <br>
+  <a href="https://github.com/Stuk/jszip" target="_blank">jszip</a><br>
+  用於讀寫 ZIP 檔案<br>
+  <br>
+  <a href="https://github.com/nodeca/pako/" target="_blank">pako</a><br>
+  JavaScript zlib 函式庫<br>
+  <br>
+  另外，目前設定面板的版面配置和樣式受到 <a href="https://github.com/clash-verge-rev/clash-verge-rev" target="_blank">Clash Verge</a> 啟發。`,
+        `This project uses these open-source JavaScript libraries:<br>
+  <br>
+  <a href="https://github.com/fengyuanchen/viewerjs" target="_blank">Viewer.js</a><br>
+  Used to display the image viewer<br>
+  <br>
+  <a href="https://github.com/Vanilagy/mediabunny" target="_blank">Mediabunny</a><br>
+  Used to convert Ugoira into WebM videos<br>
+  <br>
+  <a href="https://github.com/jnordberg/gif.js" target="_blank">gif.js</a><br>
+  Used to convert Ugoira into GIF images<br>
+  <br>
+  <a href="https://github.com/photopea/UPNG.js" target="_blank">UPNG.js</a><br>
+  Used to convert Ugoira into APNG images<br>
+  <br>
+  <a href="https://github.com/lelinhtinh/jEpub" target="_blank">jEpub</a><br>
+  Used to generate EPUB files for novels<br>
+  <br>
+  <a href="https://github.com/Stuk/jszip" target="_blank">jszip</a><br>
+  Used to read and write ZIP files<br>
+  <br>
+  <a href="https://github.com/nodeca/pako/" target="_blank">pako</a><br>
+  A JavaScript zlib library<br>
+  <br>
+  In addition, the layout and style of the current settings panel were inspired by <a href="https://github.com/clash-verge-rev/clash-verge-rev" target="_blank">Clash Verge</a>.`,
+        `このプロジェクトでは、以下のオープンソース JavaScript ライブラリを使用しています。<br>
+  <br>
+  <a href="https://github.com/fengyuanchen/viewerjs" target="_blank">Viewer.js</a><br>
+  画像ビューアーの表示に使用<br>
+  <br>
+  <a href="https://github.com/Vanilagy/mediabunny" target="_blank">Mediabunny</a><br>
+  Ugoira を WebM 動画に変換するために使用<br>
+  <br>
+  <a href="https://github.com/jnordberg/gif.js" target="_blank">gif.js</a><br>
+  Ugoira を GIF 画像に変換するために使用<br>
+  <br>
+  <a href="https://github.com/photopea/UPNG.js" target="_blank">UPNG.js</a><br>
+  Ugoira を APNG 画像に変換するために使用<br>
+  <br>
+  <a href="https://github.com/lelinhtinh/jEpub" target="_blank">jEpub</a><br>
+  小説の EPUB ファイル生成に使用<br>
+  <br>
+  <a href="https://github.com/Stuk/jszip" target="_blank">jszip</a><br>
+  ZIP ファイルの読み書きに使用<br>
+  <br>
+  <a href="https://github.com/nodeca/pako/" target="_blank">pako</a><br>
+  JavaScript の zlib ライブラリ<br>
+  <br>
+  また、現在の設定パネルのレイアウトとスタイルは <a href="https://github.com/clash-verge-rev/clash-verge-rev" target="_blank">Clash Verge</a> に着想を得ています。`,
+        `이 프로젝트는 다음 오픈소스 JavaScript 라이브러리를 사용합니다:<br>
+  <br>
+  <a href="https://github.com/fengyuanchen/viewerjs" target="_blank">Viewer.js</a><br>
+  이미지 뷰어를 표시하는 데 사용<br>
+  <br>
+  <a href="https://github.com/Vanilagy/mediabunny" target="_blank">Mediabunny</a><br>
+  Ugoira를 WebM 비디오로 변환하는 데 사용<br>
+  <br>
+  <a href="https://github.com/jnordberg/gif.js" target="_blank">gif.js</a><br>
+  Ugoira를 GIF 이미지로 변환하는 데 사용<br>
+  <br>
+  <a href="https://github.com/photopea/UPNG.js" target="_blank">UPNG.js</a><br>
+  Ugoira를 APNG 이미지로 변환하는 데 사용<br>
+  <br>
+  <a href="https://github.com/lelinhtinh/jEpub" target="_blank">jEpub</a><br>
+  novel용 EPUB 파일을 생성하는 데 사용<br>
+  <br>
+  <a href="https://github.com/Stuk/jszip" target="_blank">jszip</a><br>
+  ZIP 파일을 읽고 쓰는 데 사용<br>
+  <br>
+  <a href="https://github.com/nodeca/pako/" target="_blank">pako</a><br>
+  JavaScript zlib 라이브러리<br>
+  <br>
+  그리고 현재 설정 패널의 레이아웃과 스타일은 <a href="https://github.com/clash-verge-rev/clash-verge-rev" target="_blank">Clash Verge</a> 에서 영감을 받았습니다。`,
+        `В этом проекте используются следующие JavaScript-библиотеки с открытым исходным кодом:<br>
+  <br>
+  <a href="https://github.com/fengyuanchen/viewerjs" target="_blank">Viewer.js</a><br>
+  Используется для отображения просмотрщика изображений<br>
+  <br>
+  <a href="https://github.com/Vanilagy/mediabunny" target="_blank">Mediabunny</a><br>
+  Используется для преобразования Ugoira в видео WebM<br>
+  <br>
+  <a href="https://github.com/jnordberg/gif.js" target="_blank">gif.js</a><br>
+  Используется для преобразования Ugoira в изображения GIF<br>
+  <br>
+  <a href="https://github.com/photopea/UPNG.js" target="_blank">UPNG.js</a><br>
+  Используется для преобразования Ugoira в изображения APNG<br>
+  <br>
+  <a href="https://github.com/lelinhtinh/jEpub" target="_blank">jEpub</a><br>
+  Используется для создания EPUB-файлов для novel<br>
+  <br>
+  <a href="https://github.com/Stuk/jszip" target="_blank">jszip</a><br>
+  Используется для чтения и записи ZIP-файлов<br>
+  <br>
+  <a href="https://github.com/nodeca/pako/" target="_blank">pako</a><br>
+  JavaScript-библиотека zlib<br>
+  <br>
+  Кроме того, макет и стиль текущей панели настроек вдохновлены <a href="https://github.com/clash-verge-rev/clash-verge-rev" target="_blank">Clash Verge</a>.`,
     ],
     _机场推荐: [
         `机场推荐`,
@@ -39021,13 +39159,31 @@ Additionally, if you have enabled "Create folder using the first matching tag", 
         `"{}" 와 관련된 설정 {}개를 찾았습니다`,
         `Найдено {} настроек, связанных с "{}"`,
     ],
-    _没有找到符合条件的设置你可以尝试搜索更简短的关键词: [
-        `没有找到符合条件的设置。你可以尝试搜索更简短的关键词。`,
-        `沒有找到符合條件的設定。你可以嘗試搜尋更簡短的關鍵詞。`,
-        `No matching settings were found. Try a shorter keyword.`,
-        `条件に合う設定が見つかりませんでした。もっと短いキーワードで試してください。`,
-        `일치하는 설정을 찾지 못했습니다. 더 짧은 키워드로 다시 시도해 보세요.`,
-        `Подходящие настройки не найдены. Попробуйте ввести более короткое ключевое слово.`,
+    _没有找到符合条件的设置的提示: [
+        `没有找到符合条件的设置。你可以尝试换一个搜索词。`,
+        `沒有找到符合條件的設定。你可以嘗試換一個搜尋詞。`,
+        `No matching settings were found. Try a different keyword.`,
+        `条件に合う設定が見つかりませんでした。別のキーワードで試してください。`,
+        `일치하는 설정을 찾지 못했습니다. 다른 키워드로 다시 시도해 보세요.`,
+        `Подходящие настройки не найдены. Попробуйте ввести другой ключевой слово.`,
+    ],
+    _Discord: ['Discord', 'Discord', 'Discord', 'Discord', 'Discord'],
+    _Discord说明: [
+        `本项目的 Discord 服务器：<br><a href="https://discord.gg/eW9JtTK" target="_blank">Discord</a>`,
+        `本專案的 Discord 伺服器：<br><a href="https://discord.gg/eW9JtTK" target="_blank">Discord</a>`,
+        `The Discord server for this project:<br><a href="https://discord.gg/eW9JtTK" target="_blank">Discord</a>`,
+        `このプロジェクトの Discord サーバー：<br><a href="https://discord.gg/eW9JtTK" target="_blank">Discord</a>`,
+        `이 프로젝트의 Discord 서버:<br><a href="https://discord.gg/eW9JtTK" target="_blank">Discord</a>`,
+        `Discord-сервер этого проекта:<br><a href="https://discord.gg/eW9JtTK" target="_blank">Discord</a>`,
+    ],
+    _QQ群: [`QQ 群`, `QQ 群`, `QQ group`, `QQグループ`, `QQ 그룹`, `Группа QQ`],
+    _QQ群说明: [
+        `下载器的 QQ 群：1060138801`,
+        `下載器的 QQ 群：1060138801`,
+        `The downloader's QQ group: 1060138801`,
+        `ダウンローダーの QQ グループ: 1060138801`,
+        `다운로더의 QQ 그룹: 1060138801`,
+        `QQ-группа загрузчика: 1060138801`,
     ],
 };
 
@@ -43302,7 +43458,7 @@ const formHtml = `
   </div>
 
   <div class="option" data-no="100">
-    <a href="" target="_blank" class="settingNameStyle" data-xztext="_在已下载的作品上显示边框"></a>
+    <a href="" target="_blank" class="settingNameStyle" data-xztext="_在下载过的作品上显示边框"></a>
     <input type="checkbox" name="showBorderOnDownloadedWorks" class="need_beautify checkbox_switch">
     <span class="beautify_switch" tabindex="0"></span>
     <span class="subOptionWrap noGrow" data-show="showBorderOnDownloadedWorks">
@@ -45271,7 +45427,7 @@ class OptionConfigs {
             categoryLevel1: 'crawl',
             categoryLevel2: 'strategy',
             pinned: false,
-            searchWordKeys: [],
+            searchWordKeys: ['_已下载'],
             searchWords: [],
         },
         {
@@ -45362,7 +45518,7 @@ class OptionConfigs {
             categoryLevel1: 'naming',
             categoryLevel2: 'names',
             pinned: false,
-            searchWordKeys: [],
+            searchWordKeys: ['_文件名'],
             searchWords: [],
         },
         {
@@ -45628,12 +45784,12 @@ class OptionConfigs {
         },
         {
             no: 100,
-            nameKey: '_在已下载的作品上显示边框',
+            nameKey: '_在下载过的作品上显示边框',
             name: '',
             categoryLevel1: 'download',
             categoryLevel2: 'record',
             pinned: false,
-            searchWordKeys: [],
+            searchWordKeys: ['_已下载'],
             searchWords: [],
         },
         {
@@ -47585,7 +47741,7 @@ class Settings {
         onlyCrawlLastFewImagesCount: 1,
         doNotCrawlFirstImagesSwitch: false,
         doNotCrawlFirstImagesCount: 1,
-        pinnedOptions: [0, 1,],
+        pinnedOptions: [0, 1],
         debugForWiki: false,
         singleEPUBFileSizeLimit: 200,
         imageToGray: false,
@@ -47808,7 +47964,7 @@ class Settings {
         this.setSetting('tipCloseAskFileSaveLocation', true);
         this.setSetting('tipPinOption', true);
         this.setSetting('tipCopyWorkInfoButton', true);
-        _Toast__WEBPACK_IMPORTED_MODULE_7__.toast.success(_Language__WEBPACK_IMPORTED_MODULE_8__.lang.transl('_重新显示帮助'));
+        _Toast__WEBPACK_IMPORTED_MODULE_7__.toast.success(_Language__WEBPACK_IMPORTED_MODULE_8__.lang.transl('_已重新显示帮助'));
     }
     // 重置设置 或者 导入设置
     // 可选参数：传递一份设置数据，用于从配置文件导入，恢复设置
@@ -48171,7 +48327,7 @@ class SettingsPanel {
         <span class="settingsPanel_tipTextContent">
           <span data-xztext="_建议您关闭询问文件保存位置"></span>
           <button class="settingsPanel_tipConfirm" type="button" data-xztitle="_已确认">
-            <svg class="icon" aria-hidden="true"><use xlink:href="#yes_submit"></use></svg>
+            <svg class="icon" aria-hidden="true"><use xlink:href="#yes"></use></svg>
           </button>
         </span>
       </div>
@@ -48271,7 +48427,7 @@ class SettingsPanel {
       <div class="settingsPanel_tipText">
         <span class="settingsPanel_tipTextContent" data-xztext="_提示可以置顶选项"></span>
         <button class="settingsPanel_tipConfirm" type="button" data-xztitle="_已确认">
-          <svg class="icon" aria-hidden="true"><use xlink:href="#yes_submit"></use></svg>
+          <svg class="icon" aria-hidden="true"><use xlink:href="#yes"></use></svg>
         </button>
       </div>
     </div>
@@ -48281,7 +48437,7 @@ class SettingsPanel {
         <span class="settingsPanel_tipTextContent">
           <span data-xztext="_提示查看wiki页面"></span>
           <button class="settingsPanel_tipConfirm" type="button" data-xztitle="_已确认">
-            <svg class="icon" aria-hidden="true"><use xlink:href="#yes_submit"></use></svg>
+            <svg class="icon" aria-hidden="true"><use xlink:href="#yes"></use></svg>
           </button>
         </span>
       </div>
@@ -48294,13 +48450,15 @@ class SettingsPanel {
         const actions = [
             { id: 'wiki', textKey: '_使用手册', iconId: 'wiki' },
             { id: 'faq', textKey: '_常见问题', iconId: 'help' },
-            { id: 'getHelp', textKey: '_获取帮助', iconId: 'get-help' },
             { id: 'recentUpdates', textKey: '_最近更新', iconId: 'new-2' },
-            { id: 'github', textKey: '_github', iconId: 'github' },
-            { id: 'fanbox', textKey: '_fanboxDownloader', iconId: 'F' },
-            { id: 'airport', textKey: '_机场推荐', iconId: 'paper-airplane' },
             { id: 'sponsorship', textKey: '_赞助我', iconId: 'heart-line' },
+            { id: 'github', textKey: '_github', iconId: 'github' },
+            { id: 'discord', textKey: '_Discord', iconId: 'discord' },
+            { id: 'qq', textKey: '_QQ群', iconId: 'qq' },
+            { id: 'airport', textKey: '_机场推荐', iconId: 'paper-airplane' },
+            { id: 'fanbox', textKey: '_fanboxDownloader', iconId: 'box-open' },
             { id: 'thirdParty', textKey: '_第三方库', iconId: 'list' },
+            { id: 'reset', textKey: '_重新显示帮助', iconId: 'reset' },
         ];
         actions.forEach((action) => {
             const button = document.createElement('button');
@@ -48491,6 +48649,11 @@ class SettingsPanel {
         }
         if (this.searchKeyword !== '' && page !== 'search') {
             this.lastNonSearchPage = page;
+            if (this.activePage === 'search') {
+                this.searchInput.value = '';
+                this.updateSearchClearButton();
+                this.updateSearchResult();
+            }
             return;
         }
         this.switchPage(page);
@@ -48529,6 +48692,10 @@ class SettingsPanel {
             if (!match) {
                 return;
             }
+            const optionElement = this.optionElements.get(option.no);
+            if (!optionElement || this.isOptionCardHidden(optionElement)) {
+                return;
+            }
             const groupKey = this.makeSectionKey('search', `${option.categoryLevel1}__${option.categoryLevel2}`);
             if (!this.searchSections.has(groupKey)) {
                 const section = this.createSearchSection(option.categoryLevel1, option.categoryLevel2);
@@ -48536,16 +48703,14 @@ class SettingsPanel {
                 groupOrder.push(groupKey);
                 this.searchGroupsWrap.append(section.root);
             }
-            this.searchSections
-                .get(groupKey)
-                .content.append(this.optionElements.get(option.no));
+            this.searchSections.get(groupKey).content.append(optionElement);
         });
         this.placeUnmatchedOptionsBack(matchMap);
         this.updateSearchOptionHighlight(matchMap);
         if (groupOrder.length === 0) {
-            this.searchSummary.dataset.xztext =
-                '_没有找到符合条件的设置你可以尝试搜索更简短的关键词';
-            this.searchSummary.innerHTML = _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_没有找到符合条件的设置你可以尝试搜索更简短的关键词');
+            this.searchSummary.dataset.xztext = '_没有找到符合条件的设置的提示';
+            this.searchSummary.innerHTML =
+                _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_没有找到符合条件的设置的提示');
         }
         else {
             this.searchSummary.innerHTML = _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_找到x条与搜索词有关的设置', groupOrder
@@ -48568,6 +48733,10 @@ class SettingsPanel {
         const result = new Map();
         const lowerKeyword = keyword.toLowerCase();
         for (const option of _OptionConfigs__WEBPACK_IMPORTED_MODULE_7__.optionConfigs.options) {
+            const element = this.optionElements.get(option.no);
+            if (!element || this.isOptionCardHidden(element)) {
+                continue;
+            }
             const name = option.name.toLowerCase();
             if (name.includes(lowerKeyword)) {
                 result.set(option.no, { matchedByName: true });
@@ -48586,6 +48755,9 @@ class SettingsPanel {
             }
         }
         return result;
+    }
+    isOptionCardHidden(option) {
+        return option.style.display === 'none';
     }
     placeOptionsToDefaultContainers(showPinnedOnHome) {
         for (const option of _OptionConfigs__WEBPACK_IMPORTED_MODULE_7__.optionConfigs.options) {
@@ -48851,10 +49023,14 @@ class SettingsPanel {
             this.getExpandedState(section));
     }
     renderHelpActionVisibility() {
-        const airportBtn = this.helpActionEls.get('airport');
-        if (airportBtn) {
-            airportBtn.style.display = _Language__WEBPACK_IMPORTED_MODULE_2__.lang.type === 'zh-cn' ? 'flex' : 'none';
-        }
+        // 有些按钮只在简体中文语言里显示
+        const onlyShowInZhCN = ['airport', 'qq'];
+        onlyShowInZhCN.forEach((id) => {
+            const btn = this.helpActionEls.get(id);
+            if (btn) {
+                btn.style.display = _Language__WEBPACK_IMPORTED_MODULE_2__.lang.type === 'zh-cn' ? 'flex' : 'none';
+            }
+        });
     }
     handleHelpAction(action) {
         switch (action) {
@@ -48873,17 +49049,22 @@ class SettingsPanel {
                 });
                 return;
             }
-            case 'getHelp':
-                _MsgBox__WEBPACK_IMPORTED_MODULE_3__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_获取帮助的提示'), {
-                    title: _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_获取帮助'),
-                });
-                return;
             case 'recentUpdates':
                 _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.fire('showRecentUpdates');
                 return;
             case 'github':
                 _MsgBox__WEBPACK_IMPORTED_MODULE_3__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_GitHub说明'), {
                     title: 'GitHub',
+                });
+                return;
+            case 'discord':
+                _MsgBox__WEBPACK_IMPORTED_MODULE_3__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_Discord说明'), {
+                    title: 'Discord',
+                });
+                return;
+            case 'qq':
+                _MsgBox__WEBPACK_IMPORTED_MODULE_3__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_QQ群说明'), {
+                    title: _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_QQ群'),
                 });
                 return;
             case 'fanbox':
@@ -48904,6 +49085,12 @@ class SettingsPanel {
             case 'thirdParty':
                 _MsgBox__WEBPACK_IMPORTED_MODULE_3__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_第三方库说明'), {
                     title: _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_第三方库'),
+                });
+                return;
+            case 'reset':
+                _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.fire('resetHelpTip');
+                _MsgBox__WEBPACK_IMPORTED_MODULE_3__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_重新显示帮助的说明'), {
+                    title: _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_重新显示帮助'),
                 });
                 return;
         }

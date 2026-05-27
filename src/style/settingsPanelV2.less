@@ -6,7 +6,7 @@
   max-width: calc(100vw - 24px);
   max-height: 870px;
   left: 50%;
-  top: 4vh;
+  top: 10vh;
   margin-left: 0;
   // 在 PC 端页面上，把设置面板靠左一些显示。这是因为设置面板是左右两列布局：左侧是导航区域，右侧是内容区域。 靠左一些的话，可以让内容区域更接近居中（而不是被挤到右边），这样用户体验更好。
   transform: translateX(-54%);
@@ -76,6 +76,7 @@
     width: 24px;
     height: 24px;
     flex: none;
+    color: @themeBlue;
   }
 
   .settingsPanel_brandName {
@@ -93,7 +94,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: #666;
+    color: #888;
     transition:
       color 0.2s,
       background-color 0.2s;
@@ -113,7 +114,6 @@
     .icon {
       font-size: 24px;
     }
-
   }
 
   .settingsPanel_sponsorBtn:hover {
@@ -187,18 +187,26 @@
 
   .settingsPanel_expandAll {
     position: relative;
-    transform: rotate(180deg);
     transition:
       transform 0.2s,
       color 0.2s,
       background-color 0.2s;
 
+    svg {
+      transform: rotate(180deg);
+      transition: transform 0.2s;
+    }
+
     &.partial {
-      transform: rotate(90deg);
+      svg {
+        transform: rotate(90deg);
+      }
     }
 
     &.expanded {
-      transform: rotate(0deg);
+      svg {
+        transform: rotate(0deg);
+      }
     }
   }
 
@@ -659,13 +667,14 @@
     gap: 6px;
     color: #444;
     cursor: pointer;
-    transition:
-      background-color 0.2s,
-      color 0.2s;
     position: relative;
 
     &:hover {
       background: #09a0f4;
+      color: #fff;
+    }
+
+    &:hover .settingsPanel_helpActionIcon {
       color: #fff;
     }
 
@@ -700,6 +709,7 @@
     flex: none;
     position: relative;
     top: 1px;
+    color: #666;
   }
 
   .settingsPanel_searchSummary {
