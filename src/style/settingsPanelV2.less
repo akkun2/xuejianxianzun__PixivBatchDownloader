@@ -1,6 +1,27 @@
 @import './var.less';
 
 .centerWrap {
+  box-sizing: border-box;
+  width: 925px;
+  max-width: calc(100vw - 24px);
+  max-height: 870px;
+  left: 50%;
+  top: 10vh;
+  margin-left: 0;
+  // 在 PC 端页面上，把设置面板靠左一些显示。这是因为设置面板是左右两列布局：左侧是导航区域，右侧是内容区域。 靠左一些的话，可以让内容区域更接近居中（而不是被挤到右边），这样用户体验更好。
+  transform: translateX(-54%);
+  padding: 0;
+  border-radius: 16px;
+  border: 1px solid #9dd4f9;
+  box-shadow: 0 0 25px #b4e0f5;
+  background: #fff;
+  position: fixed;
+  z-index: 5000;
+  font-size: 15px;
+  color: #444;
+  overflow: hidden;
+  font-family: @pixivFontFamily;
+
   ::selection {
     background: @themeBlue;
     color: #fff;
@@ -21,6 +42,25 @@
   input {
     padding: 0;
     margin: 0;
+  }
+
+  p,
+  div,
+  span,
+  button,
+  .centerWrap_head,
+  .centerWrap_con,
+  .settingForm,
+  .settingsPanel_page,
+  .settingsPanel_pageInner,
+  .settingsPanel_sidebar,
+  .settingsPanel_main,
+  .settingsPanel_navItem,
+  .settingsPanel_tipCard,
+  .settingsPanel_helpAction,
+  .settingsPanel_sectionHeader,
+  .settingsPanel_downloadSummaryBtn {
+    box-sizing: border-box;
   }
 
   button {
@@ -82,6 +122,14 @@
   }
 
   .centerWrap_head {
+    padding: 10px 10px 10px 20px;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0px;
+    border-bottom: 1px solid #edf3f8;
+
     img {
       width: 16px;
       vertical-align: inherit;
@@ -120,7 +168,170 @@
     }
   }
 
+  .settingsPanel_headerMain,
+  .settingsPanel_headerActions,
+  .settingsPanel_headerSearch,
+  .settingsPanel_brand {
+    display: flex;
+    align-items: center;
+  }
+
+  .settingsPanel_headerActions {
+    gap: 0px;
+  }
+
+  .settingsPanel_headerSearch {
+    gap: 5px;
+  }
+
+  .settingsPanel_brand {
+    gap: 6px;
+    min-width: 0;
+    color: @themeBlue;
+  }
+
+  .settingsPanel_logo {
+    width: 28px;
+    height: 28px;
+    flex: none;
+  }
+
+  .settingsPanel_brandName {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .centerWrap_top_btn {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    transition:
+      color 0.2s,
+      background-color 0.2s;
+
+    &:hover {
+      color: @themeBlue;
+      background: #eef7ff;
+    }
+
+    // 关闭按钮的特殊样式，使用红色背景以表示危险操作
+    &.centerWrap_close_pc:hover,
+    &.centerWrap_close_pc:active {
+      color: #f33939;
+      background: #fcdddd;
+    }
+
+    .icon {
+      font-size: 20px;
+    }
+  }
+
+  .settingsPanel_sponsorBtn:hover {
+    color: #e448a3;
+    background: #fff0f7;
+  }
+
+  .centerWrap_close_mobile {
+    display: none;
+  }
+
+  .settingsPanel_searchBar {
+    width: 210px;
+    max-width: 80vw;
+    height: 32px;
+    border: 1px solid #999;
+    border-radius: 20px;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff;
+    transition: border-color 0.2s;
+
+    &:focus-within {
+      border-color: @themeBlue;
+    }
+
+    input {
+      flex: 1;
+      min-width: 0;
+      border: none;
+      height: 100%;
+      background: transparent;
+      color: #444;
+      font-size: 15px;
+      outline: none;
+    }
+
+    input::placeholder {
+      color: #aaa;
+    }
+  }
+
+  .settingsPanel_searchIcon {
+    color: #aaa;
+    font-size: 20px;
+    flex: none;
+  }
+
+  .settingsPanel_clearSearch {
+    width: 24px;
+    height: 24px;
+    padding: 4px;
+    border-radius: 50%;
+    color: #999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    &.visible {
+      display: inline-flex;
+      color: #666;
+    }
+
+    &:hover {
+      color: @themeBlue;
+      background: #eef7ff;
+    }
+  }
+
+  .settingsPanel_expandAll {
+    position: relative;
+    transition:
+      transform 0.2s,
+      color 0.2s,
+      background-color 0.2s;
+
+    svg {
+      transform: rotate(180deg);
+      transition: transform 0.2s;
+    }
+
+    &.partial {
+      svg {
+        transform: rotate(90deg);
+      }
+    }
+
+    &.expanded {
+      svg {
+        transform: rotate(0deg);
+      }
+    }
+  }
+
   .centerWrap_con {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    background: #eee;
     overflow: auto;
     max-height: 76vh;
     min-height: 600px;
@@ -906,6 +1117,563 @@
       }
     }
 
+    .settingsPanel_sidebar {
+      width: 190px;
+      flex: none;
+      padding: 15px 10px;
+      background: #f5f5f5;
+      overflow-y: auto;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .settingsPanel_nav {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .settingsPanel_navItem {
+      min-height: 50px;
+      padding: 0 15px;
+      border: none;
+      border-radius: 6px;
+      background: transparent;
+      color: #111;
+      display: flex;
+      align-items: center;
+      gap: 0px;
+      text-align: left;
+      cursor: pointer;
+
+      &[hidden] {
+        display: none;
+      }
+
+      &:hover {
+        background: #d7e5f2;
+      }
+
+      &.active {
+        background: @themeBlue;
+        color: #fff;
+        font-weight: 700;
+      }
+
+      &.active:hover,
+      &.active:focus {
+        background: @themeBlue;
+      }
+
+      &.active:hover::before,
+      &.active:focus::before {
+        background: transparent;
+      }
+
+      &:hover .ripple,
+      &:focus .ripple {
+        animation: none;
+      }
+
+      &.ripple-active .ripple {
+        animation: ripple-effect 0.6s linear;
+      }
+    }
+
+    .settingsPanel_navIconWrap {
+      width: 26px;
+      height: 26px;
+      flex: none;
+      position: relative;
+    }
+
+    .settingsPanel_navIcon {
+      font-size: 26px;
+      position: absolute;
+      inset: 0;
+    }
+
+    .settingsPanel_navIconFill {
+      display: none;
+    }
+
+    .settingsPanel_navItem.active {
+      .settingsPanel_navIconLine {
+        display: none;
+      }
+
+      .settingsPanel_navIconFill {
+        display: inline-block;
+      }
+    }
+
+    .settingsPanel_navText {
+      flex: 1;
+      min-width: 0;
+      font-size: 18px;
+      line-height: 1.3;
+      text-align: center;
+    }
+
+    .settingsPanel_downloadSummary {
+      display: none;
+      margin-top: auto;
+      padding: 14px 0 0px 2px;
+      border-top: 1px solid #ccc;
+    }
+
+    .settingsPanel_downloadSummaryStatus,
+    .settingsPanel_downloadSummaryActions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .settingsPanel_downloadSummaryStatus {
+      gap: 10px;
+      color: #666;
+      margin-bottom: 12px;
+
+      .settingsPanel_downloadSummaryStateIcon {
+        position: relative;
+        top: 2px;
+        font-size: 24px;
+        transform-origin: center;
+        // 因为这个按钮只显示状态，不可点击，为了与下面可点击的按钮区分开，所以让它看起来更灰一些。
+        opacity: 0.4;
+
+        &.is-loading {
+          animation: settingsPanelSummarySpin 1s linear infinite;
+        }
+      }
+    }
+
+    .settingsPanel_downloadSummaryActions {
+      gap: 12px;
+    }
+
+    .settingsPanel_downloadSummaryBtn {
+      width: 1em;
+      height: 1em;
+      padding: 0;
+      border-radius: 50%;
+      font-size: 24px;
+      color: #666;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition:
+        color 0.2s,
+        background-color 0.2s;
+
+      &:hover {
+        color: @themeBlue;
+      }
+    }
+
+    .settingsPanel_main {
+      flex: 1;
+      min-width: 0;
+      width: 735px;
+      overflow-y: auto;
+      padding: 0px 15px 15px 15px;
+    }
+
+    .settingsPanel_form,
+    .settingsPanel_pages {
+      display: block;
+    }
+
+    .settingsPanel_page {
+      width: 100%;
+      display: none;
+
+      &.active {
+        display: block;
+      }
+
+      &[data-page='home'] {
+        .settingsPanel_optionCard.option {
+          margin-top: 10px;
+        }
+
+        .settingsPanel_panelContent {
+          .centerWrap_btns {
+            padding-top: 0;
+          }
+        }
+      }
+    }
+
+    .settingsPanel_pageInner {
+      padding-bottom: 5px;
+    }
+
+    .settingsPanel_stickyHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
+      margin-top: 15px;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 8px;
+      background: #fff;
+      // 黏性定位的标题不一定是当前鼠标所在区域的标题，可能是更上方的区域的标题，所以不把它高亮显示。
+      color: #444;
+      box-shadow: 0 0 15px #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 4;
+
+      &[hidden] {
+        display: none;
+      }
+    }
+
+    .settingsPanel_titleSection,
+    .settingsPanel_panelSection {
+      margin-top: 15px;
+    }
+
+    .settingsPanel_sectionHeader {
+      width: 100%;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 8px;
+      background: #fff;
+      color: #222;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #ddd;
+      text-align: left;
+
+      // 鼠标经过时，让右侧的箭头图标变色
+      &:hover svg {
+        color: @themeBlue;
+      }
+    }
+
+    .settingsPanel_panelSection {
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 0 15px #ddd;
+      overflow: hidden;
+
+      .settingsPanel_sectionHeader {
+        margin-top: 0;
+        box-shadow: none;
+        border-bottom: 1px solid #ececec;
+        border-radius: 0;
+      }
+    }
+
+    .settingsPanel_sectionHeadMain {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .settingsPanel_sectionIconWrap {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      background: #eef7fd;
+      color: @themeBlue;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: none;
+
+      &.hidden {
+        display: none;
+      }
+
+      .icon {
+        font-size: 22px;
+      }
+    }
+
+    .settingsPanel_sectionTitle {
+      // 添加上下 padding，这是为了在没有左侧图标的情况下能撑起高度。
+      // 有图标的时候，图标会撑起高度；没有图标的时候，让标题也能 padding 撑起高度。
+      padding: 5px 0;
+      min-width: 0;
+      font-size: 16px;
+      line-height: 1.35;
+    }
+
+    .settingsPanel_sectionArrow {
+      font-size: 18px;
+      color: #555;
+      transition: transform 0.2s;
+      flex: none;
+    }
+
+    .settingsPanel_panelSection.expanded,
+    .settingsPanel_titleSection.expanded {
+      .settingsPanel_sectionArrow {
+        transform: rotate(180deg);
+      }
+    }
+
+    // 鼠标进入设置卡片的标题时，把标题高亮显示作为反馈
+    .settingsPanel_sectionHeader:hover {
+      .settingsPanel_sectionTitle,
+      .settingsPanel_sectionArrow {
+        color: @themeBlue;
+      }
+    }
+
+    .settingsPanel_titleContent,
+    .settingsPanel_panelContent {
+      min-height: 0;
+      overflow: hidden;
+      opacity: 1;
+      transform: translateY(0);
+      transition:
+        opacity 0.16s ease,
+        transform 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .settingsPanel_panelContent {
+      padding: 15px 20px;
+    }
+
+    .settingsPanel_titleContent {
+      padding-top: 0;
+    }
+
+    .settingsPanel_sectionContentShell {
+      display: grid;
+      grid-template-rows: 1fr;
+      min-height: 0;
+      transition: grid-template-rows 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .settingsPanel_sectionContentWrap {
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .settingsPanel_titleSection.collapsed,
+    .settingsPanel_panelSection.collapsed {
+      .settingsPanel_sectionContentShell {
+        grid-template-rows: 0fr;
+      }
+
+      .settingsPanel_titleContent,
+      .settingsPanel_panelContent {
+        opacity: 0;
+        transform: translateY(-6px);
+        transition-delay: 0s;
+        pointer-events: none;
+      }
+    }
+
+    .settingsPanel_titleSection.expanded,
+    .settingsPanel_panelSection.expanded {
+      .settingsPanel_titleContent,
+      .settingsPanel_panelContent {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.08s;
+      }
+    }
+
+    .settingsPanel_optionCard.option {
+      width: calc(100% - 20px);
+      margin: 10px auto 0;
+      padding: 8px 15px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #ddd;
+      line-height: 26px;
+
+      &.pinned {
+        border: 2px solid #bde2ff;
+      }
+
+      &.new {
+        position: relative;
+
+        &::before {
+          content: none !important;
+          display: none !important;
+        }
+
+        .settingsPanel_newBadge {
+          width: 30px;
+          position: absolute;
+          top: -15px;
+          right: -5px;
+          pointer-events: none;
+          line-height: 0;
+          color: #3ab8f2;
+        }
+
+        .settingsPanel_newBadgeIcon.icon {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+
+    .settingsPanel_downloadContentWrap {
+      .download_area {
+        display: block;
+      }
+
+      .progressBarWrap {
+        margin-top: 8px;
+      }
+    }
+
+    .settingsPanel_helpTips {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .settingsPanel_tipCard {
+      width: 100%;
+      margin-top: 15px;
+      padding: 12px 15px;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 0 15px #ddd;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .settingsPanel_tipIcon {
+      font-size: 20px;
+      color: #666;
+      flex: none;
+    }
+
+    .settingsPanel_tipText {
+      flex: 1;
+      min-width: 0;
+      line-height: 26px;
+    }
+
+    .settingsPanel_tipConfirm {
+      margin-left: 2px;
+      width: 1.6em;
+      height: 1lh;
+      font-size: 18px;
+      padding: 0 2px;
+      border: none;
+      border-radius: 4px;
+      background: transparent;
+      color: @themeBlue;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: middle;
+
+      &:hover {
+        background: #e5f2ff;
+      }
+    }
+
+    .settingsPanel_helpActions {
+      margin-top: 15px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 15px;
+    }
+
+    .settingsPanel_helpAction {
+      width: 100%;
+      min-width: 0;
+      min-height: 46px;
+      padding: 12px 14px;
+      border: none;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 0 15px #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: #444;
+      cursor: pointer;
+      position: relative;
+
+      &:hover {
+        background: #09a0f4;
+        color: #fff;
+      }
+
+      &:hover .settingsPanel_helpActionIcon {
+        color: #fff;
+      }
+
+      &:hover::before,
+      &:focus::before {
+        background: transparent;
+      }
+
+      &:hover .ripple,
+      &:focus .ripple {
+        animation: none;
+      }
+
+      &.ripple-active .ripple {
+        animation: ripple-effect 0.6s linear;
+      }
+
+      &.hasUpdate::after {
+        content: '';
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #ff4060;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+    }
+
+    .settingsPanel_helpActionIcon {
+      font-size: 20px;
+      flex: none;
+      position: relative;
+      top: 1px;
+      color: #666;
+    }
+
+    .settingsPanel_searchSummary {
+      margin: 15px 0 0 5px;
+      color: #444;
+      line-height: 26px;
+    }
+
+    // 匹配到搜索词时的高亮效果
+    .settingsPanel_searchMark {
+      background: #ffe74b;
+      color: inherit;
+      padding: 0 2px;
+    }
+
+    .download_area {
+      margin-top: 13px;
+    }
+
+    .progressBarWrap {
+      margin-top: 10px;
+    }
+
     .help_bar {
       line-height: 24px;
 
@@ -925,6 +1693,12 @@
       margin: 5px 0;
     }
   }
+
+  &.lang_zh-cn .settingsPanel_navText,
+  &.lang_zh-tw .settingsPanel_navText {
+    letter-spacing: 6px;
+    text-indent: 6px;
+  }
 }
 
 .centerWrap.theme-white {
@@ -935,15 +1709,35 @@
 }
 
 .centerWrap.mobile {
-  width: 90vw;
-  left: -45vw;
-  top: 10vh;
-  max-height: 80vh;
+  width: calc(100vw - 32px);
+  left: 50%;
+  top: 8px;
+  max-height: calc(80vh);
+  transform: translateX(-50%);
   font-size: 16px;
   font-family: @MobileFontFamily;
   overflow: auto;
 
   .centerWrap_head {
+    padding: 12px;
+    flex-direction: column;
+    align-items: stretch;
+
+    .settingsPanel_headerMain,
+    .settingsPanel_headerActions {
+      min-height: 32px;
+      justify-content: space-between;
+    }
+
+    .settingsPanel_headerActions {
+      gap: 10px;
+    }
+
+    .settingsPanel_headerSearch {
+      flex: 1;
+      min-width: 0;
+    }
+
     .centerWrap_title {
       line-height: 40px;
       font-size: 18px;
@@ -966,6 +1760,8 @@
 
   .centerWrap_con {
     padding: 0 5vw;
+    flex-direction: column;
+    max-height: calc(100vh - 120px);
   }
 
   p {
@@ -985,12 +1781,82 @@
     line-height: 24px;
     padding: 12px 16px;
   }
+
+  .settingsPanel_searchBar {
+    width: 100%;
+    max-width: none;
+  }
+
+  .settingsPanel_headerMinor,
+  .centerWrap_close_pc {
+    display: none;
+  }
+
+  .centerWrap_close_mobile {
+    display: inline-flex;
+  }
+
+  .settingsPanel_sidebar {
+    width: 100%;
+    padding: 12px;
+    overflow: visible;
+  }
+
+  .settingsPanel_nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .settingsPanel_navItem {
+    min-width: 25%;
+    flex: 1 1 25%;
+    min-height: 42px;
+    padding: 8px 12px;
+    justify-content: center;
+  }
+
+  .settingsPanel_navText {
+    font-size: 16px;
+  }
+
+  &.lang_zh-cn .settingsPanel_navText,
+  &.lang_zh-tw .settingsPanel_navText {
+    letter-spacing: 2px;
+    text-indent: 2px;
+  }
+
+  .settingsPanel_downloadSummary {
+    margin-top: 12px;
+    padding: 12px 15px;
+    border-top: none;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 15px #ddd;
+  }
+
+  .settingsPanel_downloadSummaryStatus,
+  .settingsPanel_downloadSummaryActions {
+    gap: 16px;
+  }
+
+  .settingsPanel_downloadSummaryStatus {
+    margin-bottom: 10px;
+  }
+
+  .settingsPanel_main {
+    padding: 12px;
+  }
+
+  .settingsPanel_helpActions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .centerWrap.theme-dark {
-  background: #222;
-  box-shadow: @darkBoxShadow 0px 0px 15px;
-  color: #fff;
+  background: #1f2530;
+  border-color: rgba(94, 172, 230, 0.45);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
+  color: #dfe7ef;
 
   .option > .settingNameStyle,
   .optionName {
@@ -1019,8 +1885,6 @@
     color: @beautifyBlue !important;
   }
 
-  .centerWrap_top_btn:hover,
-  .centerWrap_top_btn:focus,
   .showFileNameTip:hover,
   .showFileNameTip:focus,
   .textButton:hover,
@@ -1029,6 +1893,13 @@
   .updateActiveClass {
     color: @beautifyBlue !important;
     fill: @beautifyBlue !important;
+  }
+
+  .centerWrap_top_btn:hover,
+  .centerWrap_top_btn:focus {
+    color: @beautifyBlue !important;
+    fill: @beautifyBlue !important;
+    background: rgba(25, 157, 245, 0.24);
   }
 
   .grayButton {
@@ -1068,6 +1939,76 @@
     }
   }
 
+  .centerWrap_head {
+    background: rgba(25, 32, 42, 0.96);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .centerWrap_con {
+    background: rgba(18, 24, 33, 0.98);
+  }
+
+  .settingsPanel_sidebar {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .settingsPanel_main {
+    color: #dfe7ef;
+  }
+
+  .settingsPanel_searchBar {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+
+    input {
+      color: #f1f5f8;
+    }
+
+    input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  .settingsPanel_navItem {
+    color: #f1f5f8;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+  }
+
+  .settingsPanel_downloadSummary,
+  .settingsPanel_stickyHeader,
+  .settingsPanel_sectionHeader,
+  .settingsPanel_panelSection,
+  .settingsPanel_tipCard,
+  .settingsPanel_helpAction,
+  .settingsPanel_optionCard.option {
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+    color: #f1f5f8;
+  }
+
+  .settingsPanel_panelSection .settingsPanel_sectionHeader {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .settingsPanel_sectionIconWrap {
+    background: rgba(66, 195, 255, 0.16);
+    color: #42c3ff;
+  }
+
+  .settingsPanel_helpAction:hover,
+  .settingsPanel_downloadSummaryBtn:hover,
+  .settingsPanel_clearSearch:hover {
+    background: rgba(25, 157, 245, 0.24);
+  }
+
+  .settingsPanel_searchSummary,
+  .settingsPanel_downloadSummaryStatus {
+    color: #dfe7ef;
+  }
+
   .settingCategoryName {
     span {
       color: @beautifyBlue !important;
@@ -1082,7 +2023,7 @@
   text-shadow: #003247 0px 0px 2px;
 
   box-shadow: @darkBoxShadow 0px 0px 15px;
-  background: #222;
+  background: rgba(10, 18, 28, 0.42);
   color: #fff;
 
   .option > .settingNameStyle,
@@ -1118,14 +2059,18 @@
     color: #fff !important;
   }
 
-  .centerWrap_top_btn:hover,
-  .centerWrap_top_btn:focus,
   .showFileNameTip:hover,
   .showFileNameTip:focus,
   .textButton:hover,
   .textButton:focus,
   .help_bar > *:hover,
   .updateActiveClass {
+    color: #fff !important;
+    fill: #fff !important;
+  }
+
+  .centerWrap_top_btn:hover,
+  .centerWrap_top_btn:focus {
     color: #fff !important;
     fill: #fff !important;
   }
@@ -1141,6 +2086,8 @@
   }
 
   .centerWrap_con {
+    background: rgba(10, 18, 28, 0.5);
+
     .settingForm select {
       background: transparent;
     }
@@ -1167,6 +2114,46 @@
   .centerWrap_btns {
     & button {
       box-shadow: none !important;
+    }
+  }
+
+  .centerWrap_head {
+    background: rgba(10, 18, 28, 0.55);
+  }
+
+  .settingsPanel_sidebar,
+  .settingsPanel_stickyHeader,
+  .settingsPanel_sectionHeader,
+  .settingsPanel_panelSection,
+  .settingsPanel_tipCard,
+  .settingsPanel_helpAction,
+  .settingsPanel_optionCard.option {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+  }
+
+  .settingsPanel_panelSection .settingsPanel_sectionHeader {
+    background: transparent;
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .settingsPanel_searchBar {
+    background: rgba(255, 255, 255, 0.1);
+
+    input {
+      color: #fff;
+    }
+
+    input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+
+  .settingsPanel_navItem {
+    color: #fff;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.12);
     }
   }
 
@@ -1275,1028 +2262,6 @@
 @media (max-width: 388px) {
   .centerWrap.mobile .centerWrap_con .settingForm .centerWrap_btns button {
     padding: 12px 6px;
-  }
-}
-
-.centerWrap.settingsV2 {
-  box-sizing: border-box;
-  width: 925px;
-  max-width: calc(100vw - 24px);
-  max-height: 870px;
-  left: 50%;
-  top: 10vh;
-  margin-left: 0;
-  // 在 PC 端页面上，把设置面板靠左一些显示。这是因为设置面板是左右两列布局：左侧是导航区域，右侧是内容区域。 靠左一些的话，可以让内容区域更接近居中（而不是被挤到右边），这样用户体验更好。
-  transform: translateX(-54%);
-  padding: 0;
-  border-radius: 16px;
-  border: 1px solid #9dd4f9;
-  box-shadow: 0 0 25px #b4e0f5;
-  background: #fff;
-  position: fixed;
-  z-index: 5000;
-  font-size: 15px;
-  color: #444;
-  overflow: hidden;
-  font-family: @pixivFontFamily;
-
-  p,
-  div,
-  span,
-  button,
-  .centerWrap_head,
-  .centerWrap_con,
-  .settingForm,
-  .settingsPanel_page,
-  .settingsPanel_pageInner,
-  .settingsPanel_sidebar,
-  .settingsPanel_main,
-  .settingsPanel_navItem,
-  .settingsPanel_tipCard,
-  .settingsPanel_helpAction,
-  .settingsPanel_sectionHeader,
-  .settingsPanel_downloadSummaryBtn {
-    box-sizing: border-box;
-  }
-
-  .centerWrap_head {
-    padding: 10px 10px 10px 20px;
-    background: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0px;
-    border-bottom: 1px solid #edf3f8;
-  }
-
-  .settingsPanel_headerMain,
-  .settingsPanel_headerActions,
-  .settingsPanel_headerSearch,
-  .settingsPanel_brand {
-    display: flex;
-    align-items: center;
-  }
-
-  .settingsPanel_headerActions {
-    gap: 0px;
-  }
-
-  .settingsPanel_headerSearch {
-    gap: 5px;
-  }
-
-  .settingsPanel_brand {
-    gap: 6px;
-    min-width: 0;
-    color: @themeBlue;
-  }
-
-  .settingsPanel_logo {
-    width: 28px;
-    height: 28px;
-    flex: none;
-  }
-
-  .settingsPanel_brandName {
-    font-size: 17px;
-    font-weight: 700;
-    line-height: 1;
-    white-space: nowrap;
-  }
-
-  .centerWrap_top_btn {
-    width: 36px;
-    height: 36px;
-    padding: 0;
-    border-radius: 6px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: #888;
-    transition:
-      color 0.2s,
-      background-color 0.2s;
-
-    &:hover {
-      color: @themeBlue;
-      background: #eef7ff;
-    }
-
-    // 关闭按钮的特殊样式，使用红色背景以表示危险操作
-    &.centerWrap_close_pc:hover,
-    &.centerWrap_close_pc:active {
-      color: #f33939;
-      background: #fcdddd;
-    }
-
-    .icon {
-      font-size: 20px;
-    }
-  }
-
-  .settingsPanel_sponsorBtn:hover {
-    color: #e448a3;
-    background: #fff0f7;
-  }
-
-  .centerWrap_close_mobile {
-    display: none;
-  }
-
-  .settingsPanel_searchBar {
-    box-sizing: border-box;
-    width: 210px;
-    max-width: 80vw;
-    height: 32px;
-    border: 1px solid #999;
-    border-radius: 20px;
-    padding: 0 8px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: #fff;
-    transition: border-color 0.2s;
-
-    &:focus-within {
-      border-color: @themeBlue;
-    }
-
-    input {
-      flex: 1;
-      min-width: 0;
-      border: none;
-      height: 100%;
-      background: transparent;
-      color: #444;
-      font-size: 15px;
-      outline: none;
-    }
-
-    input::placeholder {
-      color: #aaa;
-    }
-  }
-
-  .settingsPanel_searchIcon {
-    color: #aaa;
-    font-size: 20px;
-    flex: none;
-  }
-
-  .settingsPanel_clearSearch {
-    width: 24px;
-    height: 24px;
-    padding: 4px;
-    border-radius: 50%;
-    color: #999;
-    display: none;
-    align-items: center;
-    justify-content: center;
-
-    &.visible {
-      display: inline-flex;
-      color: #666;
-    }
-
-    &:hover {
-      color: @themeBlue;
-      background: #eef7ff;
-    }
-  }
-
-  .settingsPanel_expandAll {
-    position: relative;
-    transition:
-      transform 0.2s,
-      color 0.2s,
-      background-color 0.2s;
-
-    svg {
-      transform: rotate(180deg);
-      transition: transform 0.2s;
-    }
-
-    &.partial {
-      svg {
-        transform: rotate(90deg);
-      }
-    }
-
-    &.expanded {
-      svg {
-        transform: rotate(0deg);
-      }
-    }
-  }
-
-  .centerWrap_con {
-    display: flex;
-    align-items: stretch;
-    width: 100%;
-    background: #eee;
-  }
-
-  .settingsPanel_sidebar {
-    width: 190px;
-    flex: none;
-    padding: 15px 10px;
-    background: #f5f5f5;
-    overflow-y: auto;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .settingsPanel_nav {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    flex: 1;
-    min-height: 0;
-  }
-
-  .settingsPanel_navItem {
-    min-height: 50px;
-    padding: 0 15px;
-    border: none;
-    border-radius: 6px;
-    background: transparent;
-    color: #111;
-    display: flex;
-    align-items: center;
-    gap: 0px;
-    text-align: left;
-    cursor: pointer;
-    // transition:
-    //   background-color 0.2s,
-    //   color 0.2s;
-
-    &[hidden] {
-      display: none;
-    }
-
-    &:hover {
-      background: #d7e5f2;
-    }
-
-    &.active {
-      background: @themeBlue;
-      color: #fff;
-      font-weight: 700;
-    }
-
-    &.active:hover,
-    &.active:focus {
-      background: @themeBlue;
-    }
-
-    &.active:hover::before,
-    &.active:focus::before {
-      background: transparent;
-    }
-
-    &:hover .ripple,
-    &:focus .ripple {
-      animation: none;
-    }
-
-    &.ripple-active .ripple {
-      animation: ripple-effect 0.6s linear;
-    }
-  }
-
-  .settingsPanel_navIconWrap {
-    width: 26px;
-    height: 26px;
-    flex: none;
-    position: relative;
-  }
-
-  .settingsPanel_navIcon {
-    font-size: 26px;
-    position: absolute;
-    inset: 0;
-  }
-
-  .settingsPanel_navIconFill {
-    display: none;
-  }
-
-  .settingsPanel_navItem.active {
-    .settingsPanel_navIconLine {
-      display: none;
-    }
-
-    .settingsPanel_navIconFill {
-      display: inline-block;
-    }
-  }
-
-  .settingsPanel_navText {
-    flex: 1;
-    min-width: 0;
-    font-size: 18px;
-    line-height: 1.3;
-    text-align: center;
-  }
-
-  &.lang_zh-cn .settingsPanel_navText,
-  &.lang_zh-tw .settingsPanel_navText {
-    letter-spacing: 6px;
-    text-indent: 6px;
-  }
-
-  .settingsPanel_downloadSummary {
-    display: none;
-    margin-top: auto;
-    padding: 14px 0 0px 2px;
-    border-top: 1px solid #ccc;
-  }
-
-  .settingsPanel_downloadSummaryStatus,
-  .settingsPanel_downloadSummaryActions {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .settingsPanel_downloadSummaryStatus {
-    gap: 10px;
-    color: #666;
-    margin-bottom: 12px;
-
-    .settingsPanel_downloadSummaryStateIcon {
-      position: relative;
-      top: 2px;
-      font-size: 24px;
-      transform-origin: center;
-      // 因为这个按钮只显示状态，不可点击，为了与下面可点击的按钮区分开，所以让它看起来更灰一些。
-      opacity: 0.4;
-
-      &.is-loading {
-        animation: settingsPanelSummarySpin 1s linear infinite;
-      }
-    }
-  }
-
-  .settingsPanel_downloadSummaryActions {
-    gap: 12px;
-  }
-
-  .settingsPanel_downloadSummaryBtn {
-    width: 1em;
-    height: 1em;
-    padding: 0;
-    border-radius: 50%;
-    font-size: 24px;
-    color: #666;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition:
-      color 0.2s,
-      background-color 0.2s;
-
-    &:hover {
-      color: @themeBlue;
-    }
-  }
-
-  .settingsPanel_main {
-    flex: 1;
-    min-width: 0;
-    width: 735px;
-    overflow-y: auto;
-    padding: 0px 15px 15px 15px;
-  }
-
-  .settingsPanel_form {
-    display: block;
-  }
-
-  .settingsPanel_pages {
-    display: block;
-  }
-
-  .settingsPanel_page {
-    width: 100%;
-    display: none;
-  }
-
-  .settingsPanel_page.active {
-    display: block;
-  }
-
-  .settingsPanel_pageInner {
-    padding-bottom: 5px;
-  }
-
-  .settingsPanel_stickyHeader {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    width: 100%;
-    margin-top: 15px;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 8px;
-    background: #fff;
-    // 黏性定位的标题不一定是当前鼠标所在区域的标题，可能是更上方的区域的标题，所以不把它高亮显示。
-    color: #444;
-    box-shadow: 0 0 15px #ddd;
-    position: sticky;
-    top: 0;
-    z-index: 4;
-
-    &[hidden] {
-      display: none;
-    }
-  }
-
-  .settingsPanel_titleSection,
-  .settingsPanel_panelSection {
-    margin-top: 15px;
-  }
-
-  .settingsPanel_sectionHeader {
-    width: 100%;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 8px;
-    background: #fff;
-    color: #222;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    cursor: pointer;
-    box-shadow: 0 0 15px #ddd;
-    text-align: left;
-
-    // 鼠标经过时，让右侧的箭头图标变色
-    &:hover svg {
-      color: @themeBlue;
-    }
-  }
-
-  .settingsPanel_panelSection {
-    border-radius: 8px;
-    background: #fff;
-    box-shadow: 0 0 15px #ddd;
-    overflow: hidden;
-
-    .settingsPanel_sectionHeader {
-      margin-top: 0;
-      box-shadow: none;
-      border-bottom: 1px solid #ececec;
-      border-radius: 0;
-    }
-  }
-
-  .settingsPanel_sectionHeadMain {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    min-width: 0;
-  }
-
-  .settingsPanel_sectionIconWrap {
-    width: 32px;
-    height: 32px;
-    border-radius: 6px;
-    background: #eef7fd;
-    color: @themeBlue;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex: none;
-
-    &.hidden {
-      display: none;
-    }
-
-    .icon {
-      font-size: 22px;
-    }
-  }
-
-  .settingsPanel_sectionTitle {
-    // 添加上下 padding，这是为了在没有左侧图标的情况下能撑起高度。
-    // 有图标的时候，图标会撑起高度；没有图标的时候，让标题也能 padding 撑起高度。
-    padding: 5px 0;
-    min-width: 0;
-    font-size: 16px;
-    line-height: 1.35;
-  }
-
-  .settingsPanel_sectionArrow {
-    font-size: 18px;
-    color: #555;
-    transition: transform 0.2s;
-    flex: none;
-  }
-
-  .settingsPanel_panelSection.expanded,
-  .settingsPanel_titleSection.expanded {
-    .settingsPanel_sectionArrow {
-      transform: rotate(180deg);
-    }
-  }
-
-  // 鼠标进入设置卡片的标题时，把标题高亮显示作为反馈
-  .settingsPanel_sectionHeader:hover{
-    .settingsPanel_sectionTitle,
-    .settingsPanel_sectionArrow {
-      color: @themeBlue;
-    }
-  }
-
-  .settingsPanel_titleContent,
-  .settingsPanel_panelContent {
-    box-sizing: border-box;
-    min-height: 0;
-    overflow: hidden;
-    opacity: 1;
-    transform: translateY(0);
-    transition:
-      opacity 0.16s ease,
-      transform 0.24s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .settingsPanel_panelContent {
-    padding: 15px 20px;
-  }
-
-  .settingsPanel_titleContent {
-    padding-top: 0;
-  }
-
-  .settingsPanel_sectionContentShell {
-    display: grid;
-    grid-template-rows: 1fr;
-    min-height: 0;
-    transition: grid-template-rows 0.28s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .settingsPanel_sectionContentWrap {
-    min-height: 0;
-    overflow: hidden;
-  }
-
-  .settingsPanel_titleSection.collapsed,
-  .settingsPanel_panelSection.collapsed {
-    .settingsPanel_sectionContentShell {
-      grid-template-rows: 0fr;
-    }
-
-    .settingsPanel_titleContent,
-    .settingsPanel_panelContent {
-      opacity: 0;
-      transform: translateY(-6px);
-      transition-delay: 0s;
-      pointer-events: none;
-    }
-  }
-
-  .settingsPanel_titleSection.expanded,
-  .settingsPanel_panelSection.expanded {
-    .settingsPanel_titleContent,
-    .settingsPanel_panelContent {
-      opacity: 1;
-      transform: translateY(0);
-      transition-delay: 0.08s;
-    }
-  }
-
-  .settingsPanel_optionCard.option {
-    width: calc(100% - 20px);
-    margin: 10px auto 0;
-    padding: 8px 15px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 0 10px #ddd;
-    line-height: 26px;
-  }
-
-  .settingsPanel_page[data-page='home'] {
-    .settingsPanel_optionCard.option {
-      margin-top: 10px;
-    }
-
-    .settingsPanel_panelContent {
-      .centerWrap_btns {
-        padding-top: 0;
-      }
-    }
-  }
-
-  .settingsPanel_optionCard.option.pinned {
-    border: 2px solid #bde2ff;
-  }
-
-  .settingsPanel_optionCard.option.new {
-    position: relative;
-
-    &::before {
-      content: none !important;
-      display: none !important;
-    }
-
-    .settingsPanel_newBadge {
-      width: 30px;
-      position: absolute;
-      top: -15px;
-      right: -5px;
-      pointer-events: none;
-      line-height: 0;
-      color: #3ab8f2;
-    }
-
-    .settingsPanel_newBadgeIcon.icon {
-      width: 30px;
-      height: 30px;
-    }
-  }
-
-  .settingsPanel_downloadContentWrap {
-    .download_area {
-      display: block;
-    }
-
-    .progressBarWrap {
-      margin-top: 8px;
-    }
-  }
-
-  .settingsPanel_helpTips,
-  .settingsPanel_helpActions {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .settingsPanel_helpTips {
-    flex-direction: column;
-  }
-
-  .settingsPanel_tipCard {
-    width: 100%;
-    margin-top: 15px;
-    padding: 12px 15px;
-    border-radius: 12px;
-    background: #fff;
-    box-shadow: 0 0 15px #ddd;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .settingsPanel_tipIcon {
-    font-size: 20px;
-    color: #666;
-    flex: none;
-  }
-
-  .settingsPanel_tipText {
-    flex: 1;
-    min-width: 0;
-    line-height: 26px;
-  }
-
-  .settingsPanel_tipConfirm {
-    margin-left: 2px;
-    width: 1.6em;
-    height: 1lh;
-    font-size: 18px;
-    padding: 0 2px;
-    border: none;
-    border-radius: 4px;
-    background: transparent;
-    color: @themeBlue;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    vertical-align: middle;
-
-    &:hover {
-      background: #e5f2ff;
-    }
-  }
-
-  .settingsPanel_helpActions {
-    margin-top: 15px;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 15px;
-  }
-
-  .settingsPanel_helpAction {
-    width: 100%;
-    min-width: 0;
-    min-height: 46px;
-    padding: 12px 14px;
-    border: none;
-    border-radius: 12px;
-    background: #fff;
-    box-shadow: 0 0 15px #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    color: #444;
-    cursor: pointer;
-    position: relative;
-
-    &:hover {
-      background: #09a0f4;
-      color: #fff;
-    }
-
-    &:hover .settingsPanel_helpActionIcon {
-      color: #fff;
-    }
-
-    &:hover::before,
-    &:focus::before {
-      background: transparent;
-    }
-
-    &:hover .ripple,
-    &:focus .ripple {
-      animation: none;
-    }
-
-    &.ripple-active .ripple {
-      animation: ripple-effect 0.6s linear;
-    }
-
-    &.hasUpdate::after {
-      content: '';
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #ff4060;
-      position: absolute;
-      top: 10px;
-      right: 10px;
-    }
-  }
-
-  .settingsPanel_helpActionIcon {
-    font-size: 20px;
-    flex: none;
-    position: relative;
-    top: 1px;
-    color: #666;
-  }
-
-  .settingsPanel_searchSummary {
-    margin: 15px 0 0 5px;
-    color: #444;
-    line-height: 26px;
-  }
-
-  // 匹配到搜索词时的高亮效果
-  .settingsPanel_searchMark {
-    background: #ffe74b;
-    color: inherit;
-    padding: 0 2px;
-  }
-
-  .download_area {
-    margin-top: 13px;
-  }
-
-  .progressBarWrap {
-    margin-top: 10px;
-  }
-}
-
-.centerWrap.settingsV2.theme-dark {
-  background: #1f2530;
-  border-color: rgba(94, 172, 230, 0.45);
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
-  color: #dfe7ef;
-
-  .centerWrap_head {
-    background: rgba(25, 32, 42, 0.96);
-    border-bottom-color: rgba(255, 255, 255, 0.08);
-  }
-
-  .centerWrap_con {
-    background: rgba(18, 24, 33, 0.98);
-  }
-
-  .settingsPanel_sidebar {
-    background: rgba(255, 255, 255, 0.05);
-  }
-
-  .settingsPanel_main {
-    color: #dfe7ef;
-  }
-
-  .settingsPanel_searchBar {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.2);
-
-    input {
-      color: #f1f5f8;
-    }
-
-    input::placeholder {
-      color: rgba(255, 255, 255, 0.5);
-    }
-  }
-
-  .settingsPanel_navItem {
-    color: #f1f5f8;
-
-    &:hover {
-      background: rgba(255, 255, 255, 0.08);
-    }
-  }
-
-  .settingsPanel_downloadSummary,
-  .settingsPanel_stickyHeader,
-  .settingsPanel_sectionHeader,
-  .settingsPanel_panelSection,
-  .settingsPanel_tipCard,
-  .settingsPanel_helpAction,
-  .settingsPanel_optionCard.option {
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
-    color: #f1f5f8;
-  }
-
-  .settingsPanel_panelSection .settingsPanel_sectionHeader {
-    border-bottom-color: rgba(255, 255, 255, 0.08);
-  }
-
-  .settingsPanel_sectionIconWrap {
-    background: rgba(66, 195, 255, 0.16);
-    color: #42c3ff;
-  }
-
-  .settingsPanel_helpAction:hover,
-  .settingsPanel_downloadSummaryBtn:hover,
-  .centerWrap_top_btn:hover,
-  .settingsPanel_clearSearch:hover {
-    background: rgba(25, 157, 245, 0.24);
-  }
-
-  .settingsPanel_searchSummary,
-  .settingsPanel_downloadSummaryStatus {
-    color: #dfe7ef;
-  }
-}
-
-.centerWrap.settingsV2.xzBG {
-  background: rgba(10, 18, 28, 0.42);
-
-  .centerWrap_head {
-    background: rgba(10, 18, 28, 0.55);
-  }
-
-  .centerWrap_con {
-    background: rgba(10, 18, 28, 0.5);
-  }
-
-  .settingsPanel_sidebar,
-  .settingsPanel_stickyHeader,
-  .settingsPanel_sectionHeader,
-  .settingsPanel_panelSection,
-  .settingsPanel_tipCard,
-  .settingsPanel_helpAction,
-  .settingsPanel_optionCard.option {
-    background: rgba(255, 255, 255, 0.12);
-    color: #fff;
-  }
-
-  .settingsPanel_panelSection .settingsPanel_sectionHeader {
-    background: transparent;
-    border-bottom-color: rgba(255, 255, 255, 0.08);
-  }
-
-  .settingsPanel_searchBar {
-    background: rgba(255, 255, 255, 0.1);
-
-    input {
-      color: #fff;
-    }
-
-    input::placeholder {
-      color: rgba(255, 255, 255, 0.7);
-    }
-  }
-
-  .settingsPanel_navItem {
-    color: #fff;
-
-    &:hover {
-      background: rgba(255, 255, 255, 0.12);
-    }
-  }
-}
-
-.centerWrap.settingsV2.mobile {
-  width: calc(100vw - 32px);
-  top: 8px;
-  max-height: calc(80vh);
-  transform: translateX(-50%);
-
-  .centerWrap_head {
-    padding: 12px;
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .settingsPanel_headerMain,
-  .settingsPanel_headerActions {
-    min-height: 32px;
-    justify-content: space-between;
-  }
-
-  .settingsPanel_headerActions {
-    gap: 10px;
-  }
-
-  .settingsPanel_headerSearch {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .settingsPanel_searchBar {
-    width: 100%;
-    max-width: none;
-  }
-
-  .settingsPanel_headerMinor,
-  .centerWrap_close_pc {
-    display: none;
-  }
-
-  .centerWrap_close_mobile {
-    display: inline-flex;
-  }
-
-  .centerWrap_con {
-    flex-direction: column;
-    max-height: calc(100vh - 120px);
-  }
-
-  .settingsPanel_sidebar {
-    width: 100%;
-    padding: 12px;
-    overflow: visible;
-  }
-
-  .settingsPanel_nav {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .settingsPanel_navItem {
-    min-width: 25%;
-    flex: 1 1 25%;
-    min-height: 42px;
-    padding: 8px 12px;
-    justify-content: center;
-  }
-
-  .settingsPanel_navText {
-    font-size: 16px;
-  }
-
-  &.lang_zh-cn .settingsPanel_navText,
-  &.lang_zh-tw .settingsPanel_navText {
-    letter-spacing: 2px;
-    text-indent: 2px;
-  }
-
-  .settingsPanel_downloadSummary {
-    margin-top: 12px;
-    padding: 12px 15px;
-    border-top: none;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 0 15px #ddd;
-  }
-
-  .settingsPanel_downloadSummaryStatus,
-  .settingsPanel_downloadSummaryActions {
-    gap: 16px;
-  }
-
-  .settingsPanel_downloadSummaryStatus {
-    margin-bottom: 10px;
-  }
-
-  .settingsPanel_main {
-    padding: 12px;
-  }
-
-  .settingsPanel_helpAction {
-    width: calc(50% - 8px);
   }
 }
 

@@ -48091,7 +48091,7 @@ class SettingsPanelShell {
             return this.shell;
         }
         const centerPanelHTML = `
-      <div class="centerWrap settingsV2 ${'lang_' + _Language__WEBPACK_IMPORTED_MODULE_5__.lang.type}">
+      <div class="centerWrap ${'lang_' + _Language__WEBPACK_IMPORTED_MODULE_5__.lang.type}">
         <div class="centerWrap_head">
           <div class="settingsPanel_headerMain">
             <div class="settingsPanel_brand">
@@ -48187,7 +48187,7 @@ class SettingsPanelShell {
       </div>
     `;
         document.body.insertAdjacentHTML('afterbegin', centerPanelHTML);
-        this.shell = document.querySelector('.centerWrap.settingsV2');
+        this.shell = document.querySelector('.centerWrap');
         if (!this.shell) {
             throw new Error('SettingsPanel shell not found');
         }

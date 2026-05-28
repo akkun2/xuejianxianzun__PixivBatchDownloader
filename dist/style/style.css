@@ -466,6 +466,27 @@
 body.mobile #quickCrawlBtn {
   top: 26%;
 }
+.centerWrap {
+  box-sizing: border-box;
+  width: 925px;
+  max-width: calc(100vw - 24px);
+  max-height: 870px;
+  left: 50%;
+  top: 10vh;
+  margin-left: 0;
+  transform: translateX(-54%);
+  padding: 0;
+  border-radius: 16px;
+  border: 1px solid #9dd4f9;
+  box-shadow: 0 0 25px #b4e0f5;
+  background: #fff;
+  position: fixed;
+  z-index: 5000;
+  font-size: 15px;
+  color: #444;
+  overflow: hidden;
+  font-family: 'Noto Sans SC', 'Noto Sans', 'Segeo UI', 'Segeo UI Mono', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+}
 .centerWrap ::selection {
   background: #199df5;
   color: #fff;
@@ -484,6 +505,24 @@ body.mobile #quickCrawlBtn {
 .centerWrap input {
   padding: 0;
   margin: 0;
+}
+.centerWrap p,
+.centerWrap div,
+.centerWrap span,
+.centerWrap button,
+.centerWrap .centerWrap_head,
+.centerWrap .centerWrap_con,
+.centerWrap .settingForm,
+.centerWrap .settingsPanel_page,
+.centerWrap .settingsPanel_pageInner,
+.centerWrap .settingsPanel_sidebar,
+.centerWrap .settingsPanel_main,
+.centerWrap .settingsPanel_navItem,
+.centerWrap .settingsPanel_tipCard,
+.centerWrap .settingsPanel_helpAction,
+.centerWrap .settingsPanel_sectionHeader,
+.centerWrap .settingsPanel_downloadSummaryBtn {
+  box-sizing: border-box;
 }
 .centerWrap button {
   color: #444;
@@ -532,6 +571,15 @@ body.mobile #quickCrawlBtn {
   background: #1dacf5;
   color: #fff !important;
 }
+.centerWrap .centerWrap_head {
+  padding: 10px 10px 10px 20px;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px;
+  border-bottom: 1px solid #edf3f8;
+}
 .centerWrap .centerWrap_head img {
   width: 16px;
   vertical-align: inherit;
@@ -564,7 +612,136 @@ body.mobile #quickCrawlBtn {
   vertical-align: initial;
   padding-top: 5px;
 }
+.centerWrap .settingsPanel_headerMain,
+.centerWrap .settingsPanel_headerActions,
+.centerWrap .settingsPanel_headerSearch,
+.centerWrap .settingsPanel_brand {
+  display: flex;
+  align-items: center;
+}
+.centerWrap .settingsPanel_headerActions {
+  gap: 0px;
+}
+.centerWrap .settingsPanel_headerSearch {
+  gap: 5px;
+}
+.centerWrap .settingsPanel_brand {
+  gap: 6px;
+  min-width: 0;
+  color: #199df5;
+}
+.centerWrap .settingsPanel_logo {
+  width: 28px;
+  height: 28px;
+  flex: none;
+}
+.centerWrap .settingsPanel_brandName {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+.centerWrap .centerWrap_top_btn {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  transition: color 0.2s, background-color 0.2s;
+}
+.centerWrap .centerWrap_top_btn:hover {
+  color: #199df5;
+  background: #eef7ff;
+}
+.centerWrap .centerWrap_top_btn.centerWrap_close_pc:hover,
+.centerWrap .centerWrap_top_btn.centerWrap_close_pc:active {
+  color: #f33939;
+  background: #fcdddd;
+}
+.centerWrap .centerWrap_top_btn .icon {
+  font-size: 20px;
+}
+.centerWrap .settingsPanel_sponsorBtn:hover {
+  color: #e448a3;
+  background: #fff0f7;
+}
+.centerWrap .centerWrap_close_mobile {
+  display: none;
+}
+.centerWrap .settingsPanel_searchBar {
+  width: 210px;
+  max-width: 80vw;
+  height: 32px;
+  border: 1px solid #999;
+  border-radius: 20px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  transition: border-color 0.2s;
+}
+.centerWrap .settingsPanel_searchBar:focus-within {
+  border-color: #199df5;
+}
+.centerWrap .settingsPanel_searchBar input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  height: 100%;
+  background: transparent;
+  color: #444;
+  font-size: 15px;
+  outline: none;
+}
+.centerWrap .settingsPanel_searchBar input::placeholder {
+  color: #aaa;
+}
+.centerWrap .settingsPanel_searchIcon {
+  color: #aaa;
+  font-size: 20px;
+  flex: none;
+}
+.centerWrap .settingsPanel_clearSearch {
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  border-radius: 50%;
+  color: #999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.centerWrap .settingsPanel_clearSearch.visible {
+  display: inline-flex;
+  color: #666;
+}
+.centerWrap .settingsPanel_clearSearch:hover {
+  color: #199df5;
+  background: #eef7ff;
+}
+.centerWrap .settingsPanel_expandAll {
+  position: relative;
+  transition: transform 0.2s, color 0.2s, background-color 0.2s;
+}
+.centerWrap .settingsPanel_expandAll svg {
+  transform: rotate(180deg);
+  transition: transform 0.2s;
+}
+.centerWrap .settingsPanel_expandAll.partial svg {
+  transform: rotate(90deg);
+}
+.centerWrap .settingsPanel_expandAll.expanded svg {
+  transform: rotate(0deg);
+}
 .centerWrap .centerWrap_con {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  background: #eee;
   overflow: auto;
   max-height: 76vh;
   min-height: 600px;
@@ -1196,6 +1373,458 @@ body.mobile #quickCrawlBtn {
 .centerWrap .centerWrap_con .settingForm .setinput_style1:hover {
   background: transparent !important;
 }
+.centerWrap .centerWrap_con .settingsPanel_sidebar {
+  width: 190px;
+  flex: none;
+  padding: 15px 10px;
+  background: #f5f5f5;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.centerWrap .centerWrap_con .settingsPanel_nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  min-height: 0;
+}
+.centerWrap .centerWrap_con .settingsPanel_navItem {
+  min-height: 50px;
+  padding: 0 15px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: #111;
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  text-align: left;
+  cursor: pointer;
+}
+.centerWrap .centerWrap_con .settingsPanel_navItem[hidden] {
+  display: none;
+}
+.centerWrap .centerWrap_con .settingsPanel_navItem:hover {
+  background: #d7e5f2;
+}
+.centerWrap .centerWrap_con .settingsPanel_navItem.active {
+  background: #199df5;
+  color: #fff;
+  font-weight: 700;
+}
+.centerWrap .centerWrap_con .settingsPanel_navItem.active:hover,
+.centerWrap .centerWrap_con .settingsPanel_navItem.active:focus {
+  background: #199df5;
+}
+.centerWrap .centerWrap_con .settingsPanel_navItem.active:hover::before,
+.centerWrap .centerWrap_con .settingsPanel_navItem.active:focus::before {
+  background: transparent;
+}
+.centerWrap .centerWrap_con .settingsPanel_navItem:hover .ripple,
+.centerWrap .centerWrap_con .settingsPanel_navItem:focus .ripple {
+  animation: none;
+}
+.centerWrap .centerWrap_con .settingsPanel_navItem.ripple-active .ripple {
+  animation: ripple-effect 0.6s linear;
+}
+.centerWrap .centerWrap_con .settingsPanel_navIconWrap {
+  width: 26px;
+  height: 26px;
+  flex: none;
+  position: relative;
+}
+.centerWrap .centerWrap_con .settingsPanel_navIcon {
+  font-size: 26px;
+  position: absolute;
+  inset: 0;
+}
+.centerWrap .centerWrap_con .settingsPanel_navIconFill {
+  display: none;
+}
+.centerWrap .centerWrap_con .settingsPanel_navItem.active .settingsPanel_navIconLine {
+  display: none;
+}
+.centerWrap .centerWrap_con .settingsPanel_navItem.active .settingsPanel_navIconFill {
+  display: inline-block;
+}
+.centerWrap .centerWrap_con .settingsPanel_navText {
+  flex: 1;
+  min-width: 0;
+  font-size: 18px;
+  line-height: 1.3;
+  text-align: center;
+}
+.centerWrap .centerWrap_con .settingsPanel_downloadSummary {
+  display: none;
+  margin-top: auto;
+  padding: 14px 0 0px 2px;
+  border-top: 1px solid #ccc;
+}
+.centerWrap .centerWrap_con .settingsPanel_downloadSummaryStatus,
+.centerWrap .centerWrap_con .settingsPanel_downloadSummaryActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.centerWrap .centerWrap_con .settingsPanel_downloadSummaryStatus {
+  gap: 10px;
+  color: #666;
+  margin-bottom: 12px;
+}
+.centerWrap .centerWrap_con .settingsPanel_downloadSummaryStatus .settingsPanel_downloadSummaryStateIcon {
+  position: relative;
+  top: 2px;
+  font-size: 24px;
+  transform-origin: center;
+  opacity: 0.4;
+}
+.centerWrap .centerWrap_con .settingsPanel_downloadSummaryStatus .settingsPanel_downloadSummaryStateIcon.is-loading {
+  animation: settingsPanelSummarySpin 1s linear infinite;
+}
+.centerWrap .centerWrap_con .settingsPanel_downloadSummaryActions {
+  gap: 12px;
+}
+.centerWrap .centerWrap_con .settingsPanel_downloadSummaryBtn {
+  width: 1em;
+  height: 1em;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 24px;
+  color: #666;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, background-color 0.2s;
+}
+.centerWrap .centerWrap_con .settingsPanel_downloadSummaryBtn:hover {
+  color: #199df5;
+}
+.centerWrap .centerWrap_con .settingsPanel_main {
+  flex: 1;
+  min-width: 0;
+  width: 735px;
+  overflow-y: auto;
+  padding: 0px 15px 15px 15px;
+}
+.centerWrap .centerWrap_con .settingsPanel_form,
+.centerWrap .centerWrap_con .settingsPanel_pages {
+  display: block;
+}
+.centerWrap .centerWrap_con .settingsPanel_page {
+  width: 100%;
+  display: none;
+}
+.centerWrap .centerWrap_con .settingsPanel_page.active {
+  display: block;
+}
+.centerWrap .centerWrap_con .settingsPanel_page[data-page='home'] .settingsPanel_optionCard.option {
+  margin-top: 10px;
+}
+.centerWrap .centerWrap_con .settingsPanel_page[data-page='home'] .settingsPanel_panelContent .centerWrap_btns {
+  padding-top: 0;
+}
+.centerWrap .centerWrap_con .settingsPanel_pageInner {
+  padding-bottom: 5px;
+}
+.centerWrap .centerWrap_con .settingsPanel_stickyHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  margin-top: 15px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #fff;
+  color: #444;
+  box-shadow: 0 0 15px #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 4;
+}
+.centerWrap .centerWrap_con .settingsPanel_stickyHeader[hidden] {
+  display: none;
+}
+.centerWrap .centerWrap_con .settingsPanel_titleSection,
+.centerWrap .centerWrap_con .settingsPanel_panelSection {
+  margin-top: 15px;
+}
+.centerWrap .centerWrap_con .settingsPanel_sectionHeader {
+  width: 100%;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #fff;
+  color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 15px #ddd;
+  text-align: left;
+}
+.centerWrap .centerWrap_con .settingsPanel_sectionHeader:hover svg {
+  color: #199df5;
+}
+.centerWrap .centerWrap_con .settingsPanel_panelSection {
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 0 15px #ddd;
+  overflow: hidden;
+}
+.centerWrap .centerWrap_con .settingsPanel_panelSection .settingsPanel_sectionHeader {
+  margin-top: 0;
+  box-shadow: none;
+  border-bottom: 1px solid #ececec;
+  border-radius: 0;
+}
+.centerWrap .centerWrap_con .settingsPanel_sectionHeadMain {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.centerWrap .centerWrap_con .settingsPanel_sectionIconWrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: #eef7fd;
+  color: #199df5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+.centerWrap .centerWrap_con .settingsPanel_sectionIconWrap.hidden {
+  display: none;
+}
+.centerWrap .centerWrap_con .settingsPanel_sectionIconWrap .icon {
+  font-size: 22px;
+}
+.centerWrap .centerWrap_con .settingsPanel_sectionTitle {
+  padding: 5px 0;
+  min-width: 0;
+  font-size: 16px;
+  line-height: 1.35;
+}
+.centerWrap .centerWrap_con .settingsPanel_sectionArrow {
+  font-size: 18px;
+  color: #555;
+  transition: transform 0.2s;
+  flex: none;
+}
+.centerWrap .centerWrap_con .settingsPanel_panelSection.expanded .settingsPanel_sectionArrow,
+.centerWrap .centerWrap_con .settingsPanel_titleSection.expanded .settingsPanel_sectionArrow {
+  transform: rotate(180deg);
+}
+.centerWrap .centerWrap_con .settingsPanel_sectionHeader:hover .settingsPanel_sectionTitle,
+.centerWrap .centerWrap_con .settingsPanel_sectionHeader:hover .settingsPanel_sectionArrow {
+  color: #199df5;
+}
+.centerWrap .centerWrap_con .settingsPanel_titleContent,
+.centerWrap .centerWrap_con .settingsPanel_panelContent {
+  min-height: 0;
+  overflow: hidden;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.16s ease, transform 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.centerWrap .centerWrap_con .settingsPanel_panelContent {
+  padding: 15px 20px;
+}
+.centerWrap .centerWrap_con .settingsPanel_titleContent {
+  padding-top: 0;
+}
+.centerWrap .centerWrap_con .settingsPanel_sectionContentShell {
+  display: grid;
+  grid-template-rows: 1fr;
+  min-height: 0;
+  transition: grid-template-rows 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.centerWrap .centerWrap_con .settingsPanel_sectionContentWrap {
+  min-height: 0;
+  overflow: hidden;
+}
+.centerWrap .centerWrap_con .settingsPanel_titleSection.collapsed .settingsPanel_sectionContentShell,
+.centerWrap .centerWrap_con .settingsPanel_panelSection.collapsed .settingsPanel_sectionContentShell {
+  grid-template-rows: 0fr;
+}
+.centerWrap .centerWrap_con .settingsPanel_titleSection.collapsed .settingsPanel_titleContent,
+.centerWrap .centerWrap_con .settingsPanel_panelSection.collapsed .settingsPanel_titleContent,
+.centerWrap .centerWrap_con .settingsPanel_titleSection.collapsed .settingsPanel_panelContent,
+.centerWrap .centerWrap_con .settingsPanel_panelSection.collapsed .settingsPanel_panelContent {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition-delay: 0s;
+  pointer-events: none;
+}
+.centerWrap .centerWrap_con .settingsPanel_titleSection.expanded .settingsPanel_titleContent,
+.centerWrap .centerWrap_con .settingsPanel_panelSection.expanded .settingsPanel_titleContent,
+.centerWrap .centerWrap_con .settingsPanel_titleSection.expanded .settingsPanel_panelContent,
+.centerWrap .centerWrap_con .settingsPanel_panelSection.expanded .settingsPanel_panelContent {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.08s;
+}
+.centerWrap .centerWrap_con .settingsPanel_optionCard.option {
+  width: calc(100% - 20px);
+  margin: 10px auto 0;
+  padding: 8px 15px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #ddd;
+  line-height: 26px;
+}
+.centerWrap .centerWrap_con .settingsPanel_optionCard.option.pinned {
+  border: 2px solid #bde2ff;
+}
+.centerWrap .centerWrap_con .settingsPanel_optionCard.option.new {
+  position: relative;
+}
+.centerWrap .centerWrap_con .settingsPanel_optionCard.option.new::before {
+  content: none !important;
+  display: none !important;
+}
+.centerWrap .centerWrap_con .settingsPanel_optionCard.option.new .settingsPanel_newBadge {
+  width: 30px;
+  position: absolute;
+  top: -15px;
+  right: -5px;
+  pointer-events: none;
+  line-height: 0;
+  color: #3ab8f2;
+}
+.centerWrap .centerWrap_con .settingsPanel_optionCard.option.new .settingsPanel_newBadgeIcon.icon {
+  width: 30px;
+  height: 30px;
+}
+.centerWrap .centerWrap_con .settingsPanel_downloadContentWrap .download_area {
+  display: block;
+}
+.centerWrap .centerWrap_con .settingsPanel_downloadContentWrap .progressBarWrap {
+  margin-top: 8px;
+}
+.centerWrap .centerWrap_con .settingsPanel_helpTips {
+  display: flex;
+  flex-direction: column;
+}
+.centerWrap .centerWrap_con .settingsPanel_tipCard {
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px 15px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 0 15px #ddd;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.centerWrap .centerWrap_con .settingsPanel_tipIcon {
+  font-size: 20px;
+  color: #666;
+  flex: none;
+}
+.centerWrap .centerWrap_con .settingsPanel_tipText {
+  flex: 1;
+  min-width: 0;
+  line-height: 26px;
+}
+.centerWrap .centerWrap_con .settingsPanel_tipConfirm {
+  margin-left: 2px;
+  width: 1.6em;
+  height: 1lh;
+  font-size: 18px;
+  padding: 0 2px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #199df5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+.centerWrap .centerWrap_con .settingsPanel_tipConfirm:hover {
+  background: #e5f2ff;
+}
+.centerWrap .centerWrap_con .settingsPanel_helpActions {
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 15px;
+}
+.centerWrap .centerWrap_con .settingsPanel_helpAction {
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  padding: 12px 14px;
+  border: none;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 0 15px #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #444;
+  cursor: pointer;
+  position: relative;
+}
+.centerWrap .centerWrap_con .settingsPanel_helpAction:hover {
+  background: #09a0f4;
+  color: #fff;
+}
+.centerWrap .centerWrap_con .settingsPanel_helpAction:hover .settingsPanel_helpActionIcon {
+  color: #fff;
+}
+.centerWrap .centerWrap_con .settingsPanel_helpAction:hover::before,
+.centerWrap .centerWrap_con .settingsPanel_helpAction:focus::before {
+  background: transparent;
+}
+.centerWrap .centerWrap_con .settingsPanel_helpAction:hover .ripple,
+.centerWrap .centerWrap_con .settingsPanel_helpAction:focus .ripple {
+  animation: none;
+}
+.centerWrap .centerWrap_con .settingsPanel_helpAction.ripple-active .ripple {
+  animation: ripple-effect 0.6s linear;
+}
+.centerWrap .centerWrap_con .settingsPanel_helpAction.hasUpdate::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff4060;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.centerWrap .centerWrap_con .settingsPanel_helpActionIcon {
+  font-size: 20px;
+  flex: none;
+  position: relative;
+  top: 1px;
+  color: #666;
+}
+.centerWrap .centerWrap_con .settingsPanel_searchSummary {
+  margin: 15px 0 0 5px;
+  color: #444;
+  line-height: 26px;
+}
+.centerWrap .centerWrap_con .settingsPanel_searchMark {
+  background: #ffe74b;
+  color: inherit;
+  padding: 0 2px;
+}
+.centerWrap .centerWrap_con .download_area {
+  margin-top: 13px;
+}
+.centerWrap .centerWrap_con .progressBarWrap {
+  margin-top: 10px;
+}
 .centerWrap .centerWrap_con .help_bar {
   line-height: 24px;
 }
@@ -1208,18 +1837,41 @@ body.mobile #quickCrawlBtn {
 .centerWrap .centerWrap_con input[name='bgOpacity'] {
   margin: 5px 0;
 }
+.centerWrap.lang_zh-cn .settingsPanel_navText,
+.centerWrap.lang_zh-tw .settingsPanel_navText {
+  letter-spacing: 6px;
+  text-indent: 6px;
+}
 .centerWrap.theme-white .option > .settingNameStyle,
 .centerWrap.theme-white .optionName {
   color: #333;
 }
 .centerWrap.mobile {
-  width: 90vw;
-  left: -45vw;
-  top: 10vh;
-  max-height: 80vh;
+  width: calc(100vw - 32px);
+  left: 50%;
+  top: 8px;
+  max-height: calc(80vh);
+  transform: translateX(-50%);
   font-size: 16px;
   font-family: sans-serif;
   overflow: auto;
+}
+.centerWrap.mobile .centerWrap_head {
+  padding: 12px;
+  flex-direction: column;
+  align-items: stretch;
+}
+.centerWrap.mobile .centerWrap_head .settingsPanel_headerMain,
+.centerWrap.mobile .centerWrap_head .settingsPanel_headerActions {
+  min-height: 32px;
+  justify-content: space-between;
+}
+.centerWrap.mobile .centerWrap_head .settingsPanel_headerActions {
+  gap: 10px;
+}
+.centerWrap.mobile .centerWrap_head .settingsPanel_headerSearch {
+  flex: 1;
+  min-width: 0;
 }
 .centerWrap.mobile .centerWrap_head .centerWrap_title {
   line-height: 40px;
@@ -1237,6 +1889,8 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap.mobile .centerWrap_con {
   padding: 0 5vw;
+  flex-direction: column;
+  max-height: calc(100vh - 120px);
 }
 .centerWrap.mobile p {
   line-height: 32px;
@@ -1252,10 +1906,67 @@ body.mobile #quickCrawlBtn {
   line-height: 24px;
   padding: 12px 16px;
 }
+.centerWrap.mobile .settingsPanel_searchBar {
+  width: 100%;
+  max-width: none;
+}
+.centerWrap.mobile .settingsPanel_headerMinor,
+.centerWrap.mobile .centerWrap_close_pc {
+  display: none;
+}
+.centerWrap.mobile .centerWrap_close_mobile {
+  display: inline-flex;
+}
+.centerWrap.mobile .settingsPanel_sidebar {
+  width: 100%;
+  padding: 12px;
+  overflow: visible;
+}
+.centerWrap.mobile .settingsPanel_nav {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.centerWrap.mobile .settingsPanel_navItem {
+  min-width: 25%;
+  flex: 1 1 25%;
+  min-height: 42px;
+  padding: 8px 12px;
+  justify-content: center;
+}
+.centerWrap.mobile .settingsPanel_navText {
+  font-size: 16px;
+}
+.centerWrap.mobile.lang_zh-cn .settingsPanel_navText,
+.centerWrap.mobile.lang_zh-tw .settingsPanel_navText {
+  letter-spacing: 2px;
+  text-indent: 2px;
+}
+.centerWrap.mobile .settingsPanel_downloadSummary {
+  margin-top: 12px;
+  padding: 12px 15px;
+  border-top: none;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #ddd;
+}
+.centerWrap.mobile .settingsPanel_downloadSummaryStatus,
+.centerWrap.mobile .settingsPanel_downloadSummaryActions {
+  gap: 16px;
+}
+.centerWrap.mobile .settingsPanel_downloadSummaryStatus {
+  margin-bottom: 10px;
+}
+.centerWrap.mobile .settingsPanel_main {
+  padding: 12px;
+}
+.centerWrap.mobile .settingsPanel_helpActions {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
 .centerWrap.theme-dark {
-  background: #222;
-  box-shadow: #10506e 0px 0px 15px;
-  color: #fff;
+  background: #1f2530;
+  border-color: rgba(94, 172, 230, 0.45);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
+  color: #dfe7ef;
 }
 .centerWrap.theme-dark .option > .settingNameStyle,
 .centerWrap.theme-dark .optionName {
@@ -1279,8 +1990,6 @@ body.mobile #quickCrawlBtn {
 .centerWrap.theme-dark .down_status {
   color: #1dacf5 !important;
 }
-.centerWrap.theme-dark .centerWrap_top_btn:hover,
-.centerWrap.theme-dark .centerWrap_top_btn:focus,
 .centerWrap.theme-dark .showFileNameTip:hover,
 .centerWrap.theme-dark .showFileNameTip:focus,
 .centerWrap.theme-dark .textButton:hover,
@@ -1289,6 +1998,12 @@ body.mobile #quickCrawlBtn {
 .centerWrap.theme-dark .updateActiveClass {
   color: #1dacf5 !important;
   fill: #1dacf5 !important;
+}
+.centerWrap.theme-dark .centerWrap_top_btn:hover,
+.centerWrap.theme-dark .centerWrap_top_btn:focus {
+  color: #1dacf5 !important;
+  fill: #1dacf5 !important;
+  background: rgba(25, 157, 245, 0.24);
 }
 .centerWrap.theme-dark .grayButton {
   background-color: #aaa;
@@ -1317,6 +2032,62 @@ body.mobile #quickCrawlBtn {
 .centerWrap.theme-dark .centerWrap_btns button {
   box-shadow: none !important;
 }
+.centerWrap.theme-dark .centerWrap_head {
+  background: rgba(25, 32, 42, 0.96);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+.centerWrap.theme-dark .centerWrap_con {
+  background: rgba(18, 24, 33, 0.98);
+}
+.centerWrap.theme-dark .settingsPanel_sidebar {
+  background: rgba(255, 255, 255, 0.05);
+}
+.centerWrap.theme-dark .settingsPanel_main {
+  color: #dfe7ef;
+}
+.centerWrap.theme-dark .settingsPanel_searchBar {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.centerWrap.theme-dark .settingsPanel_searchBar input {
+  color: #f1f5f8;
+}
+.centerWrap.theme-dark .settingsPanel_searchBar input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.centerWrap.theme-dark .settingsPanel_navItem {
+  color: #f1f5f8;
+}
+.centerWrap.theme-dark .settingsPanel_navItem:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+.centerWrap.theme-dark .settingsPanel_downloadSummary,
+.centerWrap.theme-dark .settingsPanel_stickyHeader,
+.centerWrap.theme-dark .settingsPanel_sectionHeader,
+.centerWrap.theme-dark .settingsPanel_panelSection,
+.centerWrap.theme-dark .settingsPanel_tipCard,
+.centerWrap.theme-dark .settingsPanel_helpAction,
+.centerWrap.theme-dark .settingsPanel_optionCard.option {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+  color: #f1f5f8;
+}
+.centerWrap.theme-dark .settingsPanel_panelSection .settingsPanel_sectionHeader {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+.centerWrap.theme-dark .settingsPanel_sectionIconWrap {
+  background: rgba(66, 195, 255, 0.16);
+  color: #42c3ff;
+}
+.centerWrap.theme-dark .settingsPanel_helpAction:hover,
+.centerWrap.theme-dark .settingsPanel_downloadSummaryBtn:hover,
+.centerWrap.theme-dark .settingsPanel_clearSearch:hover {
+  background: rgba(25, 157, 245, 0.24);
+}
+.centerWrap.theme-dark .settingsPanel_searchSummary,
+.centerWrap.theme-dark .settingsPanel_downloadSummaryStatus {
+  color: #dfe7ef;
+}
 .centerWrap.theme-dark .settingCategoryName span {
   color: #1dacf5 !important;
   text-shadow: none !important;
@@ -1324,7 +2095,7 @@ body.mobile #quickCrawlBtn {
 .centerWrap.xzBG {
   text-shadow: #003247 0px 0px 2px;
   box-shadow: #10506e 0px 0px 15px;
-  background: #222;
+  background: rgba(10, 18, 28, 0.42);
   color: #fff;
 }
 .centerWrap.xzBG .option > .settingNameStyle,
@@ -1354,14 +2125,17 @@ body.mobile #quickCrawlBtn {
 .centerWrap.xzBG .download_status_text_wrap span {
   color: #fff !important;
 }
-.centerWrap.xzBG .centerWrap_top_btn:hover,
-.centerWrap.xzBG .centerWrap_top_btn:focus,
 .centerWrap.xzBG .showFileNameTip:hover,
 .centerWrap.xzBG .showFileNameTip:focus,
 .centerWrap.xzBG .textButton:hover,
 .centerWrap.xzBG .textButton:focus,
 .centerWrap.xzBG .help_bar > *:hover,
 .centerWrap.xzBG .updateActiveClass {
+  color: #fff !important;
+  fill: #fff !important;
+}
+.centerWrap.xzBG .centerWrap_top_btn:hover,
+.centerWrap.xzBG .centerWrap_top_btn:focus {
   color: #fff !important;
   fill: #fff !important;
 }
@@ -1372,6 +2146,9 @@ body.mobile #quickCrawlBtn {
 .centerWrap.xzBG .grayButton:focus {
   background: #1dacf5;
   color: #fff !important;
+}
+.centerWrap.xzBG .centerWrap_con {
+  background: rgba(10, 18, 28, 0.5);
 }
 .centerWrap.xzBG .centerWrap_con .settingForm select {
   background: transparent;
@@ -1392,6 +2169,38 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap.xzBG .centerWrap_btns button {
   box-shadow: none !important;
+}
+.centerWrap.xzBG .centerWrap_head {
+  background: rgba(10, 18, 28, 0.55);
+}
+.centerWrap.xzBG .settingsPanel_sidebar,
+.centerWrap.xzBG .settingsPanel_stickyHeader,
+.centerWrap.xzBG .settingsPanel_sectionHeader,
+.centerWrap.xzBG .settingsPanel_panelSection,
+.centerWrap.xzBG .settingsPanel_tipCard,
+.centerWrap.xzBG .settingsPanel_helpAction,
+.centerWrap.xzBG .settingsPanel_optionCard.option {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+.centerWrap.xzBG .settingsPanel_panelSection .settingsPanel_sectionHeader {
+  background: transparent;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+.centerWrap.xzBG .settingsPanel_searchBar {
+  background: rgba(255, 255, 255, 0.1);
+}
+.centerWrap.xzBG .settingsPanel_searchBar input {
+  color: #fff;
+}
+.centerWrap.xzBG .settingsPanel_searchBar input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+.centerWrap.xzBG .settingsPanel_navItem {
+  color: #fff;
+}
+.centerWrap.xzBG .settingsPanel_navItem:hover {
+  background: rgba(255, 255, 255, 0.12);
 }
 .centerWrap.xzBG .settingCategoryName span {
   color: #1dacf5 !important;
@@ -1459,834 +2268,6 @@ body.mobile #quickCrawlBtn {
   .centerWrap.mobile .centerWrap_con .settingForm .centerWrap_btns button {
     padding: 12px 6px;
   }
-}
-.centerWrap.settingsV2 {
-  box-sizing: border-box;
-  width: 925px;
-  max-width: calc(100vw - 24px);
-  max-height: 870px;
-  left: 50%;
-  top: 10vh;
-  margin-left: 0;
-  transform: translateX(-54%);
-  padding: 0;
-  border-radius: 16px;
-  border: 1px solid #9dd4f9;
-  box-shadow: 0 0 25px #b4e0f5;
-  background: #fff;
-  position: fixed;
-  z-index: 5000;
-  font-size: 15px;
-  color: #444;
-  overflow: hidden;
-  font-family: 'Noto Sans SC', 'Noto Sans', 'Segeo UI', 'Segeo UI Mono', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-}
-.centerWrap.settingsV2 p,
-.centerWrap.settingsV2 div,
-.centerWrap.settingsV2 span,
-.centerWrap.settingsV2 button,
-.centerWrap.settingsV2 .centerWrap_head,
-.centerWrap.settingsV2 .centerWrap_con,
-.centerWrap.settingsV2 .settingForm,
-.centerWrap.settingsV2 .settingsPanel_page,
-.centerWrap.settingsV2 .settingsPanel_pageInner,
-.centerWrap.settingsV2 .settingsPanel_sidebar,
-.centerWrap.settingsV2 .settingsPanel_main,
-.centerWrap.settingsV2 .settingsPanel_navItem,
-.centerWrap.settingsV2 .settingsPanel_tipCard,
-.centerWrap.settingsV2 .settingsPanel_helpAction,
-.centerWrap.settingsV2 .settingsPanel_sectionHeader,
-.centerWrap.settingsV2 .settingsPanel_downloadSummaryBtn {
-  box-sizing: border-box;
-}
-.centerWrap.settingsV2 .centerWrap_head {
-  padding: 10px 10px 10px 20px;
-  background: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0px;
-  border-bottom: 1px solid #edf3f8;
-}
-.centerWrap.settingsV2 .settingsPanel_headerMain,
-.centerWrap.settingsV2 .settingsPanel_headerActions,
-.centerWrap.settingsV2 .settingsPanel_headerSearch,
-.centerWrap.settingsV2 .settingsPanel_brand {
-  display: flex;
-  align-items: center;
-}
-.centerWrap.settingsV2 .settingsPanel_headerActions {
-  gap: 0px;
-}
-.centerWrap.settingsV2 .settingsPanel_headerSearch {
-  gap: 5px;
-}
-.centerWrap.settingsV2 .settingsPanel_brand {
-  gap: 6px;
-  min-width: 0;
-  color: #199df5;
-}
-.centerWrap.settingsV2 .settingsPanel_logo {
-  width: 28px;
-  height: 28px;
-  flex: none;
-}
-.centerWrap.settingsV2 .settingsPanel_brandName {
-  font-size: 17px;
-  font-weight: 700;
-  line-height: 1;
-  white-space: nowrap;
-}
-.centerWrap.settingsV2 .centerWrap_top_btn {
-  width: 36px;
-  height: 36px;
-  padding: 0;
-  border-radius: 6px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #888;
-  transition: color 0.2s, background-color 0.2s;
-}
-.centerWrap.settingsV2 .centerWrap_top_btn:hover {
-  color: #199df5;
-  background: #eef7ff;
-}
-.centerWrap.settingsV2 .centerWrap_top_btn.centerWrap_close_pc:hover,
-.centerWrap.settingsV2 .centerWrap_top_btn.centerWrap_close_pc:active {
-  color: #f33939;
-  background: #fcdddd;
-}
-.centerWrap.settingsV2 .centerWrap_top_btn .icon {
-  font-size: 20px;
-}
-.centerWrap.settingsV2 .settingsPanel_sponsorBtn:hover {
-  color: #e448a3;
-  background: #fff0f7;
-}
-.centerWrap.settingsV2 .centerWrap_close_mobile {
-  display: none;
-}
-.centerWrap.settingsV2 .settingsPanel_searchBar {
-  box-sizing: border-box;
-  width: 210px;
-  max-width: 80vw;
-  height: 32px;
-  border: 1px solid #999;
-  border-radius: 20px;
-  padding: 0 8px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: #fff;
-  transition: border-color 0.2s;
-}
-.centerWrap.settingsV2 .settingsPanel_searchBar:focus-within {
-  border-color: #199df5;
-}
-.centerWrap.settingsV2 .settingsPanel_searchBar input {
-  flex: 1;
-  min-width: 0;
-  border: none;
-  height: 100%;
-  background: transparent;
-  color: #444;
-  font-size: 15px;
-  outline: none;
-}
-.centerWrap.settingsV2 .settingsPanel_searchBar input::placeholder {
-  color: #aaa;
-}
-.centerWrap.settingsV2 .settingsPanel_searchIcon {
-  color: #aaa;
-  font-size: 20px;
-  flex: none;
-}
-.centerWrap.settingsV2 .settingsPanel_clearSearch {
-  width: 24px;
-  height: 24px;
-  padding: 4px;
-  border-radius: 50%;
-  color: #999;
-  display: none;
-  align-items: center;
-  justify-content: center;
-}
-.centerWrap.settingsV2 .settingsPanel_clearSearch.visible {
-  display: inline-flex;
-  color: #666;
-}
-.centerWrap.settingsV2 .settingsPanel_clearSearch:hover {
-  color: #199df5;
-  background: #eef7ff;
-}
-.centerWrap.settingsV2 .settingsPanel_expandAll {
-  position: relative;
-  transition: transform 0.2s, color 0.2s, background-color 0.2s;
-}
-.centerWrap.settingsV2 .settingsPanel_expandAll svg {
-  transform: rotate(180deg);
-  transition: transform 0.2s;
-}
-.centerWrap.settingsV2 .settingsPanel_expandAll.partial svg {
-  transform: rotate(90deg);
-}
-.centerWrap.settingsV2 .settingsPanel_expandAll.expanded svg {
-  transform: rotate(0deg);
-}
-.centerWrap.settingsV2 .centerWrap_con {
-  display: flex;
-  align-items: stretch;
-  width: 100%;
-  background: #eee;
-}
-.centerWrap.settingsV2 .settingsPanel_sidebar {
-  width: 190px;
-  flex: none;
-  padding: 15px 10px;
-  background: #f5f5f5;
-  overflow-y: auto;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-.centerWrap.settingsV2 .settingsPanel_nav {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  flex: 1;
-  min-height: 0;
-}
-.centerWrap.settingsV2 .settingsPanel_navItem {
-  min-height: 50px;
-  padding: 0 15px;
-  border: none;
-  border-radius: 6px;
-  background: transparent;
-  color: #111;
-  display: flex;
-  align-items: center;
-  gap: 0px;
-  text-align: left;
-  cursor: pointer;
-}
-.centerWrap.settingsV2 .settingsPanel_navItem[hidden] {
-  display: none;
-}
-.centerWrap.settingsV2 .settingsPanel_navItem:hover {
-  background: #d7e5f2;
-}
-.centerWrap.settingsV2 .settingsPanel_navItem.active {
-  background: #199df5;
-  color: #fff;
-  font-weight: 700;
-}
-.centerWrap.settingsV2 .settingsPanel_navItem.active:hover,
-.centerWrap.settingsV2 .settingsPanel_navItem.active:focus {
-  background: #199df5;
-}
-.centerWrap.settingsV2 .settingsPanel_navItem.active:hover::before,
-.centerWrap.settingsV2 .settingsPanel_navItem.active:focus::before {
-  background: transparent;
-}
-.centerWrap.settingsV2 .settingsPanel_navItem:hover .ripple,
-.centerWrap.settingsV2 .settingsPanel_navItem:focus .ripple {
-  animation: none;
-}
-.centerWrap.settingsV2 .settingsPanel_navItem.ripple-active .ripple {
-  animation: ripple-effect 0.6s linear;
-}
-.centerWrap.settingsV2 .settingsPanel_navIconWrap {
-  width: 26px;
-  height: 26px;
-  flex: none;
-  position: relative;
-}
-.centerWrap.settingsV2 .settingsPanel_navIcon {
-  font-size: 26px;
-  position: absolute;
-  inset: 0;
-}
-.centerWrap.settingsV2 .settingsPanel_navIconFill {
-  display: none;
-}
-.centerWrap.settingsV2 .settingsPanel_navItem.active .settingsPanel_navIconLine {
-  display: none;
-}
-.centerWrap.settingsV2 .settingsPanel_navItem.active .settingsPanel_navIconFill {
-  display: inline-block;
-}
-.centerWrap.settingsV2 .settingsPanel_navText {
-  flex: 1;
-  min-width: 0;
-  font-size: 18px;
-  line-height: 1.3;
-  text-align: center;
-}
-.centerWrap.settingsV2.lang_zh-cn .settingsPanel_navText,
-.centerWrap.settingsV2.lang_zh-tw .settingsPanel_navText {
-  letter-spacing: 6px;
-  text-indent: 6px;
-}
-.centerWrap.settingsV2 .settingsPanel_downloadSummary {
-  display: none;
-  margin-top: auto;
-  padding: 14px 0 0px 2px;
-  border-top: 1px solid #ccc;
-}
-.centerWrap.settingsV2 .settingsPanel_downloadSummaryStatus,
-.centerWrap.settingsV2 .settingsPanel_downloadSummaryActions {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.centerWrap.settingsV2 .settingsPanel_downloadSummaryStatus {
-  gap: 10px;
-  color: #666;
-  margin-bottom: 12px;
-}
-.centerWrap.settingsV2 .settingsPanel_downloadSummaryStatus .settingsPanel_downloadSummaryStateIcon {
-  position: relative;
-  top: 2px;
-  font-size: 24px;
-  transform-origin: center;
-  opacity: 0.4;
-}
-.centerWrap.settingsV2 .settingsPanel_downloadSummaryStatus .settingsPanel_downloadSummaryStateIcon.is-loading {
-  animation: settingsPanelSummarySpin 1s linear infinite;
-}
-.centerWrap.settingsV2 .settingsPanel_downloadSummaryActions {
-  gap: 12px;
-}
-.centerWrap.settingsV2 .settingsPanel_downloadSummaryBtn {
-  width: 1em;
-  height: 1em;
-  padding: 0;
-  border-radius: 50%;
-  font-size: 24px;
-  color: #666;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.2s, background-color 0.2s;
-}
-.centerWrap.settingsV2 .settingsPanel_downloadSummaryBtn:hover {
-  color: #199df5;
-}
-.centerWrap.settingsV2 .settingsPanel_main {
-  flex: 1;
-  min-width: 0;
-  width: 735px;
-  overflow-y: auto;
-  padding: 0px 15px 15px 15px;
-}
-.centerWrap.settingsV2 .settingsPanel_form {
-  display: block;
-}
-.centerWrap.settingsV2 .settingsPanel_pages {
-  display: block;
-}
-.centerWrap.settingsV2 .settingsPanel_page {
-  width: 100%;
-  display: none;
-}
-.centerWrap.settingsV2 .settingsPanel_page.active {
-  display: block;
-}
-.centerWrap.settingsV2 .settingsPanel_pageInner {
-  padding-bottom: 5px;
-}
-.centerWrap.settingsV2 .settingsPanel_stickyHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  width: 100%;
-  margin-top: 15px;
-  padding: 8px 15px;
-  border: none;
-  border-radius: 8px;
-  background: #fff;
-  color: #444;
-  box-shadow: 0 0 15px #ddd;
-  position: sticky;
-  top: 0;
-  z-index: 4;
-}
-.centerWrap.settingsV2 .settingsPanel_stickyHeader[hidden] {
-  display: none;
-}
-.centerWrap.settingsV2 .settingsPanel_titleSection,
-.centerWrap.settingsV2 .settingsPanel_panelSection {
-  margin-top: 15px;
-}
-.centerWrap.settingsV2 .settingsPanel_sectionHeader {
-  width: 100%;
-  padding: 8px 15px;
-  border: none;
-  border-radius: 8px;
-  background: #fff;
-  color: #222;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  cursor: pointer;
-  box-shadow: 0 0 15px #ddd;
-  text-align: left;
-}
-.centerWrap.settingsV2 .settingsPanel_sectionHeader:hover svg {
-  color: #199df5;
-}
-.centerWrap.settingsV2 .settingsPanel_panelSection {
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 0 15px #ddd;
-  overflow: hidden;
-}
-.centerWrap.settingsV2 .settingsPanel_panelSection .settingsPanel_sectionHeader {
-  margin-top: 0;
-  box-shadow: none;
-  border-bottom: 1px solid #ececec;
-  border-radius: 0;
-}
-.centerWrap.settingsV2 .settingsPanel_sectionHeadMain {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-width: 0;
-}
-.centerWrap.settingsV2 .settingsPanel_sectionIconWrap {
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-  background: #eef7fd;
-  color: #199df5;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex: none;
-}
-.centerWrap.settingsV2 .settingsPanel_sectionIconWrap.hidden {
-  display: none;
-}
-.centerWrap.settingsV2 .settingsPanel_sectionIconWrap .icon {
-  font-size: 22px;
-}
-.centerWrap.settingsV2 .settingsPanel_sectionTitle {
-  padding: 5px 0;
-  min-width: 0;
-  font-size: 16px;
-  line-height: 1.35;
-}
-.centerWrap.settingsV2 .settingsPanel_sectionArrow {
-  font-size: 18px;
-  color: #555;
-  transition: transform 0.2s;
-  flex: none;
-}
-.centerWrap.settingsV2 .settingsPanel_panelSection.expanded .settingsPanel_sectionArrow,
-.centerWrap.settingsV2 .settingsPanel_titleSection.expanded .settingsPanel_sectionArrow {
-  transform: rotate(180deg);
-}
-.centerWrap.settingsV2 .settingsPanel_sectionHeader:hover .settingsPanel_sectionTitle,
-.centerWrap.settingsV2 .settingsPanel_sectionHeader:hover .settingsPanel_sectionArrow {
-  color: #199df5;
-}
-.centerWrap.settingsV2 .settingsPanel_titleContent,
-.centerWrap.settingsV2 .settingsPanel_panelContent {
-  box-sizing: border-box;
-  min-height: 0;
-  overflow: hidden;
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.16s ease, transform 0.24s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.centerWrap.settingsV2 .settingsPanel_panelContent {
-  padding: 15px 20px;
-}
-.centerWrap.settingsV2 .settingsPanel_titleContent {
-  padding-top: 0;
-}
-.centerWrap.settingsV2 .settingsPanel_sectionContentShell {
-  display: grid;
-  grid-template-rows: 1fr;
-  min-height: 0;
-  transition: grid-template-rows 0.28s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.centerWrap.settingsV2 .settingsPanel_sectionContentWrap {
-  min-height: 0;
-  overflow: hidden;
-}
-.centerWrap.settingsV2 .settingsPanel_titleSection.collapsed .settingsPanel_sectionContentShell,
-.centerWrap.settingsV2 .settingsPanel_panelSection.collapsed .settingsPanel_sectionContentShell {
-  grid-template-rows: 0fr;
-}
-.centerWrap.settingsV2 .settingsPanel_titleSection.collapsed .settingsPanel_titleContent,
-.centerWrap.settingsV2 .settingsPanel_panelSection.collapsed .settingsPanel_titleContent,
-.centerWrap.settingsV2 .settingsPanel_titleSection.collapsed .settingsPanel_panelContent,
-.centerWrap.settingsV2 .settingsPanel_panelSection.collapsed .settingsPanel_panelContent {
-  opacity: 0;
-  transform: translateY(-6px);
-  transition-delay: 0s;
-  pointer-events: none;
-}
-.centerWrap.settingsV2 .settingsPanel_titleSection.expanded .settingsPanel_titleContent,
-.centerWrap.settingsV2 .settingsPanel_panelSection.expanded .settingsPanel_titleContent,
-.centerWrap.settingsV2 .settingsPanel_titleSection.expanded .settingsPanel_panelContent,
-.centerWrap.settingsV2 .settingsPanel_panelSection.expanded .settingsPanel_panelContent {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.08s;
-}
-.centerWrap.settingsV2 .settingsPanel_optionCard.option {
-  width: calc(100% - 20px);
-  margin: 10px auto 0;
-  padding: 8px 15px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 0 10px #ddd;
-  line-height: 26px;
-}
-.centerWrap.settingsV2 .settingsPanel_page[data-page='home'] .settingsPanel_optionCard.option {
-  margin-top: 10px;
-}
-.centerWrap.settingsV2 .settingsPanel_page[data-page='home'] .settingsPanel_panelContent .centerWrap_btns {
-  padding-top: 0;
-}
-.centerWrap.settingsV2 .settingsPanel_optionCard.option.pinned {
-  border: 2px solid #bde2ff;
-}
-.centerWrap.settingsV2 .settingsPanel_optionCard.option.new {
-  position: relative;
-}
-.centerWrap.settingsV2 .settingsPanel_optionCard.option.new::before {
-  content: none !important;
-  display: none !important;
-}
-.centerWrap.settingsV2 .settingsPanel_optionCard.option.new .settingsPanel_newBadge {
-  width: 30px;
-  position: absolute;
-  top: -15px;
-  right: -5px;
-  pointer-events: none;
-  line-height: 0;
-  color: #3ab8f2;
-}
-.centerWrap.settingsV2 .settingsPanel_optionCard.option.new .settingsPanel_newBadgeIcon.icon {
-  width: 30px;
-  height: 30px;
-}
-.centerWrap.settingsV2 .settingsPanel_downloadContentWrap .download_area {
-  display: block;
-}
-.centerWrap.settingsV2 .settingsPanel_downloadContentWrap .progressBarWrap {
-  margin-top: 8px;
-}
-.centerWrap.settingsV2 .settingsPanel_helpTips,
-.centerWrap.settingsV2 .settingsPanel_helpActions {
-  display: flex;
-  flex-wrap: wrap;
-}
-.centerWrap.settingsV2 .settingsPanel_helpTips {
-  flex-direction: column;
-}
-.centerWrap.settingsV2 .settingsPanel_tipCard {
-  width: 100%;
-  margin-top: 15px;
-  padding: 12px 15px;
-  border-radius: 12px;
-  background: #fff;
-  box-shadow: 0 0 15px #ddd;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.centerWrap.settingsV2 .settingsPanel_tipIcon {
-  font-size: 20px;
-  color: #666;
-  flex: none;
-}
-.centerWrap.settingsV2 .settingsPanel_tipText {
-  flex: 1;
-  min-width: 0;
-  line-height: 26px;
-}
-.centerWrap.settingsV2 .settingsPanel_tipConfirm {
-  margin-left: 2px;
-  width: 1.6em;
-  height: 1lh;
-  font-size: 18px;
-  padding: 0 2px;
-  border: none;
-  border-radius: 4px;
-  background: transparent;
-  color: #199df5;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  vertical-align: middle;
-}
-.centerWrap.settingsV2 .settingsPanel_tipConfirm:hover {
-  background: #e5f2ff;
-}
-.centerWrap.settingsV2 .settingsPanel_helpActions {
-  margin-top: 15px;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 15px;
-}
-.centerWrap.settingsV2 .settingsPanel_helpAction {
-  width: 100%;
-  min-width: 0;
-  min-height: 46px;
-  padding: 12px 14px;
-  border: none;
-  border-radius: 12px;
-  background: #fff;
-  box-shadow: 0 0 15px #ddd;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  color: #444;
-  cursor: pointer;
-  position: relative;
-}
-.centerWrap.settingsV2 .settingsPanel_helpAction:hover {
-  background: #09a0f4;
-  color: #fff;
-}
-.centerWrap.settingsV2 .settingsPanel_helpAction:hover .settingsPanel_helpActionIcon {
-  color: #fff;
-}
-.centerWrap.settingsV2 .settingsPanel_helpAction:hover::before,
-.centerWrap.settingsV2 .settingsPanel_helpAction:focus::before {
-  background: transparent;
-}
-.centerWrap.settingsV2 .settingsPanel_helpAction:hover .ripple,
-.centerWrap.settingsV2 .settingsPanel_helpAction:focus .ripple {
-  animation: none;
-}
-.centerWrap.settingsV2 .settingsPanel_helpAction.ripple-active .ripple {
-  animation: ripple-effect 0.6s linear;
-}
-.centerWrap.settingsV2 .settingsPanel_helpAction.hasUpdate::after {
-  content: '';
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #ff4060;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-.centerWrap.settingsV2 .settingsPanel_helpActionIcon {
-  font-size: 20px;
-  flex: none;
-  position: relative;
-  top: 1px;
-  color: #666;
-}
-.centerWrap.settingsV2 .settingsPanel_searchSummary {
-  margin: 15px 0 0 5px;
-  color: #444;
-  line-height: 26px;
-}
-.centerWrap.settingsV2 .settingsPanel_searchMark {
-  background: #ffe74b;
-  color: inherit;
-  padding: 0 2px;
-}
-.centerWrap.settingsV2 .download_area {
-  margin-top: 13px;
-}
-.centerWrap.settingsV2 .progressBarWrap {
-  margin-top: 10px;
-}
-.centerWrap.settingsV2.theme-dark {
-  background: #1f2530;
-  border-color: rgba(94, 172, 230, 0.45);
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
-  color: #dfe7ef;
-}
-.centerWrap.settingsV2.theme-dark .centerWrap_head {
-  background: rgba(25, 32, 42, 0.96);
-  border-bottom-color: rgba(255, 255, 255, 0.08);
-}
-.centerWrap.settingsV2.theme-dark .centerWrap_con {
-  background: rgba(18, 24, 33, 0.98);
-}
-.centerWrap.settingsV2.theme-dark .settingsPanel_sidebar {
-  background: rgba(255, 255, 255, 0.05);
-}
-.centerWrap.settingsV2.theme-dark .settingsPanel_main {
-  color: #dfe7ef;
-}
-.centerWrap.settingsV2.theme-dark .settingsPanel_searchBar {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.2);
-}
-.centerWrap.settingsV2.theme-dark .settingsPanel_searchBar input {
-  color: #f1f5f8;
-}
-.centerWrap.settingsV2.theme-dark .settingsPanel_searchBar input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-}
-.centerWrap.settingsV2.theme-dark .settingsPanel_navItem {
-  color: #f1f5f8;
-}
-.centerWrap.settingsV2.theme-dark .settingsPanel_navItem:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-.centerWrap.settingsV2.theme-dark .settingsPanel_downloadSummary,
-.centerWrap.settingsV2.theme-dark .settingsPanel_stickyHeader,
-.centerWrap.settingsV2.theme-dark .settingsPanel_sectionHeader,
-.centerWrap.settingsV2.theme-dark .settingsPanel_panelSection,
-.centerWrap.settingsV2.theme-dark .settingsPanel_tipCard,
-.centerWrap.settingsV2.theme-dark .settingsPanel_helpAction,
-.centerWrap.settingsV2.theme-dark .settingsPanel_optionCard.option {
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
-  color: #f1f5f8;
-}
-.centerWrap.settingsV2.theme-dark .settingsPanel_panelSection .settingsPanel_sectionHeader {
-  border-bottom-color: rgba(255, 255, 255, 0.08);
-}
-.centerWrap.settingsV2.theme-dark .settingsPanel_sectionIconWrap {
-  background: rgba(66, 195, 255, 0.16);
-  color: #42c3ff;
-}
-.centerWrap.settingsV2.theme-dark .settingsPanel_helpAction:hover,
-.centerWrap.settingsV2.theme-dark .settingsPanel_downloadSummaryBtn:hover,
-.centerWrap.settingsV2.theme-dark .centerWrap_top_btn:hover,
-.centerWrap.settingsV2.theme-dark .settingsPanel_clearSearch:hover {
-  background: rgba(25, 157, 245, 0.24);
-}
-.centerWrap.settingsV2.theme-dark .settingsPanel_searchSummary,
-.centerWrap.settingsV2.theme-dark .settingsPanel_downloadSummaryStatus {
-  color: #dfe7ef;
-}
-.centerWrap.settingsV2.xzBG {
-  background: rgba(10, 18, 28, 0.42);
-}
-.centerWrap.settingsV2.xzBG .centerWrap_head {
-  background: rgba(10, 18, 28, 0.55);
-}
-.centerWrap.settingsV2.xzBG .centerWrap_con {
-  background: rgba(10, 18, 28, 0.5);
-}
-.centerWrap.settingsV2.xzBG .settingsPanel_sidebar,
-.centerWrap.settingsV2.xzBG .settingsPanel_stickyHeader,
-.centerWrap.settingsV2.xzBG .settingsPanel_sectionHeader,
-.centerWrap.settingsV2.xzBG .settingsPanel_panelSection,
-.centerWrap.settingsV2.xzBG .settingsPanel_tipCard,
-.centerWrap.settingsV2.xzBG .settingsPanel_helpAction,
-.centerWrap.settingsV2.xzBG .settingsPanel_optionCard.option {
-  background: rgba(255, 255, 255, 0.12);
-  color: #fff;
-}
-.centerWrap.settingsV2.xzBG .settingsPanel_panelSection .settingsPanel_sectionHeader {
-  background: transparent;
-  border-bottom-color: rgba(255, 255, 255, 0.08);
-}
-.centerWrap.settingsV2.xzBG .settingsPanel_searchBar {
-  background: rgba(255, 255, 255, 0.1);
-}
-.centerWrap.settingsV2.xzBG .settingsPanel_searchBar input {
-  color: #fff;
-}
-.centerWrap.settingsV2.xzBG .settingsPanel_searchBar input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-}
-.centerWrap.settingsV2.xzBG .settingsPanel_navItem {
-  color: #fff;
-}
-.centerWrap.settingsV2.xzBG .settingsPanel_navItem:hover {
-  background: rgba(255, 255, 255, 0.12);
-}
-.centerWrap.settingsV2.mobile {
-  width: calc(100vw - 32px);
-  top: 8px;
-  max-height: calc(80vh);
-  transform: translateX(-50%);
-}
-.centerWrap.settingsV2.mobile .centerWrap_head {
-  padding: 12px;
-  flex-direction: column;
-  align-items: stretch;
-}
-.centerWrap.settingsV2.mobile .settingsPanel_headerMain,
-.centerWrap.settingsV2.mobile .settingsPanel_headerActions {
-  min-height: 32px;
-  justify-content: space-between;
-}
-.centerWrap.settingsV2.mobile .settingsPanel_headerActions {
-  gap: 10px;
-}
-.centerWrap.settingsV2.mobile .settingsPanel_headerSearch {
-  flex: 1;
-  min-width: 0;
-}
-.centerWrap.settingsV2.mobile .settingsPanel_searchBar {
-  width: 100%;
-  max-width: none;
-}
-.centerWrap.settingsV2.mobile .settingsPanel_headerMinor,
-.centerWrap.settingsV2.mobile .centerWrap_close_pc {
-  display: none;
-}
-.centerWrap.settingsV2.mobile .centerWrap_close_mobile {
-  display: inline-flex;
-}
-.centerWrap.settingsV2.mobile .centerWrap_con {
-  flex-direction: column;
-  max-height: calc(100vh - 120px);
-}
-.centerWrap.settingsV2.mobile .settingsPanel_sidebar {
-  width: 100%;
-  padding: 12px;
-  overflow: visible;
-}
-.centerWrap.settingsV2.mobile .settingsPanel_nav {
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-.centerWrap.settingsV2.mobile .settingsPanel_navItem {
-  min-width: 25%;
-  flex: 1 1 25%;
-  min-height: 42px;
-  padding: 8px 12px;
-  justify-content: center;
-}
-.centerWrap.settingsV2.mobile .settingsPanel_navText {
-  font-size: 16px;
-}
-.centerWrap.settingsV2.mobile.lang_zh-cn .settingsPanel_navText,
-.centerWrap.settingsV2.mobile.lang_zh-tw .settingsPanel_navText {
-  letter-spacing: 2px;
-  text-indent: 2px;
-}
-.centerWrap.settingsV2.mobile .settingsPanel_downloadSummary {
-  margin-top: 12px;
-  padding: 12px 15px;
-  border-top: none;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 0 15px #ddd;
-}
-.centerWrap.settingsV2.mobile .settingsPanel_downloadSummaryStatus,
-.centerWrap.settingsV2.mobile .settingsPanel_downloadSummaryActions {
-  gap: 16px;
-}
-.centerWrap.settingsV2.mobile .settingsPanel_downloadSummaryStatus {
-  margin-bottom: 10px;
-}
-.centerWrap.settingsV2.mobile .settingsPanel_main {
-  padding: 12px;
-}
-.centerWrap.settingsV2.mobile .settingsPanel_helpAction {
-  width: calc(50% - 8px);
 }
 @keyframes settingsPanelSummarySpin {
   from {

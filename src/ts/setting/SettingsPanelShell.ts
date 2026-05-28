@@ -27,7 +27,7 @@ class SettingsPanelShell {
     }
 
     const centerPanelHTML = `
-      <div class="centerWrap settingsV2 ${'lang_' + lang.type}">
+      <div class="centerWrap ${'lang_' + lang.type}">
         <div class="centerWrap_head">
           <div class="settingsPanel_headerMain">
             <div class="settingsPanel_brand">
@@ -125,7 +125,7 @@ class SettingsPanelShell {
 
     document.body.insertAdjacentHTML('afterbegin', centerPanelHTML)
     this.shell = document.querySelector(
-      '.centerWrap.settingsV2'
+      '.centerWrap'
     ) as HTMLDivElement
     if (!this.shell) {
       throw new Error('SettingsPanel shell not found')
