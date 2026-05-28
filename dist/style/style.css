@@ -461,7 +461,7 @@
   top: 21%;
   background: #0096fa;
   background: -webkit-linear-gradient(top, #47b4ff 0%, #027fd2 100%);
-  font-size: 17px;
+  font-size: 20px;
 }
 body.mobile #quickCrawlBtn {
   top: 26%;
@@ -484,6 +484,9 @@ body.mobile #quickCrawlBtn {
 .centerWrap input {
   padding: 0;
   margin: 0;
+}
+.centerWrap button {
+  color: #444;
 }
 .centerWrap p {
   line-height: 26px;
@@ -1004,16 +1007,16 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap .centerWrap_con .settingForm .centerWrap_btns {
   padding: 8px 0 0;
-  font-size: 0;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
 }
 .centerWrap .centerWrap_con .settingForm .centerWrap_btns button {
-  background-color: #00aeff;
+  background-color: #0ea8ef;
   box-sizing: border-box;
   border: none;
-  width: 150px;
-  margin-right: 10px;
+  width: 100%;
+  min-width: 0;
   padding: 8px 10px;
   display: flex;
   align-items: center;
@@ -1022,7 +1025,6 @@ body.mobile #quickCrawlBtn {
   line-height: 20px;
   border-radius: 6px;
   cursor: pointer;
-  margin-bottom: 8px;
   vertical-align: top;
   box-shadow: 0 1px 6px #eee;
 }
@@ -1060,7 +1062,7 @@ body.mobile #quickCrawlBtn {
   background: #6792a2;
 }
 .centerWrap .centerWrap_con .settingForm .progressBarWrap .progress {
-  background: #00b1ff;
+  background: #0eb3f3;
   transition: 0.15s;
 }
 .centerWrap .centerWrap_con .settingForm .progressBarWrap .progressTip {
@@ -1088,7 +1090,7 @@ body.mobile #quickCrawlBtn {
   position: initial;
 }
 .centerWrap .centerWrap_con .settingForm .progressBarWrap .progressBarList {
-  padding-top: 5px;
+  padding-top: 6px;
   margin: 0;
   padding-left: 0;
 }
@@ -1127,7 +1129,7 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap .centerWrap_con .settingForm .download_area .download_status_text_wrap {
   line-height: 26px;
-  margin-bottom: 4px;
+  margin-top: 6px;
 }
 .centerWrap .centerWrap_con .settingForm .download_area .download_status_text_wrap > * {
   padding-right: 5px;
@@ -1461,9 +1463,6 @@ body.mobile #quickCrawlBtn {
 }
 @media (max-width: 414px) {
   .centerWrap.mobile .centerWrap_con .settingForm .centerWrap_btns button {
-    box-sizing: border-box;
-    flex-basis: 47%;
-    margin-right: 3%;
     padding: 10px 6px;
   }
   .centerWrap .centerWrap_con .settingForm .setinput_style1.fileNameRule {
@@ -1473,8 +1472,6 @@ body.mobile #quickCrawlBtn {
 }
 @media (max-width: 388px) {
   .centerWrap.mobile .centerWrap_con .settingForm .centerWrap_btns button {
-    width: 134px;
-    margin-right: 8px;
     padding: 12px 6px;
   }
 }
@@ -1606,6 +1603,7 @@ body.mobile #quickCrawlBtn {
   flex: 1;
   min-width: 0;
   border: none;
+  height: 100%;
   background: transparent;
   color: #444;
   font-size: 15px;
@@ -1748,7 +1746,7 @@ body.mobile #quickCrawlBtn {
 .centerWrap.settingsV2 .settingsPanel_downloadSummary {
   display: none;
   margin-top: auto;
-  padding: 14px 0 0px 4px;
+  padding: 14px 0 0px 2px;
   border-top: 1px solid #ccc;
 }
 .centerWrap.settingsV2 .settingsPanel_downloadSummaryStatus,
@@ -1888,7 +1886,7 @@ body.mobile #quickCrawlBtn {
   display: none;
 }
 .centerWrap.settingsV2 .settingsPanel_sectionIconWrap .icon {
-  font-size: 20px;
+  font-size: 22px;
 }
 .centerWrap.settingsV2 .settingsPanel_sectionTitle {
   padding: 5px 0;
@@ -1917,7 +1915,7 @@ body.mobile #quickCrawlBtn {
   display: block;
 }
 .centerWrap.settingsV2 .settingsPanel_panelContent {
-  padding: 15px;
+  padding: 15px 20px;
 }
 .centerWrap.settingsV2 .settingsPanel_titleContent {
   padding-top: 0;
@@ -1964,7 +1962,7 @@ body.mobile #quickCrawlBtn {
   display: block;
 }
 .centerWrap.settingsV2 .settingsPanel_downloadContentWrap .progressBarWrap {
-  margin-top: 10px;
+  margin-top: 8px;
 }
 .centerWrap.settingsV2 .settingsPanel_helpTips,
 .centerWrap.settingsV2 .settingsPanel_helpActions {
@@ -2079,7 +2077,7 @@ body.mobile #quickCrawlBtn {
   padding: 0 2px;
 }
 .centerWrap.settingsV2 .download_area {
-  margin-top: 10px;
+  margin-top: 13px;
 }
 .centerWrap.settingsV2 .progressBarWrap {
   margin-top: 10px;
@@ -2151,10 +2149,10 @@ body.mobile #quickCrawlBtn {
   background: rgba(10, 18, 28, 0.42);
 }
 .centerWrap.settingsV2.xzBG .centerWrap_head {
-  background: rgba(10, 18, 28, 0.78);
+  background: rgba(10, 18, 28, 0.55);
 }
 .centerWrap.settingsV2.xzBG .centerWrap_con {
-  background: rgba(10, 18, 28, 0.6);
+  background: rgba(10, 18, 28, 0.5);
 }
 .centerWrap.settingsV2.xzBG .settingsPanel_sidebar,
 .centerWrap.settingsV2.xzBG .settingsPanel_stickyHeader,
@@ -2301,7 +2299,7 @@ body.mobile #quickCrawlBtn {
   line-height: 20px;
   text-align: center;
   font-size: 18px;
-  color: #00aeff;
+  color: #0ea8ef;
 }
 .outputWrap .outputContent {
   border: 1px solid #ccc;
@@ -2322,7 +2320,7 @@ body.mobile #quickCrawlBtn {
   color: #999;
 }
 .outputWrap .outputContent .colorFolder {
-  color: #00aeff;
+  color: #0ea8ef;
 }
 .outputWrap .outputContent .color666 {
   color: #666;
@@ -2341,7 +2339,7 @@ body.mobile #quickCrawlBtn {
   color: #666;
 }
 .outputWrap .outputClose:hover {
-  color: #00aeff;
+  color: #0ea8ef;
 }
 .outputWrap .outputFooter {
   display: flex;
@@ -2356,7 +2354,7 @@ body.mobile #quickCrawlBtn {
   min-width: 100px;
   padding: 2px 25px;
   margin-top: 15px;
-  background: #00aeff;
+  background: #0ea8ef;
   color: #fff;
   font-size: 15px;
   border: none;
@@ -2514,10 +2512,10 @@ body.mobile #quickCrawlBtn {
 .xz_msg_box .title {
   font-size: 17px;
   font-weight: bold;
-  color: #00aeff;
+  color: #0ea8ef;
 }
 .xz_msg_box .blue {
-  color: #00aeff;
+  color: #0ea8ef;
 }
 .xz_msg_box .content {
   padding: 0;
@@ -2531,7 +2529,7 @@ body.mobile #quickCrawlBtn {
 }
 .xz_msg_box .btn {
   cursor: pointer;
-  background: #00aeff;
+  background: #0ea8ef;
   color: #fff;
   border: none;
   text-align: center;
@@ -2539,7 +2537,7 @@ body.mobile #quickCrawlBtn {
   border-radius: 6px;
 }
 .xz_msg_box a {
-  color: #00aeff;
+  color: #0ea8ef;
 }
 .theme-dark.xz_msg_box {
   background: #222;
@@ -2679,7 +2677,7 @@ iframe[name='expandedFooter'] {
 }
 .viewer-backdrop .viewer-toolbar .viewer-next:hover,
 .viewer-backdrop .viewer-toolbar .viewer-prev:hover {
-  background-color: #1dacf5 !important;
+  background-color: #0ea8ef !important;
 }
 .viewer-backdrop .viewer-toolbar .viewer-prev {
   position: fixed;
@@ -2714,7 +2712,7 @@ iframe[name='expandedFooter'] {
 }
 .viewer-backdrop .viewer-toolbar .viewer-add-btn:hover {
   color: #fff;
-  background-color: #1dacf5;
+  background-color: #0ea8ef;
 }
 .viewer-backdrop .viewer-toolbar .viewer-add-btn::marker {
   content: none;
@@ -3520,6 +3518,7 @@ main section nav[style]::-webkit-scrollbar-thumb {
   cursor: pointer;
   background: none;
   border: none;
+  font-size: 16px;
 }
 #copyBtnOnWorkPage:hover,
 #copyBtnOnWorkPage:active {

@@ -1007,9 +1007,9 @@ export const formHtml = `
 
   <div class="option" data-no="101">
     <a href="" target="_blank" class="settingNameStyle" data-xztext="_管理下载记录"></a>
-    <button type="button" class="textButton gray1" id="exportDownloadRecord" data-xztext="_导出"></button>
-    <button type="button" class="textButton gray1" id="importDownloadRecord" data-xztext="_导入"></button>
-    <button type="button" class="textButton gray1" id="clearDownloadRecord" data-xztext="_清除"></button>
+    <button type="button" class="textButton" id="exportDownloadRecord" data-xztext="_导出"></button>
+    <button type="button" class="textButton" id="importDownloadRecord" data-xztext="_导入"></button>
+    <button type="button" class="textButton" id="clearDownloadRecord" data-xztext="_清除"></button>
     <button type="button" class="textButton gray1 showMsgBtn" data-title="_管理下载记录" data-msg="_管理下载记录的提示" data-xztext="_帮助"></button>
   </div>
 
@@ -1533,8 +1533,8 @@ export const formHtml = `
     <input type="checkbox" name="bgDisplay" class="need_beautify checkbox_switch">
     <span class="beautify_switch" tabindex="0"></span>
     <span class="subOptionWrap" data-show="bgDisplay">
-      <button type="button" class="textButton gray1" id="selectBG" data-xztext="_选择文件"></button>
-      <button type="button" class="textButton gray1" id="clearBG" data-xztext="_清除"></button>
+      <button type="button" class="textButton" id="selectBG" data-xztext="_选择文件"></button>
+      <button type="button" class="textButton" id="clearBG" data-xztext="_清除"></button>
       &nbsp;
       <span data-xztext="_对齐方式"></span>&nbsp;
       <input type="radio" name="bgPositionY" id="bgPosition1" class="need_beautify radio" value="center" checked>
@@ -1648,10 +1648,10 @@ export const formHtml = `
       <span data-xztext="_管理设置"></span>
       <span class="gray1"> ? </span>
     </a>
-    <button type="button" class="textButton gray1" id="exportSettings" data-xztext="_导出设置"></button>
-    <button type="button" class="textButton gray1" id="importSettings" data-xztext="_导入设置"></button>
-    <button type="button" class="textButton gray1" id="resetSettings" data-xztext="_重置设置"></button>
-    <button type="button" class="textButton gray1" id="resetHelpTip" data-xztext="_重新显示帮助"></button>
+    <button type="button" class="textButton" id="exportSettings" data-xztext="_导出设置"></button>
+    <button type="button" class="textButton" id="importSettings" data-xztext="_导入设置"></button>
+    <button type="button" class="textButton" id="resetSettings" data-xztext="_重置设置"></button>
+    <button type="button" class="textButton" id="resetHelpTip" data-xztext="_重新显示帮助"></button>
   </div>
 
 </form>`

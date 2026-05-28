@@ -2,10 +2,16 @@ const fs = require('fs')
 const path = require('path')
 
 const iconDir = path.resolve(__dirname, 'src', 'static', 'icons')
-const outputPath = path.resolve(
+const outputPath1 = path.resolve(
   __dirname,
   'src',
   'static',
+  'lib',
+  'icon-sprite.js'
+)
+const outputPath2 = path.resolve(
+  __dirname,
+  'dist',
   'lib',
   'icon-sprite.js'
 )
@@ -103,7 +109,8 @@ function generateSprite(symbols) {
 function build() {
   const symbols = getSvgFiles().map(getSymbol)
   const sprite = generateSprite(symbols)
-  fs.writeFileSync(outputPath, sprite, 'utf8')
+  fs.writeFileSync(outputPath1, sprite, 'utf8')
+  fs.writeFileSync(outputPath2, sprite, 'utf8')
   console.log(`Generated icon sprite with ${symbols.length} icons`)
 }
 

@@ -740,7 +740,7 @@ class Settings {
     magnifierPosition: 'right',
     bgDisplay: false,
     bgOpacity: 60,
-    bgPositionY: 'center',
+    bgPositionY: 'top',
     createFolderByTag: false,
     createFolderTagList: [],
     createFolderTagList2: [],

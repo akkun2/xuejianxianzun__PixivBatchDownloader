@@ -22,6 +22,8 @@ type CategorySchema = {
         order: number
         /** 二级分类的名称的 i18n 的 key */
         nameKey: LangTextKey
+        /** 二级分类的图标 */
+        icon: string
       }
     }
   }
@@ -114,36 +116,43 @@ class OptionConfigs {
         scope: {
           id: 'scope',
           order: 0,
+          icon: 'setting-line',
           nameKey: '_分组_抓取范围',
         },
         workType: {
           id: 'workType',
           order: 1,
+          icon: 'setting-line',
           nameKey: '_分组_作品类型',
         },
         workData: {
           id: 'workData',
           order: 2,
+          icon: 'setting-line',
           nameKey: '_分组_作品数据',
         },
         tagAndTitle: {
           id: 'tagAndTitle',
           order: 3,
+          icon: 'setting-line',
           nameKey: '_分组_标签与标题',
         },
         multiImage: {
           id: 'multiImage',
           order: 4,
+          icon: 'setting-line',
           nameKey: '_分组_多图作品',
         },
         blockUsers: {
           id: 'blockUsers',
           order: 5,
+          icon: 'setting-line',
           nameKey: '_分组_屏蔽用户',
         },
         strategy: {
           id: 'strategy',
           order: 6,
+          icon: 'setting-line',
           nameKey: '_分组_执行策略',
         },
       },
@@ -156,26 +165,31 @@ class OptionConfigs {
         names: {
           id: 'names',
           order: 0,
+          icon: 'setting-line',
           nameKey: '_分组_文件夹和文件的名字',
         },
         adjustFolders: {
           id: 'adjustFolders',
           order: 1,
+          icon: 'setting-line',
           nameKey: '_分组_调整文件夹',
         },
         serial: {
           id: 'serial',
           order: 2,
+          icon: 'setting-line',
           nameKey: '_分组_序号',
         },
         alias: {
           id: 'alias',
           order: 3,
+          icon: 'setting-line',
           nameKey: '_分组_别名',
         },
         removeSpecialChars: {
           id: 'removeSpecialChars',
           order: 4,
+          icon: 'setting-line',
           nameKey: '_分组_移除特殊字符',
         },
       },
@@ -188,31 +202,37 @@ class OptionConfigs {
         behavior: {
           id: 'behavior',
           order: 0,
+          icon: 'setting-line',
           nameKey: '_分组_下载行为',
         },
         record: {
           id: 'record',
           order: 1,
+          icon: 'setting-line',
           nameKey: '_分组_下载记录',
         },
         imageSize: {
           id: 'imageSize',
           order: 2,
+          icon: 'setting-line',
           nameKey: '_分组_图片尺寸',
         },
         ugoira: {
           id: 'ugoira',
           order: 3,
+          icon: 'setting-line',
           nameKey: '_分组_动图',
         },
         novel: {
           id: 'novel',
           order: 4,
+          icon: 'setting-line',
           nameKey: '_分组_小说',
         },
         metadata: {
           id: 'metadata',
           order: 5,
+          icon: 'setting-line',
           nameKey: '_分组_元数据',
         },
       },
@@ -225,26 +245,31 @@ class OptionConfigs {
         preview: {
           id: 'preview',
           order: 0,
+          icon: 'setting-line',
           nameKey: '_分组_预览',
         },
         thumbnail: {
           id: 'thumbnail',
           order: 1,
+          icon: 'setting-line',
           nameKey: '_分组_缩略图',
         },
         thumbnailButtons: {
           id: 'thumbnailButtons',
           order: 2,
+          icon: 'setting-line',
           nameKey: '_分组_缩略图上的按钮',
         },
         other: {
           id: 'other',
           order: 3,
+          icon: 'setting-line',
           nameKey: '_分组_其他',
         },
         searchPage: {
           id: 'searchPage',
           order: 4,
+          icon: 'setting-line',
           nameKey: '_分组_搜索页面',
         },
       },
@@ -257,26 +282,31 @@ class OptionConfigs {
         language: {
           id: 'language',
           order: 0,
+          icon: 'setting-line',
           nameKey: '_分组_语言',
         },
         operation: {
           id: 'operation',
           order: 1,
+          icon: 'setting-line',
           nameKey: '_分组_操作方式',
         },
         appearance: {
           id: 'appearance',
           order: 2,
+          icon: 'setting-line',
           nameKey: '_分组_外观',
         },
         log: {
           id: 'log',
           order: 3,
+          icon: 'setting-line',
           nameKey: '_分组_日志',
         },
         manageSettings: {
           id: 'manageSettings',
           order: 4,
+          icon: 'setting-line',
           nameKey: '_分组_管理设置',
         },
       },

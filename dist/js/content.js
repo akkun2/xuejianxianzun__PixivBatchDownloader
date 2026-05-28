@@ -2634,7 +2634,7 @@ var Colors;
     Colors["textError"] = "#f00";
     // 背景颜色
     // 稍暗，适合在颜色区域的面积较大时使用
-    Colors["bgBlue"] = "#00aeff";
+    Colors["bgBlue"] = "#0ea8ef";
     Colors["bgGreen"] = "#14ad27";
     Colors["bgYellow"] = "#e49d00";
     Colors["bgRed"] = "#f33939";
@@ -43464,9 +43464,9 @@ const formHtml = `
 
   <div class="option" data-no="101">
     <a href="" target="_blank" class="settingNameStyle" data-xztext="_管理下载记录"></a>
-    <button type="button" class="textButton gray1" id="exportDownloadRecord" data-xztext="_导出"></button>
-    <button type="button" class="textButton gray1" id="importDownloadRecord" data-xztext="_导入"></button>
-    <button type="button" class="textButton gray1" id="clearDownloadRecord" data-xztext="_清除"></button>
+    <button type="button" class="textButton" id="exportDownloadRecord" data-xztext="_导出"></button>
+    <button type="button" class="textButton" id="importDownloadRecord" data-xztext="_导入"></button>
+    <button type="button" class="textButton" id="clearDownloadRecord" data-xztext="_清除"></button>
     <button type="button" class="textButton gray1 showMsgBtn" data-title="_管理下载记录" data-msg="_管理下载记录的提示" data-xztext="_帮助"></button>
   </div>
 
@@ -43990,8 +43990,8 @@ const formHtml = `
     <input type="checkbox" name="bgDisplay" class="need_beautify checkbox_switch">
     <span class="beautify_switch" tabindex="0"></span>
     <span class="subOptionWrap" data-show="bgDisplay">
-      <button type="button" class="textButton gray1" id="selectBG" data-xztext="_选择文件"></button>
-      <button type="button" class="textButton gray1" id="clearBG" data-xztext="_清除"></button>
+      <button type="button" class="textButton" id="selectBG" data-xztext="_选择文件"></button>
+      <button type="button" class="textButton" id="clearBG" data-xztext="_清除"></button>
       &nbsp;
       <span data-xztext="_对齐方式"></span>&nbsp;
       <input type="radio" name="bgPositionY" id="bgPosition1" class="need_beautify radio" value="center" checked>
@@ -44105,10 +44105,10 @@ const formHtml = `
       <span data-xztext="_管理设置"></span>
       <span class="gray1"> ? </span>
     </a>
-    <button type="button" class="textButton gray1" id="exportSettings" data-xztext="_导出设置"></button>
-    <button type="button" class="textButton gray1" id="importSettings" data-xztext="_导入设置"></button>
-    <button type="button" class="textButton gray1" id="resetSettings" data-xztext="_重置设置"></button>
-    <button type="button" class="textButton gray1" id="resetHelpTip" data-xztext="_重新显示帮助"></button>
+    <button type="button" class="textButton" id="exportSettings" data-xztext="_导出设置"></button>
+    <button type="button" class="textButton" id="importSettings" data-xztext="_导入设置"></button>
+    <button type="button" class="textButton" id="resetSettings" data-xztext="_重置设置"></button>
+    <button type="button" class="textButton" id="resetHelpTip" data-xztext="_重新显示帮助"></button>
   </div>
 
 </form>`;
@@ -45023,36 +45023,43 @@ class OptionConfigs {
                 scope: {
                     id: 'scope',
                     order: 0,
+                    icon: 'setting-line',
                     nameKey: '_分组_抓取范围',
                 },
                 workType: {
                     id: 'workType',
                     order: 1,
+                    icon: 'setting-line',
                     nameKey: '_分组_作品类型',
                 },
                 workData: {
                     id: 'workData',
                     order: 2,
+                    icon: 'setting-line',
                     nameKey: '_分组_作品数据',
                 },
                 tagAndTitle: {
                     id: 'tagAndTitle',
                     order: 3,
+                    icon: 'setting-line',
                     nameKey: '_分组_标签与标题',
                 },
                 multiImage: {
                     id: 'multiImage',
                     order: 4,
+                    icon: 'setting-line',
                     nameKey: '_分组_多图作品',
                 },
                 blockUsers: {
                     id: 'blockUsers',
                     order: 5,
+                    icon: 'setting-line',
                     nameKey: '_分组_屏蔽用户',
                 },
                 strategy: {
                     id: 'strategy',
                     order: 6,
+                    icon: 'setting-line',
                     nameKey: '_分组_执行策略',
                 },
             },
@@ -45065,26 +45072,31 @@ class OptionConfigs {
                 names: {
                     id: 'names',
                     order: 0,
+                    icon: 'setting-line',
                     nameKey: '_分组_文件夹和文件的名字',
                 },
                 adjustFolders: {
                     id: 'adjustFolders',
                     order: 1,
+                    icon: 'setting-line',
                     nameKey: '_分组_调整文件夹',
                 },
                 serial: {
                     id: 'serial',
                     order: 2,
+                    icon: 'setting-line',
                     nameKey: '_分组_序号',
                 },
                 alias: {
                     id: 'alias',
                     order: 3,
+                    icon: 'setting-line',
                     nameKey: '_分组_别名',
                 },
                 removeSpecialChars: {
                     id: 'removeSpecialChars',
                     order: 4,
+                    icon: 'setting-line',
                     nameKey: '_分组_移除特殊字符',
                 },
             },
@@ -45097,31 +45109,37 @@ class OptionConfigs {
                 behavior: {
                     id: 'behavior',
                     order: 0,
+                    icon: 'setting-line',
                     nameKey: '_分组_下载行为',
                 },
                 record: {
                     id: 'record',
                     order: 1,
+                    icon: 'setting-line',
                     nameKey: '_分组_下载记录',
                 },
                 imageSize: {
                     id: 'imageSize',
                     order: 2,
+                    icon: 'setting-line',
                     nameKey: '_分组_图片尺寸',
                 },
                 ugoira: {
                     id: 'ugoira',
                     order: 3,
+                    icon: 'setting-line',
                     nameKey: '_分组_动图',
                 },
                 novel: {
                     id: 'novel',
                     order: 4,
+                    icon: 'setting-line',
                     nameKey: '_分组_小说',
                 },
                 metadata: {
                     id: 'metadata',
                     order: 5,
+                    icon: 'setting-line',
                     nameKey: '_分组_元数据',
                 },
             },
@@ -45134,26 +45152,31 @@ class OptionConfigs {
                 preview: {
                     id: 'preview',
                     order: 0,
+                    icon: 'setting-line',
                     nameKey: '_分组_预览',
                 },
                 thumbnail: {
                     id: 'thumbnail',
                     order: 1,
+                    icon: 'setting-line',
                     nameKey: '_分组_缩略图',
                 },
                 thumbnailButtons: {
                     id: 'thumbnailButtons',
                     order: 2,
+                    icon: 'setting-line',
                     nameKey: '_分组_缩略图上的按钮',
                 },
                 other: {
                     id: 'other',
                     order: 3,
+                    icon: 'setting-line',
                     nameKey: '_分组_其他',
                 },
                 searchPage: {
                     id: 'searchPage',
                     order: 4,
+                    icon: 'setting-line',
                     nameKey: '_分组_搜索页面',
                 },
             },
@@ -45166,26 +45189,31 @@ class OptionConfigs {
                 language: {
                     id: 'language',
                     order: 0,
+                    icon: 'setting-line',
                     nameKey: '_分组_语言',
                 },
                 operation: {
                     id: 'operation',
                     order: 1,
+                    icon: 'setting-line',
                     nameKey: '_分组_操作方式',
                 },
                 appearance: {
                     id: 'appearance',
                     order: 2,
+                    icon: 'setting-line',
                     nameKey: '_分组_外观',
                 },
                 log: {
                     id: 'log',
                     order: 3,
+                    icon: 'setting-line',
                     nameKey: '_分组_日志',
                 },
                 manageSettings: {
                     id: 'manageSettings',
                     order: 4,
+                    icon: 'setting-line',
                     nameKey: '_分组_管理设置',
                 },
             },
@@ -46336,8 +46364,8 @@ class Options {
                         return;
                     }
                     // 但是有些设置本身没有总开关，子选项里却有开关(例如"标签别名")，所以第一个开关可能是子选项里的开关，需要进一步判断
-                    // 要求这个 input 的前一个元素是 A 标签(也就是设置名称)，这样才能确保它是总开关，而不是子选项的开关
-                    // 现在我注释掉了下面的代码，这意味着：
+                    // 要求这个 input 的前一个元素是 a.settingNameStyle 标签(也就是设置名称)，这样才能确保它是总开关，而不是子选项的开关
+                    // 现在我没有执行这个判断（这是有意为之的），这意味着：
                     // 点击这个设置卡片的空白区域时，总是会切换第一个开关(不管它是总开关还是子开关)
                     switchEl.click();
                 }
@@ -47629,7 +47657,7 @@ class Settings {
         magnifierPosition: 'right',
         bgDisplay: false,
         bgOpacity: 60,
-        bgPositionY: 'center',
+        bgPositionY: 'top',
         createFolderByTag: false,
         createFolderTagList: [],
         createFolderTagList2: [],
@@ -48504,6 +48532,7 @@ class SettingsPanel {
                     page,
                     id: group.id,
                     titleKey: group.nameKey,
+                    iconId: group.icon,
                     persisted: true,
                     stickyEligible: true,
                     type: 'title',
@@ -49128,7 +49157,7 @@ class SettingsPanel {
         const stickyTitle = sticky.querySelector('.settingsPanel_sectionTitle');
         stickyTitle.textContent = current.title.textContent || '';
         const stickyIconWrap = sticky.querySelector('.settingsPanel_sectionIconWrap');
-        const stickyIconUse = sticky.querySelector('use');
+        const stickyIconUse = sticky.querySelector('.settingsPanel_sectionIconWrap use');
         if (current.iconUse) {
             stickyIconWrap.classList.remove('hidden');
             stickyIconUse.setAttribute('xlink:href', current.iconUse.getAttribute('xlink:href') || '');

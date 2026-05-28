@@ -13,7 +13,7 @@ enum Colors {
 
   // 背景颜色
   // 稍暗，适合在颜色区域的面积较大时使用
-  bgBlue = '#00aeff',
+  bgBlue = '#0ea8ef',
   bgGreen = '#14ad27',
   bgYellow = '#e49d00',
   bgRed = '#f33939',

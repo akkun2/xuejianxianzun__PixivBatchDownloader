@@ -334,6 +334,7 @@ class SettingsPanel {
           page,
           id: group.id,
           titleKey: group.nameKey,
+          iconId: group.icon,
           persisted: true,
           stickyEligible: true,
           type: 'title',
@@ -1158,7 +1159,9 @@ class SettingsPanel {
     const stickyIconWrap = sticky.querySelector(
       '.settingsPanel_sectionIconWrap'
     ) as HTMLSpanElement
-    const stickyIconUse = sticky.querySelector('use') as SVGUseElement
+    const stickyIconUse = sticky.querySelector(
+      '.settingsPanel_sectionIconWrap use'
+    ) as SVGUseElement
     if (current.iconUse) {
       stickyIconWrap.classList.remove('hidden')
       stickyIconUse.setAttribute(
