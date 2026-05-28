@@ -2279,256 +2279,6 @@ const bookmark = new Bookmark();
 
 /***/ }),
 
-/***/ "./src/ts/CenterPanel.ts":
-/*!*******************************!*\
-  !*** ./src/ts/CenterPanel.ts ***!
-  \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! webextension-polyfill */ "./node_modules/webextension-polyfill/dist/browser-polyfill.js");
-/* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Language */ "./src/ts/Language.ts");
-/* harmony import */ var _EVT__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EVT */ "./src/ts/EVT.ts");
-/* harmony import */ var _store_States__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store/States */ "./src/ts/store/States.ts");
-/* harmony import */ var _Theme__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Theme */ "./src/ts/Theme.ts");
-/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Config */ "./src/ts/Config.ts");
-/* harmony import */ var _MsgBox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./MsgBox */ "./src/ts/MsgBox.ts");
-/* harmony import */ var _BG__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./BG */ "./src/ts/BG.ts");
-/* harmony import */ var _OpenCenterPanel__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./OpenCenterPanel */ "./src/ts/OpenCenterPanel.ts");
-/* harmony import */ var _BoldKeywords__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./BoldKeywords */ "./src/ts/BoldKeywords.ts");
-/* harmony import */ var _ShowOneTimeMsg__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./ShowOneTimeMsg */ "./src/ts/ShowOneTimeMsg.ts");
-/* harmony import */ var _store_Store__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./store/Store */ "./src/ts/store/Store.ts");
-
-
-
-
-
-
-
-
-
-
-
-
-// 中间面板
-class CenterPanel {
-    constructor() {
-        this.addCenterPanel();
-        _Theme__WEBPACK_IMPORTED_MODULE_4__.theme.register(this.centerPanel);
-        _Language__WEBPACK_IMPORTED_MODULE_1__.lang.register(this.centerPanel);
-        _BG__WEBPACK_IMPORTED_MODULE_7__.bg.useBG(this.centerPanel);
-        new _BoldKeywords__WEBPACK_IMPORTED_MODULE_9__.BoldKeywords(this.centerPanel);
-        this.allLangFlag = _Language__WEBPACK_IMPORTED_MODULE_1__.lang.langTypes.map((type) => 'lang_' + type);
-        this.setLangFlag();
-        this.bindEvents();
-    }
-    centerPanel;
-    allLangFlag = [];
-    addCenterPanel() {
-        const centerPanelHTML = `
-      <div class="centerWrap settingsV2 ${'lang_' + _Language__WEBPACK_IMPORTED_MODULE_1__.lang.type}">
-        <div class="centerWrap_head">
-          <div class="settingsPanel_headerMain">
-            <div class="settingsPanel_brand">
-              <svg class="icon settingsPanel_logo" aria-hidden="true"><use xlink:href="#logo128"></use></svg>
-              <span class="settingsPanel_brandName">${_Config__WEBPACK_IMPORTED_MODULE_5__.Config.appName}</span>
-            </div>
-
-            <button class="textButton centerWrap_top_btn centerWrap_close centerWrap_close_mobile" type="button" data-xztitle="_关闭">
-              <svg class="icon" aria-hidden="true">
-                <use xlink:href="#close"></use>
-              </svg>
-            </button>
-          </div>
-
-          <div class="settingsPanel_headerActions">
-            <div class="settingsPanel_headerSearch">
-              <label class="settingsPanel_searchBar">
-                <svg class="icon settingsPanel_searchIcon" aria-hidden="true">
-                  <use xlink:href="#search-in-searchbar"></use>
-                </svg>
-                <input id="settingsPanelSearchInput" type="text" data-xzplaceholder="_搜索设置">
-                <button class="textButton settingsPanel_clearSearch" id="settingsPanelClearSearch" type="button" data-xztitle="_清除">
-                  <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#close"></use>
-                  </svg>
-                </button>
-              </label>
-
-              <button class="textButton centerWrap_top_btn settingsPanel_expandAll" id="settingsPanelToggleExpand" type="button" data-xztitle="_展开/折叠所有区域">
-                <svg class="icon settingsPanel_expandIcon" aria-hidden="true">
-                  <use xlink:href="#arrow-up"></use>
-                </svg>
-              </button>
-            </div>
-
-            <div class="settingsPanel_headerMinor">
-              <button class="textButton centerWrap_top_btn settingsPanel_sponsorBtn" id="settingsPanelSponsor" type="button" data-xztitle="_赞助我">
-                <svg class="icon" aria-hidden="true">
-                  <use xlink:href="#heart-line"></use>
-                </svg>
-              </button>
-            </div>
-
-            <div class="settingsPanel_headerClose">
-              <button class="textButton centerWrap_top_btn centerWrap_close centerWrap_close_pc" type="button" data-xztitle="_关闭">
-                <svg class="icon" aria-hidden="true">
-                  <use xlink:href="#close"></use>
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="centerWrap_con">
-          <aside class="settingsPanel_sidebar beautify_scrollbar">
-            <nav class="settingsPanel_nav">
-              ${this.createNavItem('home', '_首页', 'home-line', 'home-fill')}
-              ${this.createNavItem('crawl', '_抓取', 'filter-line', 'filter-filling')}
-              ${this.createNavItem('naming', '_命名', 'rename-line', 'rename-fill')}
-              ${this.createNavItem('download', '_下载', 'download-line', 'download-fill')}
-              ${this.createNavItem('enhance', '_增强', 'magic-line', 'magic-fill')}
-              ${this.createNavItem('general', '_通用', 'setting-line', 'setting-fill')}
-              ${this.createNavItem('help', '_帮助', 'book-line', 'book-fill')}
-              ${this.createNavItem('search', '_搜索', 'search-line', 'search-fill', true)}
-            </nav>
-
-            <div class="settingsPanel_downloadSummary" id="settingsPanelDownloadSummary">
-              <div class="settingsPanel_downloadSummaryStatus">
-                <svg class="icon settingsPanel_downloadSummaryStateIcon" aria-hidden="true">
-                  <use xlink:href="#start"></use>
-                </svg>
-                <span class="settingsPanel_downloadSummaryProgress">0 / 0</span>
-              </div>
-
-              <div class="settingsPanel_downloadSummaryActions">
-                <button class="textButton settingsPanel_downloadSummaryBtn" id="settingsPanelSummaryStart" type="button" data-xztitle="_开始下载">
-                  <svg class="icon" aria-hidden="true"><use xlink:href="#start"></use></svg>
-                </button>
-                <button class="textButton settingsPanel_downloadSummaryBtn" id="settingsPanelSummaryPause" type="button" data-xztitle="_暂停下载">
-                  <svg class="icon" aria-hidden="true"><use xlink:href="#pause"></use></svg>
-                </button>
-                <button class="textButton settingsPanel_downloadSummaryBtn" id="settingsPanelSummaryStop" type="button" data-xztitle="_停止下载">
-                  <svg class="icon" aria-hidden="true"><use xlink:href="#stop"></use></svg>
-                </button>
-              </div>
-            </div>
-          </aside>
-
-          <div class="settingsPanel_main beautify_scrollbar">
-            <slot data-name="form"></slot>
-          </div>
-        </div>
-      </div>
-    `;
-        document.body.insertAdjacentHTML('afterbegin', centerPanelHTML);
-        this.centerPanel = document.querySelector('.centerWrap.settingsV2');
-        if (_Config__WEBPACK_IMPORTED_MODULE_5__.Config.mobile) {
-            document.body.classList.add('mobile');
-            this.centerPanel.classList.add('mobile');
-        }
-    }
-    createNavItem(page, textKey, lineIcon, fillIcon, hidden = false) {
-        return `
-    <button class="settingsPanel_navItem hasRippleAnimation" data-page="${page}" type="button" ${hidden ? 'hidden' : ''}>
-      <span class="settingsPanel_navIconWrap" aria-hidden="true">
-        <svg class="icon settingsPanel_navIcon settingsPanel_navIconLine">
-          <use xlink:href="#${lineIcon}"></use>
-        </svg>
-        <svg class="icon settingsPanel_navIcon settingsPanel_navIconFill">
-          <use xlink:href="#${fillIcon}"></use>
-        </svg>
-      </span>
-      <span class="settingsPanel_navText" data-xztext="${textKey}"></span>
-      <span class="ripple"></span>
-    </button>
-    `;
-    }
-    setLangFlag() {
-        this.allLangFlag.forEach((flag) => {
-            this.centerPanel.classList.remove(flag);
-        });
-        this.centerPanel.classList.add('lang_' + _Language__WEBPACK_IMPORTED_MODULE_1__.lang.type);
-    }
-    bindEvents() {
-        webextension_polyfill__WEBPACK_IMPORTED_MODULE_0___default().runtime.onMessage.addListener((msg) => {
-            if (msg.msg === 'click_icon') {
-                this.toggle();
-            }
-        });
-        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.settingInitialized, () => {
-            _ShowOneTimeMsg__WEBPACK_IMPORTED_MODULE_10__.showOneTimeMsg.show('tipHowToUse', _Language__WEBPACK_IMPORTED_MODULE_1__.lang.transl('_HowToUse') + _Language__WEBPACK_IMPORTED_MODULE_1__.lang.transl('_账户可能被封禁的警告'));
-        });
-        window.addEventListener('keydown', (ev) => {
-            if (ev.altKey && ev.code === 'KeyX') {
-                this.toggle();
-            }
-        }, false);
-        this.centerPanel.querySelectorAll('.centerWrap_close').forEach((button) => button.addEventListener('click', () => {
-            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('closeCenterPanel');
-            if (!_Config__WEBPACK_IMPORTED_MODULE_5__.Config.mobile) {
-                _ShowOneTimeMsg__WEBPACK_IMPORTED_MODULE_10__.showOneTimeMsg.show('tipAltXToShowControlPanel', _Language__WEBPACK_IMPORTED_MODULE_1__.lang.transl('_快捷键ALTX显示隐藏控制面板'));
-            }
-        }));
-        this.centerPanel
-            .querySelector('#settingsPanelSponsor')
-            ?.addEventListener('click', () => _MsgBox__WEBPACK_IMPORTED_MODULE_6__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_1__.lang.transl('_赞助方式提示'), {
-            title: _Language__WEBPACK_IMPORTED_MODULE_1__.lang.transl('_赞助我'),
-        }));
-        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.crawlStart, () => {
-            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('closeCenterPanel');
-        });
-        for (const ev of [_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.crawlComplete, _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.resume]) {
-            window.addEventListener(ev, () => {
-                if (!_store_States__WEBPACK_IMPORTED_MODULE_3__.states.quickCrawl && _store_Store__WEBPACK_IMPORTED_MODULE_11__.store.result.length > 0) {
-                    this.show();
-                }
-            });
-        }
-        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.openCenterPanel, () => {
-            this.show();
-        });
-        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.closeCenterPanel, () => {
-            this.close();
-        });
-        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.langChange, () => {
-            this.setLangFlag();
-        });
-        this.centerPanel.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
-        document.addEventListener('click', () => {
-            if (getComputedStyle(this.centerPanel).display !== 'none') {
-                _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('closeCenterPanel');
-            }
-        });
-    }
-    show() {
-        this.centerPanel.style.display = 'block';
-        _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('centerPanelOpened');
-    }
-    close() {
-        this.centerPanel.style.display = 'none';
-        _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('centerPanelClosed');
-    }
-    toggle() {
-        const nowDisplay = this.centerPanel.style.display;
-        nowDisplay === 'block' ? this.close() : this.show();
-        if (nowDisplay === 'block') {
-            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('closeCenterPanel');
-        }
-        else {
-            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('openCenterPanel');
-        }
-    }
-}
-new CenterPanel();
-
-
-/***/ }),
-
 /***/ "./src/ts/CheckUnsupportBrowser.ts":
 /*!*****************************************!*\
   !*** ./src/ts/CheckUnsupportBrowser.ts ***!
@@ -48286,15 +48036,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   SettingsPanel: () => (/* binding */ SettingsPanel)
 /* harmony export */ });
-/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Config */ "./src/ts/Config.ts");
-/* harmony import */ var _EVT__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../EVT */ "./src/ts/EVT.ts");
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Language */ "./src/ts/Language.ts");
-/* harmony import */ var _MsgBox__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../MsgBox */ "./src/ts/MsgBox.ts");
-/* harmony import */ var _store_Store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../store/Store */ "./src/ts/store/Store.ts");
-/* harmony import */ var _utils_Utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/Utils */ "./src/ts/utils/Utils.ts");
-/* harmony import */ var _download_DownloadStates__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../download/DownloadStates */ "./src/ts/download/DownloadStates.ts");
-/* harmony import */ var _OptionConfigs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./OptionConfigs */ "./src/ts/setting/OptionConfigs.ts");
-/* harmony import */ var _Settings__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Settings */ "./src/ts/setting/Settings.ts");
+/* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! webextension-polyfill */ "./node_modules/webextension-polyfill/dist/browser-polyfill.js");
+/* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Config */ "./src/ts/Config.ts");
+/* harmony import */ var _EVT__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../EVT */ "./src/ts/EVT.ts");
+/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Language */ "./src/ts/Language.ts");
+/* harmony import */ var _MsgBox__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../MsgBox */ "./src/ts/MsgBox.ts");
+/* harmony import */ var _store_Store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../store/Store */ "./src/ts/store/Store.ts");
+/* harmony import */ var _utils_Utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/Utils */ "./src/ts/utils/Utils.ts");
+/* harmony import */ var _download_DownloadStates__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../download/DownloadStates */ "./src/ts/download/DownloadStates.ts");
+/* harmony import */ var _Theme__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Theme */ "./src/ts/Theme.ts");
+/* harmony import */ var _store_States__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../store/States */ "./src/ts/store/States.ts");
+/* harmony import */ var _BG__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../BG */ "./src/ts/BG.ts");
+/* harmony import */ var _BoldKeywords__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../BoldKeywords */ "./src/ts/BoldKeywords.ts");
+/* harmony import */ var _ShowOneTimeMsg__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../ShowOneTimeMsg */ "./src/ts/ShowOneTimeMsg.ts");
+/* harmony import */ var _OptionConfigs__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./OptionConfigs */ "./src/ts/setting/OptionConfigs.ts");
+/* harmony import */ var _Settings__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Settings */ "./src/ts/setting/Settings.ts");
+/* harmony import */ var _OpenCenterPanel__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../OpenCenterPanel */ "./src/ts/OpenCenterPanel.ts");
+
+
+
+
+
+
+
 
 
 
@@ -48314,6 +48079,217 @@ const pageIds = [
     'help',
     'search',
 ];
+class SettingsPanelShell {
+    constructor() {
+        this.addShell();
+        _Theme__WEBPACK_IMPORTED_MODULE_8__.theme.register(this.centerPanel);
+        _Language__WEBPACK_IMPORTED_MODULE_3__.lang.register(this.centerPanel);
+        _BG__WEBPACK_IMPORTED_MODULE_10__.bg.useBG(this.centerPanel);
+        new _BoldKeywords__WEBPACK_IMPORTED_MODULE_11__.BoldKeywords(this.centerPanel);
+        this.allLangFlag = _Language__WEBPACK_IMPORTED_MODULE_3__.lang.langTypes.map((type) => 'lang_' + type);
+        this.setLangFlag();
+        this.bindEvents();
+    }
+    centerPanel;
+    allLangFlag = [];
+    addShell() {
+        const centerPanelHTML = `
+      <div class="centerWrap settingsV2 ${'lang_' + _Language__WEBPACK_IMPORTED_MODULE_3__.lang.type}">
+        <div class="centerWrap_head">
+          <div class="settingsPanel_headerMain">
+            <div class="settingsPanel_brand">
+              <svg class="icon settingsPanel_logo" aria-hidden="true"><use xlink:href="#logo128"></use></svg>
+              <span class="settingsPanel_brandName">${_Config__WEBPACK_IMPORTED_MODULE_1__.Config.appName}</span>
+            </div>
+
+            <button class="textButton centerWrap_top_btn centerWrap_close centerWrap_close_mobile" type="button" data-xztitle="_关闭">
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#close"></use>
+              </svg>
+            </button>
+          </div>
+
+          <div class="settingsPanel_headerActions">
+            <div class="settingsPanel_headerSearch">
+              <label class="settingsPanel_searchBar">
+                <svg class="icon settingsPanel_searchIcon" aria-hidden="true">
+                  <use xlink:href="#search-in-searchbar"></use>
+                </svg>
+                <input id="settingsPanelSearchInput" type="text" data-xzplaceholder="_搜索设置">
+                <button class="textButton settingsPanel_clearSearch" id="settingsPanelClearSearch" type="button" data-xztitle="_清除">
+                  <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#close"></use>
+                  </svg>
+                </button>
+              </label>
+
+              <button class="textButton centerWrap_top_btn settingsPanel_expandAll" id="settingsPanelToggleExpand" type="button" data-xztitle="_展开/折叠所有区域">
+                <svg class="icon settingsPanel_expandIcon" aria-hidden="true">
+                  <use xlink:href="#arrow-up"></use>
+                </svg>
+              </button>
+            </div>
+
+            <div class="settingsPanel_headerMinor">
+              <button class="textButton centerWrap_top_btn settingsPanel_sponsorBtn" id="settingsPanelSponsor" type="button" data-xztitle="_赞助我">
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#heart-line"></use>
+                </svg>
+              </button>
+            </div>
+
+            <div class="settingsPanel_headerClose">
+              <button class="textButton centerWrap_top_btn centerWrap_close centerWrap_close_pc" type="button" data-xztitle="_关闭">
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#close"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="centerWrap_con">
+          <aside class="settingsPanel_sidebar beautify_scrollbar">
+            <nav class="settingsPanel_nav">
+              ${this.createNavItem('home', '_首页', 'home-line', 'home-fill')}
+              ${this.createNavItem('crawl', '_抓取', 'filter-line', 'filter-filling')}
+              ${this.createNavItem('naming', '_命名', 'rename-line', 'rename-fill')}
+              ${this.createNavItem('download', '_下载', 'download-line', 'download-fill')}
+              ${this.createNavItem('enhance', '_增强', 'magic-line', 'magic-fill')}
+              ${this.createNavItem('general', '_通用', 'setting-line', 'setting-fill')}
+              ${this.createNavItem('help', '_帮助', 'book-line', 'book-fill')}
+              ${this.createNavItem('search', '_搜索', 'search-line', 'search-fill', true)}
+            </nav>
+
+            <div class="settingsPanel_downloadSummary" id="settingsPanelDownloadSummary">
+              <div class="settingsPanel_downloadSummaryStatus">
+                <svg class="icon settingsPanel_downloadSummaryStateIcon" aria-hidden="true">
+                  <use xlink:href="#start"></use>
+                </svg>
+                <span class="settingsPanel_downloadSummaryProgress">0 / 0</span>
+              </div>
+
+              <div class="settingsPanel_downloadSummaryActions">
+                <button class="textButton settingsPanel_downloadSummaryBtn" id="settingsPanelSummaryStart" type="button" data-xztitle="_开始下载">
+                  <svg class="icon" aria-hidden="true"><use xlink:href="#start"></use></svg>
+                </button>
+                <button class="textButton settingsPanel_downloadSummaryBtn" id="settingsPanelSummaryPause" type="button" data-xztitle="_暂停下载">
+                  <svg class="icon" aria-hidden="true"><use xlink:href="#pause"></use></svg>
+                </button>
+                <button class="textButton settingsPanel_downloadSummaryBtn" id="settingsPanelSummaryStop" type="button" data-xztitle="_停止下载">
+                  <svg class="icon" aria-hidden="true"><use xlink:href="#stop"></use></svg>
+                </button>
+              </div>
+            </div>
+          </aside>
+
+          <div class="settingsPanel_main beautify_scrollbar">
+            <slot data-name="form"></slot>
+          </div>
+        </div>
+      </div>
+    `;
+        document.body.insertAdjacentHTML('afterbegin', centerPanelHTML);
+        this.centerPanel = document.querySelector('.centerWrap.settingsV2');
+        if (_Config__WEBPACK_IMPORTED_MODULE_1__.Config.mobile) {
+            document.body.classList.add('mobile');
+            this.centerPanel.classList.add('mobile');
+        }
+    }
+    createNavItem(page, textKey, lineIcon, fillIcon, hidden = false) {
+        return `
+    <button class="settingsPanel_navItem hasRippleAnimation" data-page="${page}" type="button" ${hidden ? 'hidden' : ''}>
+      <span class="settingsPanel_navIconWrap" aria-hidden="true">
+        <svg class="icon settingsPanel_navIcon settingsPanel_navIconLine">
+          <use xlink:href="#${lineIcon}"></use>
+        </svg>
+        <svg class="icon settingsPanel_navIcon settingsPanel_navIconFill">
+          <use xlink:href="#${fillIcon}"></use>
+        </svg>
+      </span>
+      <span class="settingsPanel_navText" data-xztext="${textKey}"></span>
+      <span class="ripple"></span>
+    </button>
+    `;
+    }
+    setLangFlag() {
+        this.allLangFlag.forEach((flag) => {
+            this.centerPanel.classList.remove(flag);
+        });
+        this.centerPanel.classList.add('lang_' + _Language__WEBPACK_IMPORTED_MODULE_3__.lang.type);
+    }
+    bindEvents() {
+        webextension_polyfill__WEBPACK_IMPORTED_MODULE_0___default().runtime.onMessage.addListener((msg) => {
+            if (msg.msg === 'click_icon') {
+                this.toggle();
+            }
+        });
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.settingInitialized, () => {
+            _ShowOneTimeMsg__WEBPACK_IMPORTED_MODULE_12__.showOneTimeMsg.show('tipHowToUse', _Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_HowToUse') + _Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_账户可能被封禁的警告'));
+        });
+        window.addEventListener('keydown', (ev) => {
+            if (ev.altKey && ev.code === 'KeyX') {
+                this.toggle();
+            }
+        }, false);
+        this.centerPanel.querySelectorAll('.centerWrap_close').forEach((button) => button.addEventListener('click', () => {
+            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('closeCenterPanel');
+            if (!_Config__WEBPACK_IMPORTED_MODULE_1__.Config.mobile) {
+                _ShowOneTimeMsg__WEBPACK_IMPORTED_MODULE_12__.showOneTimeMsg.show('tipAltXToShowControlPanel', _Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_快捷键ALTX显示隐藏控制面板'));
+            }
+        }));
+        this.centerPanel
+            .querySelector('#settingsPanelSponsor')
+            ?.addEventListener('click', () => _MsgBox__WEBPACK_IMPORTED_MODULE_4__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_赞助方式提示'), {
+            title: _Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_赞助我'),
+        }));
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.crawlStart, () => {
+            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('closeCenterPanel');
+        });
+        for (const ev of [_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.crawlComplete, _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.resume]) {
+            window.addEventListener(ev, () => {
+                if (!_store_States__WEBPACK_IMPORTED_MODULE_9__.states.quickCrawl && _store_Store__WEBPACK_IMPORTED_MODULE_5__.store.result.length > 0) {
+                    this.show();
+                }
+            });
+        }
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.openCenterPanel, () => {
+            this.show();
+        });
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.closeCenterPanel, () => {
+            this.close();
+        });
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.langChange, () => {
+            this.setLangFlag();
+        });
+        this.centerPanel.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+        document.addEventListener('click', () => {
+            if (getComputedStyle(this.centerPanel).display !== 'none') {
+                _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('closeCenterPanel');
+            }
+        });
+    }
+    show() {
+        this.centerPanel.style.display = 'block';
+        _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('centerPanelOpened');
+    }
+    close() {
+        this.centerPanel.style.display = 'none';
+        _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('centerPanelClosed');
+    }
+    toggle() {
+        const nowDisplay = this.centerPanel.style.display;
+        nowDisplay === 'block' ? this.close() : this.show();
+        if (nowDisplay === 'block') {
+            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('closeCenterPanel');
+        }
+        else {
+            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('openCenterPanel');
+        }
+    }
+}
 class SettingsPanel {
     constructor(form) {
         this.form = form;
@@ -48366,7 +48342,7 @@ class SettingsPanel {
     helpActionsWrap;
     otherBtnsVisibilityObserver;
     downloadSummaryState = 'start';
-    debouncedSearch = _utils_Utils__WEBPACK_IMPORTED_MODULE_5__.Utils.debounce(() => this.updateSearchResult(), 200);
+    debouncedSearch = _utils_Utils__WEBPACK_IMPORTED_MODULE_6__.Utils.debounce(() => this.updateSearchResult(), 200);
     cacheShellElements() {
         this.searchInput = this.centerPanel.querySelector('#settingsPanelSearchInput');
         this.clearSearchBtn = this.centerPanel.querySelector('#settingsPanelClearSearch');
@@ -48438,7 +48414,7 @@ class SettingsPanel {
         for (const option of this.optionElements.values()) {
             option.classList.add('settingsPanel_optionCard');
         }
-        _Language__WEBPACK_IMPORTED_MODULE_2__.lang.register(pagesWrap);
+        _Language__WEBPACK_IMPORTED_MODULE_3__.lang.register(pagesWrap);
     }
     buildHomePage(crawlBtnsBlock, otherBtnsBlock, downloadBtnsBlock, downloadArea, progressBar) {
         const home = this.pageInners.get('home');
@@ -48523,10 +48499,10 @@ class SettingsPanel {
         });
     }
     buildCategoryPages() {
-        const allCategories = Object.keys(_OptionConfigs__WEBPACK_IMPORTED_MODULE_7__.optionConfigs.categorySchema);
+        const allCategories = Object.keys(_OptionConfigs__WEBPACK_IMPORTED_MODULE_13__.optionConfigs.categorySchema);
         allCategories.forEach((page) => {
             const inner = this.pageInners.get(page);
-            const groups = Object.values(_OptionConfigs__WEBPACK_IMPORTED_MODULE_7__.optionConfigs.categorySchema[page].level2).sort((a, b) => a.order - b.order);
+            const groups = Object.values(_OptionConfigs__WEBPACK_IMPORTED_MODULE_13__.optionConfigs.categorySchema[page].level2).sort((a, b) => a.order - b.order);
             groups.forEach((group) => {
                 const section = this.createSection({
                     page,
@@ -48701,9 +48677,9 @@ class SettingsPanel {
                     this.handleNavRequest(page);
                 }
             });
-            if (!_Config__WEBPACK_IMPORTED_MODULE_0__.Config.mobile) {
+            if (!_Config__WEBPACK_IMPORTED_MODULE_1__.Config.mobile) {
                 button.addEventListener('mouseenter', () => {
-                    if (_Settings__WEBPACK_IMPORTED_MODULE_8__.settings.switchTabBar !== 'click') {
+                    if (_Settings__WEBPACK_IMPORTED_MODULE_14__.settings.switchTabBar !== 'click') {
                         this.handleNavRequest(page);
                     }
                 });
@@ -48741,7 +48717,7 @@ class SettingsPanel {
             this.playRipple(button);
             this.handleHelpAction(button.dataset.action || '');
         });
-        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.settingChange, (ev) => {
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.settingChange, (ev) => {
             const data = ev.detail.data;
             if (data.name === 'pinnedOptions') {
                 this.renderCurrentPage();
@@ -48750,7 +48726,7 @@ class SettingsPanel {
                 this.refreshPersistedSectionStates();
             }
         });
-        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.langChange, () => {
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.langChange, () => {
             window.setTimeout(() => {
                 this.renderHelpActionVisibility();
                 this.renderCurrentPage();
@@ -48759,51 +48735,51 @@ class SettingsPanel {
             }, 0);
         });
         [
-            _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.crawlStart,
-            _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.crawlComplete,
-            _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.resultChange,
-            _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.resume,
-            _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.downloadStart,
-            _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.downloadPause,
-            _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.downloadStop,
-            _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.downloadComplete,
-            _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.downloadSuccess,
-            _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.skipDownload,
+            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.crawlStart,
+            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.crawlComplete,
+            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.resultChange,
+            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.resume,
+            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.downloadStart,
+            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.downloadPause,
+            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.downloadStop,
+            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.downloadComplete,
+            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.downloadSuccess,
+            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.skipDownload,
         ].forEach((eventName) => {
             window.addEventListener(eventName, () => {
                 this.updateDownloadSummary();
             });
         });
         [
-            _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.crawlStart,
-            _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.crawlComplete,
-            _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.resultChange,
-            _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.resume,
-            _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.readyDownload,
-            _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.downloadCancel,
+            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.crawlStart,
+            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.crawlComplete,
+            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.resultChange,
+            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.resume,
+            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.readyDownload,
+            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.downloadCancel,
         ].forEach((eventName) => {
             window.addEventListener(eventName, () => {
                 this.setDownloadSummaryState('start');
             });
         });
-        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.downloadStart, () => {
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.downloadStart, () => {
             this.setDownloadSummaryState('loading');
         });
-        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.downloadPause, () => {
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.downloadPause, () => {
             this.setDownloadSummaryState('pause');
         });
-        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.downloadStop, () => {
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.downloadStop, () => {
             this.setDownloadSummaryState('stop');
         });
-        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.downloadComplete, () => {
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.downloadComplete, () => {
             this.setDownloadSummaryState('complete');
         });
-        [_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.crawlComplete, _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.resume, _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.downloadStart].forEach((eventName) => {
+        [_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.crawlComplete, _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.resume, _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.downloadStart].forEach((eventName) => {
             window.addEventListener(eventName, () => {
                 this.expandHomeDownloadSection();
             });
         });
-        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.hasNewVer, () => {
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.hasNewVer, () => {
             this.helpActionEls.get('recentUpdates')?.classList.add('hasUpdate');
         });
     }
@@ -48851,7 +48827,7 @@ class SettingsPanel {
         this.searchGroupsWrap.innerHTML = '';
         const matchMap = this.findSearchMatches(this.searchKeyword);
         const groupOrder = [];
-        _OptionConfigs__WEBPACK_IMPORTED_MODULE_7__.optionConfigs.options.forEach((option) => {
+        _OptionConfigs__WEBPACK_IMPORTED_MODULE_13__.optionConfigs.options.forEach((option) => {
             const match = matchMap.get(option.no);
             if (!match) {
                 return;
@@ -48874,10 +48850,10 @@ class SettingsPanel {
         if (groupOrder.length === 0) {
             this.searchSummary.dataset.xztext = '_没有找到符合条件的设置的提示';
             this.searchSummary.innerHTML =
-                _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_没有找到符合条件的设置的提示');
+                _Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_没有找到符合条件的设置的提示');
         }
         else {
-            this.searchSummary.innerHTML = _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_找到x条与搜索词有关的设置', groupOrder
+            this.searchSummary.innerHTML = _Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_找到x条与搜索词有关的设置', groupOrder
                 .map((key) => this.searchSections.get(key).content.children.length)
                 .reduce((total, count) => total + count, 0)
                 .toString(), this.escapeHTML(this.searchKeyword));
@@ -48896,7 +48872,7 @@ class SettingsPanel {
     findSearchMatches(keyword) {
         const result = new Map();
         const lowerKeyword = keyword.toLowerCase();
-        for (const option of _OptionConfigs__WEBPACK_IMPORTED_MODULE_7__.optionConfigs.options) {
+        for (const option of _OptionConfigs__WEBPACK_IMPORTED_MODULE_13__.optionConfigs.options) {
             const element = this.optionElements.get(option.no);
             if (!element || this.isOptionCardHidden(element)) {
                 continue;
@@ -48924,12 +48900,12 @@ class SettingsPanel {
         return option.style.display === 'none';
     }
     placeOptionsToDefaultContainers(showPinnedOnHome) {
-        for (const option of _OptionConfigs__WEBPACK_IMPORTED_MODULE_7__.optionConfigs.options) {
+        for (const option of _OptionConfigs__WEBPACK_IMPORTED_MODULE_13__.optionConfigs.options) {
             const element = this.optionElements.get(option.no);
             if (!element) {
                 continue;
             }
-            const target = showPinnedOnHome && _Settings__WEBPACK_IMPORTED_MODULE_8__.settings.pinnedOptions.includes(option.no)
+            const target = showPinnedOnHome && _Settings__WEBPACK_IMPORTED_MODULE_14__.settings.pinnedOptions.includes(option.no)
                 ? this.homePinnedContent
                 : this.getCanonicalContainer(option.categoryLevel1, option.categoryLevel2);
             target.append(element);
@@ -48937,7 +48913,7 @@ class SettingsPanel {
         this.updateSearchOptionHighlight(new Map());
     }
     placeUnmatchedOptionsBack(matchMap) {
-        for (const option of _OptionConfigs__WEBPACK_IMPORTED_MODULE_7__.optionConfigs.options) {
+        for (const option of _OptionConfigs__WEBPACK_IMPORTED_MODULE_13__.optionConfigs.options) {
             if (matchMap.has(option.no)) {
                 continue;
             }
@@ -48949,7 +48925,7 @@ class SettingsPanel {
         }
     }
     updateSearchOptionHighlight(matchMap) {
-        _OptionConfigs__WEBPACK_IMPORTED_MODULE_7__.optionConfigs.options.forEach((option) => {
+        _OptionConfigs__WEBPACK_IMPORTED_MODULE_13__.optionConfigs.options.forEach((option) => {
             const element = this.optionElements.get(option.no);
             if (!element) {
                 return;
@@ -48960,7 +48936,7 @@ class SettingsPanel {
             }
             const match = matchMap.get(option.no);
             if (!match || !match.matchedByName || this.searchKeyword === '') {
-                _Language__WEBPACK_IMPORTED_MODULE_2__.lang.updateText(target, option.nameKey);
+                _Language__WEBPACK_IMPORTED_MODULE_3__.lang.updateText(target, option.nameKey);
                 return;
             }
             delete target.dataset.xztext;
@@ -49008,7 +48984,7 @@ class SettingsPanel {
             .replaceAll("'", '&#39;');
     }
     createSearchSection(level1, level2) {
-        const title = `${_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl(_OptionConfigs__WEBPACK_IMPORTED_MODULE_7__.optionConfigs.categorySchema[level1].nameKey)} / ${_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl(_OptionConfigs__WEBPACK_IMPORTED_MODULE_7__.optionConfigs.categorySchema[level1].level2[level2].nameKey)}`;
+        const title = `${_Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl(_OptionConfigs__WEBPACK_IMPORTED_MODULE_13__.optionConfigs.categorySchema[level1].nameKey)} / ${_Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl(_OptionConfigs__WEBPACK_IMPORTED_MODULE_13__.optionConfigs.categorySchema[level1].level2[level2].nameKey)}`;
         const root = document.createElement('div');
         root.className = 'settingsPanel_titleSection';
         const header = document.createElement('button');
@@ -49078,12 +49054,12 @@ class SettingsPanel {
             this.applyExpandedState(section, expanded);
             return;
         }
-        const nextExpandedCards = _utils_Utils__WEBPACK_IMPORTED_MODULE_5__.Utils.deepCopy(_Settings__WEBPACK_IMPORTED_MODULE_8__.settings.expandedCards);
+        const nextExpandedCards = _utils_Utils__WEBPACK_IMPORTED_MODULE_6__.Utils.deepCopy(_Settings__WEBPACK_IMPORTED_MODULE_14__.settings.expandedCards);
         const pageState = this.getPersistedPageState(section.page, nextExpandedCards);
         if (pageState) {
             pageState[section.id] = expanded;
         }
-        (0,_Settings__WEBPACK_IMPORTED_MODULE_8__.setSetting)('expandedCards', nextExpandedCards);
+        (0,_Settings__WEBPACK_IMPORTED_MODULE_14__.setSetting)('expandedCards', nextExpandedCards);
         this.applyExpandedState(section, expanded);
     }
     applyExpandedState(section, expanded) {
@@ -49102,7 +49078,7 @@ class SettingsPanel {
     }
     toggleAllSections() {
         const shouldExpand = !this.areAllSectionsExpanded();
-        const nextExpandedCards = _utils_Utils__WEBPACK_IMPORTED_MODULE_5__.Utils.deepCopy(_Settings__WEBPACK_IMPORTED_MODULE_8__.settings.expandedCards);
+        const nextExpandedCards = _utils_Utils__WEBPACK_IMPORTED_MODULE_6__.Utils.deepCopy(_Settings__WEBPACK_IMPORTED_MODULE_14__.settings.expandedCards);
         this.foldableSections.forEach((section) => {
             const pageState = this.getPersistedPageState(section.page, nextExpandedCards);
             if (pageState) {
@@ -49114,7 +49090,7 @@ class SettingsPanel {
             this.searchState.set(key, shouldExpand);
             this.applyExpandedState(section, shouldExpand);
         });
-        (0,_Settings__WEBPACK_IMPORTED_MODULE_8__.setSetting)('expandedCards', nextExpandedCards);
+        (0,_Settings__WEBPACK_IMPORTED_MODULE_14__.setSetting)('expandedCards', nextExpandedCards);
         this.updateExpandAllButton();
         this.refreshStickyHeader();
     }
@@ -49202,73 +49178,73 @@ class SettingsPanel {
         onlyShowInZhCN.forEach((id) => {
             const btn = this.helpActionEls.get(id);
             if (btn) {
-                btn.style.display = _Language__WEBPACK_IMPORTED_MODULE_2__.lang.type === 'zh-cn' ? 'flex' : 'none';
+                btn.style.display = _Language__WEBPACK_IMPORTED_MODULE_3__.lang.type === 'zh-cn' ? 'flex' : 'none';
             }
         });
     }
     handleHelpAction(action) {
         switch (action) {
             case 'wiki':
-                _MsgBox__WEBPACK_IMPORTED_MODULE_3__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_使用手册说明'), {
-                    title: _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_使用手册'),
+                _MsgBox__WEBPACK_IMPORTED_MODULE_4__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_使用手册说明'), {
+                    title: _Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_使用手册'),
                 });
                 return;
             case 'faq': {
-                let msg = _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_常见问题说明') + _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_账户可能被封禁的警告');
-                if (_Config__WEBPACK_IMPORTED_MODULE_0__.Config.mobile) {
-                    msg += _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_移动端浏览器可能不会建立文件夹的说明');
+                let msg = _Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_常见问题说明') + _Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_账户可能被封禁的警告');
+                if (_Config__WEBPACK_IMPORTED_MODULE_1__.Config.mobile) {
+                    msg += _Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_移动端浏览器可能不会建立文件夹的说明');
                 }
-                _MsgBox__WEBPACK_IMPORTED_MODULE_3__.msgBox.show(msg, {
-                    title: _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_常见问题'),
+                _MsgBox__WEBPACK_IMPORTED_MODULE_4__.msgBox.show(msg, {
+                    title: _Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_常见问题'),
                 });
                 return;
             }
             case 'recentUpdates':
-                _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.fire('showRecentUpdates');
+                _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('showRecentUpdates');
                 return;
             case 'github':
-                _MsgBox__WEBPACK_IMPORTED_MODULE_3__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_GitHub说明'), {
+                _MsgBox__WEBPACK_IMPORTED_MODULE_4__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_GitHub说明'), {
                     title: 'GitHub',
                 });
                 return;
             case 'discord':
-                _MsgBox__WEBPACK_IMPORTED_MODULE_3__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_Discord说明'), {
+                _MsgBox__WEBPACK_IMPORTED_MODULE_4__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_Discord说明'), {
                     title: 'Discord',
                 });
                 return;
             case 'qq':
-                _MsgBox__WEBPACK_IMPORTED_MODULE_3__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_QQ群说明'), {
-                    title: _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_QQ群'),
+                _MsgBox__WEBPACK_IMPORTED_MODULE_4__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_QQ群说明'), {
+                    title: _Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_QQ群'),
                 });
                 return;
             case 'fanbox':
-                _MsgBox__WEBPACK_IMPORTED_MODULE_3__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_fanboxDownloader的说明'), {
+                _MsgBox__WEBPACK_IMPORTED_MODULE_4__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_fanboxDownloader的说明'), {
                     title: 'Pixiv Fanbox Downloader',
                 });
                 return;
             case 'airport':
-                _MsgBox__WEBPACK_IMPORTED_MODULE_3__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_机场推荐说明'), {
-                    title: _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_机场推荐'),
+                _MsgBox__WEBPACK_IMPORTED_MODULE_4__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_机场推荐说明'), {
+                    title: _Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_机场推荐'),
                 });
                 return;
             case 'sponsorship':
-                _MsgBox__WEBPACK_IMPORTED_MODULE_3__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_赞助方式提示'), {
-                    title: _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_赞助我'),
+                _MsgBox__WEBPACK_IMPORTED_MODULE_4__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_赞助方式提示'), {
+                    title: _Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_赞助我'),
                 });
                 return;
             case 'thirdParty':
-                _MsgBox__WEBPACK_IMPORTED_MODULE_3__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_第三方库说明'), {
-                    title: _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_第三方库'),
+                _MsgBox__WEBPACK_IMPORTED_MODULE_4__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_第三方库说明'), {
+                    title: _Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_第三方库'),
                 });
                 return;
             case 'reset':
-                _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.fire('resetHelpTip');
+                _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('resetHelpTip');
                 return;
         }
     }
     updateDownloadSummary() {
-        const total = _store_Store__WEBPACK_IMPORTED_MODULE_4__.store.result.length;
-        const downloaded = total > 0 ? _download_DownloadStates__WEBPACK_IMPORTED_MODULE_6__.downloadStates.downloadedCount() : 0;
+        const total = _store_Store__WEBPACK_IMPORTED_MODULE_5__.store.result.length;
+        const downloaded = total > 0 ? _download_DownloadStates__WEBPACK_IMPORTED_MODULE_7__.downloadStates.downloadedCount() : 0;
         this.summaryProgress.textContent = `${downloaded} / ${total}`;
         this.summaryWrap.style.display = total > 0 ? 'block' : 'none';
         if (total === 0) {
@@ -49305,7 +49281,7 @@ class SettingsPanel {
     }
     setSummaryState(textKey, iconId) {
         this.summaryStateSVG.classList.toggle('is-loading', iconId === 'loading');
-        this.summaryStateSVG.setAttribute('title', _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl(textKey));
+        this.summaryStateSVG.setAttribute('title', _Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl(textKey));
         this.summaryStateIconUse.setAttribute('xlink:href', `#${iconId}`);
     }
     expandHomeDownloadSection() {
@@ -49313,12 +49289,12 @@ class SettingsPanel {
         if (homeState?.downloadArea) {
             return;
         }
-        const nextExpandedCards = _utils_Utils__WEBPACK_IMPORTED_MODULE_5__.Utils.deepCopy(_Settings__WEBPACK_IMPORTED_MODULE_8__.settings.expandedCards);
+        const nextExpandedCards = _utils_Utils__WEBPACK_IMPORTED_MODULE_6__.Utils.deepCopy(_Settings__WEBPACK_IMPORTED_MODULE_14__.settings.expandedCards);
         const nextHomeState = this.getPersistedPageState('home', nextExpandedCards);
         if (nextHomeState) {
             nextHomeState.downloadArea = true;
         }
-        (0,_Settings__WEBPACK_IMPORTED_MODULE_8__.setSetting)('expandedCards', nextExpandedCards);
+        (0,_Settings__WEBPACK_IMPORTED_MODULE_14__.setSetting)('expandedCards', nextExpandedCards);
     }
     updatePinnedSectionVisibility() {
         const pinnedSection = this.foldableSections.get(this.makeSectionKey('home', 'pinnedOptions'));
@@ -49326,7 +49302,7 @@ class SettingsPanel {
             return;
         }
         pinnedSection.root.style.display =
-            _Settings__WEBPACK_IMPORTED_MODULE_8__.settings.pinnedOptions.length > 0 ? 'block' : 'none';
+            _Settings__WEBPACK_IMPORTED_MODULE_14__.settings.pinnedOptions.length > 0 ? 'block' : 'none';
     }
     updateSearchClearButton() {
         this.clearSearchBtn.classList.toggle('visible', this.searchInput.value.trim() !== '');
@@ -49364,10 +49340,11 @@ class SettingsPanel {
     makeSectionKey(page, id) {
         return `${page}__${id}`;
     }
-    getPersistedPageState(page, expandedCards = _Settings__WEBPACK_IMPORTED_MODULE_8__.settings.expandedCards) {
+    getPersistedPageState(page, expandedCards = _Settings__WEBPACK_IMPORTED_MODULE_14__.settings.expandedCards) {
         return expandedCards[page];
     }
 }
+new SettingsPanelShell();
 
 
 
@@ -69826,45 +69803,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _setting_Settings__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./setting/Settings */ "./src/ts/setting/Settings.ts");
 /* harmony import */ var _setting_InvisibleSettings__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./setting/InvisibleSettings */ "./src/ts/setting/InvisibleSettings.ts");
 /* harmony import */ var _ListenPageSwitch__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ListenPageSwitch */ "./src/ts/ListenPageSwitch.ts");
-/* harmony import */ var _CenterPanel__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./CenterPanel */ "./src/ts/CenterPanel.ts");
-/* harmony import */ var _setting_Form__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./setting/Form */ "./src/ts/setting/Form.ts");
-/* harmony import */ var _setting_DoNotDownloadLastFewImages__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./setting/DoNotDownloadLastFewImages */ "./src/ts/setting/DoNotDownloadLastFewImages.ts");
-/* harmony import */ var _setting_UseDifferentNameRuleIfWorkHasTag__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./setting/UseDifferentNameRuleIfWorkHasTag */ "./src/ts/setting/UseDifferentNameRuleIfWorkHasTag.ts");
-/* harmony import */ var _ReplaceSquareThumb__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./ReplaceSquareThumb */ "./src/ts/ReplaceSquareThumb.ts");
-/* harmony import */ var _InitPage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./InitPage */ "./src/ts/InitPage.ts");
-/* harmony import */ var _crawlMixedPage_QuickCrawl__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./crawlMixedPage/QuickCrawl */ "./src/ts/crawlMixedPage/QuickCrawl.ts");
-/* harmony import */ var _download_DownloadControl__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./download/DownloadControl */ "./src/ts/download/DownloadControl.ts");
-/* harmony import */ var _download_Resume__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./download/Resume */ "./src/ts/download/Resume.ts");
-/* harmony import */ var _Tip__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./Tip */ "./src/ts/Tip.ts");
-/* harmony import */ var _Tip__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_Tip__WEBPACK_IMPORTED_MODULE_16__);
-/* harmony import */ var _PreviewWork__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./PreviewWork */ "./src/ts/PreviewWork.ts");
-/* harmony import */ var _ShowOriginSizeImage__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./ShowOriginSizeImage */ "./src/ts/ShowOriginSizeImage.ts");
-/* harmony import */ var _PreviewWorkDetailInfo__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./PreviewWorkDetailInfo */ "./src/ts/PreviewWorkDetailInfo.ts");
-/* harmony import */ var _ShowLargerThumbnails__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./ShowLargerThumbnails */ "./src/ts/ShowLargerThumbnails.ts");
-/* harmony import */ var _buttonsOnThumb_ButtonsOnArtworkThumbOnPC__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./buttonsOnThumb/ButtonsOnArtworkThumbOnPC */ "./src/ts/buttonsOnThumb/ButtonsOnArtworkThumbOnPC.ts");
-/* harmony import */ var _buttonsOnThumb_ButtonsOnNovelThumbOnPC__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./buttonsOnThumb/ButtonsOnNovelThumbOnPC */ "./src/ts/buttonsOnThumb/ButtonsOnNovelThumbOnPC.ts");
-/* harmony import */ var _buttonsOnThumb_DownloadBtnOnThumbOnMobile__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./buttonsOnThumb/DownloadBtnOnThumbOnMobile */ "./src/ts/buttonsOnThumb/DownloadBtnOnThumbOnMobile.ts");
-/* harmony import */ var _RemoveBlockedUsersWork__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./RemoveBlockedUsersWork */ "./src/ts/RemoveBlockedUsersWork.ts");
-/* harmony import */ var _output_OutputPanel__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./output/OutputPanel */ "./src/ts/output/OutputPanel.ts");
-/* harmony import */ var _output_PreviewFileName__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./output/PreviewFileName */ "./src/ts/output/PreviewFileName.ts");
-/* harmony import */ var _output_ShowURLs__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./output/ShowURLs */ "./src/ts/output/ShowURLs.ts");
-/* harmony import */ var _download_ExportResult2CSV__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./download/ExportResult2CSV */ "./src/ts/download/ExportResult2CSV.ts");
-/* harmony import */ var _download_ExportResult__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./download/ExportResult */ "./src/ts/download/ExportResult.ts");
-/* harmony import */ var _download_ImportResult__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./download/ImportResult */ "./src/ts/download/ImportResult.ts");
-/* harmony import */ var _download_ExportLST__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./download/ExportLST */ "./src/ts/download/ExportLST.ts");
-/* harmony import */ var _download_SaveWorkMeta__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./download/SaveWorkMeta */ "./src/ts/download/SaveWorkMeta.ts");
-/* harmony import */ var _download_SaveWorkDescription__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./download/SaveWorkDescription */ "./src/ts/download/SaveWorkDescription.ts");
-/* harmony import */ var _download_showStatusOnTitle__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./download/showStatusOnTitle */ "./src/ts/download/showStatusOnTitle.ts");
-/* harmony import */ var _download_ShowTotalResultOnTitle__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./download/ShowTotalResultOnTitle */ "./src/ts/download/ShowTotalResultOnTitle.ts");
-/* harmony import */ var _download_ShowRemainingDownloadOnTitle__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./download/ShowRemainingDownloadOnTitle */ "./src/ts/download/ShowRemainingDownloadOnTitle.ts");
-/* harmony import */ var _download_DownloadOnClickLike__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./download/DownloadOnClickLike */ "./src/ts/download/DownloadOnClickLike.ts");
-/* harmony import */ var _HighlightFollowingUsers__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./HighlightFollowingUsers */ "./src/ts/HighlightFollowingUsers.ts");
-/* harmony import */ var _ShowBorderOnDownloadedWorks__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./ShowBorderOnDownloadedWorks */ "./src/ts/ShowBorderOnDownloadedWorks.ts");
-/* harmony import */ var _ImageToGray__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./ImageToGray */ "./src/ts/ImageToGray.ts");
-/* harmony import */ var _ShowWhatIsNew__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./ShowWhatIsNew */ "./src/ts/ShowWhatIsNew.ts");
-/* harmony import */ var _CheckUnsupportBrowser__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./CheckUnsupportBrowser */ "./src/ts/CheckUnsupportBrowser.ts");
-/* harmony import */ var _ShowNotification__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./ShowNotification */ "./src/ts/ShowNotification.ts");
-/* harmony import */ var _RequestSponsorship__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./RequestSponsorship */ "./src/ts/RequestSponsorship.ts");
+/* harmony import */ var _setting_Form__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./setting/Form */ "./src/ts/setting/Form.ts");
+/* harmony import */ var _setting_DoNotDownloadLastFewImages__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./setting/DoNotDownloadLastFewImages */ "./src/ts/setting/DoNotDownloadLastFewImages.ts");
+/* harmony import */ var _setting_UseDifferentNameRuleIfWorkHasTag__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./setting/UseDifferentNameRuleIfWorkHasTag */ "./src/ts/setting/UseDifferentNameRuleIfWorkHasTag.ts");
+/* harmony import */ var _ReplaceSquareThumb__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./ReplaceSquareThumb */ "./src/ts/ReplaceSquareThumb.ts");
+/* harmony import */ var _InitPage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./InitPage */ "./src/ts/InitPage.ts");
+/* harmony import */ var _crawlMixedPage_QuickCrawl__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./crawlMixedPage/QuickCrawl */ "./src/ts/crawlMixedPage/QuickCrawl.ts");
+/* harmony import */ var _download_DownloadControl__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./download/DownloadControl */ "./src/ts/download/DownloadControl.ts");
+/* harmony import */ var _download_Resume__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./download/Resume */ "./src/ts/download/Resume.ts");
+/* harmony import */ var _Tip__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Tip */ "./src/ts/Tip.ts");
+/* harmony import */ var _Tip__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_Tip__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _PreviewWork__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./PreviewWork */ "./src/ts/PreviewWork.ts");
+/* harmony import */ var _ShowOriginSizeImage__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./ShowOriginSizeImage */ "./src/ts/ShowOriginSizeImage.ts");
+/* harmony import */ var _PreviewWorkDetailInfo__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./PreviewWorkDetailInfo */ "./src/ts/PreviewWorkDetailInfo.ts");
+/* harmony import */ var _ShowLargerThumbnails__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./ShowLargerThumbnails */ "./src/ts/ShowLargerThumbnails.ts");
+/* harmony import */ var _buttonsOnThumb_ButtonsOnArtworkThumbOnPC__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./buttonsOnThumb/ButtonsOnArtworkThumbOnPC */ "./src/ts/buttonsOnThumb/ButtonsOnArtworkThumbOnPC.ts");
+/* harmony import */ var _buttonsOnThumb_ButtonsOnNovelThumbOnPC__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./buttonsOnThumb/ButtonsOnNovelThumbOnPC */ "./src/ts/buttonsOnThumb/ButtonsOnNovelThumbOnPC.ts");
+/* harmony import */ var _buttonsOnThumb_DownloadBtnOnThumbOnMobile__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./buttonsOnThumb/DownloadBtnOnThumbOnMobile */ "./src/ts/buttonsOnThumb/DownloadBtnOnThumbOnMobile.ts");
+/* harmony import */ var _RemoveBlockedUsersWork__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./RemoveBlockedUsersWork */ "./src/ts/RemoveBlockedUsersWork.ts");
+/* harmony import */ var _output_OutputPanel__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./output/OutputPanel */ "./src/ts/output/OutputPanel.ts");
+/* harmony import */ var _output_PreviewFileName__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./output/PreviewFileName */ "./src/ts/output/PreviewFileName.ts");
+/* harmony import */ var _output_ShowURLs__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./output/ShowURLs */ "./src/ts/output/ShowURLs.ts");
+/* harmony import */ var _download_ExportResult2CSV__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./download/ExportResult2CSV */ "./src/ts/download/ExportResult2CSV.ts");
+/* harmony import */ var _download_ExportResult__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./download/ExportResult */ "./src/ts/download/ExportResult.ts");
+/* harmony import */ var _download_ImportResult__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./download/ImportResult */ "./src/ts/download/ImportResult.ts");
+/* harmony import */ var _download_ExportLST__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./download/ExportLST */ "./src/ts/download/ExportLST.ts");
+/* harmony import */ var _download_SaveWorkMeta__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./download/SaveWorkMeta */ "./src/ts/download/SaveWorkMeta.ts");
+/* harmony import */ var _download_SaveWorkDescription__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./download/SaveWorkDescription */ "./src/ts/download/SaveWorkDescription.ts");
+/* harmony import */ var _download_showStatusOnTitle__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./download/showStatusOnTitle */ "./src/ts/download/showStatusOnTitle.ts");
+/* harmony import */ var _download_ShowTotalResultOnTitle__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./download/ShowTotalResultOnTitle */ "./src/ts/download/ShowTotalResultOnTitle.ts");
+/* harmony import */ var _download_ShowRemainingDownloadOnTitle__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./download/ShowRemainingDownloadOnTitle */ "./src/ts/download/ShowRemainingDownloadOnTitle.ts");
+/* harmony import */ var _download_DownloadOnClickLike__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./download/DownloadOnClickLike */ "./src/ts/download/DownloadOnClickLike.ts");
+/* harmony import */ var _HighlightFollowingUsers__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./HighlightFollowingUsers */ "./src/ts/HighlightFollowingUsers.ts");
+/* harmony import */ var _ShowBorderOnDownloadedWorks__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./ShowBorderOnDownloadedWorks */ "./src/ts/ShowBorderOnDownloadedWorks.ts");
+/* harmony import */ var _ImageToGray__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./ImageToGray */ "./src/ts/ImageToGray.ts");
+/* harmony import */ var _ShowWhatIsNew__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./ShowWhatIsNew */ "./src/ts/ShowWhatIsNew.ts");
+/* harmony import */ var _CheckUnsupportBrowser__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./CheckUnsupportBrowser */ "./src/ts/CheckUnsupportBrowser.ts");
+/* harmony import */ var _ShowNotification__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./ShowNotification */ "./src/ts/ShowNotification.ts");
+/* harmony import */ var _RequestSponsorship__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./RequestSponsorship */ "./src/ts/RequestSponsorship.ts");
 /*
  * project: Powerful Pixiv Downloader
  * author:  xuejianxianzun; 雪见仙尊
@@ -69875,7 +69851,6 @@ __webpack_require__.r(__webpack_exports__);
  * Website: https://pixiv.download/
  * E-mail:  xuejianxianzun@gmail.com
  */
-
 
 
 
