@@ -48036,32 +48036,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   SettingsPanel: () => (/* binding */ SettingsPanel)
 /* harmony export */ });
-/* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! webextension-polyfill */ "./node_modules/webextension-polyfill/dist/browser-polyfill.js");
-/* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Config */ "./src/ts/Config.ts");
-/* harmony import */ var _EVT__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../EVT */ "./src/ts/EVT.ts");
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Language */ "./src/ts/Language.ts");
-/* harmony import */ var _MsgBox__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../MsgBox */ "./src/ts/MsgBox.ts");
-/* harmony import */ var _store_Store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../store/Store */ "./src/ts/store/Store.ts");
-/* harmony import */ var _utils_Utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/Utils */ "./src/ts/utils/Utils.ts");
-/* harmony import */ var _Theme__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Theme */ "./src/ts/Theme.ts");
-/* harmony import */ var _store_States__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../store/States */ "./src/ts/store/States.ts");
-/* harmony import */ var _BG__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../BG */ "./src/ts/BG.ts");
-/* harmony import */ var _BoldKeywords__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../BoldKeywords */ "./src/ts/BoldKeywords.ts");
-/* harmony import */ var _ShowOneTimeMsg__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../ShowOneTimeMsg */ "./src/ts/ShowOneTimeMsg.ts");
-/* harmony import */ var _OptionConfigs__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./OptionConfigs */ "./src/ts/setting/OptionConfigs.ts");
-/* harmony import */ var _Settings__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Settings */ "./src/ts/setting/Settings.ts");
-/* harmony import */ var _SettingsPanelDownloadSummary__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./SettingsPanelDownloadSummary */ "./src/ts/setting/SettingsPanelDownloadSummary.ts");
-/* harmony import */ var _SettingsPanelHelp__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./SettingsPanelHelp */ "./src/ts/setting/SettingsPanelHelp.ts");
-/* harmony import */ var _SettingsPanelSearch__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./SettingsPanelSearch */ "./src/ts/setting/SettingsPanelSearch.ts");
-/* harmony import */ var _OpenSettingsPanel__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../OpenSettingsPanel */ "./src/ts/OpenSettingsPanel.ts");
-
-
-
-
-
-
-
+/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Config */ "./src/ts/Config.ts");
+/* harmony import */ var _EVT__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../EVT */ "./src/ts/EVT.ts");
+/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Language */ "./src/ts/Language.ts");
+/* harmony import */ var _utils_Utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/Utils */ "./src/ts/utils/Utils.ts");
+/* harmony import */ var _OptionConfigs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./OptionConfigs */ "./src/ts/setting/OptionConfigs.ts");
+/* harmony import */ var _Settings__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Settings */ "./src/ts/setting/Settings.ts");
+/* harmony import */ var _SettingsPanelDownloadSummary__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./SettingsPanelDownloadSummary */ "./src/ts/setting/SettingsPanelDownloadSummary.ts");
+/* harmony import */ var _SettingsPanelHelp__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./SettingsPanelHelp */ "./src/ts/setting/SettingsPanelHelp.ts");
+/* harmony import */ var _SettingsPanelShell__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./SettingsPanelShell */ "./src/ts/setting/SettingsPanelShell.ts");
+/* harmony import */ var _SettingsPanelSearch__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./SettingsPanelSearch */ "./src/ts/setting/SettingsPanelSearch.ts");
+/* harmony import */ var _OpenSettingsPanel__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../OpenSettingsPanel */ "./src/ts/OpenSettingsPanel.ts");
 
 
 
@@ -48085,9 +48070,9 @@ const pageIds = [
 ];
 class SettingsPanel {
     constructor(form) {
-        SettingsPanel.initShell();
+        _SettingsPanelShell__WEBPACK_IMPORTED_MODULE_8__.SettingsPanelShell.init();
         this.form = form;
-        this.centerPanel = SettingsPanel.getShell();
+        this.centerPanel = _SettingsPanelShell__WEBPACK_IMPORTED_MODULE_8__.SettingsPanelShell.get();
         this.main = this.centerPanel.querySelector('.settingsPanel_main');
         if (!this.centerPanel || !this.main) {
             throw new Error('SettingsPanel shell not found');
@@ -48100,7 +48085,7 @@ class SettingsPanel {
         }
         this.cacheShellElements();
         this.buildLayout();
-        this.downloadSummary = new _SettingsPanelDownloadSummary__WEBPACK_IMPORTED_MODULE_14__.SettingsPanelDownloadSummary(this.centerPanel.querySelector('#settingsPanelDownloadSummary'), this.form);
+        this.downloadSummary = new _SettingsPanelDownloadSummary__WEBPACK_IMPORTED_MODULE_6__.SettingsPanelDownloadSummary(this.centerPanel.querySelector('#settingsPanelDownloadSummary'), this.form);
         this.bindEvents();
         this.switchPage('home');
         this.updateSearchResult();
@@ -48108,225 +48093,6 @@ class SettingsPanel {
     form;
     centerPanel;
     main;
-    static shell;
-    static allLangFlag = [];
-    static initShell() {
-        if (this.shell) {
-            return this.shell;
-        }
-        const centerPanelHTML = `
-      <div class="centerWrap settingsV2 ${'lang_' + _Language__WEBPACK_IMPORTED_MODULE_3__.lang.type}">
-        <div class="centerWrap_head">
-          <div class="settingsPanel_headerMain">
-            <div class="settingsPanel_brand">
-              <svg class="icon settingsPanel_logo" aria-hidden="true"><use xlink:href="#logo128"></use></svg>
-              <span class="settingsPanel_brandName">${_Config__WEBPACK_IMPORTED_MODULE_1__.Config.appName}</span>
-            </div>
-
-            <button class="textButton centerWrap_top_btn centerWrap_close centerWrap_close_mobile" type="button" data-xztitle="_关闭">
-              <svg class="icon" aria-hidden="true">
-                <use xlink:href="#close"></use>
-              </svg>
-            </button>
-          </div>
-
-          <div class="settingsPanel_headerActions">
-            <div class="settingsPanel_headerSearch">
-              <label class="settingsPanel_searchBar">
-                <svg class="icon settingsPanel_searchIcon" aria-hidden="true">
-                  <use xlink:href="#search-in-searchbar"></use>
-                </svg>
-                <input id="settingsPanelSearchInput" type="text" data-xzplaceholder="_搜索设置">
-                <button class="textButton settingsPanel_clearSearch" id="settingsPanelClearSearch" type="button" data-xztitle="_清除">
-                  <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#close"></use>
-                  </svg>
-                </button>
-              </label>
-
-              <button class="textButton centerWrap_top_btn settingsPanel_expandAll" id="settingsPanelToggleExpand" type="button" data-xztitle="_展开/折叠所有区域">
-                <svg class="icon settingsPanel_expandIcon" aria-hidden="true">
-                  <use xlink:href="#arrow-up"></use>
-                </svg>
-              </button>
-            </div>
-
-            <div class="settingsPanel_headerMinor">
-              <button class="textButton centerWrap_top_btn settingsPanel_sponsorBtn" id="settingsPanelSponsor" type="button" data-xztitle="_赞助我">
-                <svg class="icon" aria-hidden="true">
-                  <use xlink:href="#heart-line"></use>
-                </svg>
-              </button>
-            </div>
-
-            <div class="settingsPanel_headerClose">
-              <button class="textButton centerWrap_top_btn centerWrap_close centerWrap_close_pc" type="button" data-xztitle="_关闭">
-                <svg class="icon" aria-hidden="true">
-                  <use xlink:href="#close"></use>
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="centerWrap_con">
-          <aside class="settingsPanel_sidebar beautify_scrollbar">
-            <nav class="settingsPanel_nav">
-              ${this.createNavItem('home', '_首页', 'home-line', 'home-fill')}
-              ${this.createNavItem('crawl', '_抓取', 'filter-line', 'filter-filling')}
-              ${this.createNavItem('naming', '_命名', 'rename-line', 'rename-fill')}
-              ${this.createNavItem('download', '_下载', 'download-line', 'download-fill')}
-              ${this.createNavItem('enhance', '_增强', 'magic-line', 'magic-fill')}
-              ${this.createNavItem('general', '_通用', 'setting-line', 'setting-fill')}
-              ${this.createNavItem('help', '_帮助', 'book-line', 'book-fill')}
-              ${this.createNavItem('search', '_搜索', 'search-line', 'search-fill', true)}
-            </nav>
-
-            <div class="settingsPanel_downloadSummary" id="settingsPanelDownloadSummary">
-              <div class="settingsPanel_downloadSummaryStatus">
-                <svg class="icon settingsPanel_downloadSummaryStateIcon" aria-hidden="true">
-                  <use xlink:href="#start"></use>
-                </svg>
-                <span class="settingsPanel_downloadSummaryProgress">0 / 0</span>
-              </div>
-
-              <div class="settingsPanel_downloadSummaryActions">
-                <button class="textButton settingsPanel_downloadSummaryBtn" id="settingsPanelSummaryStart" type="button" data-xztitle="_开始下载">
-                  <svg class="icon" aria-hidden="true"><use xlink:href="#start"></use></svg>
-                </button>
-                <button class="textButton settingsPanel_downloadSummaryBtn" id="settingsPanelSummaryPause" type="button" data-xztitle="_暂停下载">
-                  <svg class="icon" aria-hidden="true"><use xlink:href="#pause"></use></svg>
-                </button>
-                <button class="textButton settingsPanel_downloadSummaryBtn" id="settingsPanelSummaryStop" type="button" data-xztitle="_停止下载">
-                  <svg class="icon" aria-hidden="true"><use xlink:href="#stop"></use></svg>
-                </button>
-              </div>
-            </div>
-          </aside>
-
-          <div class="settingsPanel_main beautify_scrollbar">
-            <slot data-name="form"></slot>
-          </div>
-        </div>
-      </div>
-    `;
-        document.body.insertAdjacentHTML('afterbegin', centerPanelHTML);
-        this.shell = document.querySelector('.centerWrap.settingsV2');
-        if (!this.shell) {
-            throw new Error('SettingsPanel shell not found');
-        }
-        if (_Config__WEBPACK_IMPORTED_MODULE_1__.Config.mobile) {
-            document.body.classList.add('mobile');
-            this.shell.classList.add('mobile');
-        }
-        _Theme__WEBPACK_IMPORTED_MODULE_7__.theme.register(this.shell);
-        _Language__WEBPACK_IMPORTED_MODULE_3__.lang.register(this.shell);
-        _BG__WEBPACK_IMPORTED_MODULE_9__.bg.useBG(this.shell);
-        new _BoldKeywords__WEBPACK_IMPORTED_MODULE_10__.BoldKeywords(this.shell);
-        this.allLangFlag = _Language__WEBPACK_IMPORTED_MODULE_3__.lang.langTypes.map((type) => 'lang_' + type);
-        this.setLangFlag();
-        this.bindShellEvents();
-        return this.shell;
-    }
-    static getShell() {
-        return this.initShell();
-    }
-    static createNavItem(page, textKey, lineIcon, fillIcon, hidden = false) {
-        return `
-    <button class="settingsPanel_navItem hasRippleAnimation" data-page="${page}" type="button" ${hidden ? 'hidden' : ''}>
-      <span class="settingsPanel_navIconWrap" aria-hidden="true">
-        <svg class="icon settingsPanel_navIcon settingsPanel_navIconLine">
-          <use xlink:href="#${lineIcon}"></use>
-        </svg>
-        <svg class="icon settingsPanel_navIcon settingsPanel_navIconFill">
-          <use xlink:href="#${fillIcon}"></use>
-        </svg>
-      </span>
-      <span class="settingsPanel_navText" data-xztext="${textKey}"></span>
-      <span class="ripple"></span>
-    </button>
-    `;
-    }
-    static setLangFlag() {
-        const shell = this.getShell();
-        this.allLangFlag.forEach((flag) => {
-            shell.classList.remove(flag);
-        });
-        shell.classList.add('lang_' + _Language__WEBPACK_IMPORTED_MODULE_3__.lang.type);
-    }
-    static bindShellEvents() {
-        const shell = this.getShell();
-        webextension_polyfill__WEBPACK_IMPORTED_MODULE_0___default().runtime.onMessage.addListener((msg) => {
-            if (msg.msg === 'click_icon') {
-                this.toggleShell();
-            }
-        });
-        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.settingInitialized, () => {
-            _ShowOneTimeMsg__WEBPACK_IMPORTED_MODULE_11__.showOneTimeMsg.show('tipHowToUse', _Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_HowToUse') + _Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_账户可能被封禁的警告'));
-        });
-        window.addEventListener('keydown', (ev) => {
-            if (ev.altKey && ev.code === 'KeyX') {
-                this.toggleShell();
-            }
-        }, false);
-        shell.querySelectorAll('.centerWrap_close').forEach((button) => button.addEventListener('click', () => {
-            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('closeCenterPanel');
-            if (!_Config__WEBPACK_IMPORTED_MODULE_1__.Config.mobile) {
-                _ShowOneTimeMsg__WEBPACK_IMPORTED_MODULE_11__.showOneTimeMsg.show('tipAltXToShowControlPanel', _Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_快捷键ALTX显示隐藏控制面板'));
-            }
-        }));
-        shell
-            .querySelector('#settingsPanelSponsor')
-            ?.addEventListener('click', () => _MsgBox__WEBPACK_IMPORTED_MODULE_4__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_赞助方式提示'), {
-            title: _Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_赞助我'),
-        }));
-        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.crawlStart, () => {
-            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('closeCenterPanel');
-        });
-        for (const ev of [_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.crawlComplete, _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.resume]) {
-            window.addEventListener(ev, () => {
-                if (!_store_States__WEBPACK_IMPORTED_MODULE_8__.states.quickCrawl && _store_Store__WEBPACK_IMPORTED_MODULE_5__.store.result.length > 0) {
-                    this.showShell();
-                }
-            });
-        }
-        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.openCenterPanel, () => {
-            this.showShell();
-        });
-        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.closeCenterPanel, () => {
-            this.closeShell();
-        });
-        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.langChange, () => {
-            this.setLangFlag();
-        });
-        shell.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
-        document.addEventListener('click', () => {
-            if (getComputedStyle(shell).display !== 'none') {
-                _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('closeCenterPanel');
-            }
-        });
-    }
-    static showShell() {
-        this.getShell().style.display = 'block';
-        _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('centerPanelOpened');
-    }
-    static closeShell() {
-        this.getShell().style.display = 'none';
-        _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('centerPanelClosed');
-    }
-    static toggleShell() {
-        const shell = this.getShell();
-        const nowDisplay = shell.style.display;
-        nowDisplay === 'block' ? this.closeShell() : this.showShell();
-        if (nowDisplay === 'block') {
-            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('closeCenterPanel');
-        }
-        else {
-            _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('openCenterPanel');
-        }
-    }
     activePage = 'home';
     optionElements = new Map();
     canonicalContainers = new Map();
@@ -48406,7 +48172,7 @@ class SettingsPanel {
         for (const option of this.optionElements.values()) {
             option.classList.add('settingsPanel_optionCard');
         }
-        _Language__WEBPACK_IMPORTED_MODULE_3__.lang.register(pagesWrap);
+        _Language__WEBPACK_IMPORTED_MODULE_2__.lang.register(pagesWrap);
     }
     buildHomePage(crawlBtnsBlock, otherBtnsBlock, downloadBtnsBlock, downloadArea, progressBar) {
         const home = this.pageInners.get('home');
@@ -48491,10 +48257,10 @@ class SettingsPanel {
         });
     }
     buildCategoryPages() {
-        const allCategories = Object.keys(_OptionConfigs__WEBPACK_IMPORTED_MODULE_12__.optionConfigs.categorySchema);
+        const allCategories = Object.keys(_OptionConfigs__WEBPACK_IMPORTED_MODULE_4__.optionConfigs.categorySchema);
         allCategories.forEach((page) => {
             const inner = this.pageInners.get(page);
-            const groups = Object.values(_OptionConfigs__WEBPACK_IMPORTED_MODULE_12__.optionConfigs.categorySchema[page].level2).sort((a, b) => a.order - b.order);
+            const groups = Object.values(_OptionConfigs__WEBPACK_IMPORTED_MODULE_4__.optionConfigs.categorySchema[page].level2).sort((a, b) => a.order - b.order);
             groups.forEach((group) => {
                 const section = this.createSection({
                     page,
@@ -48512,10 +48278,10 @@ class SettingsPanel {
     }
     buildHelpPage() {
         const help = this.pageInners.get('help');
-        new _SettingsPanelHelp__WEBPACK_IMPORTED_MODULE_15__.SettingsPanelHelp(help);
+        new _SettingsPanelHelp__WEBPACK_IMPORTED_MODULE_7__.SettingsPanelHelp(help);
     }
     buildSearchPage() {
-        this.searchPanel = new _SettingsPanelSearch__WEBPACK_IMPORTED_MODULE_16__.SettingsPanelSearch({
+        this.searchPanel = new _SettingsPanelSearch__WEBPACK_IMPORTED_MODULE_9__.SettingsPanelSearch({
             root: this.pageInners.get('search'),
             input: this.centerPanel.querySelector('#settingsPanelSearchInput'),
             clearButton: this.centerPanel.querySelector('#settingsPanelClearSearch'),
@@ -48619,9 +48385,9 @@ class SettingsPanel {
                     this.handleNavRequest(page);
                 }
             });
-            if (!_Config__WEBPACK_IMPORTED_MODULE_1__.Config.mobile) {
+            if (!_Config__WEBPACK_IMPORTED_MODULE_0__.Config.mobile) {
                 button.addEventListener('mouseenter', () => {
-                    if (_Settings__WEBPACK_IMPORTED_MODULE_13__.settings.switchTabBar !== 'click') {
+                    if (_Settings__WEBPACK_IMPORTED_MODULE_5__.settings.switchTabBar !== 'click') {
                         this.handleNavRequest(page);
                     }
                 });
@@ -48630,7 +48396,7 @@ class SettingsPanel {
         this.searchPanel.bindEvents(() => this.updateSearchResult());
         this.expandAllBtn.addEventListener('click', () => this.toggleAllSections());
         this.main.addEventListener('scroll', () => this.refreshStickyHeader());
-        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.settingChange, (ev) => {
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.settingChange, (ev) => {
             const data = ev.detail.data;
             if (data.name === 'pinnedOptions') {
                 this.renderCurrentPage();
@@ -48639,7 +48405,7 @@ class SettingsPanel {
                 this.refreshPersistedSectionStates();
             }
         });
-        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.langChange, () => {
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.langChange, () => {
             window.setTimeout(() => {
                 this.renderCurrentPage();
             }, 0);
@@ -48691,12 +48457,12 @@ class SettingsPanel {
         this.switchPage('search');
     }
     placeOptionsToDefaultContainers(showPinnedOnHome) {
-        for (const option of _OptionConfigs__WEBPACK_IMPORTED_MODULE_12__.optionConfigs.options) {
+        for (const option of _OptionConfigs__WEBPACK_IMPORTED_MODULE_4__.optionConfigs.options) {
             const element = this.optionElements.get(option.no);
             if (!element) {
                 continue;
             }
-            const target = showPinnedOnHome && _Settings__WEBPACK_IMPORTED_MODULE_13__.settings.pinnedOptions.includes(option.no)
+            const target = showPinnedOnHome && _Settings__WEBPACK_IMPORTED_MODULE_5__.settings.pinnedOptions.includes(option.no)
                 ? this.homePinnedContent
                 : this.getCanonicalContainer(option.categoryLevel1, option.categoryLevel2);
             target.append(element);
@@ -48714,12 +48480,12 @@ class SettingsPanel {
         return !!pageState?.[section.id];
     }
     setExpandedState(section, expanded) {
-        const nextExpandedCards = _utils_Utils__WEBPACK_IMPORTED_MODULE_6__.Utils.deepCopy(_Settings__WEBPACK_IMPORTED_MODULE_13__.settings.expandedCards);
+        const nextExpandedCards = _utils_Utils__WEBPACK_IMPORTED_MODULE_3__.Utils.deepCopy(_Settings__WEBPACK_IMPORTED_MODULE_5__.settings.expandedCards);
         const pageState = this.getPersistedPageState(section.page, nextExpandedCards);
         if (pageState) {
             pageState[section.id] = expanded;
         }
-        (0,_Settings__WEBPACK_IMPORTED_MODULE_13__.setSetting)('expandedCards', nextExpandedCards);
+        (0,_Settings__WEBPACK_IMPORTED_MODULE_5__.setSetting)('expandedCards', nextExpandedCards);
         this.applyExpandedState(section, expanded);
     }
     applyExpandedState(section, expanded) {
@@ -48738,7 +48504,7 @@ class SettingsPanel {
     }
     toggleAllSections() {
         const shouldExpand = !this.areAllSectionsExpanded();
-        const nextExpandedCards = _utils_Utils__WEBPACK_IMPORTED_MODULE_6__.Utils.deepCopy(_Settings__WEBPACK_IMPORTED_MODULE_13__.settings.expandedCards);
+        const nextExpandedCards = _utils_Utils__WEBPACK_IMPORTED_MODULE_3__.Utils.deepCopy(_Settings__WEBPACK_IMPORTED_MODULE_5__.settings.expandedCards);
         this.foldableSections.forEach((section) => {
             const pageState = this.getPersistedPageState(section.page, nextExpandedCards);
             if (pageState) {
@@ -48747,7 +48513,7 @@ class SettingsPanel {
             this.applyExpandedState(section, shouldExpand);
         });
         this.searchPanel.setAllExpanded(shouldExpand);
-        (0,_Settings__WEBPACK_IMPORTED_MODULE_13__.setSetting)('expandedCards', nextExpandedCards);
+        (0,_Settings__WEBPACK_IMPORTED_MODULE_5__.setSetting)('expandedCards', nextExpandedCards);
         this.updateExpandAllButton();
         this.refreshStickyHeader();
     }
@@ -48832,7 +48598,7 @@ class SettingsPanel {
             return;
         }
         pinnedSection.root.style.display =
-            _Settings__WEBPACK_IMPORTED_MODULE_13__.settings.pinnedOptions.length > 0 ? 'block' : 'none';
+            _Settings__WEBPACK_IMPORTED_MODULE_5__.settings.pinnedOptions.length > 0 ? 'block' : 'none';
     }
     playNavRipple(button) {
         this.playRipple(button);
@@ -48863,11 +48629,11 @@ class SettingsPanel {
     makeSectionKey(page, id) {
         return `${page}__${id}`;
     }
-    getPersistedPageState(page, expandedCards = _Settings__WEBPACK_IMPORTED_MODULE_13__.settings.expandedCards) {
+    getPersistedPageState(page, expandedCards = _Settings__WEBPACK_IMPORTED_MODULE_5__.settings.expandedCards) {
         return expandedCards[page];
     }
 }
-SettingsPanel.initShell();
+_SettingsPanelShell__WEBPACK_IMPORTED_MODULE_8__.SettingsPanelShell.init();
 
 
 
@@ -49576,6 +49342,266 @@ class SettingsPanelSearch {
     }
     makeSectionKey(id) {
         return `search__${id}`;
+    }
+}
+
+
+
+/***/ }),
+
+/***/ "./src/ts/setting/SettingsPanelShell.ts":
+/*!**********************************************!*\
+  !*** ./src/ts/setting/SettingsPanelShell.ts ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SettingsPanelShell: () => (/* binding */ SettingsPanelShell)
+/* harmony export */ });
+/* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! webextension-polyfill */ "./node_modules/webextension-polyfill/dist/browser-polyfill.js");
+/* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _BG__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../BG */ "./src/ts/BG.ts");
+/* harmony import */ var _BoldKeywords__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../BoldKeywords */ "./src/ts/BoldKeywords.ts");
+/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Config */ "./src/ts/Config.ts");
+/* harmony import */ var _EVT__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../EVT */ "./src/ts/EVT.ts");
+/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Language */ "./src/ts/Language.ts");
+/* harmony import */ var _MsgBox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../MsgBox */ "./src/ts/MsgBox.ts");
+/* harmony import */ var _ShowOneTimeMsg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../ShowOneTimeMsg */ "./src/ts/ShowOneTimeMsg.ts");
+/* harmony import */ var _store_States__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../store/States */ "./src/ts/store/States.ts");
+/* harmony import */ var _store_Store__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../store/Store */ "./src/ts/store/Store.ts");
+/* harmony import */ var _Theme__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Theme */ "./src/ts/Theme.ts");
+
+
+
+
+
+
+
+
+
+
+
+class SettingsPanelShell {
+    static shell;
+    static allLangFlag = [];
+    static init() {
+        if (this.shell) {
+            return this.shell;
+        }
+        const centerPanelHTML = `
+      <div class="centerWrap settingsV2 ${'lang_' + _Language__WEBPACK_IMPORTED_MODULE_5__.lang.type}">
+        <div class="centerWrap_head">
+          <div class="settingsPanel_headerMain">
+            <div class="settingsPanel_brand">
+              <svg class="icon settingsPanel_logo" aria-hidden="true"><use xlink:href="#logo128"></use></svg>
+              <span class="settingsPanel_brandName">${_Config__WEBPACK_IMPORTED_MODULE_3__.Config.appName}</span>
+            </div>
+
+            <button class="textButton centerWrap_top_btn centerWrap_close centerWrap_close_mobile" type="button" data-xztitle="_关闭">
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#close"></use>
+              </svg>
+            </button>
+          </div>
+
+          <div class="settingsPanel_headerActions">
+            <div class="settingsPanel_headerSearch">
+              <label class="settingsPanel_searchBar">
+                <svg class="icon settingsPanel_searchIcon" aria-hidden="true">
+                  <use xlink:href="#search-in-searchbar"></use>
+                </svg>
+                <input id="settingsPanelSearchInput" type="text" data-xzplaceholder="_搜索设置">
+                <button class="textButton settingsPanel_clearSearch" id="settingsPanelClearSearch" type="button" data-xztitle="_清除">
+                  <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#close"></use>
+                  </svg>
+                </button>
+              </label>
+
+              <button class="textButton centerWrap_top_btn settingsPanel_expandAll" id="settingsPanelToggleExpand" type="button" data-xztitle="_展开/折叠所有区域">
+                <svg class="icon settingsPanel_expandIcon" aria-hidden="true">
+                  <use xlink:href="#arrow-up"></use>
+                </svg>
+              </button>
+            </div>
+
+            <div class="settingsPanel_headerMinor">
+              <button class="textButton centerWrap_top_btn settingsPanel_sponsorBtn" id="settingsPanelSponsor" type="button" data-xztitle="_赞助我">
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#heart-line"></use>
+                </svg>
+              </button>
+            </div>
+
+            <div class="settingsPanel_headerClose">
+              <button class="textButton centerWrap_top_btn centerWrap_close centerWrap_close_pc" type="button" data-xztitle="_关闭">
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#close"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="centerWrap_con">
+          <aside class="settingsPanel_sidebar beautify_scrollbar">
+            <nav class="settingsPanel_nav">
+              ${this.createNavItem('home', '_首页', 'home-line', 'home-fill')}
+              ${this.createNavItem('crawl', '_抓取', 'filter-line', 'filter-filling')}
+              ${this.createNavItem('naming', '_命名', 'rename-line', 'rename-fill')}
+              ${this.createNavItem('download', '_下载', 'download-line', 'download-fill')}
+              ${this.createNavItem('enhance', '_增强', 'magic-line', 'magic-fill')}
+              ${this.createNavItem('general', '_通用', 'setting-line', 'setting-fill')}
+              ${this.createNavItem('help', '_帮助', 'book-line', 'book-fill')}
+              ${this.createNavItem('search', '_搜索', 'search-line', 'search-fill', true)}
+            </nav>
+
+            <div class="settingsPanel_downloadSummary" id="settingsPanelDownloadSummary">
+              <div class="settingsPanel_downloadSummaryStatus">
+                <svg class="icon settingsPanel_downloadSummaryStateIcon" aria-hidden="true">
+                  <use xlink:href="#start"></use>
+                </svg>
+                <span class="settingsPanel_downloadSummaryProgress">0 / 0</span>
+              </div>
+
+              <div class="settingsPanel_downloadSummaryActions">
+                <button class="textButton settingsPanel_downloadSummaryBtn" id="settingsPanelSummaryStart" type="button" data-xztitle="_开始下载">
+                  <svg class="icon" aria-hidden="true"><use xlink:href="#start"></use></svg>
+                </button>
+                <button class="textButton settingsPanel_downloadSummaryBtn" id="settingsPanelSummaryPause" type="button" data-xztitle="_暂停下载">
+                  <svg class="icon" aria-hidden="true"><use xlink:href="#pause"></use></svg>
+                </button>
+                <button class="textButton settingsPanel_downloadSummaryBtn" id="settingsPanelSummaryStop" type="button" data-xztitle="_停止下载">
+                  <svg class="icon" aria-hidden="true"><use xlink:href="#stop"></use></svg>
+                </button>
+              </div>
+            </div>
+          </aside>
+
+          <div class="settingsPanel_main beautify_scrollbar">
+            <slot data-name="form"></slot>
+          </div>
+        </div>
+      </div>
+    `;
+        document.body.insertAdjacentHTML('afterbegin', centerPanelHTML);
+        this.shell = document.querySelector('.centerWrap.settingsV2');
+        if (!this.shell) {
+            throw new Error('SettingsPanel shell not found');
+        }
+        if (_Config__WEBPACK_IMPORTED_MODULE_3__.Config.mobile) {
+            document.body.classList.add('mobile');
+            this.shell.classList.add('mobile');
+        }
+        _Theme__WEBPACK_IMPORTED_MODULE_10__.theme.register(this.shell);
+        _Language__WEBPACK_IMPORTED_MODULE_5__.lang.register(this.shell);
+        _BG__WEBPACK_IMPORTED_MODULE_1__.bg.useBG(this.shell);
+        new _BoldKeywords__WEBPACK_IMPORTED_MODULE_2__.BoldKeywords(this.shell);
+        this.allLangFlag = _Language__WEBPACK_IMPORTED_MODULE_5__.lang.langTypes.map((type) => 'lang_' + type);
+        this.setLangFlag();
+        this.bindEvents();
+        return this.shell;
+    }
+    static get() {
+        return this.init();
+    }
+    static createNavItem(page, textKey, lineIcon, fillIcon, hidden = false) {
+        return `
+    <button class="settingsPanel_navItem hasRippleAnimation" data-page="${page}" type="button" ${hidden ? 'hidden' : ''}>
+      <span class="settingsPanel_navIconWrap" aria-hidden="true">
+        <svg class="icon settingsPanel_navIcon settingsPanel_navIconLine">
+          <use xlink:href="#${lineIcon}"></use>
+        </svg>
+        <svg class="icon settingsPanel_navIcon settingsPanel_navIconFill">
+          <use xlink:href="#${fillIcon}"></use>
+        </svg>
+      </span>
+      <span class="settingsPanel_navText" data-xztext="${textKey}"></span>
+      <span class="ripple"></span>
+    </button>
+    `;
+    }
+    static setLangFlag() {
+        const shell = this.get();
+        this.allLangFlag.forEach((flag) => {
+            shell.classList.remove(flag);
+        });
+        shell.classList.add('lang_' + _Language__WEBPACK_IMPORTED_MODULE_5__.lang.type);
+    }
+    static bindEvents() {
+        const shell = this.get();
+        webextension_polyfill__WEBPACK_IMPORTED_MODULE_0___default().runtime.onMessage.addListener((msg) => {
+            if (msg.msg === 'click_icon') {
+                this.toggle();
+            }
+        });
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_4__.EVT.list.settingInitialized, () => {
+            _ShowOneTimeMsg__WEBPACK_IMPORTED_MODULE_7__.showOneTimeMsg.show('tipHowToUse', _Language__WEBPACK_IMPORTED_MODULE_5__.lang.transl('_HowToUse') + _Language__WEBPACK_IMPORTED_MODULE_5__.lang.transl('_账户可能被封禁的警告'));
+        });
+        window.addEventListener('keydown', (ev) => {
+            if (ev.altKey && ev.code === 'KeyX') {
+                this.toggle();
+            }
+        }, false);
+        shell.querySelectorAll('.centerWrap_close').forEach((button) => button.addEventListener('click', () => {
+            _EVT__WEBPACK_IMPORTED_MODULE_4__.EVT.fire('closeCenterPanel');
+            if (!_Config__WEBPACK_IMPORTED_MODULE_3__.Config.mobile) {
+                _ShowOneTimeMsg__WEBPACK_IMPORTED_MODULE_7__.showOneTimeMsg.show('tipAltXToShowControlPanel', _Language__WEBPACK_IMPORTED_MODULE_5__.lang.transl('_快捷键ALTX显示隐藏控制面板'));
+            }
+        }));
+        shell
+            .querySelector('#settingsPanelSponsor')
+            ?.addEventListener('click', () => _MsgBox__WEBPACK_IMPORTED_MODULE_6__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_5__.lang.transl('_赞助方式提示'), {
+            title: _Language__WEBPACK_IMPORTED_MODULE_5__.lang.transl('_赞助我'),
+        }));
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_4__.EVT.list.crawlStart, () => {
+            _EVT__WEBPACK_IMPORTED_MODULE_4__.EVT.fire('closeCenterPanel');
+        });
+        for (const ev of [_EVT__WEBPACK_IMPORTED_MODULE_4__.EVT.list.crawlComplete, _EVT__WEBPACK_IMPORTED_MODULE_4__.EVT.list.resume]) {
+            window.addEventListener(ev, () => {
+                if (!_store_States__WEBPACK_IMPORTED_MODULE_8__.states.quickCrawl && _store_Store__WEBPACK_IMPORTED_MODULE_9__.store.result.length > 0) {
+                    this.show();
+                }
+            });
+        }
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_4__.EVT.list.openCenterPanel, () => {
+            this.show();
+        });
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_4__.EVT.list.closeCenterPanel, () => {
+            this.close();
+        });
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_4__.EVT.list.langChange, () => {
+            this.setLangFlag();
+        });
+        shell.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+        document.addEventListener('click', () => {
+            if (getComputedStyle(shell).display !== 'none') {
+                _EVT__WEBPACK_IMPORTED_MODULE_4__.EVT.fire('closeCenterPanel');
+            }
+        });
+    }
+    static show() {
+        this.get().style.display = 'block';
+        _EVT__WEBPACK_IMPORTED_MODULE_4__.EVT.fire('centerPanelOpened');
+    }
+    static close() {
+        this.get().style.display = 'none';
+        _EVT__WEBPACK_IMPORTED_MODULE_4__.EVT.fire('centerPanelClosed');
+    }
+    static toggle() {
+        const shell = this.get();
+        const nowDisplay = shell.style.display;
+        nowDisplay === 'block' ? this.close() : this.show();
+        if (nowDisplay === 'block') {
+            _EVT__WEBPACK_IMPORTED_MODULE_4__.EVT.fire('closeCenterPanel');
+        }
+        else {
+            _EVT__WEBPACK_IMPORTED_MODULE_4__.EVT.fire('openCenterPanel');
+        }
     }
 }
 
