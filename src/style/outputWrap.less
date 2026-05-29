@@ -1,7 +1,5 @@
-@import './var.less';
-
 .outputWrap {
-  font-family: @pixivFontFamily;
+  font-family: var(--pixiv-font-family);
   box-sizing: border-box;
   padding: 20px 30px;
   width: 50vw;
@@ -9,7 +7,7 @@
   background: #fff;
   border-radius: 15px;
   z-index: 9999;
-  box-shadow: 0 0 15px @boxShadowBlue;
+  box-shadow: 0 0 15px var(--box-shadow-blue);
   display: none;
   position: fixed;
   top: 15%;
@@ -17,7 +15,7 @@
   transform: translateX(-50%);
 
   &::selection {
-    background: @themeBlue;
+    background: var(--theme-blue);
     color: #fff;
   }
 
@@ -26,7 +24,7 @@
     line-height: 20px;
     text-align: center;
     font-size: 18px;
-    color: @blueButtonsBg;
+    color: var(--blue-buttons-bg);
   }
 
   .outputContent {
@@ -50,7 +48,7 @@
     }
 
     .colorFolder {
-      color: @blueButtonsBg;
+      color: var(--blue-buttons-bg);
     }
 
     .color666 {
@@ -73,7 +71,7 @@
     color: #666;
 
     &:hover {
-      color: @blueButtonsBg;
+      color: var(--blue-buttons-bg);
     }
   }
 
@@ -91,7 +89,7 @@
     min-width: 100px;
     padding: 2px 25px;
     margin-top: 15px;
-    background: @blueButtonsBg;
+    background: var(--blue-buttons-bg);
     color: #fff;
     font-size: 15px;
     border: none;
@@ -103,7 +101,7 @@
 .theme-dark {
   &.outputWrap {
     background: #222;
-    box-shadow: @darkBoxShadow 0px 0px 15px;
+    box-shadow: var(--dark-box-shadow) 0px 0px 15px;
 
     .outputContent {
       color: #fff !important;
@@ -120,7 +118,7 @@
   width: 92vw;
   top: 15%;
   left: 50%;
-  font-family: @MobileFontFamily;
+  font-family: var(--mobile-font-family);
 
   .outputContent {
     border: 1px solid #ccc;

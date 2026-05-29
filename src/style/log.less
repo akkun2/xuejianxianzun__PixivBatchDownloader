@@ -1,7 +1,5 @@
-@import './var.less';
-
 .logWrap {
-  font-family: @pixivFontFamily;
+  font-family: var(--pixiv-font-family);
   position: relative;
   z-index: 0;
   width: 100%;
@@ -24,7 +22,7 @@
   padding: 10px 30px;
 
   .blue {
-    color: @beautifyBlue;
+    color: var(--beautify-blue);
   }
 
   span {
@@ -37,12 +35,12 @@
   }
 
   a {
-    color: @beautifyBlue;
+    color: var(--beautify-blue);
   }
 }
 
 .logBtn {
-  font-family: @pixivFontFamily;
+  font-family: var(--pixiv-font-family);
   position: fixed;
   top: 0px;
   left: 50%;
@@ -51,7 +49,7 @@
   opacity: 0;
   pointer-events: none;
   cursor: pointer;
-  background-color: @beautifyBlue;
+  background-color: var(--beautify-blue);
   color: white;
   padding: 8px 10px;
   border-bottom-left-radius: 10px;
@@ -102,6 +100,6 @@
 
 .logWrap.mobile {
   font-size: 16px;
-  font-family: @MobileFontFamily;
+  font-family: var(--mobile-font-family);
   padding: 10px 10px;
 }

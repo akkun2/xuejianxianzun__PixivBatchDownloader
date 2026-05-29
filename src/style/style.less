@@ -1,4 +1,28 @@
-@import './var.less';
+:root {
+  // 主题色，主要用于标题栏、导航栏、按钮的高亮颜色。它不会在内容区域里大量使用，以免造成视觉疲劳。
+  --theme-blue: #199df5;
+  // 蓝色按钮的背景颜色
+  --blue-buttons-bg: #0ea8ef;
+  // 比主题色浅一些的蓝色，主要用于蓝色文字
+  --beautify-blue: #1dacf5;
+  // 美化的复选框、单选框的蓝色
+  --bg-checkbox-blue: #1fb2fd;
+  // 下载进度条的蓝色
+  --bg-progress-blue: #0eb3f3;
+  --box-shadow-blue: #2ca6df;
+  --box-shadow: rgba(14, 168, 239, 0.4) 0px 2px 6px;
+  --dark-box-shadow: #10506e;
+  --pixiv-font-family:
+    'Noto Sans SC', 'Noto Sans', 'Segeo UI', 'Segeo UI Mono',
+    'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  --mobile-font-family: sans-serif;
+  // 表单里每个选项的行高都是 26 px。
+  // PS：有些内部元素（特别是按钮）的高度不到 26px，我会使用 margin 将其占据的高度增加到 26px，以使它们在视觉上垂直居中对齐。
+  --line-height: 26px;
+  --color-r18: rgb(246, 61, 91);
+  --color-ai: rgb(176 54 246);
+}
+
 @import './deleteWorks.less';
 @import './selectWork.less';
 @import './search.less';
@@ -18,10 +42,6 @@
 @import './input.less';
 @import './previewWorkDetailPanel.less';
 // @import './showLargerThumbnails.less';
-
-:root {
-  --box-shadow: rgba(14, 168, 239, 0.4) 0px 2px 6px;
-}
 
 // 储存通用规则和一些零散的元素的规则
 .warn {
@@ -81,13 +101,13 @@
 
   // 垂直滚动条的滑块部分
   // &::-webkit-scrollbar-thumb:vertical {
-  //   background-color: @beautifyBlue;
+  //   background-color: var(--beautify-blue);
   //   border-radius: 10px;
   // }
 
   // 水平滚动条的滑块部分
   // &::-webkit-scrollbar-thumb:horizontal {
-  //   background-color: @beautifyBlue;
+  //   background-color: var(--beautify-blue);
   //   border-radius: 10px;
   // }
 }
@@ -136,7 +156,7 @@ main section nav[style] {
 
   &:hover,
   &:active {
-    color: @beautifyBlue;
+    color: var(--beautify-blue);
   }
 
   svg {
@@ -155,7 +175,7 @@ body.mobile {
 
     &:hover,
     &:active {
-      color: @beautifyBlue;
+      color: var(--beautify-blue);
     }
 
     svg {
@@ -180,7 +200,7 @@ html[data-xzpagetheme='dark'] #quickBookmarkEl {
 #tip {
   color: #fff;
   font-size: 15px;
-  font-family: @pixivFontFamily;
+  font-family: var(--pixiv-font-family);
   position: fixed;
   z-index: 5001;
   max-width: 500px;
@@ -228,7 +248,7 @@ html[data-xzpagetheme='dark'] #quickBookmarkEl {
   display: inline-block;
   max-width: 500px;
   color: #fff;
-  background-color: @beautifyBlue;
+  background-color: var(--beautify-blue);
   box-shadow: var(--box-shadow);
   padding: 9px 13px;
   border-radius: 6px;
@@ -238,7 +258,7 @@ html[data-xzpagetheme='dark'] #quickBookmarkEl {
   font-size: 16px;
   padding: 10px 15px;
   border-radius: 6px;
-  font-family: @MobileFontFamily;
+  font-family: var(--mobile-font-family);
 }
 
 #previewWorkWrap {
@@ -251,7 +271,7 @@ html[data-xzpagetheme='dark'] #quickBookmarkEl {
   top: 500px;
   padding: 0;
   overflow: hidden;
-  border: 2px solid @beautifyBlue;
+  border: 2px solid var(--beautify-blue);
   background-color: rgba(41, 179, 243, 0.1);
   box-shadow: var(--box-shadow);
 
@@ -262,7 +282,7 @@ html[data-xzpagetheme='dark'] #quickBookmarkEl {
 }
 
 #previewWorkTip {
-  background-color: @beautifyBlue;
+  background-color: var(--beautify-blue);
   color: #fff;
   height: 23px;
   line-height: 20px;
@@ -272,7 +292,7 @@ html[data-xzpagetheme='dark'] #quickBookmarkEl {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-family: @pixivFontFamily;
+  font-family: var(--pixiv-font-family);
 
   span {
     display: inline-flex;
@@ -306,11 +326,11 @@ html[data-xzpagetheme='dark'] #quickBookmarkEl {
     }
 
     &.r18 {
-      background: @colorR18;
+      background: var(--color-r18);
     }
 
     &.ai {
-      background: @colorAi;
+      background: var(--color-ai);
     }
 
     &.index {
@@ -337,7 +357,7 @@ html[data-xzpagetheme='dark'] #quickBookmarkEl {
   overflow: hidden;
   width: 1200px;
   height: 1200px;
-  border: 2px solid @beautifyBlue;
+  border: 2px solid var(--beautify-blue);
   background-color: rgba(41, 179, 243, 0.2);
   box-shadow: var(--box-shadow);
 
@@ -359,7 +379,7 @@ html[data-xzpagetheme='dark'] #quickBookmarkEl {
   border: none;
   padding: 0;
   text-align: center;
-  background-color: @beautifyBlue;
+  background-color: var(--beautify-blue);
   border-radius: 4px;
   color: #fff;
   display: none;

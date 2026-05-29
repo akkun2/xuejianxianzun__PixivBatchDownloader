@@ -1,5 +1,3 @@
-@import './var.less';
-
 .centerWrap {
   --settings-panel-bg: #fff;
   --settings-panel-text: #444;
@@ -8,9 +6,9 @@
   --settings-panel-con-bg: #eee;
   --settings-panel-head-bg: #fff;
   --settings-panel-head-border: #edf3f8;
-  --settings-panel-brand-color: @themeBlue;
+  --settings-panel-brand-color: var(--theme-blue);
   --settings-panel-top-btn-color: #888;
-  --settings-panel-top-btn-hover-color: @themeBlue;
+  --settings-panel-top-btn-hover-color: var(--theme-blue);
   --settings-panel-top-btn-hover-bg: #eef7ff;
   --settings-panel-top-btn-close-hover-color: #f33939;
   --settings-panel-top-btn-close-hover-bg: #fcdddd;
@@ -18,38 +16,38 @@
   --settings-panel-sponsor-hover-bg: #fff0f7;
   --settings-panel-search-bg: #fff;
   --settings-panel-search-border: #999;
-  --settings-panel-search-border-focus: @themeBlue;
+  --settings-panel-search-border-focus: var(--theme-blue);
   --settings-panel-search-text: #444;
   --settings-panel-search-placeholder: #aaa;
   --settings-panel-search-icon: #aaa;
   --settings-panel-clear-color: #999;
   --settings-panel-clear-visible-color: #666;
-  --settings-panel-clear-hover-color: @themeBlue;
+  --settings-panel-clear-hover-color: var(--theme-blue);
   --settings-panel-clear-hover-bg: #eef7ff;
   --settings-panel-sidebar-bg: #f5f5f5;
   --settings-panel-nav-text: #111;
   --settings-panel-nav-hover-bg: #d7e5f2;
-  --settings-panel-nav-active-bg: @themeBlue;
+  --settings-panel-nav-active-bg: var(--theme-blue);
   --settings-panel-nav-active-text: #fff;
   --settings-panel-download-summary-border: #ccc;
   --settings-panel-download-summary-status: #666;
   --settings-panel-download-summary-btn-color: #666;
-  --settings-panel-download-summary-btn-hover-color: @themeBlue;
+  --settings-panel-download-summary-btn-hover-color: var(--theme-blue);
   --settings-panel-download-summary-btn-hover-bg: transparent;
   --settings-panel-surface-bg: #fff;
   --settings-panel-surface-shadow: 0 0 15px #ddd;
   --settings-panel-surface-text: #444;
   --settings-panel-surface-border: #ececec;
   --settings-panel-section-title-text: #222;
-  --settings-panel-section-hover-color: @themeBlue;
+  --settings-panel-section-hover-color: var(--theme-blue);
   --settings-panel-section-icon-bg: #eef7fd;
-  --settings-panel-section-icon-color: @themeBlue;
+  --settings-panel-section-icon-color: var(--theme-blue);
   --settings-panel-section-arrow-color: #555;
   --settings-panel-option-card-shadow: 0 0 10px #ddd;
   --settings-panel-option-card-pinned-border: #bde2ff;
   --settings-panel-new-badge-color: #3ab8f2;
   --settings-panel-tip-icon-color: #666;
-  --settings-panel-tip-confirm-color: @themeBlue;
+  --settings-panel-tip-confirm-color: var(--theme-blue);
   --settings-panel-tip-confirm-hover-bg: #e5f2ff;
   --settings-panel-help-action-bg: #fff;
   --settings-panel-help-action-text: #444;
@@ -80,10 +78,10 @@
   font-size: 15px;
   color: var(--settings-panel-text);
   overflow: hidden;
-  font-family: @pixivFontFamily;
+  font-family: var(--pixiv-font-family);
 
   ::selection {
-    background: @themeBlue;
+    background: var(--theme-blue);
     color: #fff;
   }
 
@@ -128,8 +126,8 @@
   }
 
   p {
-    line-height: @lineHeight;
-    min-height: @lineHeight;
+    line-height: var(--line-height);
+    min-height: var(--line-height);
     height: auto;
     margin: 0;
     max-width: 100%;
@@ -141,12 +139,12 @@
   }
 
   .blue {
-    color: @beautifyBlue !important;
+    color: var(--beautify-blue) !important;
   }
 
   .has_tip:hover,
   label:hover {
-    color: @beautifyBlue !important;
+    color: var(--beautify-blue) !important;
   }
 
   .fwb {
@@ -176,7 +174,7 @@
     margin: 0 4px;
 
     &:hover {
-      background: @beautifyBlue;
+      background: var(--beautify-blue);
       color: #fff !important;
     }
   }
@@ -402,7 +400,7 @@
     }
 
     .showFileNameTip {
-      height: @lineHeight;
+      height: var(--line-height);
     }
 
     .centerWrap_top_btn:hover,
@@ -413,13 +411,13 @@
     .textButton:focus,
     .help_bar > *:hover,
     .updateActiveClass {
-      color: @beautifyBlue !important;
-      fill: @beautifyBlue !important;
+      color: var(--beautify-blue) !important;
+      fill: var(--beautify-blue) !important;
     }
 
     .grayButton:hover,
     .grayButton:focus {
-      background: @beautifyBlue;
+      background: var(--beautify-blue);
       color: #fff !important;
     }
 
@@ -468,7 +466,7 @@
 
         // 给内部元素设置统一的行高。否则的话，span 元素没有行高的话，其高度就是字体尺寸（14px），对齐到顶部后太靠上了，与其他元素的中轴线没有对齐
         & > * {
-          line-height: @lineHeight;
+          line-height: var(--line-height);
           flex-shrink: 0;
         }
 
@@ -486,7 +484,7 @@
           }
         }
 
-        // 对于美化的复选框，其原本高度是 14px，使用 margin 将其占据的高度撑到 @lineHeight
+        // 对于美化的复选框，其原本高度是 14px，使用 margin 将其占据的高度撑到 var(--line-height)
         .beautify_switch,
         .beautify_checkbox {
           margin: 6px 0;
@@ -498,8 +496,8 @@
 
         .subOptionWrap {
           max-width: 100%;
-          min-height: @lineHeight;
-          line-height: @lineHeight;
+          min-height: var(--line-height);
+          line-height: var(--line-height);
           display: inline-flex;
           flex-wrap: wrap;
           align-items: flex-start;
@@ -507,7 +505,7 @@
           column-gap: 4px;
 
           & > * {
-            line-height: @lineHeight;
+            line-height: var(--line-height);
           }
 
           &.noGrow {
@@ -532,9 +530,9 @@
 
           span {
             display: inline-block;
-            height: @lineHeight;
+            height: var(--line-height);
             padding: 0px 20px;
-            line-height: @lineHeight !important;
+            line-height: var(--line-height) !important;
             font-size: 1.1em;
             color: #666;
             font-weight: bold;
@@ -674,18 +672,18 @@
 
       p button,
       .controlBar span {
-        line-height: @lineHeight;
+        line-height: var(--line-height);
       }
 
       .centerPanelTextArea {
-        font-family: @pixivFontFamily;
-        color: @beautifyBlue;
+        font-family: var(--pixiv-font-family);
+        color: var(--beautify-blue);
         font-size: 15px;
         background: transparent;
         padding: 0;
         flex-basis: 100%;
         flex-grow: 1;
-        min-height: @lineHeight;
+        min-height: var(--line-height);
         line-height: 1.7;
         // 在排行榜页面，Pixiv 设置了 textarea 的高度为 20 px，
         // 需要解除限制，否则下载器的输入区域无法撑开高度
@@ -745,7 +743,7 @@
 
       label.active {
         // 之前把被选中的控件的 label 文字也变成蓝色，但是太多的蓝色文字导致很难区分设置项的名称与 label 文字了（因为两者都是蓝色的），所以现在取消这个设计了
-        // color: @beautifyBlue;
+        // color: var(--beautify-blue);
       }
 
       .beautify_switch {
@@ -772,7 +770,7 @@
       }
 
       .checkbox_switch:checked + .beautify_switch {
-        background: @bgCheckBoxBlue;
+        background: var(--bg-checkbox-blue);
       }
 
       .checkbox_switch:checked + .beautify_switch::before {
@@ -812,12 +810,12 @@
       }
 
       .checkbox_common:checked + .beautify_checkbox {
-        background: @bgCheckBoxBlue;
-        border: 1px solid @bgCheckBoxBlue;
+        background: var(--bg-checkbox-blue);
+        border: 1px solid var(--bg-checkbox-blue);
       }
 
       .beautify_checkbox:hover {
-        border: 1px solid @bgCheckBoxBlue;
+        border: 1px solid var(--bg-checkbox-blue);
       }
 
       .checkbox_common:checked + .beautify_checkbox::after {
@@ -825,7 +823,7 @@
       }
 
       .checkbox_common:focus + .beautify_checkbox {
-        border: 1px solid @bgCheckBoxBlue;
+        border: 1px solid var(--bg-checkbox-blue);
       }
 
       /*--------美化单选框------------*/
@@ -855,12 +853,12 @@
       }
 
       .radio:checked + .beautify_radio {
-        background: @bgCheckBoxBlue;
-        border: 1px solid @bgCheckBoxBlue;
+        background: var(--bg-checkbox-blue);
+        border: 1px solid var(--bg-checkbox-blue);
       }
 
       .beautify_radio:hover {
-        border: 1px solid @bgCheckBoxBlue;
+        border: 1px solid var(--bg-checkbox-blue);
       }
 
       .radio:checked + .beautify_radio::after {
@@ -933,7 +931,7 @@
         gap: 14px;
 
         & button {
-          background-color: @blueButtonsBg;
+          background-color: var(--blue-buttons-bg);
           box-sizing: border-box;
           border: none;
           width: 100%;
@@ -992,7 +990,7 @@
         }
 
         .progress {
-          background: @bgProgressBlue;
+          background: var(--bg-progress-blue);
           transition: 0.15s;
         }
 
@@ -1072,7 +1070,7 @@
         display: none;
 
         .download_status_text_wrap {
-          line-height: @lineHeight;
+          line-height: var(--line-height);
           margin-top: 10px;
 
           & > * {
@@ -1080,7 +1078,7 @@
           }
 
           .down_status {
-            color: @themeBlue;
+            color: var(--theme-blue);
             display: inline-block;
           }
         }
@@ -1108,7 +1106,7 @@
 
         button {
           color: #333;
-          height: @lineHeight;
+          height: var(--line-height);
         }
       }
 
@@ -1120,10 +1118,10 @@
         background: #fff;
         border-radius: 8px;
         overflow: hidden;
-        box-shadow: @boxShadowBlue 0px 0px 10px;
+        box-shadow: var(--box-shadow-blue) 0px 0px 10px;
         display: none;
 
-        @liHeight: 30px;
+        --li-height: 30px;
 
         li {
           padding: 2px 0 2px 0;
@@ -1137,8 +1135,8 @@
           min-width: 500px;
 
           & > * {
-            min-height: @liHeight;
-            line-height: @liHeight;
+            min-height: var(--li-height);
+            line-height: var(--li-height);
           }
         }
 
@@ -1148,7 +1146,7 @@
 
         .rule {
           flex: 1;
-          line-height: @liHeight !important;
+          line-height: var(--li-height) !important;
           padding-left: 20px;
         }
 
@@ -1749,7 +1747,7 @@
       width: auto !important;
     }
 
-    // 背景图片的不透明度滑动条，调整其占据的高度为 @lineHeight
+    // 背景图片的不透明度滑动条，调整其占据的高度为 var(--line-height)
     input[name='bgOpacity'] {
       margin: 5px 0;
     }
@@ -1769,7 +1767,7 @@
   max-height: calc(80vh);
   transform: translateX(-50%);
   font-size: 16px;
-  font-family: @MobileFontFamily;
+  font-family: var(--mobile-font-family);
   overflow: auto;
 
   .centerWrap_head {
@@ -1846,7 +1844,7 @@
   .title.active,
   .title:hover,
   .down_status {
-    color: @beautifyBlue !important;
+    color: var(--beautify-blue) !important;
   }
 
   .showFileNameTip:hover,
@@ -1855,14 +1853,14 @@
   .textButton:focus,
   .help_bar > *:hover,
   .updateActiveClass {
-    color: @beautifyBlue !important;
-    fill: @beautifyBlue !important;
+    color: var(--beautify-blue) !important;
+    fill: var(--beautify-blue) !important;
   }
 
   .centerWrap_top_btn:hover,
   .centerWrap_top_btn:focus {
-    color: @beautifyBlue !important;
-    fill: @beautifyBlue !important;
+    color: var(--beautify-blue) !important;
+    fill: var(--beautify-blue) !important;
     background: rgba(25, 157, 245, 0.24);
   }
 
@@ -1872,7 +1870,7 @@
 
   .grayButton:hover,
   .grayButton:focus {
-    background: @beautifyBlue;
+    background: var(--beautify-blue);
     color: #fff !important;
   }
 
@@ -1885,7 +1883,7 @@
 
     .namingRuleList {
       background: #222;
-      box-shadow: @darkBoxShadow 0px 0px 10px;
+      box-shadow: var(--dark-box-shadow) 0px 0px 10px;
 
       li {
         color: #fff;
@@ -1904,7 +1902,7 @@
   }
   .settingCategoryName {
     span {
-      color: @beautifyBlue !important;
+      color: var(--beautify-blue) !important;
       text-shadow: none !important;
     }
   }
@@ -1915,7 +1913,7 @@
   // text-shadow: 0px 0px 5px #015d88;
   text-shadow: #003247 0px 0px 2px;
 
-  box-shadow: @darkBoxShadow 0px 0px 15px;
+  box-shadow: var(--dark-box-shadow) 0px 0px 15px;
   background: rgba(10, 18, 28, 0.42);
   color: #fff;
 
@@ -1948,7 +1946,7 @@
   .down_status,
   .centerPanelTextArea,
   .download_status_text_wrap span {
-    // color: @beautifyBlue !important;
+    // color: var(--beautify-blue) !important;
     color: #fff !important;
   }
 
@@ -1974,7 +1972,7 @@
 
   .grayButton:hover,
   .grayButton:focus {
-    background: @beautifyBlue;
+    background: var(--beautify-blue);
     color: #fff !important;
   }
 
@@ -2010,11 +2008,9 @@
     }
   }
 
-
-
   .settingCategoryName {
     span {
-      color: @beautifyBlue !important;
+      color: var(--beautify-blue) !important;
       text-shadow: none !important;
       // 如果用户设置了背景图片，则使分类名称的背景色变为半透明白色，并添加模糊效果，使其更加美观
       // 如果不使用半透明白色，而是使用纯白色，则会遮挡住背景图片，影响美观
@@ -2034,7 +2030,7 @@
   .optionName {
     // 把关键字高亮并加粗显示
     .key {
-      color: @beautifyBlue;
+      color: var(--beautify-blue);
       font-weight: bold;
     }
   }
@@ -2099,7 +2095,7 @@
   }
 
   * {
-    font-family: @pixivFontFamily;
+    font-family: var(--pixiv-font-family);
   }
 }
 

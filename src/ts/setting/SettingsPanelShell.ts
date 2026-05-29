@@ -124,9 +124,7 @@ class SettingsPanelShell {
     `
 
     document.body.insertAdjacentHTML('afterbegin', centerPanelHTML)
-    this.shell = document.querySelector(
-      '.centerWrap'
-    ) as HTMLDivElement
+    this.shell = document.querySelector('.centerWrap') as HTMLDivElement
     if (!this.shell) {
       throw new Error('SettingsPanel shell not found')
     }
