@@ -1,6 +1,66 @@
 @import './var.less';
 
 .centerWrap {
+  --settings-panel-bg: #fff;
+  --settings-panel-text: #444;
+  --settings-panel-border: #9dd4f9;
+  --settings-panel-shadow: 0 0 25px #b4e0f5;
+  --settings-panel-con-bg: #eee;
+  --settings-panel-head-bg: #fff;
+  --settings-panel-head-border: #edf3f8;
+  --settings-panel-brand-color: @themeBlue;
+  --settings-panel-top-btn-color: #888;
+  --settings-panel-top-btn-hover-color: @themeBlue;
+  --settings-panel-top-btn-hover-bg: #eef7ff;
+  --settings-panel-top-btn-close-hover-color: #f33939;
+  --settings-panel-top-btn-close-hover-bg: #fcdddd;
+  --settings-panel-sponsor-hover-color: #e448a3;
+  --settings-panel-sponsor-hover-bg: #fff0f7;
+  --settings-panel-search-bg: #fff;
+  --settings-panel-search-border: #999;
+  --settings-panel-search-border-focus: @themeBlue;
+  --settings-panel-search-text: #444;
+  --settings-panel-search-placeholder: #aaa;
+  --settings-panel-search-icon: #aaa;
+  --settings-panel-clear-color: #999;
+  --settings-panel-clear-visible-color: #666;
+  --settings-panel-clear-hover-color: @themeBlue;
+  --settings-panel-clear-hover-bg: #eef7ff;
+  --settings-panel-sidebar-bg: #f5f5f5;
+  --settings-panel-nav-text: #111;
+  --settings-panel-nav-hover-bg: #d7e5f2;
+  --settings-panel-nav-active-bg: @themeBlue;
+  --settings-panel-nav-active-text: #fff;
+  --settings-panel-download-summary-border: #ccc;
+  --settings-panel-download-summary-status: #666;
+  --settings-panel-download-summary-btn-color: #666;
+  --settings-panel-download-summary-btn-hover-color: @themeBlue;
+  --settings-panel-download-summary-btn-hover-bg: transparent;
+  --settings-panel-surface-bg: #fff;
+  --settings-panel-surface-shadow: 0 0 15px #ddd;
+  --settings-panel-surface-text: #444;
+  --settings-panel-surface-border: #ececec;
+  --settings-panel-section-title-text: #222;
+  --settings-panel-section-hover-color: @themeBlue;
+  --settings-panel-section-icon-bg: #eef7fd;
+  --settings-panel-section-icon-color: @themeBlue;
+  --settings-panel-section-arrow-color: #555;
+  --settings-panel-option-card-shadow: 0 0 10px #ddd;
+  --settings-panel-option-card-pinned-border: #bde2ff;
+  --settings-panel-new-badge-color: #3ab8f2;
+  --settings-panel-tip-icon-color: #666;
+  --settings-panel-tip-confirm-color: @themeBlue;
+  --settings-panel-tip-confirm-hover-bg: #e5f2ff;
+  --settings-panel-help-action-bg: #fff;
+  --settings-panel-help-action-text: #444;
+  --settings-panel-help-action-icon: #666;
+  --settings-panel-help-action-shadow: 0 0 15px #ddd;
+  --settings-panel-help-action-hover-bg: #09a0f4;
+  --settings-panel-help-action-hover-text: #fff;
+  --settings-panel-help-action-update-dot: #ff4060;
+  --settings-panel-search-summary: #444;
+  --settings-panel-search-mark-bg: #ffe74b;
+
   box-sizing: border-box;
   width: 925px;
   max-width: calc(100vw - 24px);
@@ -12,13 +72,13 @@
   transform: translateX(-54%);
   padding: 0;
   border-radius: 16px;
-  border: 1px solid #9dd4f9;
-  box-shadow: 0 0 25px #b4e0f5;
-  background: #fff;
+  border: 1px solid var(--settings-panel-border);
+  box-shadow: var(--settings-panel-shadow);
+  background: var(--settings-panel-bg);
   position: fixed;
   z-index: 5000;
   font-size: 15px;
-  color: #444;
+  color: var(--settings-panel-text);
   overflow: hidden;
   font-family: @pixivFontFamily;
 
@@ -123,12 +183,12 @@
 
   .centerWrap_head {
     padding: 10px 10px 10px 20px;
-    background: #fff;
+    background: var(--settings-panel-head-bg);
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 0px;
-    border-bottom: 1px solid #edf3f8;
+    border-bottom: 1px solid var(--settings-panel-head-border);
 
     img {
       width: 16px;
@@ -187,7 +247,7 @@
   .settingsPanel_brand {
     gap: 6px;
     min-width: 0;
-    color: @themeBlue;
+    color: var(--settings-panel-brand-color);
   }
 
   .settingsPanel_logo {
@@ -211,21 +271,21 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: #888;
+    color: var(--settings-panel-top-btn-color);
     transition:
       color 0.2s,
       background-color 0.2s;
 
     &:hover {
-      color: @themeBlue;
-      background: #eef7ff;
+      color: var(--settings-panel-top-btn-hover-color);
+      background: var(--settings-panel-top-btn-hover-bg);
     }
 
     // 关闭按钮的特殊样式，使用红色背景以表示危险操作
     &.centerWrap_close_pc:hover,
     &.centerWrap_close_pc:active {
-      color: #f33939;
-      background: #fcdddd;
+      color: var(--settings-panel-top-btn-close-hover-color);
+      background: var(--settings-panel-top-btn-close-hover-bg);
     }
 
     .icon {
@@ -234,8 +294,8 @@
   }
 
   .settingsPanel_sponsorBtn:hover {
-    color: #e448a3;
-    background: #fff0f7;
+    color: var(--settings-panel-sponsor-hover-color);
+    background: var(--settings-panel-sponsor-hover-bg);
   }
 
   .centerWrap_close_mobile {
@@ -246,17 +306,17 @@
     width: 210px;
     max-width: 80vw;
     height: 32px;
-    border: 1px solid #999;
+    border: 1px solid var(--settings-panel-search-border);
     border-radius: 20px;
     padding: 0 8px;
     display: flex;
     align-items: center;
     gap: 6px;
-    background: #fff;
+    background: var(--settings-panel-search-bg);
     transition: border-color 0.2s;
 
     &:focus-within {
-      border-color: @themeBlue;
+      border-color: var(--settings-panel-search-border-focus);
     }
 
     input {
@@ -265,18 +325,18 @@
       border: none;
       height: 100%;
       background: transparent;
-      color: #444;
+      color: var(--settings-panel-search-text);
       font-size: 15px;
       outline: none;
     }
 
     input::placeholder {
-      color: #aaa;
+      color: var(--settings-panel-search-placeholder);
     }
   }
 
   .settingsPanel_searchIcon {
-    color: #aaa;
+    color: var(--settings-panel-search-icon);
     font-size: 20px;
     flex: none;
   }
@@ -286,19 +346,19 @@
     height: 24px;
     padding: 4px;
     border-radius: 50%;
-    color: #999;
+    color: var(--settings-panel-clear-color);
     display: none;
     align-items: center;
     justify-content: center;
 
     &.visible {
       display: inline-flex;
-      color: #666;
+      color: var(--settings-panel-clear-visible-color);
     }
 
     &:hover {
-      color: @themeBlue;
-      background: #eef7ff;
+      color: var(--settings-panel-clear-hover-color);
+      background: var(--settings-panel-clear-hover-bg);
     }
   }
 
@@ -331,7 +391,7 @@
     display: flex;
     align-items: stretch;
     width: 100%;
-    background: #eee;
+    background: var(--settings-panel-con-bg);
     overflow: auto;
     max-height: 76vh;
     min-height: 600px;
@@ -1121,7 +1181,7 @@
       width: 190px;
       flex: none;
       padding: 15px 10px;
-      background: #f5f5f5;
+      background: var(--settings-panel-sidebar-bg);
       overflow-y: auto;
       position: relative;
       display: flex;
@@ -1142,7 +1202,7 @@
       border: none;
       border-radius: 6px;
       background: transparent;
-      color: #111;
+      color: var(--settings-panel-nav-text);
       display: flex;
       align-items: center;
       gap: 0px;
@@ -1154,18 +1214,18 @@
       }
 
       &:hover {
-        background: #d7e5f2;
+        background: var(--settings-panel-nav-hover-bg);
       }
 
       &.active {
-        background: @themeBlue;
-        color: #fff;
+        background: var(--settings-panel-nav-active-bg);
+        color: var(--settings-panel-nav-active-text);
         font-weight: 700;
       }
 
       &.active:hover,
       &.active:focus {
-        background: @themeBlue;
+        background: var(--settings-panel-nav-active-bg);
       }
 
       &.active:hover::before,
@@ -1222,7 +1282,7 @@
       display: none;
       margin-top: auto;
       padding: 14px 0 0px 2px;
-      border-top: 1px solid #ccc;
+      border-top: 1px solid var(--settings-panel-download-summary-border);
     }
 
     .settingsPanel_downloadSummaryStatus,
@@ -1234,7 +1294,7 @@
 
     .settingsPanel_downloadSummaryStatus {
       gap: 10px;
-      color: #666;
+      color: var(--settings-panel-download-summary-status);
       margin-bottom: 12px;
 
       .settingsPanel_downloadSummaryStateIcon {
@@ -1261,7 +1321,7 @@
       padding: 0;
       border-radius: 50%;
       font-size: 24px;
-      color: #666;
+      color: var(--settings-panel-download-summary-btn-color);
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -1270,7 +1330,8 @@
         background-color 0.2s;
 
       &:hover {
-        color: @themeBlue;
+        color: var(--settings-panel-download-summary-btn-hover-color);
+        background: var(--settings-panel-download-summary-btn-hover-bg);
       }
     }
 
@@ -1322,10 +1383,10 @@
       padding: 8px 15px;
       border: none;
       border-radius: 8px;
-      background: #fff;
+      background: var(--settings-panel-surface-bg);
       // 黏性定位的标题不一定是当前鼠标所在区域的标题，可能是更上方的区域的标题，所以不把它高亮显示。
-      color: #444;
-      box-shadow: 0 0 15px #ddd;
+      color: var(--settings-panel-surface-text);
+      box-shadow: var(--settings-panel-surface-shadow);
       position: sticky;
       top: 0;
       z-index: 4;
@@ -1345,32 +1406,32 @@
       padding: 8px 15px;
       border: none;
       border-radius: 8px;
-      background: #fff;
-      color: #222;
+      background: var(--settings-panel-surface-bg);
+      color: var(--settings-panel-section-title-text);
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
       cursor: pointer;
-      box-shadow: 0 0 15px #ddd;
+      box-shadow: var(--settings-panel-surface-shadow);
       text-align: left;
 
       // 鼠标经过时，让右侧的箭头图标变色
       &:hover svg {
-        color: @themeBlue;
+        color: var(--settings-panel-section-hover-color);
       }
     }
 
     .settingsPanel_panelSection {
       border-radius: 8px;
-      background: #fff;
-      box-shadow: 0 0 15px #ddd;
+      background: var(--settings-panel-surface-bg);
+      box-shadow: var(--settings-panel-surface-shadow);
       overflow: hidden;
 
       .settingsPanel_sectionHeader {
         margin-top: 0;
         box-shadow: none;
-        border-bottom: 1px solid #ececec;
+        border-bottom: 1px solid var(--settings-panel-surface-border);
         border-radius: 0;
       }
     }
@@ -1386,8 +1447,8 @@
       width: 32px;
       height: 32px;
       border-radius: 6px;
-      background: #eef7fd;
-      color: @themeBlue;
+      background: var(--settings-panel-section-icon-bg);
+      color: var(--settings-panel-section-icon-color);
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -1413,7 +1474,7 @@
 
     .settingsPanel_sectionArrow {
       font-size: 18px;
-      color: #555;
+      color: var(--settings-panel-section-arrow-color);
       transition: transform 0.2s;
       flex: none;
     }
@@ -1429,7 +1490,7 @@
     .settingsPanel_sectionHeader:hover {
       .settingsPanel_sectionTitle,
       .settingsPanel_sectionArrow {
-        color: @themeBlue;
+        color: var(--settings-panel-section-hover-color);
       }
     }
 
@@ -1493,13 +1554,13 @@
       width: calc(100% - 20px);
       margin: 10px auto 0;
       padding: 8px 15px;
-      background: #fff;
+      background: var(--settings-panel-surface-bg);
       border-radius: 12px;
-      box-shadow: 0 0 10px #ddd;
+      box-shadow: var(--settings-panel-option-card-shadow);
       line-height: 26px;
 
       &.pinned {
-        border: 2px solid #bde2ff;
+        border: 2px solid var(--settings-panel-option-card-pinned-border);
       }
 
       &.new {
@@ -1517,7 +1578,7 @@
           right: -5px;
           pointer-events: none;
           line-height: 0;
-          color: #3ab8f2;
+          color: var(--settings-panel-new-badge-color);
         }
 
         .settingsPanel_newBadgeIcon.icon {
@@ -1547,8 +1608,8 @@
       margin-top: 15px;
       padding: 12px 15px;
       border-radius: 12px;
-      background: #fff;
-      box-shadow: 0 0 15px #ddd;
+      background: var(--settings-panel-surface-bg);
+      box-shadow: var(--settings-panel-surface-shadow);
       display: flex;
       align-items: center;
       gap: 10px;
@@ -1556,7 +1617,7 @@
 
     .settingsPanel_tipIcon {
       font-size: 20px;
-      color: #666;
+      color: var(--settings-panel-tip-icon-color);
       flex: none;
     }
 
@@ -1575,14 +1636,14 @@
       border: none;
       border-radius: 4px;
       background: transparent;
-      color: @themeBlue;
+      color: var(--settings-panel-tip-confirm-color);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       vertical-align: middle;
 
       &:hover {
-        background: #e5f2ff;
+        background: var(--settings-panel-tip-confirm-hover-bg);
       }
     }
 
@@ -1600,23 +1661,23 @@
       padding: 12px 14px;
       border: none;
       border-radius: 12px;
-      background: #fff;
-      box-shadow: 0 0 15px #ddd;
+      background: var(--settings-panel-help-action-bg);
+      box-shadow: var(--settings-panel-help-action-shadow);
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
-      color: #444;
+      color: var(--settings-panel-help-action-text);
       cursor: pointer;
       position: relative;
 
       &:hover {
-        background: #09a0f4;
-        color: #fff;
+        background: var(--settings-panel-help-action-hover-bg);
+        color: var(--settings-panel-help-action-hover-text);
       }
 
       &:hover .settingsPanel_helpActionIcon {
-        color: #fff;
+        color: var(--settings-panel-help-action-hover-text);
       }
 
       &:hover::before,
@@ -1638,7 +1699,7 @@
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        background: #ff4060;
+        background: var(--settings-panel-help-action-update-dot);
         position: absolute;
         top: 10px;
         right: 10px;
@@ -1650,18 +1711,18 @@
       flex: none;
       position: relative;
       top: 1px;
-      color: #666;
+      color: var(--settings-panel-help-action-icon);
     }
 
     .settingsPanel_searchSummary {
       margin: 15px 0 0 5px;
-      color: #444;
+      color: var(--settings-panel-search-summary);
       line-height: 26px;
     }
 
     // 匹配到搜索词时的高亮效果
     .settingsPanel_searchMark {
-      background: #ffe74b;
+      background: var(--settings-panel-search-mark-bg);
       color: inherit;
       padding: 0 2px;
     }
@@ -1701,13 +1762,6 @@
   }
 }
 
-.centerWrap.theme-white {
-  .option > .settingNameStyle,
-  .optionName {
-    color: #333;
-  }
-}
-
 .centerWrap.mobile {
   width: calc(100vw - 32px);
   left: 50%;
@@ -1719,25 +1773,6 @@
   overflow: auto;
 
   .centerWrap_head {
-    padding: 12px;
-    flex-direction: column;
-    align-items: stretch;
-
-    .settingsPanel_headerMain,
-    .settingsPanel_headerActions {
-      min-height: 32px;
-      justify-content: space-between;
-    }
-
-    .settingsPanel_headerActions {
-      gap: 10px;
-    }
-
-    .settingsPanel_headerSearch {
-      flex: 1;
-      min-width: 0;
-    }
-
     .centerWrap_title {
       line-height: 40px;
       font-size: 18px;
@@ -1760,8 +1795,6 @@
 
   .centerWrap_con {
     padding: 0 5vw;
-    flex-direction: column;
-    max-height: calc(100vh - 120px);
   }
 
   p {
@@ -1780,75 +1813,6 @@
     font-size: 16px;
     line-height: 24px;
     padding: 12px 16px;
-  }
-
-  .settingsPanel_searchBar {
-    width: 100%;
-    max-width: none;
-  }
-
-  .settingsPanel_headerMinor,
-  .centerWrap_close_pc {
-    display: none;
-  }
-
-  .centerWrap_close_mobile {
-    display: inline-flex;
-  }
-
-  .settingsPanel_sidebar {
-    width: 100%;
-    padding: 12px;
-    overflow: visible;
-  }
-
-  .settingsPanel_nav {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .settingsPanel_navItem {
-    min-width: 25%;
-    flex: 1 1 25%;
-    min-height: 42px;
-    padding: 8px 12px;
-    justify-content: center;
-  }
-
-  .settingsPanel_navText {
-    font-size: 16px;
-  }
-
-  &.lang_zh-cn .settingsPanel_navText,
-  &.lang_zh-tw .settingsPanel_navText {
-    letter-spacing: 2px;
-    text-indent: 2px;
-  }
-
-  .settingsPanel_downloadSummary {
-    margin-top: 12px;
-    padding: 12px 15px;
-    border-top: none;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 0 15px #ddd;
-  }
-
-  .settingsPanel_downloadSummaryStatus,
-  .settingsPanel_downloadSummaryActions {
-    gap: 16px;
-  }
-
-  .settingsPanel_downloadSummaryStatus {
-    margin-bottom: 10px;
-  }
-
-  .settingsPanel_main {
-    padding: 12px;
-  }
-
-  .settingsPanel_helpActions {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1938,77 +1902,6 @@
       box-shadow: none !important;
     }
   }
-
-  .centerWrap_head {
-    background: rgba(25, 32, 42, 0.96);
-    border-bottom-color: rgba(255, 255, 255, 0.08);
-  }
-
-  .centerWrap_con {
-    background: rgba(18, 24, 33, 0.98);
-  }
-
-  .settingsPanel_sidebar {
-    background: rgba(255, 255, 255, 0.05);
-  }
-
-  .settingsPanel_main {
-    color: #dfe7ef;
-  }
-
-  .settingsPanel_searchBar {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.2);
-
-    input {
-      color: #f1f5f8;
-    }
-
-    input::placeholder {
-      color: rgba(255, 255, 255, 0.5);
-    }
-  }
-
-  .settingsPanel_navItem {
-    color: #f1f5f8;
-
-    &:hover {
-      background: rgba(255, 255, 255, 0.08);
-    }
-  }
-
-  .settingsPanel_downloadSummary,
-  .settingsPanel_stickyHeader,
-  .settingsPanel_sectionHeader,
-  .settingsPanel_panelSection,
-  .settingsPanel_tipCard,
-  .settingsPanel_helpAction,
-  .settingsPanel_optionCard.option {
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
-    color: #f1f5f8;
-  }
-
-  .settingsPanel_panelSection .settingsPanel_sectionHeader {
-    border-bottom-color: rgba(255, 255, 255, 0.08);
-  }
-
-  .settingsPanel_sectionIconWrap {
-    background: rgba(66, 195, 255, 0.16);
-    color: #42c3ff;
-  }
-
-  .settingsPanel_helpAction:hover,
-  .settingsPanel_downloadSummaryBtn:hover,
-  .settingsPanel_clearSearch:hover {
-    background: rgba(25, 157, 245, 0.24);
-  }
-
-  .settingsPanel_searchSummary,
-  .settingsPanel_downloadSummaryStatus {
-    color: #dfe7ef;
-  }
-
   .settingCategoryName {
     span {
       color: @beautifyBlue !important;
@@ -2117,45 +2010,7 @@
     }
   }
 
-  .centerWrap_head {
-    background: rgba(10, 18, 28, 0.55);
-  }
 
-  .settingsPanel_sidebar,
-  .settingsPanel_stickyHeader,
-  .settingsPanel_sectionHeader,
-  .settingsPanel_panelSection,
-  .settingsPanel_tipCard,
-  .settingsPanel_helpAction,
-  .settingsPanel_optionCard.option {
-    background: rgba(255, 255, 255, 0.12);
-    color: #fff;
-  }
-
-  .settingsPanel_panelSection .settingsPanel_sectionHeader {
-    background: transparent;
-    border-bottom-color: rgba(255, 255, 255, 0.08);
-  }
-
-  .settingsPanel_searchBar {
-    background: rgba(255, 255, 255, 0.1);
-
-    input {
-      color: #fff;
-    }
-
-    input::placeholder {
-      color: rgba(255, 255, 255, 0.7);
-    }
-  }
-
-  .settingsPanel_navItem {
-    color: #fff;
-
-    &:hover {
-      background: rgba(255, 255, 255, 0.12);
-    }
-  }
 
   .settingCategoryName {
     span {
@@ -2252,11 +2107,6 @@
   .centerWrap.mobile .centerWrap_con .settingForm .centerWrap_btns button {
     padding: 10px 6px;
   }
-
-  .centerWrap .centerWrap_con .settingForm .setinput_style1.fileNameRule {
-    width: 290px !important;
-    min-width: 290px !important;
-  }
 }
 
 @media (max-width: 388px) {
@@ -2264,6 +2114,9 @@
     padding: 12px 6px;
   }
 }
+
+@import 'settingsPanelV2-theme.less';
+@import 'settingsPanelV2-mobile.less';
 
 @keyframes settingsPanelSummarySpin {
   from {

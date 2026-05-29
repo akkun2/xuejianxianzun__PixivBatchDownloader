@@ -1,0 +1,96 @@
+.centerWrap.mobile {
+  .centerWrap_head {
+    padding: 12px;
+    flex-direction: column;
+    align-items: stretch;
+
+    .settingsPanel_headerMain,
+    .settingsPanel_headerActions {
+      min-height: 32px;
+      justify-content: space-between;
+    }
+
+    .settingsPanel_headerActions {
+      gap: 10px;
+    }
+
+    .settingsPanel_headerSearch {
+      flex: 1;
+      min-width: 0;
+    }
+  }
+
+  .settingsPanel_searchBar {
+    width: 100%;
+    max-width: none;
+  }
+
+  .settingsPanel_headerMinor,
+  .centerWrap_close_pc {
+    display: none;
+  }
+
+  .centerWrap_close_mobile {
+    display: inline-flex;
+  }
+
+  .centerWrap_con {
+    flex-direction: column;
+    max-height: calc(100vh - 120px);
+  }
+
+  .settingsPanel_sidebar {
+    width: 100%;
+    padding: 12px;
+    overflow: visible;
+  }
+
+  .settingsPanel_nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .settingsPanel_navItem {
+    min-width: 25%;
+    flex: 1 1 25%;
+    min-height: 42px;
+    padding: 8px 12px;
+    justify-content: center;
+  }
+
+  .settingsPanel_navText {
+    font-size: 16px;
+  }
+
+  &.lang_zh-cn .settingsPanel_navText,
+  &.lang_zh-tw .settingsPanel_navText {
+    letter-spacing: 2px;
+    text-indent: 2px;
+  }
+
+  .settingsPanel_downloadSummary {
+    margin-top: 12px;
+    padding: 12px 15px;
+    border-top: none;
+    background: var(--settings-panel-surface-bg);
+    border-radius: 12px;
+    box-shadow: var(--settings-panel-surface-shadow);
+  }
+
+  .settingsPanel_downloadSummaryStatus,
+  .settingsPanel_downloadSummaryActions {
+    gap: 16px;
+  }
+
+  .settingsPanel_downloadSummaryStatus {
+    margin-bottom: 10px;
+  }
+
+  .settingsPanel_main {
+    padding: 12px;
+  }
+
+  .settingsPanel_helpActions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

@@ -467,6 +467,65 @@ body.mobile #quickCrawlBtn {
   top: 26%;
 }
 .centerWrap {
+  --settings-panel-bg: #fff;
+  --settings-panel-text: #444;
+  --settings-panel-border: #9dd4f9;
+  --settings-panel-shadow: 0 0 25px #b4e0f5;
+  --settings-panel-con-bg: #eee;
+  --settings-panel-head-bg: #fff;
+  --settings-panel-head-border: #edf3f8;
+  --settings-panel-brand-color: #199df5;
+  --settings-panel-top-btn-color: #888;
+  --settings-panel-top-btn-hover-color: #199df5;
+  --settings-panel-top-btn-hover-bg: #eef7ff;
+  --settings-panel-top-btn-close-hover-color: #f33939;
+  --settings-panel-top-btn-close-hover-bg: #fcdddd;
+  --settings-panel-sponsor-hover-color: #e448a3;
+  --settings-panel-sponsor-hover-bg: #fff0f7;
+  --settings-panel-search-bg: #fff;
+  --settings-panel-search-border: #999;
+  --settings-panel-search-border-focus: #199df5;
+  --settings-panel-search-text: #444;
+  --settings-panel-search-placeholder: #aaa;
+  --settings-panel-search-icon: #aaa;
+  --settings-panel-clear-color: #999;
+  --settings-panel-clear-visible-color: #666;
+  --settings-panel-clear-hover-color: #199df5;
+  --settings-panel-clear-hover-bg: #eef7ff;
+  --settings-panel-sidebar-bg: #f5f5f5;
+  --settings-panel-nav-text: #111;
+  --settings-panel-nav-hover-bg: #d7e5f2;
+  --settings-panel-nav-active-bg: #199df5;
+  --settings-panel-nav-active-text: #fff;
+  --settings-panel-download-summary-border: #ccc;
+  --settings-panel-download-summary-status: #666;
+  --settings-panel-download-summary-btn-color: #666;
+  --settings-panel-download-summary-btn-hover-color: #199df5;
+  --settings-panel-download-summary-btn-hover-bg: transparent;
+  --settings-panel-surface-bg: #fff;
+  --settings-panel-surface-shadow: 0 0 15px #ddd;
+  --settings-panel-surface-text: #444;
+  --settings-panel-surface-border: #ececec;
+  --settings-panel-section-title-text: #222;
+  --settings-panel-section-hover-color: #199df5;
+  --settings-panel-section-icon-bg: #eef7fd;
+  --settings-panel-section-icon-color: #199df5;
+  --settings-panel-section-arrow-color: #555;
+  --settings-panel-option-card-shadow: 0 0 10px #ddd;
+  --settings-panel-option-card-pinned-border: #bde2ff;
+  --settings-panel-new-badge-color: #3ab8f2;
+  --settings-panel-tip-icon-color: #666;
+  --settings-panel-tip-confirm-color: #199df5;
+  --settings-panel-tip-confirm-hover-bg: #e5f2ff;
+  --settings-panel-help-action-bg: #fff;
+  --settings-panel-help-action-text: #444;
+  --settings-panel-help-action-icon: #666;
+  --settings-panel-help-action-shadow: 0 0 15px #ddd;
+  --settings-panel-help-action-hover-bg: #09a0f4;
+  --settings-panel-help-action-hover-text: #fff;
+  --settings-panel-help-action-update-dot: #ff4060;
+  --settings-panel-search-summary: #444;
+  --settings-panel-search-mark-bg: #ffe74b;
   box-sizing: border-box;
   width: 925px;
   max-width: calc(100vw - 24px);
@@ -477,13 +536,13 @@ body.mobile #quickCrawlBtn {
   transform: translateX(-54%);
   padding: 0;
   border-radius: 16px;
-  border: 1px solid #9dd4f9;
-  box-shadow: 0 0 25px #b4e0f5;
-  background: #fff;
+  border: 1px solid var(--settings-panel-border);
+  box-shadow: var(--settings-panel-shadow);
+  background: var(--settings-panel-bg);
   position: fixed;
   z-index: 5000;
   font-size: 15px;
-  color: #444;
+  color: var(--settings-panel-text);
   overflow: hidden;
   font-family: 'Noto Sans SC', 'Noto Sans', 'Segeo UI', 'Segeo UI Mono', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
 }
@@ -573,12 +632,12 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap .centerWrap_head {
   padding: 10px 10px 10px 20px;
-  background: #fff;
+  background: var(--settings-panel-head-bg);
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 0px;
-  border-bottom: 1px solid #edf3f8;
+  border-bottom: 1px solid var(--settings-panel-head-border);
 }
 .centerWrap .centerWrap_head img {
   width: 16px;
@@ -628,7 +687,7 @@ body.mobile #quickCrawlBtn {
 .centerWrap .settingsPanel_brand {
   gap: 6px;
   min-width: 0;
-  color: #199df5;
+  color: var(--settings-panel-brand-color);
 }
 .centerWrap .settingsPanel_logo {
   width: 28px;
@@ -649,24 +708,24 @@ body.mobile #quickCrawlBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #888;
+  color: var(--settings-panel-top-btn-color);
   transition: color 0.2s, background-color 0.2s;
 }
 .centerWrap .centerWrap_top_btn:hover {
-  color: #199df5;
-  background: #eef7ff;
+  color: var(--settings-panel-top-btn-hover-color);
+  background: var(--settings-panel-top-btn-hover-bg);
 }
 .centerWrap .centerWrap_top_btn.centerWrap_close_pc:hover,
 .centerWrap .centerWrap_top_btn.centerWrap_close_pc:active {
-  color: #f33939;
-  background: #fcdddd;
+  color: var(--settings-panel-top-btn-close-hover-color);
+  background: var(--settings-panel-top-btn-close-hover-bg);
 }
 .centerWrap .centerWrap_top_btn .icon {
   font-size: 20px;
 }
 .centerWrap .settingsPanel_sponsorBtn:hover {
-  color: #e448a3;
-  background: #fff0f7;
+  color: var(--settings-panel-sponsor-hover-color);
+  background: var(--settings-panel-sponsor-hover-bg);
 }
 .centerWrap .centerWrap_close_mobile {
   display: none;
@@ -675,17 +734,17 @@ body.mobile #quickCrawlBtn {
   width: 210px;
   max-width: 80vw;
   height: 32px;
-  border: 1px solid #999;
+  border: 1px solid var(--settings-panel-search-border);
   border-radius: 20px;
   padding: 0 8px;
   display: flex;
   align-items: center;
   gap: 6px;
-  background: #fff;
+  background: var(--settings-panel-search-bg);
   transition: border-color 0.2s;
 }
 .centerWrap .settingsPanel_searchBar:focus-within {
-  border-color: #199df5;
+  border-color: var(--settings-panel-search-border-focus);
 }
 .centerWrap .settingsPanel_searchBar input {
   flex: 1;
@@ -693,15 +752,15 @@ body.mobile #quickCrawlBtn {
   border: none;
   height: 100%;
   background: transparent;
-  color: #444;
+  color: var(--settings-panel-search-text);
   font-size: 15px;
   outline: none;
 }
 .centerWrap .settingsPanel_searchBar input::placeholder {
-  color: #aaa;
+  color: var(--settings-panel-search-placeholder);
 }
 .centerWrap .settingsPanel_searchIcon {
-  color: #aaa;
+  color: var(--settings-panel-search-icon);
   font-size: 20px;
   flex: none;
 }
@@ -710,18 +769,18 @@ body.mobile #quickCrawlBtn {
   height: 24px;
   padding: 4px;
   border-radius: 50%;
-  color: #999;
+  color: var(--settings-panel-clear-color);
   display: none;
   align-items: center;
   justify-content: center;
 }
 .centerWrap .settingsPanel_clearSearch.visible {
   display: inline-flex;
-  color: #666;
+  color: var(--settings-panel-clear-visible-color);
 }
 .centerWrap .settingsPanel_clearSearch:hover {
-  color: #199df5;
-  background: #eef7ff;
+  color: var(--settings-panel-clear-hover-color);
+  background: var(--settings-panel-clear-hover-bg);
 }
 .centerWrap .settingsPanel_expandAll {
   position: relative;
@@ -741,7 +800,7 @@ body.mobile #quickCrawlBtn {
   display: flex;
   align-items: stretch;
   width: 100%;
-  background: #eee;
+  background: var(--settings-panel-con-bg);
   overflow: auto;
   max-height: 76vh;
   min-height: 600px;
@@ -1377,7 +1436,7 @@ body.mobile #quickCrawlBtn {
   width: 190px;
   flex: none;
   padding: 15px 10px;
-  background: #f5f5f5;
+  background: var(--settings-panel-sidebar-bg);
   overflow-y: auto;
   position: relative;
   display: flex;
@@ -1396,7 +1455,7 @@ body.mobile #quickCrawlBtn {
   border: none;
   border-radius: 6px;
   background: transparent;
-  color: #111;
+  color: var(--settings-panel-nav-text);
   display: flex;
   align-items: center;
   gap: 0px;
@@ -1407,16 +1466,16 @@ body.mobile #quickCrawlBtn {
   display: none;
 }
 .centerWrap .centerWrap_con .settingsPanel_navItem:hover {
-  background: #d7e5f2;
+  background: var(--settings-panel-nav-hover-bg);
 }
 .centerWrap .centerWrap_con .settingsPanel_navItem.active {
-  background: #199df5;
-  color: #fff;
+  background: var(--settings-panel-nav-active-bg);
+  color: var(--settings-panel-nav-active-text);
   font-weight: 700;
 }
 .centerWrap .centerWrap_con .settingsPanel_navItem.active:hover,
 .centerWrap .centerWrap_con .settingsPanel_navItem.active:focus {
-  background: #199df5;
+  background: var(--settings-panel-nav-active-bg);
 }
 .centerWrap .centerWrap_con .settingsPanel_navItem.active:hover::before,
 .centerWrap .centerWrap_con .settingsPanel_navItem.active:focus::before {
@@ -1460,7 +1519,7 @@ body.mobile #quickCrawlBtn {
   display: none;
   margin-top: auto;
   padding: 14px 0 0px 2px;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid var(--settings-panel-download-summary-border);
 }
 .centerWrap .centerWrap_con .settingsPanel_downloadSummaryStatus,
 .centerWrap .centerWrap_con .settingsPanel_downloadSummaryActions {
@@ -1470,7 +1529,7 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap .centerWrap_con .settingsPanel_downloadSummaryStatus {
   gap: 10px;
-  color: #666;
+  color: var(--settings-panel-download-summary-status);
   margin-bottom: 12px;
 }
 .centerWrap .centerWrap_con .settingsPanel_downloadSummaryStatus .settingsPanel_downloadSummaryStateIcon {
@@ -1492,14 +1551,15 @@ body.mobile #quickCrawlBtn {
   padding: 0;
   border-radius: 50%;
   font-size: 24px;
-  color: #666;
+  color: var(--settings-panel-download-summary-btn-color);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   transition: color 0.2s, background-color 0.2s;
 }
 .centerWrap .centerWrap_con .settingsPanel_downloadSummaryBtn:hover {
-  color: #199df5;
+  color: var(--settings-panel-download-summary-btn-hover-color);
+  background: var(--settings-panel-download-summary-btn-hover-bg);
 }
 .centerWrap .centerWrap_con .settingsPanel_main {
   flex: 1;
@@ -1538,9 +1598,9 @@ body.mobile #quickCrawlBtn {
   padding: 8px 15px;
   border: none;
   border-radius: 8px;
-  background: #fff;
-  color: #444;
-  box-shadow: 0 0 15px #ddd;
+  background: var(--settings-panel-surface-bg);
+  color: var(--settings-panel-surface-text);
+  box-shadow: var(--settings-panel-surface-shadow);
   position: sticky;
   top: 0;
   z-index: 4;
@@ -1557,29 +1617,29 @@ body.mobile #quickCrawlBtn {
   padding: 8px 15px;
   border: none;
   border-radius: 8px;
-  background: #fff;
-  color: #222;
+  background: var(--settings-panel-surface-bg);
+  color: var(--settings-panel-section-title-text);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
   cursor: pointer;
-  box-shadow: 0 0 15px #ddd;
+  box-shadow: var(--settings-panel-surface-shadow);
   text-align: left;
 }
 .centerWrap .centerWrap_con .settingsPanel_sectionHeader:hover svg {
-  color: #199df5;
+  color: var(--settings-panel-section-hover-color);
 }
 .centerWrap .centerWrap_con .settingsPanel_panelSection {
   border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 0 15px #ddd;
+  background: var(--settings-panel-surface-bg);
+  box-shadow: var(--settings-panel-surface-shadow);
   overflow: hidden;
 }
 .centerWrap .centerWrap_con .settingsPanel_panelSection .settingsPanel_sectionHeader {
   margin-top: 0;
   box-shadow: none;
-  border-bottom: 1px solid #ececec;
+  border-bottom: 1px solid var(--settings-panel-surface-border);
   border-radius: 0;
 }
 .centerWrap .centerWrap_con .settingsPanel_sectionHeadMain {
@@ -1592,8 +1652,8 @@ body.mobile #quickCrawlBtn {
   width: 32px;
   height: 32px;
   border-radius: 6px;
-  background: #eef7fd;
-  color: #199df5;
+  background: var(--settings-panel-section-icon-bg);
+  color: var(--settings-panel-section-icon-color);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1613,7 +1673,7 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap .centerWrap_con .settingsPanel_sectionArrow {
   font-size: 18px;
-  color: #555;
+  color: var(--settings-panel-section-arrow-color);
   transition: transform 0.2s;
   flex: none;
 }
@@ -1623,7 +1683,7 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap .centerWrap_con .settingsPanel_sectionHeader:hover .settingsPanel_sectionTitle,
 .centerWrap .centerWrap_con .settingsPanel_sectionHeader:hover .settingsPanel_sectionArrow {
-  color: #199df5;
+  color: var(--settings-panel-section-hover-color);
 }
 .centerWrap .centerWrap_con .settingsPanel_titleContent,
 .centerWrap .centerWrap_con .settingsPanel_panelContent {
@@ -1674,13 +1734,13 @@ body.mobile #quickCrawlBtn {
   width: calc(100% - 20px);
   margin: 10px auto 0;
   padding: 8px 15px;
-  background: #fff;
+  background: var(--settings-panel-surface-bg);
   border-radius: 12px;
-  box-shadow: 0 0 10px #ddd;
+  box-shadow: var(--settings-panel-option-card-shadow);
   line-height: 26px;
 }
 .centerWrap .centerWrap_con .settingsPanel_optionCard.option.pinned {
-  border: 2px solid #bde2ff;
+  border: 2px solid var(--settings-panel-option-card-pinned-border);
 }
 .centerWrap .centerWrap_con .settingsPanel_optionCard.option.new {
   position: relative;
@@ -1696,7 +1756,7 @@ body.mobile #quickCrawlBtn {
   right: -5px;
   pointer-events: none;
   line-height: 0;
-  color: #3ab8f2;
+  color: var(--settings-panel-new-badge-color);
 }
 .centerWrap .centerWrap_con .settingsPanel_optionCard.option.new .settingsPanel_newBadgeIcon.icon {
   width: 30px;
@@ -1717,15 +1777,15 @@ body.mobile #quickCrawlBtn {
   margin-top: 15px;
   padding: 12px 15px;
   border-radius: 12px;
-  background: #fff;
-  box-shadow: 0 0 15px #ddd;
+  background: var(--settings-panel-surface-bg);
+  box-shadow: var(--settings-panel-surface-shadow);
   display: flex;
   align-items: center;
   gap: 10px;
 }
 .centerWrap .centerWrap_con .settingsPanel_tipIcon {
   font-size: 20px;
-  color: #666;
+  color: var(--settings-panel-tip-icon-color);
   flex: none;
 }
 .centerWrap .centerWrap_con .settingsPanel_tipText {
@@ -1742,14 +1802,14 @@ body.mobile #quickCrawlBtn {
   border: none;
   border-radius: 4px;
   background: transparent;
-  color: #199df5;
+  color: var(--settings-panel-tip-confirm-color);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   vertical-align: middle;
 }
 .centerWrap .centerWrap_con .settingsPanel_tipConfirm:hover {
-  background: #e5f2ff;
+  background: var(--settings-panel-tip-confirm-hover-bg);
 }
 .centerWrap .centerWrap_con .settingsPanel_helpActions {
   margin-top: 15px;
@@ -1764,22 +1824,22 @@ body.mobile #quickCrawlBtn {
   padding: 12px 14px;
   border: none;
   border-radius: 12px;
-  background: #fff;
-  box-shadow: 0 0 15px #ddd;
+  background: var(--settings-panel-help-action-bg);
+  box-shadow: var(--settings-panel-help-action-shadow);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  color: #444;
+  color: var(--settings-panel-help-action-text);
   cursor: pointer;
   position: relative;
 }
 .centerWrap .centerWrap_con .settingsPanel_helpAction:hover {
-  background: #09a0f4;
-  color: #fff;
+  background: var(--settings-panel-help-action-hover-bg);
+  color: var(--settings-panel-help-action-hover-text);
 }
 .centerWrap .centerWrap_con .settingsPanel_helpAction:hover .settingsPanel_helpActionIcon {
-  color: #fff;
+  color: var(--settings-panel-help-action-hover-text);
 }
 .centerWrap .centerWrap_con .settingsPanel_helpAction:hover::before,
 .centerWrap .centerWrap_con .settingsPanel_helpAction:focus::before {
@@ -1797,7 +1857,7 @@ body.mobile #quickCrawlBtn {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #ff4060;
+  background: var(--settings-panel-help-action-update-dot);
   position: absolute;
   top: 10px;
   right: 10px;
@@ -1807,15 +1867,15 @@ body.mobile #quickCrawlBtn {
   flex: none;
   position: relative;
   top: 1px;
-  color: #666;
+  color: var(--settings-panel-help-action-icon);
 }
 .centerWrap .centerWrap_con .settingsPanel_searchSummary {
   margin: 15px 0 0 5px;
-  color: #444;
+  color: var(--settings-panel-search-summary);
   line-height: 26px;
 }
 .centerWrap .centerWrap_con .settingsPanel_searchMark {
-  background: #ffe74b;
+  background: var(--settings-panel-search-mark-bg);
   color: inherit;
   padding: 0 2px;
 }
@@ -1842,10 +1902,6 @@ body.mobile #quickCrawlBtn {
   letter-spacing: 6px;
   text-indent: 6px;
 }
-.centerWrap.theme-white .option > .settingNameStyle,
-.centerWrap.theme-white .optionName {
-  color: #333;
-}
 .centerWrap.mobile {
   width: calc(100vw - 32px);
   left: 50%;
@@ -1855,23 +1911,6 @@ body.mobile #quickCrawlBtn {
   font-size: 16px;
   font-family: sans-serif;
   overflow: auto;
-}
-.centerWrap.mobile .centerWrap_head {
-  padding: 12px;
-  flex-direction: column;
-  align-items: stretch;
-}
-.centerWrap.mobile .centerWrap_head .settingsPanel_headerMain,
-.centerWrap.mobile .centerWrap_head .settingsPanel_headerActions {
-  min-height: 32px;
-  justify-content: space-between;
-}
-.centerWrap.mobile .centerWrap_head .settingsPanel_headerActions {
-  gap: 10px;
-}
-.centerWrap.mobile .centerWrap_head .settingsPanel_headerSearch {
-  flex: 1;
-  min-width: 0;
 }
 .centerWrap.mobile .centerWrap_head .centerWrap_title {
   line-height: 40px;
@@ -1889,8 +1928,6 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap.mobile .centerWrap_con {
   padding: 0 5vw;
-  flex-direction: column;
-  max-height: calc(100vh - 120px);
 }
 .centerWrap.mobile p {
   line-height: 32px;
@@ -1905,62 +1942,6 @@ body.mobile #quickCrawlBtn {
   font-size: 16px;
   line-height: 24px;
   padding: 12px 16px;
-}
-.centerWrap.mobile .settingsPanel_searchBar {
-  width: 100%;
-  max-width: none;
-}
-.centerWrap.mobile .settingsPanel_headerMinor,
-.centerWrap.mobile .centerWrap_close_pc {
-  display: none;
-}
-.centerWrap.mobile .centerWrap_close_mobile {
-  display: inline-flex;
-}
-.centerWrap.mobile .settingsPanel_sidebar {
-  width: 100%;
-  padding: 12px;
-  overflow: visible;
-}
-.centerWrap.mobile .settingsPanel_nav {
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-.centerWrap.mobile .settingsPanel_navItem {
-  min-width: 25%;
-  flex: 1 1 25%;
-  min-height: 42px;
-  padding: 8px 12px;
-  justify-content: center;
-}
-.centerWrap.mobile .settingsPanel_navText {
-  font-size: 16px;
-}
-.centerWrap.mobile.lang_zh-cn .settingsPanel_navText,
-.centerWrap.mobile.lang_zh-tw .settingsPanel_navText {
-  letter-spacing: 2px;
-  text-indent: 2px;
-}
-.centerWrap.mobile .settingsPanel_downloadSummary {
-  margin-top: 12px;
-  padding: 12px 15px;
-  border-top: none;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 0 15px #ddd;
-}
-.centerWrap.mobile .settingsPanel_downloadSummaryStatus,
-.centerWrap.mobile .settingsPanel_downloadSummaryActions {
-  gap: 16px;
-}
-.centerWrap.mobile .settingsPanel_downloadSummaryStatus {
-  margin-bottom: 10px;
-}
-.centerWrap.mobile .settingsPanel_main {
-  padding: 12px;
-}
-.centerWrap.mobile .settingsPanel_helpActions {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 .centerWrap.theme-dark {
   background: #1f2530;
@@ -2031,62 +2012,6 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap.theme-dark .centerWrap_btns button {
   box-shadow: none !important;
-}
-.centerWrap.theme-dark .centerWrap_head {
-  background: rgba(25, 32, 42, 0.96);
-  border-bottom-color: rgba(255, 255, 255, 0.08);
-}
-.centerWrap.theme-dark .centerWrap_con {
-  background: rgba(18, 24, 33, 0.98);
-}
-.centerWrap.theme-dark .settingsPanel_sidebar {
-  background: rgba(255, 255, 255, 0.05);
-}
-.centerWrap.theme-dark .settingsPanel_main {
-  color: #dfe7ef;
-}
-.centerWrap.theme-dark .settingsPanel_searchBar {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.2);
-}
-.centerWrap.theme-dark .settingsPanel_searchBar input {
-  color: #f1f5f8;
-}
-.centerWrap.theme-dark .settingsPanel_searchBar input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-}
-.centerWrap.theme-dark .settingsPanel_navItem {
-  color: #f1f5f8;
-}
-.centerWrap.theme-dark .settingsPanel_navItem:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-.centerWrap.theme-dark .settingsPanel_downloadSummary,
-.centerWrap.theme-dark .settingsPanel_stickyHeader,
-.centerWrap.theme-dark .settingsPanel_sectionHeader,
-.centerWrap.theme-dark .settingsPanel_panelSection,
-.centerWrap.theme-dark .settingsPanel_tipCard,
-.centerWrap.theme-dark .settingsPanel_helpAction,
-.centerWrap.theme-dark .settingsPanel_optionCard.option {
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
-  color: #f1f5f8;
-}
-.centerWrap.theme-dark .settingsPanel_panelSection .settingsPanel_sectionHeader {
-  border-bottom-color: rgba(255, 255, 255, 0.08);
-}
-.centerWrap.theme-dark .settingsPanel_sectionIconWrap {
-  background: rgba(66, 195, 255, 0.16);
-  color: #42c3ff;
-}
-.centerWrap.theme-dark .settingsPanel_helpAction:hover,
-.centerWrap.theme-dark .settingsPanel_downloadSummaryBtn:hover,
-.centerWrap.theme-dark .settingsPanel_clearSearch:hover {
-  background: rgba(25, 157, 245, 0.24);
-}
-.centerWrap.theme-dark .settingsPanel_searchSummary,
-.centerWrap.theme-dark .settingsPanel_downloadSummaryStatus {
-  color: #dfe7ef;
 }
 .centerWrap.theme-dark .settingCategoryName span {
   color: #1dacf5 !important;
@@ -2170,38 +2095,6 @@ body.mobile #quickCrawlBtn {
 .centerWrap.xzBG .centerWrap_btns button {
   box-shadow: none !important;
 }
-.centerWrap.xzBG .centerWrap_head {
-  background: rgba(10, 18, 28, 0.55);
-}
-.centerWrap.xzBG .settingsPanel_sidebar,
-.centerWrap.xzBG .settingsPanel_stickyHeader,
-.centerWrap.xzBG .settingsPanel_sectionHeader,
-.centerWrap.xzBG .settingsPanel_panelSection,
-.centerWrap.xzBG .settingsPanel_tipCard,
-.centerWrap.xzBG .settingsPanel_helpAction,
-.centerWrap.xzBG .settingsPanel_optionCard.option {
-  background: rgba(255, 255, 255, 0.12);
-  color: #fff;
-}
-.centerWrap.xzBG .settingsPanel_panelSection .settingsPanel_sectionHeader {
-  background: transparent;
-  border-bottom-color: rgba(255, 255, 255, 0.08);
-}
-.centerWrap.xzBG .settingsPanel_searchBar {
-  background: rgba(255, 255, 255, 0.1);
-}
-.centerWrap.xzBG .settingsPanel_searchBar input {
-  color: #fff;
-}
-.centerWrap.xzBG .settingsPanel_searchBar input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-}
-.centerWrap.xzBG .settingsPanel_navItem {
-  color: #fff;
-}
-.centerWrap.xzBG .settingsPanel_navItem:hover {
-  background: rgba(255, 255, 255, 0.12);
-}
 .centerWrap.xzBG .settingCategoryName span {
   color: #1dacf5 !important;
   text-shadow: none !important;
@@ -2259,15 +2152,253 @@ body.mobile #quickCrawlBtn {
   .centerWrap.mobile .centerWrap_con .settingForm .centerWrap_btns button {
     padding: 10px 6px;
   }
-  .centerWrap .centerWrap_con .settingForm .setinput_style1.fileNameRule {
-    width: 290px !important;
-    min-width: 290px !important;
-  }
 }
 @media (max-width: 388px) {
   .centerWrap.mobile .centerWrap_con .settingForm .centerWrap_btns button {
     padding: 12px 6px;
   }
+}
+.centerWrap.theme-white {
+  --settings-panel-bg: #fff;
+  --settings-panel-text: #444;
+  --settings-panel-border: #9dd4f9;
+  --settings-panel-shadow: 0 0 25px #b4e0f5;
+  --settings-panel-con-bg: #eee;
+  --settings-panel-head-bg: #fff;
+  --settings-panel-head-border: #edf3f8;
+  --settings-panel-brand-color: #199df5;
+  --settings-panel-top-btn-color: #888;
+  --settings-panel-top-btn-hover-color: #199df5;
+  --settings-panel-top-btn-hover-bg: #eef7ff;
+  --settings-panel-top-btn-close-hover-color: #f33939;
+  --settings-panel-top-btn-close-hover-bg: #fcdddd;
+  --settings-panel-sponsor-hover-color: #e448a3;
+  --settings-panel-sponsor-hover-bg: #fff0f7;
+  --settings-panel-search-bg: #fff;
+  --settings-panel-search-border: #999;
+  --settings-panel-search-border-focus: #199df5;
+  --settings-panel-search-text: #444;
+  --settings-panel-search-placeholder: #aaa;
+  --settings-panel-search-icon: #aaa;
+  --settings-panel-clear-color: #999;
+  --settings-panel-clear-visible-color: #666;
+  --settings-panel-clear-hover-color: #199df5;
+  --settings-panel-clear-hover-bg: #eef7ff;
+  --settings-panel-sidebar-bg: #f5f5f5;
+  --settings-panel-nav-text: #111;
+  --settings-panel-nav-hover-bg: #d7e5f2;
+  --settings-panel-nav-active-bg: #199df5;
+  --settings-panel-nav-active-text: #fff;
+  --settings-panel-download-summary-border: #ccc;
+  --settings-panel-download-summary-status: #666;
+  --settings-panel-download-summary-btn-color: #666;
+  --settings-panel-download-summary-btn-hover-color: #199df5;
+  --settings-panel-download-summary-btn-hover-bg: transparent;
+  --settings-panel-surface-bg: #fff;
+  --settings-panel-surface-shadow: 0 0 15px #ddd;
+  --settings-panel-surface-text: #444;
+  --settings-panel-surface-border: #ececec;
+  --settings-panel-section-title-text: #222;
+  --settings-panel-section-hover-color: #199df5;
+  --settings-panel-section-icon-bg: #eef7fd;
+  --settings-panel-section-icon-color: #199df5;
+  --settings-panel-section-arrow-color: #555;
+  --settings-panel-option-card-shadow: 0 0 10px #ddd;
+  --settings-panel-option-card-pinned-border: #bde2ff;
+  --settings-panel-new-badge-color: #3ab8f2;
+  --settings-panel-tip-icon-color: #666;
+  --settings-panel-tip-confirm-color: #199df5;
+  --settings-panel-tip-confirm-hover-bg: #e5f2ff;
+  --settings-panel-help-action-bg: #fff;
+  --settings-panel-help-action-text: #444;
+  --settings-panel-help-action-icon: #666;
+  --settings-panel-help-action-shadow: 0 0 15px #ddd;
+  --settings-panel-help-action-hover-bg: #09a0f4;
+  --settings-panel-help-action-hover-text: #fff;
+  --settings-panel-help-action-update-dot: #ff4060;
+  --settings-panel-search-summary: #444;
+  --settings-panel-search-mark-bg: #ffe74b;
+}
+.centerWrap.theme-white .option > .settingNameStyle,
+.centerWrap.theme-white .optionName {
+  color: #333;
+}
+.centerWrap.theme-dark {
+  --settings-panel-bg: #1f2530;
+  --settings-panel-text: #dfe7ef;
+  --settings-panel-border: rgba(94, 172, 230, 0.45);
+  --settings-panel-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
+  --settings-panel-con-bg: rgba(18, 24, 33, 0.98);
+  --settings-panel-head-bg: rgba(25, 32, 42, 0.96);
+  --settings-panel-head-border: rgba(255, 255, 255, 0.08);
+  --settings-panel-brand-color: #dfe7ef;
+  --settings-panel-top-btn-color: #dfe7ef;
+  --settings-panel-top-btn-hover-color: #1dacf5;
+  --settings-panel-top-btn-hover-bg: rgba(25, 157, 245, 0.24);
+  --settings-panel-search-bg: rgba(255, 255, 255, 0.06);
+  --settings-panel-search-border: rgba(255, 255, 255, 0.2);
+  --settings-panel-search-border-focus: #1dacf5;
+  --settings-panel-search-text: #f1f5f8;
+  --settings-panel-search-placeholder: rgba(255, 255, 255, 0.5);
+  --settings-panel-search-icon: rgba(255, 255, 255, 0.5);
+  --settings-panel-clear-color: rgba(255, 255, 255, 0.6);
+  --settings-panel-clear-visible-color: #dfe7ef;
+  --settings-panel-clear-hover-color: #1dacf5;
+  --settings-panel-clear-hover-bg: rgba(25, 157, 245, 0.24);
+  --settings-panel-sidebar-bg: rgba(255, 255, 255, 0.05);
+  --settings-panel-nav-text: #f1f5f8;
+  --settings-panel-nav-hover-bg: rgba(255, 255, 255, 0.08);
+  --settings-panel-download-summary-border: rgba(255, 255, 255, 0.12);
+  --settings-panel-download-summary-status: #dfe7ef;
+  --settings-panel-download-summary-btn-color: #dfe7ef;
+  --settings-panel-download-summary-btn-hover-color: #1dacf5;
+  --settings-panel-download-summary-btn-hover-bg: rgba(25, 157, 245, 0.24);
+  --settings-panel-surface-bg: rgba(255, 255, 255, 0.08);
+  --settings-panel-surface-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+  --settings-panel-surface-text: #f1f5f8;
+  --settings-panel-surface-border: rgba(255, 255, 255, 0.08);
+  --settings-panel-section-title-text: #f1f5f8;
+  --settings-panel-section-hover-color: #1dacf5;
+  --settings-panel-section-icon-bg: rgba(66, 195, 255, 0.16);
+  --settings-panel-section-icon-color: #42c3ff;
+  --settings-panel-section-arrow-color: #dfe7ef;
+  --settings-panel-option-card-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+  --settings-panel-tip-icon-color: #dfe7ef;
+  --settings-panel-tip-confirm-color: #1dacf5;
+  --settings-panel-tip-confirm-hover-bg: rgba(25, 157, 245, 0.24);
+  --settings-panel-help-action-bg: rgba(255, 255, 255, 0.08);
+  --settings-panel-help-action-text: #f1f5f8;
+  --settings-panel-help-action-icon: #f1f5f8;
+  --settings-panel-help-action-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+  --settings-panel-help-action-hover-bg: rgba(25, 157, 245, 0.24);
+  --settings-panel-help-action-hover-text: #fff;
+  --settings-panel-search-summary: #dfe7ef;
+}
+.centerWrap.xzBG {
+  --settings-panel-bg: rgba(10, 18, 28, 0.42);
+  --settings-panel-text: #fff;
+  --settings-panel-head-bg: rgba(10, 18, 28, 0.55);
+  --settings-panel-head-border: rgba(255, 255, 255, 0.08);
+  --settings-panel-con-bg: rgba(10, 18, 28, 0.5);
+  --settings-panel-brand-color: #fff;
+  --settings-panel-top-btn-color: #fff;
+  --settings-panel-top-btn-hover-color: #fff;
+  --settings-panel-top-btn-hover-bg: rgba(255, 255, 255, 0.12);
+  --settings-panel-search-bg: rgba(255, 255, 255, 0.1);
+  --settings-panel-search-border: rgba(255, 255, 255, 0.25);
+  --settings-panel-search-border-focus: #fff;
+  --settings-panel-search-text: #fff;
+  --settings-panel-search-placeholder: rgba(255, 255, 255, 0.7);
+  --settings-panel-search-icon: rgba(255, 255, 255, 0.7);
+  --settings-panel-clear-color: rgba(255, 255, 255, 0.75);
+  --settings-panel-clear-visible-color: #fff;
+  --settings-panel-clear-hover-color: #fff;
+  --settings-panel-clear-hover-bg: rgba(255, 255, 255, 0.12);
+  --settings-panel-sidebar-bg: rgba(255, 255, 255, 0.12);
+  --settings-panel-nav-text: #fff;
+  --settings-panel-nav-hover-bg: rgba(255, 255, 255, 0.12);
+  --settings-panel-download-summary-border: rgba(255, 255, 255, 0.12);
+  --settings-panel-download-summary-status: #fff;
+  --settings-panel-download-summary-btn-color: #fff;
+  --settings-panel-download-summary-btn-hover-color: #fff;
+  --settings-panel-download-summary-btn-hover-bg: rgba(255, 255, 255, 0.12);
+  --settings-panel-surface-bg: rgba(255, 255, 255, 0.12);
+  --settings-panel-surface-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+  --settings-panel-surface-text: #fff;
+  --settings-panel-surface-border: rgba(255, 255, 255, 0.08);
+  --settings-panel-section-title-text: #fff;
+  --settings-panel-section-hover-color: #fff;
+  --settings-panel-section-icon-bg: rgba(255, 255, 255, 0.16);
+  --settings-panel-section-icon-color: #fff;
+  --settings-panel-section-arrow-color: #fff;
+  --settings-panel-option-card-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+  --settings-panel-tip-icon-color: #fff;
+  --settings-panel-tip-confirm-color: #fff;
+  --settings-panel-tip-confirm-hover-bg: rgba(255, 255, 255, 0.12);
+  --settings-panel-help-action-bg: rgba(255, 255, 255, 0.12);
+  --settings-panel-help-action-text: #fff;
+  --settings-panel-help-action-icon: #fff;
+  --settings-panel-help-action-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+  --settings-panel-help-action-hover-bg: rgba(255, 255, 255, 0.2);
+  --settings-panel-help-action-hover-text: #fff;
+  --settings-panel-search-summary: #fff;
+}
+.centerWrap.mobile .centerWrap_head {
+  padding: 12px;
+  flex-direction: column;
+  align-items: stretch;
+}
+.centerWrap.mobile .centerWrap_head .settingsPanel_headerMain,
+.centerWrap.mobile .centerWrap_head .settingsPanel_headerActions {
+  min-height: 32px;
+  justify-content: space-between;
+}
+.centerWrap.mobile .centerWrap_head .settingsPanel_headerActions {
+  gap: 10px;
+}
+.centerWrap.mobile .centerWrap_head .settingsPanel_headerSearch {
+  flex: 1;
+  min-width: 0;
+}
+.centerWrap.mobile .settingsPanel_searchBar {
+  width: 100%;
+  max-width: none;
+}
+.centerWrap.mobile .settingsPanel_headerMinor,
+.centerWrap.mobile .centerWrap_close_pc {
+  display: none;
+}
+.centerWrap.mobile .centerWrap_close_mobile {
+  display: inline-flex;
+}
+.centerWrap.mobile .centerWrap_con {
+  flex-direction: column;
+  max-height: calc(100vh - 120px);
+}
+.centerWrap.mobile .settingsPanel_sidebar {
+  width: 100%;
+  padding: 12px;
+  overflow: visible;
+}
+.centerWrap.mobile .settingsPanel_nav {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.centerWrap.mobile .settingsPanel_navItem {
+  min-width: 25%;
+  flex: 1 1 25%;
+  min-height: 42px;
+  padding: 8px 12px;
+  justify-content: center;
+}
+.centerWrap.mobile .settingsPanel_navText {
+  font-size: 16px;
+}
+.centerWrap.mobile.lang_zh-cn .settingsPanel_navText,
+.centerWrap.mobile.lang_zh-tw .settingsPanel_navText {
+  letter-spacing: 2px;
+  text-indent: 2px;
+}
+.centerWrap.mobile .settingsPanel_downloadSummary {
+  margin-top: 12px;
+  padding: 12px 15px;
+  border-top: none;
+  background: var(--settings-panel-surface-bg);
+  border-radius: 12px;
+  box-shadow: var(--settings-panel-surface-shadow);
+}
+.centerWrap.mobile .settingsPanel_downloadSummaryStatus,
+.centerWrap.mobile .settingsPanel_downloadSummaryActions {
+  gap: 16px;
+}
+.centerWrap.mobile .settingsPanel_downloadSummaryStatus {
+  margin-bottom: 10px;
+}
+.centerWrap.mobile .settingsPanel_main {
+  padding: 12px;
+}
+.centerWrap.mobile .settingsPanel_helpActions {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 @keyframes settingsPanelSummarySpin {
   from {
