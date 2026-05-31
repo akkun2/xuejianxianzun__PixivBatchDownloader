@@ -509,6 +509,14 @@ body.mobile #quickCrawlBtn {
   --settings-panel-search-text: #444;
   --settings-panel-search-placeholder: #aaa;
   --settings-panel-search-icon: #aaa;
+  --settings-panel-card-radius: 10px;
+  --settings-panel-card-shadow: 0 1px 4px rgba(15, 53, 86, 0.04);
+  --settings-panel-card-border: #e8edf2;
+  --settings-panel-control-radius: 8px;
+  --settings-panel-input-radius: 8px;
+  --settings-panel-input-bg: #fff;
+  --settings-panel-input-border: #d5e1e8;
+  --settings-panel-input-focus-shadow: 0 0 0 3px rgba(25, 157, 245, 0.08);
   --settings-panel-clear-color: #999;
   --settings-panel-clear-visible-color: #666;
   --settings-panel-clear-hover-color: var(--theme-blue);
@@ -526,12 +534,12 @@ body.mobile #quickCrawlBtn {
   --settings-panel-btn-warning: #e49d00;
   --settings-panel-btn-danger: #f33939;
   --settings-panel-btn-primary-text: #fff;
-  --settings-panel-btn-primary-shadow: 0 4px 12px rgba(15, 53, 86, 0.14);
-  --settings-panel-btn-primary-shadow-hover: 0 6px 16px rgba(15, 53, 86, 0.18);
+  --settings-panel-btn-primary-shadow: 0 2px 6px rgba(15, 53, 86, 0.1);
+  --settings-panel-btn-primary-shadow-hover: 0 4px 10px rgba(15, 53, 86, 0.14);
   --settings-panel-btn-secondary-bg: #fff;
   --settings-panel-btn-secondary-border: #199df5;
   --settings-panel-btn-secondary-hover-bg: #f5fbff;
-  --settings-panel-btn-secondary-shadow: 0 1px 6px rgba(15, 53, 86, 0.06);
+  --settings-panel-btn-secondary-shadow: 0 1px 3px rgba(15, 53, 86, 0.04);
   --settings-panel-btn-secondary-brand-text: var(--theme-blue);
   --settings-panel-btn-secondary-success-text: #0f9f23;
   --settings-panel-btn-secondary-warning-text: #bd8400;
@@ -553,7 +561,7 @@ body.mobile #quickCrawlBtn {
   --settings-panel-progress-meta: #83919c;
   --settings-panel-surface-bg: #fff;
   --settings-panel-sticky-bg: #fff;
-  --settings-panel-surface-shadow: 0 0 15px #ddd;
+  --settings-panel-surface-shadow: var(--settings-panel-card-shadow);
   --settings-panel-surface-text: #444;
   --settings-panel-surface-border: #ececec;
   --settings-panel-section-title-text: #222;
@@ -561,12 +569,12 @@ body.mobile #quickCrawlBtn {
   --settings-panel-section-icon-bg: #eef7fd;
   --settings-panel-section-icon-color: var(--theme-blue);
   --settings-panel-section-arrow-color: #555;
-  --settings-panel-option-card-shadow: 0 0 10px #ddd;
+  --settings-panel-option-card-shadow: var(--settings-panel-card-shadow);
   --settings-panel-option-card-pinned-border: #bde2ff;
   --settings-panel-new-badge-color: #3ab8f2;
   --settings-panel-tip-card-bg: #f7fbff;
   --settings-panel-tip-card-border: rgba(9, 160, 244, 0.14);
-  --settings-panel-tip-card-shadow: 0 1px 4px rgba(15, 53, 86, 0.04);
+  --settings-panel-tip-card-shadow: var(--settings-panel-card-shadow);
   --settings-panel-tip-card-text: #5f6d7b;
   --settings-panel-tip-icon-bg: rgba(9, 160, 244, 0.1);
   --settings-panel-tip-icon-color: #666;
@@ -575,7 +583,7 @@ body.mobile #quickCrawlBtn {
   --settings-panel-help-action-bg: #fff;
   --settings-panel-help-action-text: #444;
   --settings-panel-help-action-icon: #666;
-  --settings-panel-help-action-shadow: 0 0 15px #ddd;
+  --settings-panel-help-action-shadow: var(--settings-panel-card-shadow);
   --settings-panel-help-action-hover-bg: #09a0f4;
   --settings-panel-help-action-hover-text: #fff;
   --settings-panel-help-action-update-dot: #ff4060;
@@ -599,6 +607,14 @@ body.mobile #quickCrawlBtn {
   --settings-panel-search-text: #f1f5f8;
   --settings-panel-search-placeholder: rgba(255, 255, 255, 0.5);
   --settings-panel-search-icon: rgba(255, 255, 255, 0.5);
+  --settings-panel-card-radius: 10px;
+  --settings-panel-card-shadow: 0 1px 6px rgba(0, 0, 0, 0.14);
+  --settings-panel-card-border: rgba(255, 255, 255, 0.08);
+  --settings-panel-control-radius: 8px;
+  --settings-panel-input-radius: 8px;
+  --settings-panel-input-bg: rgba(255, 255, 255, 0.06);
+  --settings-panel-input-border: rgba(255, 255, 255, 0.14);
+  --settings-panel-input-focus-shadow: 0 0 0 3px rgba(66, 195, 255, 0.1);
   --settings-panel-clear-color: rgba(255, 255, 255, 0.6);
   --settings-panel-clear-visible-color: #dfe7ef;
   --settings-panel-clear-hover-color: #42c3ff;
@@ -615,13 +631,13 @@ body.mobile #quickCrawlBtn {
   --settings-panel-btn-warning: #e49d00;
   --settings-panel-btn-danger: #f33939;
   --settings-panel-btn-primary-text: #fff;
-  --settings-panel-btn-primary-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  --settings-panel-btn-primary-shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.28);
+  --settings-panel-btn-primary-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  --settings-panel-btn-primary-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.24);
   --settings-panel-btn-secondary-bg: rgba(255, 255, 255, 0.06);
   --settings-panel-btn-secondary-border: #0eb3f3;
   --settings-panel-btn-secondary-brand-text: #42c3ff;
   --settings-panel-btn-secondary-hover-bg: rgba(255, 255, 255, 0.12);
-  --settings-panel-btn-secondary-shadow: 0 1px 6px rgba(0, 0, 0, 0.12);
+  --settings-panel-btn-secondary-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   --settings-panel-btn-secondary-success-text: #57d66a;
   --settings-panel-btn-secondary-warning-text: #ffc042;
   --settings-panel-btn-secondary-danger-text: #ff7b7b;
@@ -642,7 +658,7 @@ body.mobile #quickCrawlBtn {
   --settings-panel-progress-meta: rgba(223, 231, 239, 0.72);
   --settings-panel-surface-bg: rgba(255, 255, 255, 0.08);
   --settings-panel-sticky-bg: #252b32;
-  --settings-panel-surface-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+  --settings-panel-surface-shadow: var(--settings-panel-card-shadow);
   --settings-panel-surface-text: #f1f5f8;
   --settings-panel-surface-border: rgba(255, 255, 255, 0.08);
   --settings-panel-section-title-text: #f1f5f8;
@@ -650,10 +666,10 @@ body.mobile #quickCrawlBtn {
   --settings-panel-section-icon-bg: rgba(66, 195, 255, 0.1);
   --settings-panel-section-icon-color: #3eb5ec;
   --settings-panel-section-arrow-color: #dfe7ef;
-  --settings-panel-option-card-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+  --settings-panel-option-card-shadow: var(--settings-panel-card-shadow);
   --settings-panel-tip-card-bg: rgba(66, 195, 255, 0.08);
   --settings-panel-tip-card-border: rgba(66, 195, 255, 0.16);
-  --settings-panel-tip-card-shadow: 0 1px 6px rgba(0, 0, 0, 0.12);
+  --settings-panel-tip-card-shadow: var(--settings-panel-card-shadow);
   --settings-panel-tip-card-text: #dfe7ef;
   --settings-panel-tip-icon-bg: rgba(66, 195, 255, 0.16);
   --settings-panel-tip-icon-color: #dfe7ef;
@@ -662,7 +678,7 @@ body.mobile #quickCrawlBtn {
   --settings-panel-help-action-bg: rgba(255, 255, 255, 0.08);
   --settings-panel-help-action-text: #f1f5f8;
   --settings-panel-help-action-icon: #f1f5f8;
-  --settings-panel-help-action-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+  --settings-panel-help-action-shadow: var(--settings-panel-card-shadow);
   --settings-panel-help-action-hover-bg: #1a85cc;
   --settings-panel-help-action-hover-text: #fff;
   --settings-panel-search-summary: #dfe7ef;
@@ -683,6 +699,14 @@ body.mobile #quickCrawlBtn {
   --settings-panel-search-text: #fff;
   --settings-panel-search-placeholder: rgba(255, 255, 255, 0.7);
   --settings-panel-search-icon: rgba(255, 255, 255, 0.7);
+  --settings-panel-card-radius: 10px;
+  --settings-panel-card-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+  --settings-panel-card-border: rgba(255, 255, 255, 0.14);
+  --settings-panel-control-radius: 8px;
+  --settings-panel-input-radius: 8px;
+  --settings-panel-input-bg: rgba(255, 255, 255, 0.12);
+  --settings-panel-input-border: rgba(255, 255, 255, 0.18);
+  --settings-panel-input-focus-shadow: 0 0 0 3px rgba(255, 255, 255, 0.12);
   --settings-panel-clear-color: rgba(255, 255, 255, 0.75);
   --settings-panel-clear-visible-color: #fff;
   --settings-panel-clear-hover-color: #fff;
@@ -699,12 +723,12 @@ body.mobile #quickCrawlBtn {
   --settings-panel-btn-warning: rgba(255, 255, 255, 0.3);
   --settings-panel-btn-danger: rgba(255, 255, 255, 0.3);
   --settings-panel-btn-primary-text: #fff;
-  --settings-panel-btn-primary-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-  --settings-panel-btn-primary-shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.18);
+  --settings-panel-btn-primary-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  --settings-panel-btn-primary-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.16);
   --settings-panel-btn-secondary-bg: rgba(255, 255, 255, 0.3);
   --settings-panel-btn-secondary-border: transparent;
   --settings-panel-btn-secondary-hover-bg: rgba(255, 255, 255, 0.18);
-  --settings-panel-btn-secondary-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+  --settings-panel-btn-secondary-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
   --settings-panel-btn-secondary-brand-text: #fff;
   --settings-panel-btn-secondary-success-text: #fff;
   --settings-panel-btn-secondary-warning-text: #fff;
@@ -726,7 +750,7 @@ body.mobile #quickCrawlBtn {
   --settings-panel-progress-meta: rgba(255, 255, 255, 0.76);
   --settings-panel-surface-bg: rgba(255, 255, 255, 0.1);
   --settings-panel-sticky-bg: rgba(255, 255, 255, 0.4);
-  --settings-panel-surface-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+  --settings-panel-surface-shadow: var(--settings-panel-card-shadow);
   --settings-panel-surface-text: #fff;
   --settings-panel-surface-border: rgba(255, 255, 255, 0.08);
   --settings-panel-section-title-text: #fff;
@@ -734,10 +758,10 @@ body.mobile #quickCrawlBtn {
   --settings-panel-section-icon-bg: rgba(255, 255, 255, 0.16);
   --settings-panel-section-icon-color: #fff;
   --settings-panel-section-arrow-color: #fff;
-  --settings-panel-option-card-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+  --settings-panel-option-card-shadow: var(--settings-panel-card-shadow);
   --settings-panel-tip-card-bg: rgba(255, 255, 255, 0.12);
   --settings-panel-tip-card-border: rgba(255, 255, 255, 0.16);
-  --settings-panel-tip-card-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+  --settings-panel-tip-card-shadow: var(--settings-panel-card-shadow);
   --settings-panel-tip-card-text: #fff;
   --settings-panel-tip-icon-bg: rgba(255, 255, 255, 0.16);
   --settings-panel-tip-icon-color: #fff;
@@ -746,7 +770,7 @@ body.mobile #quickCrawlBtn {
   --settings-panel-help-action-bg: rgba(255, 255, 255, 0.1);
   --settings-panel-help-action-text: #fff;
   --settings-panel-help-action-icon: #fff;
-  --settings-panel-help-action-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+  --settings-panel-help-action-shadow: var(--settings-panel-card-shadow);
   --settings-panel-help-action-hover-bg: rgba(255, 255, 255, 0.3);
   --settings-panel-help-action-hover-text: #fff;
   --settings-panel-search-summary: #fff;
@@ -936,6 +960,14 @@ body.mobile #quickCrawlBtn {
   --settings-panel-search-text: #444;
   --settings-panel-search-placeholder: #aaa;
   --settings-panel-search-icon: #aaa;
+  --settings-panel-card-radius: 10px;
+  --settings-panel-card-shadow: 0 1px 4px rgba(15, 53, 86, 0.04);
+  --settings-panel-card-border: #e8edf2;
+  --settings-panel-control-radius: 8px;
+  --settings-panel-input-radius: 8px;
+  --settings-panel-input-bg: #fff;
+  --settings-panel-input-border: #d5e1e8;
+  --settings-panel-input-focus-shadow: 0 0 0 3px rgba(25, 157, 245, 0.08);
   --settings-panel-clear-color: #999;
   --settings-panel-clear-visible-color: #666;
   --settings-panel-clear-hover-color: var(--theme-blue);
@@ -952,11 +984,11 @@ body.mobile #quickCrawlBtn {
   --settings-panel-btn-warning: #e49d00;
   --settings-panel-btn-danger: #f33939;
   --settings-panel-btn-primary-text: #fff;
-  --settings-panel-btn-primary-shadow: 0 4px 12px rgba(15, 53, 86, 0.14);
-  --settings-panel-btn-primary-shadow-hover: 0 6px 16px rgba(15, 53, 86, 0.18);
+  --settings-panel-btn-primary-shadow: 0 2px 6px rgba(15, 53, 86, 0.1);
+  --settings-panel-btn-primary-shadow-hover: 0 4px 10px rgba(15, 53, 86, 0.14);
   --settings-panel-btn-secondary-bg: #fff;
   --settings-panel-btn-secondary-hover-bg: #f5fbff;
-  --settings-panel-btn-secondary-shadow: 0 1px 6px rgba(15, 53, 86, 0.06);
+  --settings-panel-btn-secondary-shadow: 0 1px 3px rgba(15, 53, 86, 0.04);
   --settings-panel-btn-secondary-brand-text: var(--theme-blue);
   --settings-panel-btn-secondary-success-text: #0f9f23;
   --settings-panel-btn-secondary-warning-text: #bd8400;
@@ -978,7 +1010,7 @@ body.mobile #quickCrawlBtn {
   --settings-panel-progress-meta: #83919c;
   --settings-panel-surface-bg: #fff;
   --settings-panel-sticky-bg: #fff;
-  --settings-panel-surface-shadow: 0 0 15px #ddd;
+  --settings-panel-surface-shadow: var(--settings-panel-card-shadow);
   --settings-panel-surface-text: #444;
   --settings-panel-surface-border: #ececec;
   --settings-panel-section-title-text: #222;
@@ -991,7 +1023,7 @@ body.mobile #quickCrawlBtn {
   --settings-panel-new-badge-color: #3ab8f2;
   --settings-panel-tip-card-bg: #f7fbff;
   --settings-panel-tip-card-border: rgba(9, 160, 244, 0.12);
-  --settings-panel-tip-card-shadow: 0 1px 4px rgba(15, 53, 86, 0.04);
+  --settings-panel-tip-card-shadow: var(--settings-panel-card-shadow);
   --settings-panel-tip-card-text: #5f6d7b;
   --settings-panel-tip-icon-bg: rgba(9, 160, 244, 0.1);
   --settings-panel-tip-icon-color: #666;
@@ -1209,17 +1241,18 @@ body.mobile #quickCrawlBtn {
   width: 210px;
   max-width: 80vw;
   height: 32px;
-  border: 1px solid var(--settings-panel-search-border);
-  border-radius: 20px;
+  border: 1px solid var(--settings-panel-input-border);
+  border-radius: var(--settings-panel-input-radius);
   padding: 0 8px;
   display: flex;
   align-items: center;
   gap: 6px;
-  background: var(--settings-panel-search-bg);
-  transition: border-color 0.2s;
+  background: var(--settings-panel-input-bg);
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 .centerWrap .settingsPanel_searchBar:focus-within {
   border-color: var(--settings-panel-search-border-focus);
+  box-shadow: var(--settings-panel-input-focus-shadow);
 }
 .centerWrap .settingsPanel_searchBar input {
   flex: 1;
@@ -1387,20 +1420,24 @@ body.mobile #quickCrawlBtn {
 .centerWrap .centerWrap_con .settingForm .option .setinput_style {
   width: 50px;
   min-width: 50px;
-  height: 20px;
-  line-height: 20px;
-  margin: 3px 0;
-  text-indent: 4px;
+  height: 24px;
+  line-height: 22px;
+  margin: 1px 0;
+  text-indent: 0;
   box-sizing: border-box;
-  border: none !important;
-  border-bottom: 1px solid #ccc !important;
+  border: 1px solid var(--settings-panel-input-border) !important;
+  border-radius: var(--settings-panel-input-radius);
   outline: 0;
-  padding: 0 !important;
-  background: none !important;
+  padding: 0 8px !important;
+  background: var(--settings-panel-input-bg) !important;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 .centerWrap .centerWrap_con .settingForm .option .setinput_style:focus,
 .centerWrap .centerWrap_con .settingForm .option .setinput_style:hover {
-  border-bottom: 1px solid #0096fa !important;
+  border-color: var(--settings-panel-search-border-focus) !important;
+}
+.centerWrap .centerWrap_con .settingForm .option .setinput_style:focus {
+  box-shadow: var(--settings-panel-input-focus-shadow);
 }
 .centerWrap .centerWrap_con .settingForm .option .setinput_style.w20 {
   width: 20px;
@@ -1454,11 +1491,21 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap .centerWrap_con .settingForm select {
   width: auto;
-  height: 22px;
+  height: 24px;
   margin: 2px 0;
   vertical-align: middle;
-  border-radius: 4px;
-  border: 1px solid #cccccc;
+  border-radius: var(--settings-panel-input-radius);
+  border: 1px solid var(--settings-panel-input-border);
+  background: var(--settings-panel-input-bg);
+  padding: 0 8px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.centerWrap .centerWrap_con .settingForm select:hover,
+.centerWrap .centerWrap_con .settingForm select:focus {
+  border-color: var(--settings-panel-search-border-focus);
+}
+.centerWrap .centerWrap_con .settingForm select:focus {
+  box-shadow: var(--settings-panel-input-focus-shadow);
 }
 .centerWrap .centerWrap_con .settingForm option {
   line-height: 24px;
@@ -1475,11 +1522,12 @@ body.mobile #quickCrawlBtn {
   line-height: var(--line-height);
 }
 .centerWrap .centerWrap_con .settingForm .centerPanelTextArea {
+  box-sizing: border-box;
   font-family: var(--pixiv-font-family);
   color: var(--beautify-blue);
   font-size: 15px;
-  background: transparent;
-  padding: 0;
+  background: var(--settings-panel-input-bg);
+  padding: 8px 10px;
   flex-basis: 100%;
   flex-grow: 1;
   min-height: var(--line-height);
@@ -1487,8 +1535,16 @@ body.mobile #quickCrawlBtn {
   height: auto;
   max-height: 200px;
   resize: none;
-  border: none;
-  border-bottom: 1px solid #ccc;
+  border: 1px solid var(--settings-panel-input-border);
+  border-radius: var(--settings-panel-input-radius);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.centerWrap .centerWrap_con .settingForm .centerPanelTextArea:hover,
+.centerWrap .centerWrap_con .settingForm .centerPanelTextArea:focus {
+  border-color: var(--settings-panel-search-border-focus);
+}
+.centerWrap .centerWrap_con .settingForm .centerPanelTextArea:focus {
+  box-shadow: var(--settings-panel-input-focus-shadow);
 }
 .centerWrap .centerWrap_con .settingForm .flexTip {
   display: flex;
@@ -1685,7 +1741,7 @@ body.mobile #quickCrawlBtn {
   justify-content: center;
   text-align: center;
   line-height: 20px;
-  border-radius: 6px;
+  border-radius: var(--settings-panel-control-radius);
   cursor: pointer;
   vertical-align: top;
   background: var(--settings-panel-btn-secondary-bg);
@@ -1939,7 +1995,7 @@ body.mobile #quickCrawlBtn {
 .centerWrap .centerWrap_con .settingForm .setinput_style,
 .centerWrap .centerWrap_con .settingForm .setinput_style:focus,
 .centerWrap .centerWrap_con .settingForm .setinput_style:hover {
-  background: transparent !important;
+  background: var(--settings-panel-input-bg) !important;
 }
 .centerWrap .centerWrap_con .settingsPanel_sidebar {
   width: 190px;
@@ -2114,10 +2170,11 @@ body.mobile #quickCrawlBtn {
   margin-top: 15px;
   padding: 8px 15px;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--settings-panel-card-radius);
+  border: 1px solid var(--settings-panel-card-border);
   background: var(--settings-panel-sticky-bg);
   color: var(--settings-panel-surface-text);
-  box-shadow: var(--settings-panel-surface-shadow);
+  box-shadow: var(--settings-panel-card-shadow);
   position: sticky;
   top: 0;
   z-index: 4;
@@ -2132,8 +2189,8 @@ body.mobile #quickCrawlBtn {
 .centerWrap .centerWrap_con .settingsPanel_sectionHeader {
   width: 100%;
   padding: 8px 15px;
-  border: none;
-  border-radius: 8px;
+  border: 1px solid var(--settings-panel-card-border);
+  border-radius: var(--settings-panel-card-radius);
   background: var(--settings-panel-surface-bg);
   color: var(--settings-panel-section-title-text);
   display: flex;
@@ -2141,20 +2198,22 @@ body.mobile #quickCrawlBtn {
   justify-content: space-between;
   gap: 12px;
   cursor: pointer;
-  box-shadow: var(--settings-panel-surface-shadow);
+  box-shadow: var(--settings-panel-card-shadow);
   text-align: left;
 }
 .centerWrap .centerWrap_con .settingsPanel_sectionHeader:hover svg {
   color: var(--settings-panel-section-hover-color);
 }
 .centerWrap .centerWrap_con .settingsPanel_panelSection {
-  border-radius: 8px;
+  border: 1px solid var(--settings-panel-card-border);
+  border-radius: var(--settings-panel-card-radius);
   background: var(--settings-panel-surface-bg);
-  box-shadow: var(--settings-panel-surface-shadow);
+  box-shadow: var(--settings-panel-card-shadow);
   overflow: hidden;
 }
 .centerWrap .centerWrap_con .settingsPanel_panelSection .settingsPanel_sectionHeader {
   margin-top: 0;
+  border: none;
   box-shadow: none;
   border-bottom: 1px solid var(--settings-panel-surface-border);
   border-radius: 0;
@@ -2252,8 +2311,9 @@ body.mobile #quickCrawlBtn {
   margin: 10px auto 0;
   padding: 8px 15px;
   background: var(--settings-panel-surface-bg);
-  border-radius: 12px;
-  box-shadow: var(--settings-panel-option-card-shadow);
+  border: 1px solid var(--settings-panel-card-border);
+  border-radius: var(--settings-panel-card-radius);
+  box-shadow: var(--settings-panel-card-shadow);
   line-height: 26px;
 }
 .centerWrap .centerWrap_con .settingsPanel_optionCard.option.pinned {
@@ -2296,10 +2356,10 @@ body.mobile #quickCrawlBtn {
   margin-top: 0;
   min-height: 42px;
   padding: 9px 12px;
-  border-radius: 10px;
+  border-radius: var(--settings-panel-card-radius);
   border: 1px solid var(--settings-panel-tip-card-border);
   background: var(--settings-panel-tip-card-bg);
-  box-shadow: var(--settings-panel-tip-card-shadow);
+  box-shadow: var(--settings-panel-card-shadow);
   display: flex;
   align-items: flex-start;
   gap: 10px;
@@ -2352,15 +2412,15 @@ body.mobile #quickCrawlBtn {
   min-width: 0;
   min-height: 46px;
   padding: 12px 14px;
-  border: none;
-  border-radius: 12px;
+  border: 1px solid var(--settings-panel-card-border);
+  border-radius: var(--settings-panel-card-radius);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
   color: var(--settings-panel-help-action-text);
   background: var(--settings-panel-help-action-bg);
-  box-shadow: var(--settings-panel-help-action-shadow);
+  box-shadow: var(--settings-panel-card-shadow);
   cursor: pointer;
   position: relative;
 }
@@ -2562,7 +2622,7 @@ body.mobile #quickCrawlBtn {
   color: #fff !important;
 }
 .centerWrap.xzBG .centerWrap_con .settingForm select {
-  background: transparent;
+  background: var(--settings-panel-input-bg);
 }
 .centerWrap.xzBG .saveNamingRuleWrap {
   color: #fff;
