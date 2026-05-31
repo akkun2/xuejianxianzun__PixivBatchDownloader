@@ -15,7 +15,7 @@ import { FormHelpManager } from './FormHelpManager'
 import { FormSettings } from './FormSettings'
 import { SaveNamingRule } from './SaveNamingRule'
 import { setSetting, settings } from './Settings'
-import { SettingsForm } from './SettingsForm'
+import { FormType } from './FormType'
 import { SettingsPanel } from './SettingsPanel'
 
 /** 设置系统入口：创建 form，并装配所有依赖 form 的模块 */
@@ -24,7 +24,7 @@ class SettingsBootstrap {
     this.form = Tools.useSlot(
       'form',
       `<form class="settingForm">${optionsHtml}</form>`
-    ) as SettingsForm
+    ) as FormType
 
     this.initModules()
     this.bindFormEvents()
@@ -36,7 +36,7 @@ class SettingsBootstrap {
     })
   }
 
-  private form: SettingsForm
+  private form: FormType
 
   private initModules() {
     const allOptions = this.form.querySelectorAll(

@@ -2,7 +2,7 @@ import { lang } from '../Language'
 import { LangTextKey } from '../langText'
 import { optionConfigs } from './OptionConfigs'
 import { OptionCategoryLevel1 } from './Settings'
-import { SettingsForm } from './SettingsForm'
+import { FormType } from './FormType'
 import { SettingsPanelHelp } from './SettingsPanelHelp'
 import { FoldableSection, PageId, pageIds } from './SettingsPanelTypes'
 
@@ -32,7 +32,7 @@ class SettingsPanelLayout {
     makeSectionKey,
     makeCanonicalKey,
   }: {
-    form: SettingsForm
+    form: FormType
     centerPanel: HTMLDivElement
     optionElements: Map<number, HTMLElement>
     getExpandedState: (section: FoldableSection) => boolean
@@ -51,7 +51,7 @@ class SettingsPanelLayout {
     this.makeCanonicalKey = makeCanonicalKey
   }
 
-  private form: SettingsForm
+  private form: FormType
   private centerPanel: HTMLDivElement
   private optionElements: Map<number, HTMLElement>
   private getExpandedState: (section: FoldableSection) => boolean

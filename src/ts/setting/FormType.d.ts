@@ -1,4 +1,4 @@
-export interface SettingsForm extends HTMLFormElement {
+export interface FormType extends HTMLFormElement {
   onlyCrawlFirstFewImagesCount: HTMLInputElement
   downType0: HTMLInputElement
   downType1: HTMLInputElement

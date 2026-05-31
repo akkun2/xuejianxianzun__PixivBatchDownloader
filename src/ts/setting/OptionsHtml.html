@@ -343,14 +343,19 @@
       value="__BOOKMARK_COUNT_LIMIT__"
     />
     &nbsp;<span data-xztext="_或者"></span>
-    <span class="has_tip" data-xztip="_日均收藏数量的提示">
+    <label
+      for="BMKNumAverageSwitch"
+      class="has_tip"
+      data-xztip="_日均收藏数量的提示"
+    >
       <span data-xztext="_日均收藏数量"></span>
       <span class="gray1"> ? </span>
-    </span>
+    </label>
     &nbsp;
     <input
       type="checkbox"
       name="BMKNumAverageSwitch"
+      id="BMKNumAverageSwitch"
       class="need_beautify checkbox_switch"
     />
     <span class="beautify_switch" tabindex="0"></span>
@@ -1133,10 +1138,11 @@
       value="100"
     />
     <span class="verticalSplit"></span>
-    <span data-xztext="_间隔时间"></span>
+    <label for="slowCrawlDealy" data-xztext="_间隔时间"></label>
     <input
       type="text"
       name="slowCrawlDealy"
+      id="slowCrawlDealy"
       class="setinput_style blue"
       value="1600"
       placeholder="1600"
@@ -2817,15 +2823,16 @@ __DEFAULT_NAME_RULE_FOR_NOVEL__</textarea
     />
     <span class="beautify_switch" tabindex="0"></span>
     <span class="verticalSplit"></span>
-    <span data-xztext="_等待时间"></span>&nbsp;
+    <label for="previewWorkWait" data-xztext="_等待时间"></label>
     <input
       type="text"
       name="previewWorkWait"
+      id="previewWorkWait"
       class="setinput_style blue"
       value="400"
       style="width: 40px; min-width: 40px"
     />
-    <span>&nbsp;ms</span>
+    <span>ms</span>
     <span class="verticalSplit"></span>
     <label for="showPreviewWorkTip" data-xztext="_显示摘要信息"></label>
     <input

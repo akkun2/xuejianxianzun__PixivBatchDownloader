@@ -1,6 +1,6 @@
 import { EVT } from '../EVT'
 import { settings, setSetting, SettingKeys } from './Settings'
-import { SettingsForm } from './SettingsForm'
+import { FormType } from './FormType'
 import { DateFormat } from '../utils/DateFormat'
 import { nameRuleManager } from './NameRuleManager'
 import { Tools } from '../Tools'
@@ -18,7 +18,7 @@ interface InputFileds {
 }
 
 class FormSettings {
-  constructor(form: SettingsForm) {
+  constructor(form: FormType) {
     this.form = form
 
     this.bindEvents()
@@ -26,7 +26,7 @@ class FormSettings {
     this.ListenChange()
   }
 
-  private form!: SettingsForm
+  private form!: FormType
 
   // 没有填写 userSetName 和 userSetNameForNovel 字段，因为它们由 nameRuleManager 管理
   private readonly inputFileds: InputFileds = {

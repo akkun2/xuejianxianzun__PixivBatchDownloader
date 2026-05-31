@@ -1,14 +1,14 @@
 import { EVT } from '../EVT'
 import { lang } from '../Language'
 import { LangTextKey } from '../langText'
-import { SettingsForm } from './SettingsForm'
+import { FormType } from './FormType'
 import { setSetting, SettingKeys } from '../setting/Settings'
 import { Utils } from '../utils/Utils'
 import { msgBox } from '../MsgBox'
 
 /** 管理表单里的帮助信息 */
 class FormHelpManager {
-  constructor(form: SettingsForm) {
+  constructor(form: FormType) {
     this.form = form
 
     this.displayTipArea()
@@ -16,7 +16,7 @@ class FormHelpManager {
     this.showMsgWhenClickBtn()
   }
 
-  private form: SettingsForm
+  private form: FormType
 
   /** 有些提示区域是默认显示的，用户点击“我知道了”按钮之后改为隐藏 */
   private readonly tipAreaConfig: { key: SettingKeys; selector: string }[] = [

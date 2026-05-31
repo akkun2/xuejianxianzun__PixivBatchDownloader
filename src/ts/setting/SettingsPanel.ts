@@ -1,6 +1,6 @@
 import { EVT } from '../EVT'
 import { OptionCategoryLevel1 } from './Settings'
-import { SettingsForm } from './SettingsForm'
+import { FormType } from './FormType'
 import { SettingsPanelDownloadSummary } from './SettingsPanelDownloadSummary'
 import {
   SettingsPanelLayout,
@@ -15,7 +15,7 @@ import { FoldableSection, PageId } from './SettingsPanelTypes'
 import '../OpenSettingsPanel'
 
 class SettingsPanel {
-  private form: SettingsForm
+  private form: FormType
   private centerPanel: HTMLDivElement
   private main: HTMLDivElement
 
@@ -34,7 +34,7 @@ class SettingsPanel {
   private placementController!: SettingsPanelPlacement
   private sectionController!: SettingsPanelSections
 
-  constructor(form: SettingsForm) {
+  constructor(form: FormType) {
     this.form = form
     this.centerPanel = SettingsPanelShell.get()
     this.main = this.centerPanel.querySelector(

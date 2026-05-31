@@ -5437,14 +5437,6 @@ If the number of works shown on the page is greater than 0, it may be that Pixiv
     '소설에서 <span class="key">인라인</span> 이미지 다운로드',
     'Загрузка <span class="key">вложенных</span> изображений в новеллах',
   ],
-  _其他优化: [
-    '其他优化。',
-    '其他最佳化。',
-    'Other optimizations.',
-    'その他の最適化。',
-    '기타 최적화.',
-    'Другие оптимизации.',
-  ],
   _没有可用的抓取结果: [
     '没有可用的抓取结果',
     '沒有可用的抓取結果',

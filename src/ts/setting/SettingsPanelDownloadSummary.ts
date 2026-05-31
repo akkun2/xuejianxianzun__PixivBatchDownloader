@@ -5,7 +5,7 @@ import { store } from '../store/Store'
 import { Utils } from '../utils/Utils'
 import { downloadStates } from '../download/DownloadStates'
 import { settings, setSetting } from './Settings'
-import { SettingsForm } from './SettingsForm'
+import { FormType } from './FormType'
 
 type DownloadSummaryState = 'start' | 'loading' | 'pause' | 'stop' | 'complete'
 
@@ -13,7 +13,7 @@ type DownloadSummaryState = 'start' | 'loading' | 'pause' | 'stop' | 'complete'
 class SettingsPanelDownloadSummary {
   constructor(
     wrap: HTMLDivElement,
-    form: SettingsForm,
+    form: FormType,
     onStateChanged?: () => void
   ) {
     this.wrap = wrap
@@ -35,7 +35,7 @@ class SettingsPanelDownloadSummary {
   }
 
   private wrap: HTMLDivElement
-  private form: SettingsForm
+  private form: FormType
   private stateSVG: SVGSVGElement
   private progress: HTMLSpanElement
   private stateIconUse: SVGUseElement
