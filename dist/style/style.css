@@ -529,7 +529,7 @@ body.mobile #quickCrawlBtn {
   --settings-panel-btn-primary-shadow: 0 4px 12px rgba(15, 53, 86, 0.14);
   --settings-panel-btn-primary-shadow-hover: 0 6px 16px rgba(15, 53, 86, 0.18);
   --settings-panel-btn-secondary-bg: #fff;
-  --settings-panel-btn-secondary-border: #fff;
+  --settings-panel-btn-secondary-border: #199df5;
   --settings-panel-btn-secondary-hover-bg: #f5fbff;
   --settings-panel-btn-secondary-shadow: 0 1px 6px rgba(15, 53, 86, 0.06);
   --settings-panel-btn-secondary-brand-text: var(--theme-blue);
@@ -554,6 +554,11 @@ body.mobile #quickCrawlBtn {
   --settings-panel-option-card-shadow: 0 0 10px #ddd;
   --settings-panel-option-card-pinned-border: #bde2ff;
   --settings-panel-new-badge-color: #3ab8f2;
+  --settings-panel-tip-card-bg: #f7fbff;
+  --settings-panel-tip-card-border: rgba(9, 160, 244, 0.14);
+  --settings-panel-tip-card-shadow: 0 1px 4px rgba(15, 53, 86, 0.04);
+  --settings-panel-tip-card-text: #5f6d7b;
+  --settings-panel-tip-icon-bg: rgba(9, 160, 244, 0.1);
   --settings-panel-tip-icon-color: #666;
   --settings-panel-tip-confirm-color: var(--theme-blue);
   --settings-panel-tip-confirm-hover-bg: #e5f2ff;
@@ -626,6 +631,11 @@ body.mobile #quickCrawlBtn {
   --settings-panel-section-icon-color: #3eb5ec;
   --settings-panel-section-arrow-color: #dfe7ef;
   --settings-panel-option-card-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+  --settings-panel-tip-card-bg: rgba(66, 195, 255, 0.08);
+  --settings-panel-tip-card-border: rgba(66, 195, 255, 0.16);
+  --settings-panel-tip-card-shadow: 0 1px 6px rgba(0, 0, 0, 0.12);
+  --settings-panel-tip-card-text: #dfe7ef;
+  --settings-panel-tip-icon-bg: rgba(66, 195, 255, 0.16);
   --settings-panel-tip-icon-color: #dfe7ef;
   --settings-panel-tip-confirm-color: var(--beautify-blue);
   --settings-panel-tip-confirm-hover-bg: rgba(25, 157, 245, 0.24);
@@ -695,6 +705,11 @@ body.mobile #quickCrawlBtn {
   --settings-panel-section-icon-color: #fff;
   --settings-panel-section-arrow-color: #fff;
   --settings-panel-option-card-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+  --settings-panel-tip-card-bg: rgba(255, 255, 255, 0.12);
+  --settings-panel-tip-card-border: rgba(255, 255, 255, 0.16);
+  --settings-panel-tip-card-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+  --settings-panel-tip-card-text: #fff;
+  --settings-panel-tip-icon-bg: rgba(255, 255, 255, 0.16);
   --settings-panel-tip-icon-color: #fff;
   --settings-panel-tip-confirm-color: #fff;
   --settings-panel-tip-confirm-hover-bg: rgba(255, 255, 255, 0.3);
@@ -934,6 +949,11 @@ body.mobile #quickCrawlBtn {
   --settings-panel-option-card-shadow: 0 0 10px #ddd;
   --settings-panel-option-card-pinned-border: #bde2ff;
   --settings-panel-new-badge-color: #3ab8f2;
+  --settings-panel-tip-card-bg: #f7fbff;
+  --settings-panel-tip-card-border: rgba(9, 160, 244, 0.12);
+  --settings-panel-tip-card-shadow: 0 1px 4px rgba(15, 53, 86, 0.04);
+  --settings-panel-tip-card-text: #5f6d7b;
+  --settings-panel-tip-icon-bg: rgba(9, 160, 244, 0.1);
   --settings-panel-tip-icon-color: #666;
   --settings-panel-tip-confirm-color: var(--theme-blue);
   --settings-panel-tip-confirm-hover-bg: #e5f2ff;
@@ -2199,42 +2219,55 @@ body.mobile #quickCrawlBtn {
 .centerWrap .centerWrap_con .settingsPanel_helpTips {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
 }
 .centerWrap .centerWrap_con .settingsPanel_tipCard {
   width: 100%;
-  margin-top: 15px;
-  padding: 12px 15px;
-  border-radius: 12px;
-  background: var(--settings-panel-surface-bg);
-  box-shadow: var(--settings-panel-surface-shadow);
+  margin-top: 0;
+  min-height: 42px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--settings-panel-tip-card-border);
+  background: var(--settings-panel-tip-card-bg);
+  box-shadow: var(--settings-panel-tip-card-shadow);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
 }
 .centerWrap .centerWrap_con .settingsPanel_tipIcon {
-  font-size: 20px;
+  width: 26px;
+  height: 26px;
+  padding: 5px;
+  border-radius: 50%;
+  background: var(--settings-panel-tip-icon-bg);
+  font-size: 16px;
   color: var(--settings-panel-tip-icon-color);
   flex: none;
 }
 .centerWrap .centerWrap_con .settingsPanel_tipText {
   flex: 1;
   min-width: 0;
-  line-height: 26px;
+  padding-top: 1px;
+  line-height: 22px;
+  font-size: 14px;
+  color: var(--settings-panel-tip-card-text);
 }
 .centerWrap .centerWrap_con .settingsPanel_tipConfirm {
-  margin-left: 2px;
-  width: 1.6em;
-  height: 1lh;
+  margin-left: 4px;
+  width: 1.7em;
+  height: 1.7em;
   font-size: 18px;
   padding: 0 2px;
   border: none;
-  border-radius: 4px;
+  border-radius: 999px;
   background: transparent;
   color: var(--settings-panel-tip-confirm-color);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   vertical-align: middle;
+  transform: translateY(-1px);
 }
 .centerWrap .centerWrap_con .settingsPanel_tipConfirm:hover {
   background: var(--settings-panel-tip-confirm-hover-bg);
