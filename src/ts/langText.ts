@@ -3871,7 +3871,7 @@ This setting is also used when you use the Downloader to bookmark works in batch
     `<span class="key">다중 이미지</span> 작품에 한 층의 폴더 추가`,
     `Добавить слой папки для <span class="key">многоизображных</span> работ`,
   ],
-  为多图作品添加一层文件夹的帮助: [
+  _为多图作品添加一层文件夹的帮助: [
     `如果你想仅为多图作品额外创建一层文件夹（并且不为单图作品创建该文件夹），可以启用此设置。<br>
 <br>
 使用方法：<br>
@@ -3880,7 +3880,7 @@ This setting is also used when you use the Downloader to bookmark works in batch
 默认值 <span class="blue">{pid}</span> 会使用作品 ID 创建这层文件夹。如果你想使用作品标题来创建这层文件夹，就填写 <span class="blue">{title}</span>。
 <br>
 <br>
-然后你需要修改“下载”选项卡里的“图像作品的命名规则”设置，在你想添加这层文件夹的位置插入<span class="blue">/{multi_image_folder}/</span>，它代表了你在这里设置的文件夹规则。<br>
+然后你需要修改“命名 / 文件夹和文件的名字”设置里的“图像作品的命名规则”设置，在你想添加这层文件夹的位置插入<span class="blue">/{multi_image_folder}/</span>，它代表了你在这里设置的文件夹规则。<br>
 <br>
 修改后的“图像作品的命名规则”的示例：<br>
 <span class="blue">pixiv/{user}-{user_id}/{multi_image_folder}/{id}-{title}</span><br>
@@ -3893,7 +3893,7 @@ This setting is also used when you use the Downloader to bookmark works in batch
 設定資料夾規則時，你可以使用命名規則中的標記，也可以加入自訂字元。<br>
 預設值 <span class="blue">{pid}</span> 會使用作品 ID 建立這層資料夾。如果你想使用作品標題來建立這層資料夾，就填寫 <span class="blue">{title}</span>。<br>
 <br>
-然後你需要修改 "下載" 分頁裡的 "圖像作品的命名規則" 設定，在你想添加這層資料夾的位置插入<span class="blue">/{multi_image_folder}/</span>，它代表你在這裡設定的資料夾規則。<br>
+然後你需要修改「命名 / 資料夾和檔案的名字」設定裡的「圖像作品的命名規則」設定，在你想添加這層資料夾的位置插入<span class="blue">/{multi_image_folder}/</span>，它代表你在這裡設定的資料夾規則。<br>
 <br>
 修改後的 "圖像作品的命名規則" 範例：<br>
 <span class="blue">pixiv/{user}-{user_id}/{multi_image_folder}/{id}-{title}</span><br>
@@ -3906,7 +3906,7 @@ First, set the rule for this folder layer here. Note: In this setting, you only 
 When setting the folder rule, you can use markers from the Naming rule, or add your own custom characters.<br>
 The default value <span class="blue">{pid}</span> will create this folder layer using the work ID. If you want to create this folder layer using the work title, enter <span class="blue">{title}</span>.<br>
 <br>
-Then you need to edit the "Naming rule for image works" setting in the "Download" tab, and insert <span class="blue">/{multi_image_folder}/</span> where you want to add this folder layer. It represents the folder rule you set here.<br>
+Then you need to edit the "Naming rule for image works" setting in "Naming / Folder and file names", and insert <span class="blue">/{multi_image_folder}/</span> where you want to add this folder layer. It represents the folder rule you set here.<br>
 <br>
 Example of the modified "Naming rule for image works":<br>
 <span class="blue">pixiv/{user}-{user_id}/{multi_image_folder}/{id}-{title}</span><br>
@@ -3919,7 +3919,7 @@ How it works: When the downloader generates file names for multi-image works, it
 フォルダ規則を設定するときは、命名規則内のマーカーを使うことも、任意の文字を追加することもできます。<br>
 デフォルト値の <span class="blue">{pid}</span> は、作品 ID を使ってこのフォルダ階層を作成します。作品タイトルを使ってこのフォルダ階層を作成したい場合は、<span class="blue">{title}</span> を入力してください。<br>
 <br>
-そのあと、"ダウンロード" タブにある "画像作品の命名規則" を変更し、このフォルダ階層を追加したい位置に <span class="blue">/{multi_image_folder}/</span> を挿入してください。これは、ここで設定したフォルダ規則を表します。<br>
+そのあと、「命名 / フォルダーとファイルの名前」設定にある「画像作品の命名規則」を変更し、このフォルダ階層を追加したい位置に <span class="blue">/{multi_image_folder}/</span> を挿入してください。これは、ここで設定したフォルダ規則を表します。<br>
 <br>
 変更後の "画像作品の命名規則" の例：<br>
 <span class="blue">pixiv/{user}-{user_id}/{multi_image_folder}/{id}-{title}</span><br>
@@ -3932,7 +3932,7 @@ How it works: When the downloader generates file names for multi-image works, it
 폴더 규칙을 설정할 때는 명명 규칙의 마커를 사용할 수도 있고, 원하는 문자를 직접 추가할 수도 있습니다.<br>
 기본값 <span class="blue">{pid}</span> 는 작품 ID를 사용해 이 폴더 단계를 만듭니다. 작품 제목으로 이 폴더 단계를 만들고 싶다면 <span class="blue">{title}</span> 를 입력하세요.<br>
 <br>
-그다음 "다운로드" 탭에 있는 "이미지 작품의 명명 규칙" 설정을 수정해서, 이 폴더 단계를 추가하고 싶은 위치에 <span class="blue">/{multi_image_folder}/</span> 를 넣어야 합니다. 이것은 여기에서 설정한 폴더 규칙을 뜻합니다.<br>
+그다음 "명명 / 폴더와 파일 이름" 설정의 "이미지 작품의 명명 규칙" 설정을 수정해서, 이 폴더 단계를 추가하고 싶은 위치에 <span class="blue">/{multi_image_folder}/</span> 를 넣어야 합니다. 이것은 여기에서 설정한 폴더 규칙을 뜻합니다.<br>
 <br>
 수정한 "이미지 작품의 명명 규칙" 예시:<br>
 <span class="blue">pixiv/{user}-{user_id}/{multi_image_folder}/{id}-{title}</span><br>
@@ -3945,7 +3945,7 @@ How it works: When the downloader generates file names for multi-image works, it
 При настройке правила папки можно использовать маркеры из правил названий или добавлять свои символы.<br>
 Значение по умолчанию <span class="blue">{pid}</span> создаст этот уровень папки с использованием ID work. Если вы хотите создавать этот уровень папки по названию work, укажите <span class="blue">{title}</span>.<br>
 <br>
-Затем вам нужно изменить настройку "Правила названий для графических работ" на вкладке "Скачать" и вставить <span class="blue">/{multi_image_folder}/</span> в том месте, где вы хотите добавить этот уровень папки. Это обозначает правило папки, заданное здесь.<br>
+Затем вам нужно изменить настройку "Правила названий для графических работ" в разделе «Именование / Имена папок и файлов» и вставить <span class="blue">/{multi_image_folder}/</span> в том месте, где вы хотите добавить этот уровень папки. Это обозначает правило папки, заданное здесь.<br>
 <br>
 Пример измененного "Правила названий для графических работ":<br>
 <span class="blue">pixiv/{user}-{user_id}/{multi_image_folder}/{id}-{title}</span><br>
@@ -4057,7 +4057,7 @@ How it works: When the downloader generates file names for multi-image works, it
 先在这里设置这层文件夹的规则。注意：在这个设置里，你只需要设置你想额外添加的这层文件夹。不要在这里填写完整的命名规则。<br>
 在设置文件夹规则时，你可以使用命名规则中的标记，也可以加入自定义字符。<br>
 <br>
-然后你需要修改“下载”选项卡里的“命名规则”设置，在你想添加这层文件夹的位置插入<span class="blue">/{r18_g_folder}/</span>，它代表了你在这里设置的文件夹规则。<br>
+然后你需要修改“命名 / 文件夹和文件的名字”里的“命名规则”设置，在你想添加这层文件夹的位置插入<span class="blue">/{r18_g_folder}/</span>，它代表了你在这里设置的文件夹规则。<br>
 <br>
 修改后的命名规则的示例：<br>
 示例：<span class="blue">pixiv/{user}-{user_id}/{r18_g_folder}/{id}-{title}</span><br>
@@ -4071,7 +4071,7 @@ How it works: When the downloader generates file names for multi-image works, it
 先在這裡設定這層資料夾的規則。注意：在這個設定裡，你只需要設定你想額外添加的這層資料夾。不要在這裡填寫完整的命名規則。<br>
 設定資料夾規則時，你可以使用命名規則中的標記，也可以加入自訂字元。<br>
 <br>
-然後你需要修改 "下載" 分頁裡的 "命名規則" 設定，在你想添加這層資料夾的位置插入<span class="blue">/{r18_g_folder}/</span>，它代表你在這裡設定的資料夾規則。<br>
+然後你需要修改「命名 / 資料夾和檔案的名字」裡的「命名規則」設定，在你想添加這層資料夾的位置插入<span class="blue">/{r18_g_folder}/</span>，它代表你在這裡設定的資料夾規則。<br>
 <br>
 修改後的命名規則範例：<br>
 示例：<span class="blue">pixiv/{user}-{user_id}/{r18_g_folder}/{id}-{title}</span><br>
@@ -4085,7 +4085,7 @@ How to use:<br>
 First, set the rule for this folder layer here. Note: In this setting, you only need to set the extra folder layer you want to add. Do not enter the full Naming rule here.<br>
 When setting the folder rule, you can use markers from the Naming rule, or add your own custom characters.<br>
 <br>
-Then you need to edit the "Naming rule" setting in the "Download" tab, and insert <span class="blue">/{r18_g_folder}/</span> where you want to add this folder layer. It represents the folder rule you set here.<br>
+Then you need to edit the "Naming rule" setting in "Naming / Folder and file names", and insert <span class="blue">/{r18_g_folder}/</span> where you want to add this folder layer. It represents the folder rule you set here.<br>
 <br>
 Example of the modified Naming rule:<br>
 Example: <span class="blue">pixiv/{user}-{user_id}/{r18_g_folder}/{id}-{title}</span><br>
@@ -4099,7 +4099,7 @@ Note: This setting will add the same folder name for both R-18 and R-18G works. 
 まず、ここでこのフォルダ階層の規則を設定します。注意：この設定では、追加したいこのフォルダ階層だけを設定してください。ここに完全な命名規則を入力しないでください。<br>
 フォルダ規則を設定するときは、命名規則内のマーカーを使うことも、任意の文字を追加することもできます。<br>
 <br>
-そのあと、"ダウンロード" タブにある "命名規則" を変更し、このフォルダ階層を追加したい位置に <span class="blue">/{r18_g_folder}/</span> を挿入してください。これは、ここで設定したフォルダ規則を表します。<br>
+そのあと、「命名 / フォルダーとファイルの名前」にある「命名規則」を変更し、このフォルダ階層を追加したい位置に <span class="blue">/{r18_g_folder}/</span> を挿入してください。これは、ここで設定したフォルダ規則を表します。<br>
 <br>
 変更後の命名規則の例：<br>
 例：<span class="blue">pixiv/{user}-{user_id}/{r18_g_folder}/{id}-{title}</span><br>
@@ -4113,7 +4113,7 @@ Note: This setting will add the same folder name for both R-18 and R-18G works. 
 먼저 여기에서 이 폴더 단계의 규칙을 설정하세요. 주의: 이 설정에서는 추가하고 싶은 이 폴더 단계만 설정하면 됩니다. 여기에 전체 명명 규칙을 입력하면 안 됩니다.<br>
 폴더 규칙을 설정할 때는 명명 규칙의 마커를 사용할 수도 있고, 원하는 문자를 직접 추가할 수도 있습니다.<br>
 <br>
-그다음 "다운로드" 탭에 있는 "명명 규칙" 설정을 수정해서, 이 폴더 단계를 추가하고 싶은 위치에 <span class="blue">/{r18_g_folder}/</span> 를 넣어야 합니다. 이것은 여기에서 설정한 폴더 규칙을 뜻합니다.<br>
+그다음 "명명 / 폴더와 파일 이름" 설정의 "명명 규칙" 설정을 수정해서, 이 폴더 단계를 추가하고 싶은 위치에 <span class="blue">/{r18_g_folder}/</span> 를 넣어야 합니다. 이것은 여기에서 설정한 폴더 규칙을 뜻합니다.<br>
 <br>
 수정한 명명 규칙 예시:<br>
 예시: <span class="blue">pixiv/{user}-{user_id}/{r18_g_folder}/{id}-{title}</span><br>
@@ -4127,7 +4127,7 @@ Note: This setting will add the same folder name for both R-18 and R-18G works. 
 Сначала задайте здесь правило для этого уровня папки. Внимание: в этой настройке нужно указать только тот дополнительный уровень папки, который вы хотите добавить. Не вводите здесь полное правило названий.<br>
 При настройке правила папки можно использовать маркеры из правил названий или добавлять свои символы.<br>
 <br>
-Затем вам нужно изменить настройку "Правила названий" на вкладке "Скачать" и вставить <span class="blue">/{r18_g_folder}/</span> в том месте, где вы хотите добавить этот уровень папки. Это обозначает правило папки, заданное здесь.<br>
+Затем вам нужно изменить настройку "Правила названий" в разделе «Именование / Имена папок и файлов» и вставить <span class="blue">/{r18_g_folder}/</span> в том месте, где вы хотите добавить этот уровень папки. Это обозначает правило папки, заданное здесь.<br>
 <br>
 Пример измененного правила названий:<br>
 Пример: <span class="blue">pixiv/{user}-{user_id}/{r18_g_folder}/{id}-{title}</span><br>
@@ -4228,7 +4228,7 @@ Note: This setting will add the same folder name for both R-18 and R-18G works. 
     <br><br>
     <strong>建议您在浏览器的下载设置中关闭“下载前询问每个文件的保存位置”，否则保存每个文件时都会显示另存为对话框。</strong>
     <br><br>
-    下载器默认启用了一些增强功能，这可能会导致 Pixiv 的一些页面样式产生变化。你可以在下载器的“更多”标签页里启用或关闭这些功能。
+    下载器默认启用了一些增强功能，这可能会导致 Pixiv 的一些页面样式产生变化。你可以在下载器的“增强”设置里启用或关闭这些功能。
     <br><br>
     下载器的 Wiki：<a href="https://xuejianxianzun.github.io/PBDWiki/" target="_blank">https://xuejianxianzun.github.io/PBDWiki/</a>
     <br><br>`,
@@ -4239,7 +4239,7 @@ Note: This setting will add the same folder name for both R-18 and R-18G works. 
     <br><br>
     <strong>建議您在瀏覽器的下載設置中關閉“下載前詢問每個文件的保存位置”，否則保存每個文件時都會顯示另存為對話框。</strong>
     <br><br>
-    下載器默認開啟了一些增強功能，這可能會導致 Pixiv 的一些頁面樣式產生變化。您可以在下載器的“更多”標籤頁中啟用或關閉這些功能。
+    下載器默認開啟了一些增強功能，這可能會導致 Pixiv 的一些頁面樣式產生變化。您可以在下載器的「增強」設定中啟用或關閉這些功能。
     <br><br>
     下載器的 Wiki：<a href="https://xuejianxianzun.github.io/PBDWiki/" target="_blank">https://xuejianxianzun.github.io/PBDWiki/</a>
     <br><br>`,
@@ -4250,7 +4250,7 @@ Note: This setting will add the same folder name for both R-18 and R-18G works. 
     <br><br>
     <strong>It is recommended to disable "Ask where to save each file before downloading" in the browser's download settings, otherwise a save-as dialog will appear for each file.</strong>
     <br><br>
-    The downloader enables some enhanced features by default, which may cause changes to the style of some Pixiv pages. You can enable or disable these features in the "More" tab of the downloader.
+    The downloader enables some enhanced features by default, which may cause changes to the style of some Pixiv pages. You can enable or disable these features in the downloader's "Enhance" settings.
     <br><br>
     Downloader Wiki: <a href="https://xuejianxianzun.github.io/PBDWiki/" target="_blank">https://xuejianxianzun.github.io/PBDWiki/</a>
     <br><br>`,
@@ -4261,7 +4261,7 @@ Note: This setting will add the same folder name for both R-18 and R-18G works. 
     <br><br>
     <strong>ブラウザのダウンロード設定で「ダウンロード前に各ファイルの保存場所を確認する」をオフにすることをお勧めします。そうしないと、ファイルを保存するたびに「名前を付けて保存」ダイアログが表示されます。</strong>
     <br><br>
-    ダウンローダーはデフォルトでいくつかの拡張機能を有効にしており、これによりPixivの一部のページのスタイルが変更されることがあります。これらの機能は、ダウンローダーの「その他」タブで有効または無効にできます。
+    ダウンローダーはデフォルトでいくつかの拡張機能を有効にしており、これによりPixivの一部のページのスタイルが変更されることがあります。これらの機能は、ダウンローダーの「強化機能」設定で有効または無効にできます。
     <br><br>
     ダウンローダーのWiki：<a href="https://xuejianxianzun.github.io/PBDWiki/" target="_blank">https://xuejianxianzun.github.io/PBDWiki/</a>
     <br><br>`,
@@ -4272,7 +4272,7 @@ Note: This setting will add the same folder name for both R-18 and R-18G works. 
     <br><br>
     <strong>브라우저의 다운로드 설정에서 "다운로드 전에 각 파일의 저장 위치를 묻기"를 비활성화하는 것이 좋습니다. 그렇지 않으면 파일을 저장할 때마다 "다른 이름으로 저장" 대화 상자가 나타납니다.</strong>
     <br><br>
-    다운로더는 기본적으로 몇 가지 향상된 기능을 활성화하며, 이로 인해 Pixiv의 일부 페이지 스타일이 변경될 수 있습니다. 이러한 기능은 다운로더의 "더보기" 탭에서 활성화하거나 비활성화할 수 있습니다.
+    다운로더는 기본적으로 몇 가지 향상된 기능을 활성화하며, 이로 인해 Pixiv의 일부 페이지 스타일이 변경될 수 있습니다. 이러한 기능은 다운로더의 "향상" 설정에서 활성화하거나 비활성화할 수 있습니다.
     <br><br>
     다운로더 위키: <a href="https://xuejianxianzun.github.io/PBDWiki/" target="_blank">https://xuejianxianzun.github.io/PBDWiki/</a>
     <br><br>`,
@@ -4283,7 +4283,7 @@ Note: This setting will add the same folder name for both R-18 and R-18G works. 
     <br><br>
     <strong>Рекомендуется отключить в настройках загрузки браузера опцию "Запрашивать место сохранения каждого файла перед загрузкой", иначе при сохранении каждого файла будет отображаться диалог "Сохранить как".</strong>
     <br><br>
-    Загрузчик по умолчанию включает некоторые расширенные функции, которые могут привести к изменению стиля некоторых страниц Pixiv. Вы можете включать или отключать эти функции на вкладке "Ещё" в загрузчике.
+    Загрузчик по умолчанию включает некоторые расширенные функции, которые могут привести к изменению стиля некоторых страниц Pixiv. Вы можете включать или отключать эти функции в разделе «Улучшение» загрузчика.
     <br><br>
     Вики загрузчика: <a href="https://xuejianxianzun.github.io/PBDWiki/" target="_blank">https://xuejianxianzun.github.io/PBDWiki/</a>
     <br><br>`,
@@ -4347,7 +4347,7 @@ Note: This setting will add the same folder name for both R-18 and R-18G works. 
 你可以设置 2 个标签列表：<span class="blue">{match_tag_folder1}</span> 和 <span class="blue">{match_tag_folder2}</span>。这是为了处理一个常见的需求：如果一个角色属于某个作品，就建立两层文件夹：第一层是作品名字，第二层是角色名字。例如我在 <span class="blue">{match_tag_folder1}</span> 里设置作品名字 <span class="blue">GenshinImpact</span>，并在 <span class="blue">{match_tag_folder2}</span> 里设置角色名字 <span class="blue">フリーナ</span>。如果一个作品同时含有这两个标签，下载器就可以为这个作品添加两层文件夹：<span class="blue">GenshinImpact/フリーナ/</span>。<br>
 当然，如果你没有这个需求的话，可以只使用第一个标签列表。<br>
 <br>
-在你设置标签列表之后，还需要修改"下载"选项卡里的"命名规则"设置，在需要的地方插入特定标记和斜线来添加一层文件夹。<span class="blue">/{match_tag_folder1}/</span>代表第一个标签列表的匹配结果，<span class="blue">/{match_tag_folder2}/</span>代表第二个标签列表的匹配结果。<br>
+在你设置标签列表之后，还需要修改“命名 / 文件夹和文件的名字”里的“命名规则”设置，在需要的地方插入特定标记和斜线来添加一层文件夹。<span class="blue">/{match_tag_folder1}/</span>代表第一个标签列表的匹配结果，<span class="blue">/{match_tag_folder2}/</span>代表第二个标签列表的匹配结果。<br>
 示例：<span class="blue">pixiv/{match_tag_folder1}/{match_tag_folder2}/{id}</span><br>
 <br>
 使用标签别名来统一文件夹名字：<br>
@@ -4366,7 +4366,7 @@ Note: This setting will add the same folder name for both R-18 and R-18G works. 
 你可以設定 2 個標籤列表：<span class="blue">{match_tag_folder1}</span> 和 <span class="blue">{match_tag_folder2}</span>。這是為了處理一個常見的需求：如果一個角色屬於某個作品，就建立兩層資料夾：第一層是作品名字，第二層是角色名字。例如我在 <span class="blue">{match_tag_folder1}</span> 裡設定作品名字 <span class="blue">GenshinImpact</span>，並在 <span class="blue">{match_tag_folder2}</span> 裡設定角色名字 <span class="blue">フリーナ</span>。如果一個作品同時含有這兩個標籤，下載器就可以為這個作品添加兩層資料夾：<span class="blue">GenshinImpact/フリーナ/</span>。<br>
 當然，如果你沒有這個需求的話，可以只使用第一個標籤列表。<br>
 <br>
-在你設定標籤列表之後，還需要修改「下載」選項卡裡的「命名規則」設定，在需要的地方插入特定標記和斜線來添加一層資料夾。<span class="blue">/{match_tag_folder1}/</span>代表第一個標籤列表的匹配結果，<span class="blue">/{match_tag_folder2}/</span>代表第二個標籤列表的匹配結果。<br>
+在你設定標籤列表之後，還需要修改「命名 / 資料夾和檔案的名字」裡的「命名規則」設定，在需要的地方插入特定標記和斜線來添加一層資料夾。<span class="blue">/{match_tag_folder1}/</span>代表第一個標籤列表的匹配結果，<span class="blue">/{match_tag_folder2}/</span>代表第二個標籤列表的匹配結果。<br>
 示例：<span class="blue">pixiv/{match_tag_folder1}/{match_tag_folder2}/{id}</span><br>
 <br>
 使用標籤別名來統一資料夾名字：<br>
@@ -4385,7 +4385,7 @@ First, enter the target tags in this setting. If there are multiple tags, separa
 You can set up 2 tag lists: <span class="blue">{match_tag_folder1}</span> and <span class="blue">{match_tag_folder2}</span>. This is designed for a common use case: if a character belongs to a certain work, create two levels of folders — the first for the work name and the second for the character name. For example, set the work name <span class="blue">GenshinImpact</span> in <span class="blue">{match_tag_folder1}</span> and the character name <span class="blue">フリーナ</span> in <span class="blue">{match_tag_folder2}</span>. If a work contains both tags, the downloader will add two folder levels for it: <span class="blue">GenshinImpact/フリーナ/</span>.<br>
 Of course, if you don't need this, you can just use the first tag list.<br>
 <br>
-After setting up your tag lists, you also need to update the "Naming rule" in the "Download" tab. Insert the specific tokens and slashes where needed to add a folder level. <span class="blue">/{match_tag_folder1}/</span> represents the match result of the first tag list, and <span class="blue">/{match_tag_folder2}/</span> represents the match result of the second tag list.<br>
+After setting up your tag lists, you also need to update the "Naming rule" setting in "Naming / Folder and file names". Insert the specific tokens and slashes where needed to add a folder level. <span class="blue">/{match_tag_folder1}/</span> represents the match result of the first tag list, and <span class="blue">/{match_tag_folder2}/</span> represents the match result of the second tag list.<br>
 Example: <span class="blue">pixiv/{match_tag_folder1}/{match_tag_folder2}/{id}</span><br>
 <br>
 Using tag aliases to unify folder names:<br>
@@ -4404,7 +4404,7 @@ If none of your set tags are matched, the downloader will ignore the correspondi
 タグリストは 2 つ設定できます：<span class="blue">{match_tag_folder1}</span> と <span class="blue">{match_tag_folder2}</span>。これはよくある使い方に対応しています。あるキャラクターが特定の作品に属している場合、2 階層のフォルダーを作成します。1 階層目が作品名、2 階層目がキャラクター名です。例えば <span class="blue">{match_tag_folder1}</span> に作品名 <span class="blue">GenshinImpact</span> を設定し、<span class="blue">{match_tag_folder2}</span> にキャラクター名 <span class="blue">フリーナ</span> を設定します。work に両方のタグが含まれている場合、ダウンローダーはその work に 2 階層のフォルダーを追加します：<span class="blue">GenshinImpact/フリーナ/</span>。<br>
 もちろん、この用途が不要であれば最初のタグリストだけを使えばかまいません。<br>
 <br>
-タグリストを設定したら、「ダウンロード」タブの「命名ルール」設定も変更する必要があります。フォルダーを追加したい場所に特定のトークンとスラッシュを挿入してください。<span class="blue">/{match_tag_folder1}/</span> は最初のタグリストのマッチ結果を表し、<span class="blue">/{match_tag_folder2}/</span> は 2 番目のタグリストのマッチ結果を表します。<br>
+タグリストを設定したら、「命名 / フォルダーとファイルの名前」にある「命名ルール」設定も変更する必要があります。フォルダーを追加したい場所に特定のトークンとスラッシュを挿入してください。<span class="blue">/{match_tag_folder1}/</span> は最初のタグリストのマッチ結果を表し、<span class="blue">/{match_tag_folder2}/</span> は 2 番目のタグリストのマッチ結果を表します。<br>
 例：<span class="blue">pixiv/{match_tag_folder1}/{match_tag_folder2}/{id}</span><br>
 <br>
 タグの別名を使ってフォルダー名を統一する：<br>
@@ -4423,7 +4423,7 @@ If none of your set tags are matched, the downloader will ignore the correspondi
 태그 목록을 2개 설정할 수 있습니다：<span class="blue">{match_tag_folder1}</span> 과 <span class="blue">{match_tag_folder2}</span>. 이것은 흔한 요구사항을 처리하기 위한 것입니다. 어떤 캐릭터가 특정 작품에 속할 경우 폴더를 두 단계로 만듭니다. 첫 번째 단계는 작품 이름, 두 번째 단계는 캐릭터 이름입니다. 예를 들어 <span class="blue">{match_tag_folder1}</span> 에 작품 이름 <span class="blue">GenshinImpact</span> 를 설정하고, <span class="blue">{match_tag_folder2}</span> 에 캐릭터 이름 <span class="blue">フリーナ</span> 를 설정합니다. 작품에 두 태그가 모두 포함되어 있으면 다운로더가 해당 작품에 두 단계 폴더를 추가합니다：<span class="blue">GenshinImpact/フリーナ/</span>.<br>
 물론 이런 요구사항이 없다면 첫 번째 태그 목록만 사용해도 됩니다.<br>
 <br>
-태그 목록을 설정한 후에는 "다운로드" 탭의 "명명 규칙" 설정도 수정해야 합니다. 폴더를 추가하고 싶은 위치에 특정 토큰과 슬래시를 삽입하세요. <span class="blue">/{match_tag_folder1}/</span> 는 첫 번째 태그 목록의 매칭 결과를 나타내고, <span class="blue">/{match_tag_folder2}/</span> 는 두 번째 태그 목록의 매칭 결과를 나타냅니다.<br>
+태그 목록을 설정한 후에는 "명명 / 폴더와 파일 이름"의 "명명 규칙" 설정도 수정해야 합니다. 폴더를 추가하고 싶은 위치에 특정 토큰과 슬래시를 삽입하세요. <span class="blue">/{match_tag_folder1}/</span> 는 첫 번째 태그 목록의 매칭 결과를 나타내고, <span class="blue">/{match_tag_folder2}/</span> 는 두 번째 태그 목록의 매칭 결과를 나타냅니다.<br>
 예시：<span class="blue">pixiv/{match_tag_folder1}/{match_tag_folder2}/{id}</span><br>
 <br>
 태그 별칭으로 폴더 이름 통일하기：<br>
@@ -4442,7 +4442,7 @@ If none of your set tags are matched, the downloader will ignore the correspondi
 Можно задать 2 списка тегов: <span class="blue">{match_tag_folder1}</span> и <span class="blue">{match_tag_folder2}</span>. Это сделано для удобного решения распространённой задачи: если персонаж принадлежит определённому произведению, создайте два уровня папок — первый для названия произведения, второй для имени персонажа. Например, задайте название произведения <span class="blue">GenshinImpact</span> в <span class="blue">{match_tag_folder1}</span>, а имя персонажа <span class="blue">フリーナ</span> — в <span class="blue">{match_tag_folder2}</span>. Если work содержит оба тега, загрузчик добавит для неё два уровня папок: <span class="blue">GenshinImpact/フリーナ/</span>.<br>
 Конечно, если такой необходимости нет, можно использовать только первый список тегов.<br>
 <br>
-После настройки списков тегов нужно также изменить "Правило именования" на вкладке "Загрузка": вставьте нужные токены и слэши туда, где требуется добавить папку. <span class="blue">/{match_tag_folder1}/</span> обозначает результат совпадения первого списка тегов, <span class="blue">/{match_tag_folder2}/</span> — второго.<br>
+После настройки списков тегов нужно также изменить "Правило именования" в разделе «Именование / Имена папок и файлов»: вставьте нужные токены и слэши туда, где требуется добавить папку. <span class="blue">/{match_tag_folder1}/</span> обозначает результат совпадения первого списка тегов, <span class="blue">/{match_tag_folder2}/</span> — второго.<br>
 Пример: <span class="blue">pixiv/{match_tag_folder1}/{match_tag_folder2}/{id}</span><br>
 <br>
 Использование псевдонимов тегов для единообразия имён папок:<br>
@@ -5013,8 +5013,7 @@ Note: After enabling this setting, the downloader will overwrite your current na
 <br>
 提示：<br>
 如果你启用了所有子选项，那么所有作品都不会创建文件夹。<br>
-此设置不适用于合并系列小说后生成的合集文件。如果你想让合集文件不创建文件夹，可以在"更多"-"命名"里修改"
-合并系列小说时的命名规则"。`,
+此设置不适用于合并系列小说后生成的合集文件。如果你想让合集文件不创建文件夹，可以在“命名 / 文件夹和文件的名字”里修改“合并系列小说时的命名规则”。`,
     `啟用此設定後，符合條件的檔案不會建立資料夾，而是直接儲存到瀏覽器的下載目錄裡。<br>
 <br>
 子選項：<br>
@@ -5025,8 +5024,7 @@ Note: After enabling this setting, the downloader will overwrite your current na
 <br>
 提示：<br>
 如果你啟用了所有子選項，那麼所有作品都不會建立資料夾。<br>
-此設定不適用於合併系列小說後產生的合集檔案。如果你想讓合集檔案不建立資料夾，可以在"更多"-"命名"裡修改"
-合併系列小說時的命名規則"。`,
+此設定不適用於合併系列小說後產生的合集檔案。如果你想讓合集檔案不建立資料夾，可以在「命名 / 資料夾和檔案的名字」裡修改「合併系列小說時的命名規則」。`,
     `After enabling this setting, files that meet the conditions will not have a folder created for them, and will instead be saved directly to the browser's download directory.<br>
 <br>
 Sub-options:<br>
@@ -5037,8 +5035,7 @@ Sub-options:<br>
 <br>
 Tip:<br>
 If you enable all sub-options, then no folders will be created for any works.<br>
-This setting does not apply to collection files generated after merging a novel series. If you want collection files to be saved without creating folders, you can change the "
-Naming rule when merging a novel series" in "More"-"Naming".`,
+This setting does not apply to collection files generated after merging a novel series. If you want collection files to be saved without creating folders, you can change the "Naming rule when merging a novel series" in "Naming / Folder and file names".`,
     `この設定を有効にすると、条件に合うファイルはフォルダを作成せず、ブラウザのダウンロードフォルダに直接保存されます。<br>
 <br>
 子オプション：<br>
@@ -5049,8 +5046,8 @@ Naming rule when merging a novel series" in "More"-"Naming".`,
 <br>
 ヒント：<br>
 すべての子オプションを有効にすると、どの作品でもフォルダは作成されなくなります。<br>
-この設定は、シリーズ小説を結合したあとに生成される合集ファイルには適用されません。合集ファイルでフォルダを作成しないようにしたい場合は、"その他"-"命名" で "
-シリーズ小説を結合するときの命名規則" を変更してください。`,
+この設定は、シリーズ小説を結合したあとに生成される合集ファイルには適用されません。合集ファイルでフォルダを作成しないようにしたい場合は、「命名 / フォルダーとファイルの名前」で「
+シリーズ小説を結合するときの命名規則」を変更してください。`,
     `이 설정을 켜면 조건에 맞는 파일은 폴더를 만들지 않고, 브라우저의 다운로드 폴더에 바로 저장됩니다.<br>
 <br>
 하위 옵션:<br>
@@ -5061,7 +5058,7 @@ Naming rule when merging a novel series" in "More"-"Naming".`,
 <br>
 안내:<br>
 모든 하위 옵션을 켜면 어떤 work도 폴더를 만들지 않습니다.<br>
-이 설정은 시리즈 novel을 병합한 뒤 생성되는 모음 파일에는 적용되지 않습니다. 모음 파일도 폴더를 만들지 않게 하려면 "더보기"-"명명" 에서 "
+이 설정은 시리즈 novel을 병합한 뒤 생성되는 모음 파일에는 적용되지 않습니다. 모음 파일도 폴더를 만들지 않게 하려면 "명명 / 폴더와 파일 이름" 에서 "
 시리즈 novel 병합 시 명명 규칙" 을 수정하면 됩니다。`,
     `После включения этой настройки для подходящих файлов папки создаваться не будут, и они будут сохраняться прямо в папку загрузок браузера.<br>
 <br>
@@ -5074,7 +5071,7 @@ Naming rule when merging a novel series" in "More"-"Naming".`,
 Подсказка:<br>
 Если вы включите все подпункты, папки не будут создаваться ни для каких работ.<br>
 Эта настройка не применяется к файлам-сборникам, созданным после объединения серии novel. Если вы хотите, чтобы для файлов-сборников тоже не создавались папки, можно изменить "
-Правила названий при объединении серии novel" в разделе "Ещё"-"Именование".`,
+Правила названий при объединении серии novel" в разделе «Именование / Имена папок и файлов».`,
   ],
   _搜索页面页数限制: [
     '由于 pixiv 的限制，下载器最多只能抓取到第 {} 页。',
@@ -5274,21 +5271,13 @@ Naming rule when merging a novel series" in "More"-"Naming".`,
     '기본값이 비활성화되어 있습니다.',
     'По умолчанию не работает.',
   ],
-  _你可以在更多选项卡的xx分类里找到它: [
-    '你可以在“更多”选项卡 → “{}”分类里找到它。',
-    '你可以在“更多”選項卡 → “{}”分類裡找到它。',
-    'You can find it in the "More" tab → "{}" category.',
-    '[もっと]タブ→[{}]カテゴリにあります。',
-    '"더보기" 탭 → "{}" 카테고리에서 찾을 수 있습니다.',
-    'Вы можете найти его в разделе "Еще". вкладка → "{}" категория.',
-  ],
-  _你可以在xx选项卡里找到它: [
-    '你可以在“{}”选项卡里找到它。',
-    '你可以在“{}”選項卡裡找到它。',
-    'You can find it in the "{}" tab.',
-    '「{}」タブにあります。',
-    '"{}" 탭에서 찾을 수 있습니다.',
-    'Вы можете найти его на вкладке "{}".',
+  _你可以在xx设置里找到它: [
+    '你可以在“{}”设置里找到它。',
+    '你可以在「{}」設定裡找到它。',
+    'You can find it in the "{}" settings.',
+    '「{}」設定にあります。',
+    '"{}" 설정에서 찾을 수 있습니다.',
+    'Вы можете найти это в настройках «{}».',
   ],
   _使用鼠标滚轮切换作品里的图片: [
     '使用鼠标滚轮切换多图作品里的图片',
@@ -5533,12 +5522,12 @@ If the number of works shown on the page is greater than 0, it may be that Pixiv
     'На некоторых страницах есть кнопка «Сканирование по таймеру», которая автоматически запускает сканирование и загрузку с определенным интервалом. <br>Здесь вы можете установить интервал времени для каждого сканирования.',
   ],
   _定时抓取已启动的提示: [
-    '定时抓取已启动，间隔时间：{} 分钟。<br>如果你想修改间隔时间，可以在“更多”选项卡里修改设置：定时抓取的间隔时间。',
-    '定時抓取已啟動，間隔時間：{} 分鐘。<br>如果你想修改間隔時間，可以在“更多”選項卡里修改設定：定時抓取的間隔時間。',
-    'Timed crawl started, interval: {} minutes.<br>If you want to modify the interval time, you can modify the settings in the "More" tab: The interval time of timed crawl.',
-    '時限クロールが開始されました。間隔: {} 分。<br>間隔時間を変更したい場合は、[詳細] タブの設定 (時間指定クロールの間隔時間) を変更できます。',
-    '시간 제한 크롤링이 시작되었습니다. 간격: {}분. <br>간격 시간을 수정하려면 "자세히" 탭에서 예약된 크롤링 간격 설정을 수정할 수 있습니다.',
-    'Таймер сканирования запущен, интервал: {} минут.<br>Если вы хотите изменить интервал времени, вы можете изменить настройки на вкладке «Дополнительно»: Интервальное время сканирования с таймером.',
+    '定时抓取已启动，间隔时间：{} 分钟。<br>如果你想修改间隔时间，可以在“抓取 / 执行策略”设置里修改“定时抓取的间隔时间”。',
+    '定時抓取已啟動，間隔時間：{} 分鐘。<br>如果你想修改間隔時間，可以在「擷取 / 執行策略」設定裡修改「定時抓取的間隔時間」。',
+    'Timed crawl started, interval: {} minutes.<br>If you want to modify the interval time, you can change "The interval time of timed crawl" in "Crawl / Execution strategy".',
+    '時限クロールが開始されました。間隔: {} 分。<br>間隔時間を変更したい場合は、「クロール / 実行戦略」設定で「時間指定クロールの間隔時間」を変更できます。',
+    '시간 제한 크롤링이 시작되었습니다. 간격: {}분. <br>간격 시간을 수정하려면 "긁어오기 / 실행 전략" 설정에서 "시간 제한 크롤링의 간격 시간"을 수정할 수 있습니다.',
+    'Таймер сканирования запущен, интервал: {} минут.<br>Если вы хотите изменить интервал времени, вы можете изменить настройку «Интервальное время сканирования с таймером» в разделе «Сканирование / Стратегия выполнения».',
   ],
   _定时抓取的推荐用法: [
     `推荐用法：增量抓取新作品。例如在关注的用户的新作品页面里，或者搜索页面里，设置抓取页数为 2，然后启动定时抓取。这样下载器可以自动下载新作品。<br>建议启用“不抓取下载过的作品”和“不下载重复文件”功能，以提高效率。`,
@@ -5845,14 +5834,6 @@ If the number of works shown on the page is greater than 0, it may be that Pixiv
     '삭제된 모든 작품 북마크 해제',
     'Снять закладку со всех удаленных работ',
   ],
-  _取消收藏所有已被删除的作品的使用说明: [
-    '在你的收藏页面里，切换到下载器的“更多”标签页可以看到该功能按钮。',
-    '在你的收藏頁面裡，切換到下載器的“更多”標籤頁可以看到該功能按鈕。',
-    'In your bookmark page, switch to the "More" tab of the downloader to see this function button.',
-    'ブックマーク ページで、ダウンローダーの「その他」タブに切り替えると、この機能ボタンが表示されます。',
-    '북마크 페이지에서 다운로더의 "더보기" 탭으로 전환하면 이 기능 버튼을 볼 수 있습니다.',
-    'На странице закладок перейдите на вкладку «Дополнительно» загрузчика, чтобы увидеть эту функциональную кнопку.',
-  ],
   _取消收藏作品: [
     '取消收藏作品',
     '取消收藏作品',
@@ -5870,12 +5851,12 @@ If the number of works shown on the page is greater than 0, it may be that Pixiv
     `Закладка отменена`,
   ],
   _收藏页面里的按钮: [
-    '当你在自己的收藏页面时，可以在“更多”选项卡里看到这个按钮。',
-    '當你在自己的收藏頁面時，可以在“更多”選項卡里看到這個按鈕。',
-    `You can see this button in the "More" tab when you're on your bookmarks page.`,
-    'このボタンは、ブックマーク ページの [もっと] タブに表示されます。',
-    '북마크 페이지에 있을 때 "더보기" 탭에서 이 버튼을 볼 수 있습니다.',
-    'Вы можете увидеть эту кнопку на вкладке «Больше», когда находитесь на странице закладок.',
+    '当你在自己的收藏页面时，可以在“首页”里看到这个按钮。',
+    '當你在自己的收藏頁面時，可以在「首頁」裡看到這個按鈕。',
+    `You can see this button on the "Home" page when you're on your bookmarks page.`,
+    'このボタンは、ブックマーク ページの「ホーム」に表示されます。',
+    '북마크 페이지에 있을 때 "홈"에서 이 버튼을 볼 수 있습니다.',
+    'Когда вы находитесь на странице закладок, эту кнопку можно увидеть в разделе «Главная».',
   ],
   _收藏任务尚未完成请等待: [
     '收藏作品的任务尚未全部完成，请等待',
@@ -6602,12 +6583,12 @@ I haven't encountered this issue (in fact, most users probably won't encounter i
     'Список идентификаторов удаленных работ экспортирован',
   ],
   _在收藏页面里提示有辅助功能可用: [
-    '在你的收藏页面里，下载器的“更多”标签页里有一些功能可以帮助管理你的收藏。',
-    '在你的收藏頁面裡，下載器的“更多”標籤頁裡有一些功能可以幫助管理你的收藏。',
-    `On your bookmarks page, the Downloader's "More" tab has some features to help you manage your bookmarks.`,
-    'ブックマーク ページのダウンローダーの [その他] タブには、ブックマークの管理に役立つ機能がいくつかあります。',
-    '북마크 페이지에서 다운로더의 "더보기" 탭에는 북마크를 관리하는 데 도움이 되는 몇 가지 기능이 있습니다.',
-    'На странице закладок на вкладке «Дополнительно» Downloader есть некоторые функции, которые помогут вам управлять своими закладками.',
+    '在你的收藏页面里，下载器的“首页 / 附加功能”区域里有一些功能可以帮助管理你的收藏。',
+    '在你的收藏頁面裡，下載器的「首頁 / 附加功能」區域裡有一些功能可以幫助管理你的收藏。',
+    `On your bookmarks page, the Downloader's "Home / Additional Features" area has some features to help you manage your bookmarks.`,
+    'ブックマーク ページのダウンローダーの「ホーム / 追加機能」エリアには、ブックマークの管理に役立つ機能がいくつかあります。',
+    '북마크 페이지에서 다운로더의 "홈 / 추가 기능" 영역에는 북마크를 관리하는 데 도움이 되는 몇 가지 기능이 있습니다.',
+    'На странице закладок в разделе «Главная / Дополнительные функции» Downloader есть некоторые функции, которые помогут вам управлять своими закладками.',
   ],
   _预览作品的详细信息: [
     '预览作品的<span class="key">详细</span>信息',
@@ -6961,14 +6942,6 @@ P.S. Работы заблокированных пользователей не
     '「マイピクの作品」ページからの作品のクロールをサポートします:<br><a href="https://www.pixiv.net/mypixiv_new_illust.php" target="_blank">https://www.pixiv.net/mypixiv_new_illust.php</a>',
     '"마이픽 작품" 페이지에서 크롤링 작업을 지원합니다.<br><a href="https://www.pixiv.net/mypixiv_new_illust.php" target="_blank">https://www.pixiv.net/mypixiv_new_illust.php</a>https://www.pixiv.net/mypixiv_new_illust.php',
     'Поддерживает сканирование работ со страницы «My pixiv»:<br><a href="https://www.pixiv.net/mypixiv_new_illust.php" target="_blank">https://www.pixiv.net/mypixiv_new_illust.php</a>',
-  ],
-  _为下载器的设置项添加了更多提示: [
-    `为下载器的设置项添加了更详细的提示`,
-    `為下載器的設定項添加了更詳細的提示`,
-    `Added more detailed tips for the downloader settings`,
-    `ダウンローダー設定に関するより詳細なヒントを追加しました`,
-    `다운로더 설정에 대한 더 자세한 팁을 추가했습니다`,
-    `Добавлены более подробные советы по настройкам загрузчика`,
   ],
   _移除设置项: [
     '移除设置项：',
