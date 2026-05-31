@@ -343,7 +343,7 @@ class DownloadControl {
         '',
         'importCrawlResults',
         'secondary',
-        'success'
+        'brand'
       )
       // 导入抓取结果的按钮始终显示，因为它需要始终可用。
       // 导出抓取结果的按钮只有在可以准备下载时才显示
@@ -363,7 +363,7 @@ class DownloadControl {
         '',
         'exportCrawlResultsJSON',
         'secondary',
-        'success'
+        'brand'
       )
       this.resultBtns.exportJSON.style.display = 'none'
 
@@ -382,7 +382,7 @@ class DownloadControl {
         '',
         'exportCrawlResultsCSV',
         'secondary',
-        'success'
+        'brand'
       )
       this.resultBtns.exportCSV.style.display = 'none'
 

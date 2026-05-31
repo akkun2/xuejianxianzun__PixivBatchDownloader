@@ -61,7 +61,7 @@ class InitUserPage extends InitPageBase {
       '_保存用户头像',
       '',
       'saveUserAvatar',
-      'success'
+      'brand'
     ).addEventListener('click', () => {
       EVT.fire('saveAvatarImage')
     })
@@ -71,7 +71,7 @@ class InitUserPage extends InitPageBase {
       '_保存用户头像为图标',
       '_保存用户头像为图标说明',
       'saveUserAvatarAsIcon',
-      'success'
+      'brand'
     ).addEventListener('click', () => {
       EVT.fire('saveAvatarIcon')
     })
@@ -81,7 +81,7 @@ class InitUserPage extends InitPageBase {
       '_保存用户封面',
       '',
       'saveUserCoverImage',
-      'success'
+      'brand'
     ).addEventListener('click', () => {
       EVT.fire('saveUserCover')
     })
@@ -92,7 +92,7 @@ class InitUserPage extends InitPageBase {
       '_收藏本页面的所有作品',
       '',
       'bookmarkAllWorksOnPage',
-      'success'
+      'brand'
     )
     this.bookmarkAll = new BookmarkAllWorks(bookmarkAllBtn)
 

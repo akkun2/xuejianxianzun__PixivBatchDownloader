@@ -82,7 +82,7 @@
   box-sizing: border-box;
   width: 925px;
   max-width: calc(100vw - 24px);
-  max-height: 870px;
+  max-height: 84vh;
   left: 50%;
   top: 10vh;
   margin-left: 0;
@@ -902,7 +902,7 @@
       }
 
       .centerWrap_btns {
-        padding: 8px 0 0;
+        padding: 0;
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 14px;
@@ -922,9 +922,9 @@
           cursor: pointer;
           vertical-align: top;
           background: var(--settings-panel-btn-secondary-bg);
+          border: 1px solid var(--settings-panel-btn-secondary-border);
           color: var(--settings-panel-btn-secondary-brand-text);
           box-shadow: var(--settings-panel-btn-secondary-shadow);
-          font-weight: 600;
           transition:
             background-color 0.2s,
             color 0.2s,
@@ -954,6 +954,7 @@
           color: var(--settings-panel-btn-primary-text);
           border-color: transparent;
           box-shadow: var(--settings-panel-btn-primary-shadow);
+          font-weight: 600;
         }
 
         & button[data-btn-emphasis='primary']:hover,
@@ -1399,12 +1400,6 @@
       &[data-page='home'] {
         .settingsPanel_optionCard.option {
           margin-top: 10px;
-        }
-
-        .settingsPanel_panelContent {
-          .centerWrap_btns {
-            padding-top: 0;
-          }
         }
       }
     }
@@ -1891,7 +1886,6 @@
       }
     }
   }
-
 }
 
 .centerWrap.xzBG {
@@ -1900,6 +1894,10 @@
 
   .settingsPanel_sidebar {
     box-shadow: none !important;
+  }
+
+  button[data-btn-emphasis='primary'] {
+    font-weight: normal !important;
   }
 
   .option > .settingNameStyle,
@@ -1986,7 +1984,6 @@
       opacity: 0.9 !important;
     }
   }
-
 }
 
 .showBlobKeywords {

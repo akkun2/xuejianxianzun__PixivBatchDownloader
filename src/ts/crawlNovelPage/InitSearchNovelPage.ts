@@ -136,7 +136,7 @@ class InitSearchNovelPage extends InitPageBase {
       '_收藏本页面的所有作品',
       '',
       'bookmarkAllWorksOnPage',
-      'success'
+      'brand'
     )
     const bookmarkAll = new BookmarkAllWorks(bookmarkAllBtn)
 

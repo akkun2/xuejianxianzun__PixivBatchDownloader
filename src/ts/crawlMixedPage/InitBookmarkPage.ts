@@ -105,7 +105,7 @@ class InitBookmarkPage extends InitPageBase {
         '_给未分类作品添加添加tag',
         '',
         'addTagToUnmarkedWork',
-        'success'
+        'brand'
       )
       new BookmarksAddTag(btn)
 
@@ -146,7 +146,7 @@ class InitBookmarkPage extends InitPageBase {
       '_导出收藏列表',
       '',
       'exportBookmarkList',
-      'success'
+      'brand'
     )
     btnExport.addEventListener('click', () => {
       this.exportBookmarkList()
@@ -157,7 +157,7 @@ class InitBookmarkPage extends InitPageBase {
       '_导入收藏列表',
       '',
       'importBookmarkList',
-      'success'
+      'brand'
     )
     btnImport.addEventListener('click', () => {
       this.importBookmarkIDList()

@@ -69,7 +69,7 @@ class InitFollowingPage extends InitPageBase {
       '_导出关注列表CSV',
       '',
       'exportFollowingListCSV',
-      'success'
+      'brand'
     ).addEventListener('click', () => {
       exportFollowingList.start('csv')
     })
@@ -79,7 +79,7 @@ class InitFollowingPage extends InitPageBase {
       '_导出关注列表JSON',
       '',
       'exportFollowingListJSON',
-      'success'
+      'brand'
     ).addEventListener('click', () => {
       exportFollowingList.start('json')
     })
@@ -89,7 +89,7 @@ class InitFollowingPage extends InitPageBase {
       '_批量关注用户',
       '',
       'batchFollowUser',
-      'success'
+      'brand'
     ).addEventListener('click', async () => {
       batchFollowUser.start()
     })
@@ -110,7 +110,7 @@ class InitFollowingPage extends InitPageBase {
       '_查找已注销的用户',
       '',
       'findDeactivatedUsers',
-      'success'
+      'brand'
     ).addEventListener('click', async () => {
       findDeactivatedUsers.check()
     })

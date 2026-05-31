@@ -77,7 +77,7 @@ class InitDashboardPage extends InitPageBase {
       '_导出作品数据CSV',
       '',
       'exportDashboardData',
-      'success'
+      'brand'
     ).addEventListener('click', () => {
       this.export()
     })

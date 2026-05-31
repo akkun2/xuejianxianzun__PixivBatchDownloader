@@ -187,7 +187,7 @@ class InitSearchArtworkPage extends InitPageBase {
       '_在结果中筛选',
       '_在结果中筛选说明',
       'filterResults',
-      'success'
+      'brand'
     ).addEventListener('click', () => {
       this.screenInResult()
     })
@@ -214,7 +214,7 @@ class InitSearchArtworkPage extends InitPageBase {
       '_收藏本页面的所有作品',
       '',
       'bookmarkAllWorksOnPage',
-      'success'
+      'brand'
     )
     const bookmarkAll = new BookmarkAllWorks(bookmarkAllBtn)
 

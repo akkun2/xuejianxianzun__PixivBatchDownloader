@@ -24,7 +24,7 @@ class PreviewFileName {
       '',
       'previewFileName',
       'secondary',
-      'success'
+      'brand'
     )
 
     prevBtn.addEventListener(

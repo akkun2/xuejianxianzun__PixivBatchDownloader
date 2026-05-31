@@ -63,7 +63,7 @@ class InitHomePage extends InitPageBase {
       '_导入ID列表',
       '',
       'importIDList',
-      'success'
+      'brand'
     )
     this.importIDListButton.addEventListener('click', () => {
       this.importIDList()
@@ -76,7 +76,7 @@ class InitHomePage extends InitPageBase {
       '_清空已保存的抓取结果',
       '',
       'clearSavedCrawlResult',
-      'success'
+      'brand'
     ).addEventListener('click', () => {
       EVT.fire('clearSavedCrawl')
     })

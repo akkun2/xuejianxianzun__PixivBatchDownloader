@@ -146,7 +146,7 @@ abstract class InitPageBase {
     text: string,
     title: string,
     id: string,
-    intent: 'brand' | 'success' | 'warning' | 'danger'
+    intent: 'brand' | 'warning' | 'danger'
   ) {
     // 在每个 Init.*Page.ts 中，当该按钮是第一个按钮并且语义是 brand 时，把它设为主按钮 primary，其余情况都是次要按钮。
     let emphasis: 'primary' | 'secondary' = 'secondary'
