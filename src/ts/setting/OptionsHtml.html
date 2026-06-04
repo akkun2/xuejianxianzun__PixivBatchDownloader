@@ -2712,58 +2712,64 @@ __DEFAULT_NAME_RULE_FOR_NOVEL__</textarea
     <span data-xztext="_保存作品的元数据"></span>
     <span class="gray1"> ? </span>
   </a>
-  <input
-    type="checkbox"
-    name="saveMetaType0"
-    id="setSaveMetaType0"
-    class="need_beautify checkbox_common"
-  />
-  <span class="beautify_checkbox" tabindex="0"></span>
-  <label for="setSaveMetaType0" data-xztext="_插画"></label>
-  <input
-    type="checkbox"
-    name="saveMetaType1"
-    id="setSaveMetaType1"
-    class="need_beautify checkbox_common"
-  />
-  <span class="beautify_checkbox" tabindex="0"></span>
-  <label for="setSaveMetaType1" data-xztext="_漫画"></label>
-  <input
-    type="checkbox"
-    name="saveMetaType2"
-    id="setSaveMetaType2"
-    class="need_beautify checkbox_common"
-  />
-  <span class="beautify_checkbox" tabindex="0"></span>
-  <label for="setSaveMetaType2" data-xztext="_动图"></label>
-  <input
-    type="checkbox"
-    name="saveMetaType3"
-    id="setSaveMetaType3"
-    class="need_beautify checkbox_common"
-  />
-  <span class="beautify_checkbox" tabindex="0"></span>
-  <label for="setSaveMetaType3" data-xztext="_小说"></label>
-  <span class="verticalSplit"></span>
-  <span class="mb4" data-xztext="_文件格式"> </span>
-  <input
-    type="checkbox"
-    name="saveMetaFormatTXT"
-    id="saveMetaFormatTXT"
-    class="need_beautify checkbox_common"
-    checked
-  />
-  <span class="beautify_checkbox" tabindex="0"></span>
-  <label for="saveMetaFormatTXT"> TXT </label>
-  <input
-    type="checkbox"
-    name="saveMetaFormatJSON"
-    id="saveMetaFormatJSON"
-    class="need_beautify checkbox_common"
-    checked
-  />
-  <span class="beautify_checkbox" tabindex="0"></span>
-  <label for="saveMetaFormatJSON"> JSON </label>
+
+  <div class="optionLine">
+    <span class="mb4" data-xztext="_作品类型带冒号"> </span>
+    <input
+      type="checkbox"
+      name="saveMetaType0"
+      id="setSaveMetaType0"
+      class="need_beautify checkbox_common"
+    />
+    <span class="beautify_checkbox" tabindex="0"></span>
+    <label for="setSaveMetaType0" data-xztext="_插画"></label>
+    <input
+      type="checkbox"
+      name="saveMetaType1"
+      id="setSaveMetaType1"
+      class="need_beautify checkbox_common"
+    />
+    <span class="beautify_checkbox" tabindex="0"></span>
+    <label for="setSaveMetaType1" data-xztext="_漫画"></label>
+    <input
+      type="checkbox"
+      name="saveMetaType2"
+      id="setSaveMetaType2"
+      class="need_beautify checkbox_common"
+    />
+    <span class="beautify_checkbox" tabindex="0"></span>
+    <label for="setSaveMetaType2" data-xztext="_动图"></label>
+    <input
+      type="checkbox"
+      name="saveMetaType3"
+      id="setSaveMetaType3"
+      class="need_beautify checkbox_common"
+    />
+    <span class="beautify_checkbox" tabindex="0"></span>
+    <label for="setSaveMetaType3" data-xztext="_小说"></label>
+  </div>
+
+  <div class="optionLine">
+    <span class="mb4" data-xztext="_文件格式"> </span>
+    <input
+      type="checkbox"
+      name="saveMetaFormatTXT"
+      id="saveMetaFormatTXT"
+      class="need_beautify checkbox_common"
+      checked
+    />
+    <span class="beautify_checkbox" tabindex="0"></span>
+    <label for="saveMetaFormatTXT"> TXT </label>
+    <input
+      type="checkbox"
+      name="saveMetaFormatJSON"
+      id="saveMetaFormatJSON"
+      class="need_beautify checkbox_common"
+      checked
+    />
+    <span class="beautify_checkbox" tabindex="0"></span>
+    <label for="saveMetaFormatJSON"> JSON </label>
+  </div>
 </div>
 
 <div class="option" data-no="74">
@@ -2782,30 +2788,34 @@ __DEFAULT_NAME_RULE_FOR_NOVEL__</textarea
     class="need_beautify checkbox_switch"
   />
   <span class="beautify_switch" tabindex="0"></span>
-  <div class="subOptionWrap" data-show="saveWorkDescription">
-    <label
-      for="saveEachDescription"
-      data-xztext="_每个作品分别保存"
-      class="has_tip"
-      data-xztip="_简介的Links标记"
-    ></label>
-    <span class="gray1"> ? &nbsp;</span>
-    <input
-      type="checkbox"
-      name="saveEachDescription"
-      id="saveEachDescription"
-      class="need_beautify checkbox_switch"
-    />
-    <span class="beautify_switch" tabindex="0"></span>
-    <span class="verticalSplit"></span>
-    <label for="summarizeDescription" data-xztext="_汇总到一个文件"></label>
-    <input
-      type="checkbox"
-      name="summarizeDescription"
-      id="summarizeDescription"
-      class="need_beautify checkbox_switch"
-    />
-    <span class="beautify_switch" tabindex="0"></span>
+  <div class="subOptionWrap flexBasis100" data-show="saveWorkDescription">
+    <div class="optionLine">
+      <label
+        for="saveEachDescription"
+        data-xztext="_每个作品分别保存"
+        class="has_tip"
+        data-xztip="_简介的Links标记"
+      ></label>
+      <span class="gray1"> ? &nbsp;</span>
+      <input
+        type="checkbox"
+        name="saveEachDescription"
+        id="saveEachDescription"
+        class="need_beautify checkbox_switch"
+      />
+      <span class="beautify_switch" tabindex="0"></span>
+    </div>
+
+    <div class="optionLine">
+      <label for="summarizeDescription" data-xztext="_汇总到一个文件"></label>
+      <input
+        type="checkbox"
+        name="summarizeDescription"
+        id="summarizeDescription"
+        class="need_beautify checkbox_switch"
+      />
+      <span class="beautify_switch" tabindex="0"></span>
+    </div>
   </div>
 </div>
 

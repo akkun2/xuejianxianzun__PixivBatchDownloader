@@ -32,6 +32,14 @@ export const langText = {
     '작품 <span class="key">유형</span>',
     'Тип <span class="key">работы</span>',
   ],
+  _作品类型带冒号: [
+    `作品类型：`,
+    `作品類型：`,
+    `Work type: `,
+    `作品タイプ：`,
+    `작품 유형: `,
+    `Тип работы: `,
+  ],
   _不能含有tag: [
     '<span class="key">不能</span>含有标签',
     '<span class="key">不能</span>含有標籤',
