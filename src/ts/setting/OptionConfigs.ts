@@ -301,7 +301,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 15,
+      no: 2,
       nameKey: '_抓取每个用户最新的几个作品',
       name: '',
       categoryLevel1: 'crawl',
@@ -312,7 +312,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 2,
+      no: 3,
       nameKey: '_作品类型',
       name: '',
       categoryLevel1: 'crawl',
@@ -323,7 +323,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 44,
+      no: 4,
       nameKey: '_年龄限制',
       name: '',
       categoryLevel1: 'crawl',
@@ -334,7 +334,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 81,
+      no: 5,
       nameKey: '_AI作品',
       name: '',
       categoryLevel1: 'crawl',
@@ -345,7 +345,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 96,
+      no: 6,
       nameKey: '_原创作品',
       name: '',
       categoryLevel1: 'crawl',
@@ -357,7 +357,7 @@ class OptionConfigs {
       addedAt: 1774310400000,
     },
     {
-      no: 23,
+      no: 7,
       nameKey: '_图片色彩',
       name: '',
       categoryLevel1: 'crawl',
@@ -368,7 +368,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 21,
+      no: 8,
       nameKey: '_图片数量',
       name: '',
       categoryLevel1: 'crawl',
@@ -379,7 +379,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 6,
+      no: 9,
       nameKey: '_收藏状态',
       name: '',
       categoryLevel1: 'crawl',
@@ -390,7 +390,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 5,
+      no: 10,
       nameKey: '_收藏数量',
       name: '',
       categoryLevel1: 'crawl',
@@ -401,7 +401,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 7,
+      no: 11,
       nameKey: '_图片的宽高',
       name: '',
       categoryLevel1: 'crawl',
@@ -412,7 +412,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 8,
+      no: 12,
       nameKey: '_图片的宽高比例',
       name: '',
       categoryLevel1: 'crawl',
@@ -423,7 +423,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 9,
+      no: 13,
       nameKey: '_id范围',
       name: '',
       categoryLevel1: 'crawl',
@@ -434,7 +434,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 10,
+      no: 14,
       nameKey: '_投稿时间',
       name: '',
       categoryLevel1: 'crawl',
@@ -445,7 +445,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 11,
+      no: 15,
       nameKey: '_必须含有tag',
       name: '',
       categoryLevel1: 'crawl',
@@ -456,7 +456,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 12,
+      no: 16,
       nameKey: '_不能含有tag',
       name: '',
       categoryLevel1: 'crawl',
@@ -467,7 +467,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 39,
+      no: 17,
       nameKey: '_针对特定用户屏蔽标签',
       name: '',
       categoryLevel1: 'crawl',
@@ -478,7 +478,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 94,
+      no: 18,
       nameKey: '_标题必须含有',
       name: '',
       categoryLevel1: 'crawl',
@@ -490,7 +490,7 @@ class OptionConfigs {
       addedAt: 1774137600000,
     },
     {
-      no: 95,
+      no: 19,
       nameKey: '_标题不能含有',
       name: '',
       categoryLevel1: 'crawl',
@@ -502,7 +502,7 @@ class OptionConfigs {
       addedAt: 1774137600000,
     },
     {
-      no: 47,
+      no: 20,
       nameKey: '_多图作品的图片数量上限',
       name: '',
       categoryLevel1: 'crawl',
@@ -513,7 +513,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 3,
+      no: 21,
       nameKey: '_多图作品只抓取前几张图片',
       name: '',
       categoryLevel1: 'crawl',
@@ -524,7 +524,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 104,
+      no: 22,
       nameKey: '_多图作品只抓取后几张图片',
       name: '',
       categoryLevel1: 'crawl',
@@ -536,7 +536,7 @@ class OptionConfigs {
       addedAt: 1776147641055,
     },
     {
-      no: 103,
+      no: 23,
       nameKey: '_多图作品不抓取前几张图片',
       name: '',
       categoryLevel1: 'crawl',
@@ -548,7 +548,7 @@ class OptionConfigs {
       addedAt: 1776147641055,
     },
     {
-      no: 69,
+      no: 24,
       nameKey: '_多图作品不抓取后几张图片',
       name: '',
       categoryLevel1: 'crawl',
@@ -560,7 +560,7 @@ class OptionConfigs {
       addedAt: 1776147641055,
     },
     {
-      no: 79,
+      no: 25,
       nameKey: '_特定用户的多图作品不下载最后几张图片',
       name: '',
       categoryLevel1: 'crawl',
@@ -572,7 +572,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 99,
+      no: 26,
       nameKey: '_不抓取下载过的作品',
       name: '',
       categoryLevel1: 'crawl',
@@ -584,7 +584,7 @@ class OptionConfigs {
       addedAt: 1775755273036,
     },
     {
-      no: 35,
+      no: 27,
       nameKey: '_用户阻止名单',
       name: '',
       categoryLevel1: 'crawl',
@@ -595,7 +595,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 75,
+      no: 28,
       nameKey: '_减慢抓取速度',
       name: '',
       categoryLevel1: 'crawl',
@@ -606,7 +606,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 74,
+      no: 29,
       nameKey: '_定时抓取的间隔时间',
       name: '',
       categoryLevel1: 'crawl',
@@ -617,7 +617,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 54,
+      no: 30,
       nameKey: '_自动导出抓取结果',
       name: '',
       categoryLevel1: 'crawl',
@@ -628,7 +628,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 85,
+      no: 31,
       nameKey: '_导出ID列表',
       name: '',
       categoryLevel1: 'crawl',
@@ -638,9 +638,10 @@ class OptionConfigs {
       searchWordKeys: [],
       searchWords: [],
     },
+
     // 命名
     {
-      no: 13,
+      no: 32,
       nameKey: '_图像作品的命名规则',
       name: '',
       categoryLevel1: 'naming',
@@ -651,7 +652,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 106,
+      no: 33,
       nameKey: '_小说的命名规则',
       name: '',
       categoryLevel1: 'naming',
@@ -663,7 +664,7 @@ class OptionConfigs {
       addedAt: 1777025547205,
     },
     {
-      no: 50,
+      no: 34,
       nameKey: '_在不同的页面类型中使用不同的命名规则',
       name: '',
       categoryLevel1: 'naming',
@@ -674,7 +675,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 80,
+      no: 35,
       nameKey: '_如果作品含有某些标签则对这个作品使用另一种命名规则',
       name: '',
       categoryLevel1: 'naming',
@@ -686,7 +687,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 91,
+      no: 36,
       nameKey: '_合并系列小说时的命名规则',
       name: '',
       categoryLevel1: 'naming',
@@ -697,7 +698,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 83,
+      no: 37,
       nameKey: '_标签分隔符号',
       name: '',
       categoryLevel1: 'naming',
@@ -708,7 +709,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 31,
+      no: 38,
       nameKey: '_日期格式',
       name: '',
       categoryLevel1: 'naming',
@@ -719,7 +720,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 29,
+      no: 39,
       nameKey: '_文件名长度限制',
       name: '',
       categoryLevel1: 'naming',
@@ -729,7 +730,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 64,
+      no: 40,
       nameKey: '_不创建文件夹',
       name: '',
       categoryLevel1: 'naming',
@@ -741,7 +742,7 @@ class OptionConfigs {
       addedAt: 1776337453630,
     },
     {
-      no: 19,
+      no: 41,
       nameKey: '_为多图作品添加一层文件夹',
       name: '',
       categoryLevel1: 'naming',
@@ -753,7 +754,7 @@ class OptionConfigs {
       addedAt: 1776337453630,
     },
     {
-      no: 38,
+      no: 42,
       nameKey: '_为r18作品添加一层文件夹',
       name: '',
       categoryLevel1: 'naming',
@@ -775,41 +776,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 98,
-      nameKey: '_序号起始值',
-      name: '',
-      categoryLevel1: 'naming',
-      categoryLevel2: 'serial',
-      pinned: false,
-      hideOnPixivision: true,
-      searchWordKeys: [],
-      searchWords: [],
-      addedAt: 1775633245633,
-    },
-    {
-      no: 22,
-      nameKey: '_第一张图不带序号',
-      name: '',
-      categoryLevel1: 'naming',
-      categoryLevel2: 'serial',
-      pinned: false,
-      hideOnPixivision: true,
-      searchWordKeys: [],
-      searchWords: [],
-    },
-    {
-      no: 46,
-      nameKey: '_在序号前面填充0',
-      name: '',
-      categoryLevel1: 'naming',
-      categoryLevel2: 'serial',
-      pinned: false,
-      hideOnPixivision: true,
-      searchWordKeys: [],
-      searchWords: [],
-    },
-    {
-      no: 107,
+      no: 44,
       nameKey: '_标签别名',
       name: '',
       categoryLevel1: 'naming',
@@ -821,7 +788,7 @@ class OptionConfigs {
       addedAt: 1777025547205,
     },
     {
-      no: 66,
+      no: 45,
       nameKey: '_自定义用户名',
       name: '',
       categoryLevel1: 'naming',
@@ -832,7 +799,41 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 97,
+      no: 46,
+      nameKey: '_序号起始值',
+      name: '',
+      categoryLevel1: 'naming',
+      categoryLevel2: 'serial',
+      pinned: false,
+      hideOnPixivision: true,
+      searchWordKeys: [],
+      searchWords: [],
+      addedAt: 1775633245633,
+    },
+    {
+      no: 47,
+      nameKey: '_第一张图不带序号',
+      name: '',
+      categoryLevel1: 'naming',
+      categoryLevel2: 'serial',
+      pinned: false,
+      hideOnPixivision: true,
+      searchWordKeys: [],
+      searchWords: [],
+    },
+    {
+      no: 48,
+      nameKey: '_在序号前面填充0',
+      name: '',
+      categoryLevel1: 'naming',
+      categoryLevel2: 'serial',
+      pinned: false,
+      hideOnPixivision: true,
+      searchWordKeys: [],
+      searchWords: [],
+    },
+    {
+      no: 49,
       nameKey: '_移除文件名里的emoji',
       name: '',
       categoryLevel1: 'naming',
@@ -843,7 +844,7 @@ class OptionConfigs {
       addedAt: 1775579018462,
     },
     {
-      no: 67,
+      no: 50,
       nameKey: '_移除用户名中的at和后续字符',
       name: '',
       categoryLevel1: 'naming',
@@ -853,9 +854,10 @@ class OptionConfigs {
       searchWordKeys: [],
       searchWords: [],
     },
+
     // 下载
     {
-      no: 16,
+      no: 51,
       nameKey: '_同时下载数量',
       name: '',
       categoryLevel1: 'download',
@@ -866,7 +868,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 17,
+      no: 52,
       nameKey: '_自动开始下载',
       name: '',
       categoryLevel1: 'download',
@@ -876,7 +878,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 33,
+      no: 53,
       nameKey: '_下载之后收藏作品',
       name: '',
       categoryLevel1: 'download',
@@ -887,7 +889,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 76,
+      no: 54,
       nameKey: '_点击收藏按钮时下载作品',
       name: '',
       categoryLevel1: 'download',
@@ -898,7 +900,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 77,
+      no: 55,
       nameKey: '_点击点赞按钮时下载作品',
       name: '',
       categoryLevel1: 'download',
@@ -909,7 +911,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 90,
+      no: 56,
       nameKey: '_下载间隔',
       name: '',
       categoryLevel1: 'download',
@@ -920,7 +922,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 82,
+      no: 57,
       nameKey: '_文件下载顺序',
       name: '',
       categoryLevel1: 'download',
@@ -931,7 +933,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 57,
+      no: 58,
       nameKey: '_优先下载动图',
       name: '',
       categoryLevel1: 'download',
@@ -942,7 +944,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 25,
+      no: 59,
       nameKey: '_文件体积限制',
       name: '',
       categoryLevel1: 'download',
@@ -952,7 +954,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 20,
+      no: 60,
       nameKey: '_把文件保存到用户上次选择的位置',
       name: '',
       categoryLevel1: 'download',
@@ -962,7 +964,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 52,
+      no: 61,
       nameKey: '_下载完成后显示通知',
       name: '',
       categoryLevel1: 'download',
@@ -972,7 +974,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 101,
+      no: 62,
       nameKey: '_管理下载记录',
       name: '',
       categoryLevel1: 'download',
@@ -984,7 +986,7 @@ class OptionConfigs {
       addedAt: 1776098259792,
     },
     {
-      no: 28,
+      no: 63,
       nameKey: '_不下载重复文件',
       name: '',
       categoryLevel1: 'download',
@@ -995,7 +997,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 30,
+      no: 64,
       nameKey: '_图片尺寸',
       name: '',
       categoryLevel1: 'download',
@@ -1006,7 +1008,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 4,
+      no: 65,
       nameKey: '_动图保存格式',
       name: '',
       categoryLevel1: 'download',
@@ -1017,7 +1019,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 24,
+      no: 66,
       nameKey: '_同时转换多少个动图',
       name: '',
       categoryLevel1: 'download',
@@ -1028,7 +1030,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 26,
+      no: 67,
       nameKey: '_小说保存格式',
       name: '',
       categoryLevel1: 'download',
@@ -1039,7 +1041,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 27,
+      no: 68,
       nameKey: '_在小说里保存元数据',
       name: '',
       categoryLevel1: 'download',
@@ -1050,7 +1052,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 70,
+      no: 69,
       nameKey: '_下载小说的封面图片',
       name: '',
       categoryLevel1: 'download',
@@ -1061,7 +1063,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 72,
+      no: 70,
       nameKey: '_下载小说里的内嵌图片',
       name: '',
       categoryLevel1: 'download',
@@ -1072,7 +1074,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 73,
+      no: 71,
       nameKey: '_自动合并系列小说',
       name: '',
       categoryLevel1: 'download',
@@ -1083,7 +1085,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 105,
+      no: 72,
       nameKey: '_合并系列小说时的分割阈值',
       name: '',
       categoryLevel1: 'download',
@@ -1095,7 +1097,7 @@ class OptionConfigs {
       addedAt: 1776693866003,
     },
     {
-      no: 49,
+      no: 73,
       nameKey: '_保存作品的元数据',
       name: '',
       categoryLevel1: 'download',
@@ -1106,7 +1108,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 89,
+      no: 74,
       nameKey: '_保存作品的简介',
       name: '',
       categoryLevel1: 'download',
@@ -1116,9 +1118,10 @@ class OptionConfigs {
       searchWordKeys: ['_介绍'],
       searchWords: [],
     },
+
     // 增强
     {
-      no: 55,
+      no: 75,
       nameKey: '_预览作品',
       name: '',
       categoryLevel1: 'enhance',
@@ -1130,7 +1133,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 62,
+      no: 76,
       nameKey: '_长按右键显示大图',
       name: '',
       categoryLevel1: 'enhance',
@@ -1142,7 +1145,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 87,
+      no: 77,
       nameKey: '_预览作品的详细信息',
       name: '',
       categoryLevel1: 'enhance',
@@ -1153,7 +1156,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 68,
+      no: 78,
       nameKey: '_显示更大的缩略图',
       name: '',
       categoryLevel1: 'enhance',
@@ -1165,7 +1168,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 63,
+      no: 79,
       nameKey: '_替换方形缩略图以显示图片比例',
       name: '',
       categoryLevel1: 'enhance',
@@ -1176,7 +1179,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 86,
+      no: 80,
       nameKey: '_在多图作品页面里显示缩略图列表',
       name: '',
       categoryLevel1: 'enhance',
@@ -1187,7 +1190,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 42,
+      no: 81,
       nameKey: '_把图片显示为灰色',
       name: '',
       categoryLevel1: 'enhance',
@@ -1198,7 +1201,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 102,
+      no: 82,
       nameKey: '_缩略图上按钮的位置',
       name: '',
       categoryLevel1: 'enhance',
@@ -1210,7 +1213,7 @@ class OptionConfigs {
       addedAt: 1776098259792,
     },
     {
-      no: 40,
+      no: 83,
       nameKey: '_在作品缩略图上显示放大按钮',
       name: '',
       categoryLevel1: 'enhance',
@@ -1222,7 +1225,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 51,
+      no: 84,
       nameKey: '_在缩略图上显示复制按钮',
       name: '',
       categoryLevel1: 'enhance',
@@ -1234,7 +1237,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 56,
+      no: 85,
       nameKey: '_在作品缩略图上显示下载按钮',
       name: '',
       categoryLevel1: 'enhance',
@@ -1245,7 +1248,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 84,
+      no: 86,
       nameKey: '_高亮关注的用户',
       name: '',
       categoryLevel1: 'enhance',
@@ -1256,7 +1259,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 100,
+      no: 87,
       nameKey: '_在下载过的作品上显示边框',
       name: '',
       categoryLevel1: 'enhance',
@@ -1268,7 +1271,7 @@ class OptionConfigs {
       addedAt: 1775914625357,
     },
     {
-      no: 34,
+      no: 88,
       nameKey: '_收藏设置',
       name: '',
       categoryLevel1: 'enhance',
@@ -1279,7 +1282,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 14,
+      no: 89,
       nameKey: '_复制按钮',
       name: '',
       categoryLevel1: 'enhance',
@@ -1290,7 +1293,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 48,
+      no: 90,
       nameKey: '_在搜索页面添加快捷搜索区域',
       name: '',
       categoryLevel1: 'enhance',
@@ -1301,7 +1304,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 92,
+      no: 91,
       nameKey: '_过滤搜索页面的作品',
       name: '',
       categoryLevel1: 'enhance',
@@ -1313,7 +1316,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 88,
+      no: 92,
       nameKey: '_在搜索页面里移除已关注用户的作品',
       name: '',
       categoryLevel1: 'enhance',
@@ -1324,7 +1327,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 18,
+      no: 93,
       nameKey: '_预览搜索结果',
       name: '',
       categoryLevel1: 'enhance',
@@ -1335,10 +1338,10 @@ class OptionConfigs {
       searchWordKeys: [],
       searchWords: [],
     },
-    // 通用
 
+    // 通用
     {
-      no: 32,
+      no: 94,
       nameKey: '_Language',
       name: '',
       categoryLevel1: 'general',
@@ -1357,49 +1360,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 36,
-      nameKey: '_颜色主题',
-      name: '',
-      categoryLevel1: 'general',
-      categoryLevel2: 'appearance',
-      pinned: false,
-      hideOnPixivision: true,
-      searchWordKeys: ['_深色模式'],
-      searchWords: [],
-    },
-    {
-      no: 41,
-      nameKey: '_背景图片',
-      name: '',
-      categoryLevel1: 'general',
-      categoryLevel2: 'appearance',
-      pinned: false,
-      searchWordKeys: ['_壁纸', '_皮肤'],
-      searchWords: [],
-    },
-    {
-      no: 53,
-      nameKey: '_高亮显示关键字',
-      name: '',
-      categoryLevel1: 'general',
-      categoryLevel2: 'appearance',
-      pinned: false,
-      searchWordKeys: ['_关键词'],
-      searchWords: [],
-    },
-    {
-      no: 93,
-      nameKey: '_日志区域的默认可见性',
-      name: '',
-      categoryLevel1: 'general',
-      categoryLevel2: 'log',
-      pinned: false,
-      searchWordKeys: [],
-      searchWords: [],
-      addedAt: 1772287652821,
-    },
-    {
-      no: 45,
+      no: 95,
       nameKey: '_选项卡切换方式',
       name: '',
       categoryLevel1: 'general',
@@ -1409,7 +1370,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 108,
+      no: 96,
       nameKey: '_点击设置卡片时切换它的开关状态',
       name: '',
       categoryLevel1: 'general',
@@ -1420,7 +1381,7 @@ class OptionConfigs {
       addedAt: 1779990279488,
     },
     {
-      no: 58,
+      no: 97,
       nameKey: '_点击设置名字时打开wiki链接',
       name: '',
       categoryLevel1: 'general',
@@ -1431,7 +1392,49 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 78,
+      no: 98,
+      nameKey: '_颜色主题',
+      name: '',
+      categoryLevel1: 'general',
+      categoryLevel2: 'appearance',
+      pinned: false,
+      hideOnPixivision: true,
+      searchWordKeys: ['_深色模式'],
+      searchWords: [],
+    },
+    {
+      no: 99,
+      nameKey: '_背景图片',
+      name: '',
+      categoryLevel1: 'general',
+      categoryLevel2: 'appearance',
+      pinned: false,
+      searchWordKeys: ['_壁纸', '_皮肤'],
+      searchWords: [],
+    },
+    {
+      no: 100,
+      nameKey: '_高亮显示关键字',
+      name: '',
+      categoryLevel1: 'general',
+      categoryLevel2: 'appearance',
+      pinned: false,
+      searchWordKeys: ['_关键词'],
+      searchWords: [],
+    },
+    {
+      no: 101,
+      nameKey: '_日志区域的默认可见性',
+      name: '',
+      categoryLevel1: 'general',
+      categoryLevel2: 'log',
+      pinned: false,
+      searchWordKeys: [],
+      searchWords: [],
+      addedAt: 1772287652821,
+    },
+    {
+      no: 102,
       nameKey: '_导出日志',
       name: '',
       categoryLevel1: 'general',
@@ -1442,7 +1445,7 @@ class OptionConfigs {
       searchWords: [],
     },
     {
-      no: 37,
+      no: 103,
       nameKey: '_管理设置',
       name: '',
       categoryLevel1: 'general',
