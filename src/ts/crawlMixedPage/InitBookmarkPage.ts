@@ -33,8 +33,12 @@ class InitBookmarkPage extends InitPageBase {
     this.init()
   }
 
-  private idList: IDData[] = [] // 储存从列表页获取到的 id
+  /** 储存从列表页获取到的作品 id */
+  private idList: IDData[] = []
 
+  /** 保存一些作品的收藏数据，供某些功能使用。
+   *
+   * 注意：它的作用与 idList 不同。 */
   private bookmarkDataList: WorkBookmarkData[] = []
 
   private exportList: BookmarkResult[] = []
@@ -63,8 +67,12 @@ class InitBookmarkPage extends InitPageBase {
   private filteredNumber = 0
 
   // 点击不同的功能按钮时，设定抓取模式
-  private crawlMode: 'normal' | 'removeTags' | 'unBookmark' | 'unBookmark404' =
-    'normal'
+  private crawlMode:
+    | 'normal'
+    | 'removeTags'
+    | 'unBookmark'
+    | 'findBookmark404'
+    | 'unBookmark404' = 'normal'
 
   protected addCrawlBtns() {
     this.addInitPageBtn(
@@ -142,6 +150,16 @@ class InitBookmarkPage extends InitPageBase {
 
       this.addInitPageBtn(
         'otherBtns',
+        '_查找所有已被删除的作品',
+        '',
+        'findBookmark404Works',
+        'brand'
+      ).addEventListener('click', () => {
+        this.findBookmark404Works()
+      })
+
+      this.addInitPageBtn(
+        'otherBtns',
         '_取消收藏所有已被删除的作品',
         '',
         'unBookmarkAll404Works',
@@ -213,6 +231,28 @@ class InitBookmarkPage extends InitPageBase {
     // 设置抓取页数为 1
     this.crawlNumber = 1
     this.readyGetIdList()
+    this.getIdList()
+  }
+
+  private findBookmark404Works() {
+    if (states.busy || this.crawlMode !== 'normal') {
+      toast.error(lang.transl('_当前任务尚未完成'))
+      return
+    }
+
+    // 走一遍简化的抓取流程
+    this.crawlMode = 'findBookmark404'
+    log.log(lang.transl('_查找所有已被删除的作品'))
+    toast.show(lang.transl('_查找所有已被删除的作品'), {
+      position: 'topCenter',
+    })
+    EVT.fire('closeCenterPanel')
+    // 设置抓取页数为 -1
+    this.crawlNumber = -1
+    this.setSlowCrawl()
+    this.readyGetIdList()
+    // 抓取全部收藏
+    this.offset = 0
     this.getIdList()
   }
 
@@ -503,12 +543,27 @@ One possible reason: You have been banned from Pixiv.`)
         }
 
         if (workData.bookmarkData) {
+          // 判断是否要把这个作品的数据保存到 bookmarkDataList 里
+          let pushData = false
+
+          // 需要操作本页所有作品的情况，需要添加这个作品的数据
           if (
             this.crawlMode === 'unBookmark' ||
-            this.crawlMode === 'removeTags' ||
-            (this.crawlMode === 'unBookmark404' &&
-              Number.parseInt(workData.userId) == 0)
+            this.crawlMode === 'removeTags'
           ) {
+            pushData = true
+          }
+          // 如果这个作品已经不存在（userId 为 0），并且当前的抓取模式是查找已被删除的作品或者取消收藏已被删除的作品，那么也需要添加这个作品的数据
+          if (Number.parseInt(workData.userId) == 0) {
+            if (
+              this.crawlMode === 'findBookmark404' ||
+              this.crawlMode === 'unBookmark404'
+            ) {
+              pushData = true
+            }
+          }
+
+          if (pushData) {
             this.bookmarkDataList.push({
               workID: Number.parseInt(workData.id),
               type:
@@ -608,27 +663,17 @@ One possible reason: You have been banned from Pixiv.`)
       // 正常抓取
       store.idList = store.idList.concat(this.idList)
       this.getIdListFinished()
-    } else if (
-      this.crawlMode === 'unBookmark' ||
-      this.crawlMode === 'unBookmark404'
-    ) {
+    } else if (this.crawlMode === 'findBookmark404') {
+      this.exportBookmark404Ids()
+      this.resetGetIdListStatus()
+    } else if (this.crawlMode === 'unBookmark404') {
+      this.exportBookmark404Ids()
+      // 取消收藏已被删除的作品
+      const bookmarkDataList = Array.from(this.bookmarkDataList)
+      this.resetGetIdListStatus()
+      unBookmarkWorks.start(bookmarkDataList)
+    } else if (this.crawlMode === 'unBookmark') {
       // 取消收藏
-
-      // 导出已被删除的收藏的 ID 列表
-      if (
-        this.crawlMode === 'unBookmark404' &&
-        this.bookmarkDataList.length > 0
-      ) {
-        const IDList = []
-        for (const item of this.bookmarkDataList) {
-          IDList.push(item.workID)
-        }
-        const blob = Utils.json2Blob(IDList)
-        const url = URL.createObjectURL(blob)
-        Utils.downloadFile(url, '404 bookmark ID list.json')
-        log.success(lang.transl('_已导出被删除的作品的ID列表'))
-      }
-
       const bookmarkDataList = Array.from(this.bookmarkDataList)
       this.resetGetIdListStatus()
       unBookmarkWorks.start(bookmarkDataList)
@@ -638,6 +683,22 @@ One possible reason: You have been banned from Pixiv.`)
       this.resetGetIdListStatus()
       removeWorksTagsInBookmarks.start(bookmarkDataList)
     }
+  }
+
+  /** 导出已被删除的收藏的 ID 列表 */
+  private exportBookmark404Ids() {
+    if (this.bookmarkDataList.length === 0) {
+      return
+    }
+
+    const IDList = []
+    for (const item of this.bookmarkDataList) {
+      IDList.push(item.workID)
+    }
+    const blob = Utils.json2Blob(IDList)
+    const url = URL.createObjectURL(blob)
+    Utils.downloadFile(url, '404 bookmark ID list.json')
+    log.success(lang.transl('_已导出被删除的作品的ID列表'))
   }
 
   protected resetGetIdListStatus() {

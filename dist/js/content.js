@@ -17709,6 +17709,9 @@ class InitBookmarkPage extends _crawl_InitPageBase__WEBPACK_IMPORTED_MODULE_0__.
         this.init();
     }
     idList = []; // 储存从列表页获取到的 id
+    /** 保存一些作品的收藏数据，供某些功能使用。
+     *
+     * 注意：这不是抓取结果。 */
     bookmarkDataList = [];
     exportList = [];
     /** 当前页面显示的是图片还是小说 */
@@ -17772,6 +17775,9 @@ class InitBookmarkPage extends _crawl_InitPageBase__WEBPACK_IMPORTED_MODULE_0__.
             this.addInitPageBtn('otherBtns', '_取消收藏本页面的所有作品', '', 'unBookmarkAllWorksOnPage', 'danger').addEventListener('click', () => {
                 this.unBookmarkAllWorksOnThisPage();
             });
+            this.addInitPageBtn('otherBtns', '_查找所有已被删除的作品', '', 'findBookmark404Works', 'brand').addEventListener('click', () => {
+                this.findBookmark404Works();
+            });
             this.addInitPageBtn('otherBtns', '_取消收藏所有已被删除的作品', '', 'unBookmarkAll404Works', 'danger').addEventListener('click', () => {
                 this.unBookmarkAll404Works();
             });
@@ -17821,6 +17827,26 @@ class InitBookmarkPage extends _crawl_InitPageBase__WEBPACK_IMPORTED_MODULE_0__.
         // 设置抓取页数为 1
         this.crawlNumber = 1;
         this.readyGetIdList();
+        this.getIdList();
+    }
+    findBookmark404Works() {
+        if (_store_States__WEBPACK_IMPORTED_MODULE_11__.states.busy || this.crawlMode !== 'normal') {
+            _Toast__WEBPACK_IMPORTED_MODULE_12__.toast.error(_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_当前任务尚未完成'));
+            return;
+        }
+        // 走一遍简化的抓取流程
+        this.crawlMode = 'findBookmark404';
+        _Log__WEBPACK_IMPORTED_MODULE_4__.log.log(_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_查找所有已被删除的作品'));
+        _Toast__WEBPACK_IMPORTED_MODULE_12__.toast.show(_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_查找所有已被删除的作品'), {
+            position: 'topCenter',
+        });
+        _EVT__WEBPACK_IMPORTED_MODULE_15__.EVT.fire('closeCenterPanel');
+        // 设置抓取页数为 -1
+        this.crawlNumber = -1;
+        this.setSlowCrawl();
+        this.readyGetIdList();
+        // 抓取全部收藏
+        this.offset = 0;
         this.getIdList();
     }
     unBookmarkAll404Works() {
@@ -17976,11 +18002,14 @@ class InitBookmarkPage extends _crawl_InitPageBase__WEBPACK_IMPORTED_MODULE_0__.
         }
         _store_Store__WEBPACK_IMPORTED_MODULE_3__.store.tag = _Tools__WEBPACK_IMPORTED_MODULE_5__.Tools.getTagFromURL();
         this.isHide = _utils_Utils__WEBPACK_IMPORTED_MODULE_9__.Utils.getURLSearchField(location.href, 'rest') === 'hide';
-        this.order = (_utils_Utils__WEBPACK_IMPORTED_MODULE_9__.Utils.getURLSearchField(location.href, 'order') || 'desc');
-        this.mode = (_utils_Utils__WEBPACK_IMPORTED_MODULE_9__.Utils.getURLSearchField(location.href, 'mode') || 'all');
+        this.order = (_utils_Utils__WEBPACK_IMPORTED_MODULE_9__.Utils.getURLSearchField(location.href, 'order') ||
+            'desc');
+        this.mode = (_utils_Utils__WEBPACK_IMPORTED_MODULE_9__.Utils.getURLSearchField(location.href, 'mode') ||
+            'all');
         this.work_tag = _utils_Utils__WEBPACK_IMPORTED_MODULE_9__.Utils.getURLSearchField(location.href, 'work_tag') || '';
         // URL 里的 bm 参数是带有横线的，如 bm=2022-05，需要去掉横线
-        this.bm = _utils_Utils__WEBPACK_IMPORTED_MODULE_9__.Utils.getURLSearchField(location.href, 'bm').replaceAll('-', '') || '';
+        this.bm =
+            _utils_Utils__WEBPACK_IMPORTED_MODULE_9__.Utils.getURLSearchField(location.href, 'bm').replaceAll('-', '') || '';
         _Log__WEBPACK_IMPORTED_MODULE_4__.log.log(_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_正在抓取'));
         if (this.crawlNumber === -1) {
             _Log__WEBPACK_IMPORTED_MODULE_4__.log.log(_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_获取全部书签作品'));
@@ -18033,10 +18062,19 @@ One possible reason: You have been banned from Pixiv.`);
                     return this.afterGetIdList();
                 }
                 if (workData.bookmarkData) {
-                    if (this.crawlMode === 'unBookmark' ||
-                        this.crawlMode === 'removeTags' ||
-                        (this.crawlMode === 'unBookmark404' &&
-                            Number.parseInt(workData.userId) == 0)) {
+                    // 判断是否要把这个作品的数据保存到 bookmarkDataList 里
+                    let pushData = false;
+                    // 需要操作本页所有作品的情况，需要添加这个作品的数据
+                    if (this.crawlMode === 'unBookmark' || this.crawlMode === 'removeTags') {
+                        pushData = true;
+                    }
+                    // 如果这个作品已经不存在（userId 为 0），并且当前的抓取模式是查找已被删除的作品或者取消收藏已被删除的作品，那么也需要添加这个作品的数据
+                    if (Number.parseInt(workData.userId) == 0) {
+                        if (this.crawlMode === 'findBookmark404' || this.crawlMode === 'unBookmark404') {
+                            pushData = true;
+                        }
+                    }
+                    if (pushData) {
                         this.bookmarkDataList.push({
                             workID: Number.parseInt(workData.id),
                             type: workData.illustType === undefined
@@ -18116,21 +18154,19 @@ One possible reason: You have been banned from Pixiv.`);
             _store_Store__WEBPACK_IMPORTED_MODULE_3__.store.idList = _store_Store__WEBPACK_IMPORTED_MODULE_3__.store.idList.concat(this.idList);
             this.getIdListFinished();
         }
-        else if (this.crawlMode === 'unBookmark' ||
-            this.crawlMode === 'unBookmark404') {
+        else if (this.crawlMode === 'findBookmark404') {
+            this.exportBookmark404Ids();
+            this.resetGetIdListStatus();
+        }
+        else if (this.crawlMode === 'unBookmark404') {
+            this.exportBookmark404Ids();
+            // 取消收藏已被删除的作品
+            const bookmarkDataList = Array.from(this.bookmarkDataList);
+            this.resetGetIdListStatus();
+            _UnBookmarkWorks__WEBPACK_IMPORTED_MODULE_13__.unBookmarkWorks.start(bookmarkDataList);
+        }
+        else if (this.crawlMode === 'unBookmark') {
             // 取消收藏
-            // 导出已被删除的收藏的 ID 列表
-            if (this.crawlMode === 'unBookmark404' &&
-                this.bookmarkDataList.length > 0) {
-                const IDList = [];
-                for (const item of this.bookmarkDataList) {
-                    IDList.push(item.workID);
-                }
-                const blob = _utils_Utils__WEBPACK_IMPORTED_MODULE_9__.Utils.json2Blob(IDList);
-                const url = URL.createObjectURL(blob);
-                _utils_Utils__WEBPACK_IMPORTED_MODULE_9__.Utils.downloadFile(url, '404 bookmark ID list.json');
-                _Log__WEBPACK_IMPORTED_MODULE_4__.log.success(_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_已导出被删除的作品的ID列表'));
-            }
             const bookmarkDataList = Array.from(this.bookmarkDataList);
             this.resetGetIdListStatus();
             _UnBookmarkWorks__WEBPACK_IMPORTED_MODULE_13__.unBookmarkWorks.start(bookmarkDataList);
@@ -18141,6 +18177,20 @@ One possible reason: You have been banned from Pixiv.`);
             this.resetGetIdListStatus();
             _RemoveWorksTagsInBookmarks__WEBPACK_IMPORTED_MODULE_14__.removeWorksTagsInBookmarks.start(bookmarkDataList);
         }
+    }
+    /** 导出已被删除的收藏的 ID 列表 */
+    exportBookmark404Ids() {
+        if (this.bookmarkDataList.length === 0) {
+            return;
+        }
+        const IDList = [];
+        for (const item of this.bookmarkDataList) {
+            IDList.push(item.workID);
+        }
+        const blob = _utils_Utils__WEBPACK_IMPORTED_MODULE_9__.Utils.json2Blob(IDList);
+        const url = URL.createObjectURL(blob);
+        _utils_Utils__WEBPACK_IMPORTED_MODULE_9__.Utils.downloadFile(url, '404 bookmark ID list.json');
+        _Log__WEBPACK_IMPORTED_MODULE_4__.log.success(_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_已导出被删除的作品的ID列表'));
     }
     resetGetIdListStatus() {
         this.type = 'illusts';
@@ -34703,6 +34753,14 @@ If the number of works shown on the page is greater than 0, it may be that Pixiv
         'このページのすべての作品のブックマークを解除',
         '이 페이지의 모든 작품에 대한 북마크 해제',
         'Удалить из избранного все работы на этой странице',
+    ],
+    _查找所有已被删除的作品: [
+        '查找所有已被删除的作品',
+        '查找所有已被刪除的作品',
+        'Find all deleted works',
+        'すべての削除された作品を見つける',
+        '모든 삭제된 작품 찾기',
+        'Найдите все удаленные работы',
     ],
     _取消收藏所有已被删除的作品: [
         '取消收藏所有已被删除的作品',
